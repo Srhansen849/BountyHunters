@@ -1,4 +1,12 @@
-  Scenario: List of Active Bounties
+  @tag2
+    Scenario: List of Active Bounties
+    Given a Bounty Hunter has successfully logged in
+    When the username has been entered
+    And and the password been verified
+    Then then they can click a tab to check List of Active Bounties
+  
+  @tag2
+  Scenario Outline: List of Active Bounties
     Given a Bounty Hunter has successfully logged in
     When the username has been entered "<username>"
     And and the password been verified "<password>"
