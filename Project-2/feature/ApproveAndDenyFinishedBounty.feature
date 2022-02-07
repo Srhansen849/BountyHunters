@@ -1,5 +1,5 @@
 
-  Scenario: Approve/DenyFinishedBounty
+  Scenario Outline: Approve/DenyFinishedBounty
     Given a manager has logged in with the correct username "<username>"
     And they have input the correct password "<password>"
     When the manager has selected the finished bounty
