@@ -1,6 +1,6 @@
 
 
-  Scenario: Submit Finished Bounty
+  Scenario Outline: Submit Finished Bounty
     Given a bounty hunter logs in with their username "<username>"
     And a bounty hunter logs in with their password "<password>"
     When a bounty hunter selects a bounty "<bountyId>"
