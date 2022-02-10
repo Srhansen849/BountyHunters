@@ -21,8 +21,8 @@ public class Account {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int accountid;
 	
-	@Column(name="currancy")
-	private String currancy;
+	@Column(name="currency")
+	private String currency;
 	
 	@Column(name="balance")
 	private double balance;
@@ -32,19 +32,19 @@ public class Account {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Account(int accountid, String currancy, double balance) {
+	public Account(int accountid, String currency, double balance) {
 		super();
 		this.accountid = accountid;
-		this.currancy = currancy;
+		this.currency = currency;
 		this.balance = balance;
 	}
 
 	public String getCurrancy() {
-		return currancy;
+		return currency;
 	}
 
 	public void setCurrancy(String currancy) {
-		this.currancy = currancy;
+		this.currency = currancy;
 	}
 
 	public double getBalance() {
@@ -62,7 +62,7 @@ public class Account {
 
 	@Override
 	public String toString() {
-		return "Account [accountid=" + accountid + ", currancy=" + currancy + ", balance=" + balance + "]";
+		return "Account [accountid=" + accountid + ", currency=" + currency + ", balance=" + balance + "]";
 	}
 	
 		

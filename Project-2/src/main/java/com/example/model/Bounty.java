@@ -54,9 +54,9 @@ public class Bounty {
 	private Status turninid;
 	
 	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	@JoinColumn(name="perfer_id")
+	@JoinColumn(name="prefer_id")
 	@JsonBackReference
-	private Status perfid;
+	private Status prefid;
 	
 	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	@JoinColumn(name="time_id")
@@ -78,7 +78,7 @@ public class Bounty {
 		this.hostHolder = hostHolder;
 		this.criminalid = criminalid;
 		this.turninid = turninid;
-		this.perfid = perfid;
+		this.prefid = perfid;
 		this.timeid = timeid;
 	}
 
@@ -92,7 +92,7 @@ public class Bounty {
 		this.hostHolder = hostHolder;
 		this.criminalid = criminalid;
 		this.turninid = turninid;
-		this.perfid = perfid;
+		this.prefid = perfid;
 		this.timeid = timeid;
 	}
 
@@ -152,12 +152,12 @@ public class Bounty {
 		this.turninid = turninid;
 	}
 
-	public Status getPerfid() {
-		return perfid;
+	public Status getPrefid() {
+		return prefid;
 	}
 
 	public void setPerfid(Status perfid) {
-		this.perfid = perfid;
+		this.prefid = perfid;
 	}
 
 	public Time getTimeid() {
@@ -176,7 +176,7 @@ public class Bounty {
 	public String toString() {
 		return "Bounty [bountyid=" + bountyid + ", capture=" + capture + ", amount=" + amount + ", currency=" + currency
 				+ ", bhHolder=" + bhHolder + ", hostHolder=" + hostHolder + ", criminalid=" + criminalid + ", turninid="
-				+ turninid + ", perfid=" + perfid + ", timeid=" + timeid + "]";
+				+ turninid + ", prefid=" + prefid + ", timeid=" + timeid + "]";
 	}
 	
 	
