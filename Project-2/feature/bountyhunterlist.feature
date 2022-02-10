@@ -1,22 +1,23 @@
-  @tag1
-  Scenario: Bounty Hunter Info
-    Given A Business Owner has successfully logged in
-    When the username has been entered
-    And and the password been verified
-    Then they can click a tab to view list of top ranked bounty hunters
 
-  @tag2
-  Scenario Outline: Bounty Hunter Info
-    Given A Business Owner has successfully logged in
-    When the username has been entered "<username>"
-    And and the password been verified "<password>"
-    Then they can click a tab to view list of top ranked bounty hunters
+Feature: A Business Owner can see the Active Bounty Hunters List
+	As a Business Owner, I wish to check the status of the bounty
+	
+	
+	Background: A Business Owner is logged in on the Star Hunter Page
+		Given the Business Owner is on the login page
+		When the Business Owner selects the Business Owner Login
+		And the Business Owner inputs "username" into the username field
+		And the Business Owner inputs "password" into the password field
+		And the Business Owner clicks login
+		Then the Business Owner is directed to the home page
+		
+		
+  Scenario: List of Active Bounty Hunter 
+    When the Business Owner clicks on the List of Active Bounty Hunters link
+    Then the Business Owner is brought to the List of Active Bounty Hunters page
 
+  
 
-   Examples: 
-      | username  | password | status  |
-      | name1 		|     5 	 | success |
-      | name2 		|     7 	 | Fail    |
   
   
   
