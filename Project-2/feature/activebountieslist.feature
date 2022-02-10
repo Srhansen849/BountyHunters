@@ -1,19 +1,19 @@
-  @tag2
-    Scenario: List of Active Bounties
-    Given a Bounty Hunter has successfully logged in
-    When the username has been entered
-    And and the password been verified
-    Then then they can click a tab to check List of Active Bounties
+
+Feature: A Bounty Hunter can see list of active bounties
+	As a Bounty Hunter, I wish to see the list of active bounties
+
+
+  Background: A user is logged in on the Star Hunter Page
+		Given the Bounty Hunter is on the login page
+		When the Bounty Hunter selects the Bounty Hunter Login
+		And the Bounty Hunter inputs "username" into the username field
+		And the Bounty Hunter inputs "password" into the password field
+		And the Bounty Hunter clicks login
+		Then the Bounty Hunter is directed to the home page
+		
+		
+  Scenario: Clicks on List of Active Bounties link
+    When the Bounty Hunter clicks on the List of Active Bounties link
+    Then the Bounty Hunter will be taken to the List of Active Bounties page
   
-  @tag2
-  Scenario Outline: List of Active Bounties
-    Given a Bounty Hunter has successfully logged in
-    When the username has been entered "<username>"
-    And and the password been verified "<password>"
-    Then then they can click a tab to check List of Active Bounties
-
-
-  Examples: 
-     | username | password | status  |
-     | name1 		|     5 	 | success |
-     | name2 		|     7 	 | Fail    |
+  
