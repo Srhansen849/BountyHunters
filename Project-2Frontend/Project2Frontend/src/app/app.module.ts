@@ -1,20 +1,38 @@
-import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MyComponentComponent } from './my-component/my-component.component';
+import { UserLoginComponent } from './user-login/user-login.component';
+import { HomepageComponent } from './homepage/homepage.component';
+import { NewAccountComponent } from './new-account/new-account.component';
+import { ActiveBountiesComponent } from './active-bounties/active-bounties.component';
+import { ProfileComponent } from './profile/profile.component';
+import { RegisterBountyComponent } from './register-bounty/register-bounty.component';
+import { ActiveHuntersComponent } from './active-hunters/active-hunters.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MyComponentComponent
+    UserLoginComponent,
+    HomepageComponent,
+    NewAccountComponent,
+    ActiveBountiesComponent,
+    ProfileComponent,
+    RegisterBountyComponent,
+    ActiveHuntersComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule, //2 way databinding
+    ReactiveFormsModule, //Controllers
+    HttpClientModule // get http requests
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

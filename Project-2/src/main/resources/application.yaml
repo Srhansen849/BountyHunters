@@ -1,0 +1,29 @@
+#yaml (YAML ani't Markup Language) it is a configuration  file that uses white space and nesting for it's properties'
+server:
+  port: 9015
+
+#We need to configure the DataSource connection information to our database
+spring:
+  datasource:
+    url: jdbc:postgresql://awb-rev-db.cohdzwvqac6y.us-east-2.rds.amazonaws.com:5432/proj2db
+    username: siemtime
+    password: password
+    driver-class-name: org.postgresql.Driver #specifying where our SQL driver is at
+  jpa: #this is where we will configure Hibernate properties
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true #this will show the sql statements hibernate will run on your DB in the Console
+    hibernate:
+      ddl-auto: create
+      
+#ddl-auto
+#   this is a hibernate property that controls how hibernate can affect our Database Schema, is gives hibernate
+#     the ability to use DDL sub-lan so statements like Create, Drop, Alter table
+
+#     create:  It will automatically DROP all existing Table and other schema that is mapped by annotations on our models
+#               the will re-create those tables at runtime of our application
+
+#     update:  will not alter any existing schema but will create new tables if needed
+
+#     validate:  it will check to make sure the schema exists as expected but does not create new tables
+
+#     none:  it will not alter or create tables
