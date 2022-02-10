@@ -1,4 +1,4 @@
- Scenario: Completed Bounty Hunter 
+ Scenario Outline: Completed Bounty Hunter 
 		 	Given a bounty hunter inputs their user name "<username>"
 		 	And a bounty hunter inputs their password "<password>"
 		 	When a bounty hunter is in the file profile

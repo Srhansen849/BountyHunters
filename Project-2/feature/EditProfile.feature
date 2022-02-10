@@ -1,4 +1,4 @@
- Scenario: Editing Profile
+ Scenario Outline: Editing Profile
 		 	Given a bounty hunter inputs their user name "<username>"
 		 	And a bounty hunter inputs their password "<password>"
 		 	When a bounty hunter is in the editing profile
