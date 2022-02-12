@@ -15,6 +15,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.springframework.data.domain.Sort;
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
@@ -44,6 +46,9 @@ public class User {
 	@Column(name="code_name")
 	private String codename;
 	
+	@Column(name="rank")
+	private int rank;
+	
 	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	@JoinColumn(name="account_fk")
 	@JsonBackReference
@@ -59,7 +64,7 @@ public class User {
 	}
 
 	public User(int userid, String firstname, String lastname, String username, String password, String email,
-			String codename, Account account, List<Bounty> bounty_list) {
+			String codename, Account account, List<Bounty> bounty_list, int rank) {
 		super();
 		this.userid = userid;
 		this.firstname = firstname;
@@ -70,10 +75,11 @@ public class User {
 		this.codename = codename;
 		this.account = account;
 		this.bounty_list = bounty_list;
+		this.rank = rank;
 	}
 
 	public User(String firstname, String lastname, String username, String password, String email, String codename,
-			Account account, List<Bounty> bounty_list) {
+			Account account, List<Bounty> bounty_list, int rank) {
 		super();
 		this.firstname = firstname;
 		this.lastname = lastname;
@@ -83,6 +89,21 @@ public class User {
 		this.codename = codename;
 		this.account = account;
 		this.bounty_list = bounty_list;
+		this.rank = rank;
+	}
+
+	public User(String firstname, String lastname, String username, String password, String email,
+			String codename, int rank, Account account) {
+		super();
+		this.userid = userid;
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.username = username;
+		this.password = password;
+		this.email = email;
+		this.codename = codename;
+		this.rank = rank;
+		this.account = account;
 	}
 
 	public String getFirstname() {
@@ -153,12 +174,22 @@ public class User {
 		this.bounty_list = bounty_list;
 	}
 
+	public int getRank() {
+		return rank;
+	}
+
+	public void setRank(int rank) {
+		this.rank = rank;
+	}
+
 	@Override
 	public String toString() {
 		return "User [userid=" + userid + ", firstname=" + firstname + ", lastname=" + lastname + ", username="
-				+ username + ", password=" + password + ", email=" + email + ", codename=" + codename
+				+ username + ", password=" + password + ", email=" + email + ", codename=" + codename + ", rank=" + rank
 				+ ", account=" + account + ", bounty_list=" + bounty_list + "]";
 	}
+
+	
 
 		
 }

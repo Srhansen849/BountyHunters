@@ -3,11 +3,11 @@ package com.example.dao;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.example.model.Account;
+import com.example.model.Assets;
 
 @Repository
-public interface AccountDAO extends JpaRepository<Account, Integer>{
+public interface AssetsDAO extends JpaRepository<Assets, Integer>{
 	
-	//public Account getAccountById(int accountid);
+	public Assets findAssestByCurrency(String currency);
 
 }

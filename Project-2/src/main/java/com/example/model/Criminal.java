@@ -67,6 +67,20 @@ public class Criminal {
 		this.species = species;
 		this.associates = associates;
 	}
+	
+	public Criminal(String firstname, String lastname, String codename, String description, String organization,
+			double height, double weight, String species, String associates) {
+		super();
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.codename = codename;
+		this.description = description;
+		this.organization = organization;
+		this.height = height;
+		this.weight = weight;
+		this.species = species;
+		this.associates = associates;
+	}
 
 	public String getFirstname() {
 		return firstname;

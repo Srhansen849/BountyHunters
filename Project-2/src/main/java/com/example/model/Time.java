@@ -35,6 +35,11 @@ public class Time {
 		this.timestatus = timestatus;
 	}
 
+	public Time(String timestatus) {
+		super();
+		this.timestatus = timestatus;
+	}
+
 	public String getTimestatus() {
 		return timestatus;
 	}
