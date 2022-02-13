@@ -14,13 +14,13 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
-@Table(name="assets")
-public class Assets {
+@Table(name="asset")
+public class Asset {
 
 	@Id
-	@Column(name="assest_id")
+	@Column(name="asset_id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int assestid;
+	private int assetid;
 	
 	@Column(name="currency")
 	private String currency;
@@ -29,19 +29,19 @@ public class Assets {
 	private double balance;
 	
 	
-	public Assets() {
+	public Asset() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Assets(int assestid, String currency, double balance) {
+	public Asset(int assetid, String currency, double balance) {
 		super();
-		this.assestid = assestid;
+		this.assetid = assetid;
 		this.currency = currency;
 		this.balance = balance;
 		//this.accHolder = accHolder;
 	}
 
-	public Assets(String currency, double balance) {
+	public Asset(String currency, double balance) {
 		super();
 		this.currency = currency;
 		this.balance = balance;
@@ -72,13 +72,13 @@ public class Assets {
 //		this.accHolder = accHolder;
 //	}
 
-	public int getAssestid() {
-		return assestid;
+	public int getAssetid() {
+		return assetid;
 	}
 
 	@Override
 	public String toString() {
-		return "Assets [assestid=" + assestid + ", currency=" + currency + ", balance=" + balance + "]";
+		return "Asset [assetid=" + assetid + ", currency=" + currency + ", balance=" + balance + "]";
 	}
 	
 	

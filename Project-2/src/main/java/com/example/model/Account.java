@@ -33,27 +33,27 @@ public class Account {
 //	private double balance;
 	
 	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
-	@JoinColumn(name="assets_fk")
+	//@JoinColumn(name="asset_id")
 	@JsonBackReference
-	private List<Assets> assets;
+	private List<Asset> asset;
 	
 	public Account() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Account(int accountid, /* String currency, double balance, */ List<Assets> assets) {
+	public Account(int accountid, /* String currency, double balance, */ List<Asset> asset) {
 		super();
 		this.accountid = accountid;
 //		this.currency = currency;
 //		this.balance = balance;
-		this.assets = assets;
+		this.asset = asset;
 	}
 	
-	public Account(/* String currency, double balance, */ List<Assets> assests) {
+	public Account(/* String currency, double balance, */ List<Asset> asset) {
 		super();
 //		this.currency = currency;
 //		this.balance = balance;
-		this.assets = assets;
+		this.asset = asset;
 	}
 
 //	public String getCurrency() {
@@ -77,17 +77,17 @@ public class Account {
 		return accountid;
 	}
 
-	public List<Assets> getAssets() {
-		return assets;
+	public List<Asset> getAssets() {
+		return asset;
 	}
 
-	public void setAssests(List<Assets> assets) {
-		this.assets = assets;
+	public void setAssests(List<Asset> asset) {
+		this.asset = asset;
 	}
 
 	@Override
 	public String toString() {
-		return "Account [accountid=" + accountid +  ", assets=" + assets + "]";
+		return "Account [accountid=" + accountid +  ", asset=" + asset + "]";
 	}
 
 		

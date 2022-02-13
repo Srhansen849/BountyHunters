@@ -21,13 +21,13 @@ public class Criminal {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int criminalid;
 	
-	@Column(name="first_name")
+	@Column(name="first_name", unique=true, nullable=false)
 	private String firstname;
 	
-	@Column(name="last_name")
+	@Column(name="last_name", unique=true, nullable=false)
 	private String lastname;
 	
-	@Column(name="code_name")
+	@Column(name="code_name", unique=true, nullable=false)
 	private String codename;
 	
 	@Column(name="description")

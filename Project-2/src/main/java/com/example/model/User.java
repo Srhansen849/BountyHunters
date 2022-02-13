@@ -28,29 +28,29 @@ public class User {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int userid;
 	
-	@Column(name="first_name")
+	@Column(name="first_name", unique=true, nullable=false)
 	private String firstname;
 	
-	@Column(name="last_name")
+	@Column(name="last_name", nullable=false)
 	private String lastname;
 	
-	@Column(name="username")
+	@Column(name="username", unique=true, nullable=false)
 	private String username;
 	
 	@Column(name="password")
 	private String password;
 	
-	@Column(name="email")
+	@Column(name="email", unique=true, nullable=false)
 	private String email;
 	
-	@Column(name="code_name")
+	@Column(name="code_name", unique=true)
 	private String codename;
 	
-	@Column(name="rank")
+	@Column(name="rank", unique=true)
 	private int rank;
 	
 	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	@JoinColumn(name="account_fk")
+	@JoinColumn(name="account_id")
 	@JsonBackReference
 	private Account account;
 	

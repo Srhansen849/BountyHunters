@@ -33,13 +33,16 @@ public class Bounty {
 	@Column(name="currency")
 	private String currency;
 	
+	@Column(name="time")
+	private String time;
+	
 	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	@JoinColumn(name="user_fk")
+	@JoinColumn(name="user_id")
 	@JsonManagedReference
 	private User bhHolder;
 	
 	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	@JoinColumn(name="host_fk")
+	@JoinColumn(name="host_id")
 	@JsonManagedReference
 	private Host hostHolder;
 	
@@ -59,16 +62,16 @@ public class Bounty {
 	private Status prefid;
 	
 	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	@JoinColumn(name="time_id")
+	@JoinColumn(name="active_id")
 	@JsonBackReference
-	private Time timeid;
+	private Status activeid;
 	
 	public Bounty() {
 		// TODO Auto-generated constructor stub
 	}
 
 	public Bounty(int bountyid, String capture, double amount, String currency, User bhHolder, Host hostHolder,
-			Criminal criminalid, Status turninid, Status perfid, Time timeid) {
+			Criminal criminalid, Status turninid, Status perfid, String time, Status activeid) {
 		super();
 		this.bountyid = bountyid;
 		this.capture = capture;
@@ -79,11 +82,11 @@ public class Bounty {
 		this.criminalid = criminalid;
 		this.turninid = turninid;
 		this.prefid = perfid;
-		this.timeid = timeid;
+		this.time = time;
 	}
 
 	public Bounty(String capture, double amount, String currency, User bhHolder, Host hostHolder, Criminal criminalid,
-			Status turninid, Status perfid, Time timeid) {
+			Status turninid, Status perfid, String time, Status activeid) {
 		super();
 		this.capture = capture;
 		this.amount = amount;
@@ -93,7 +96,20 @@ public class Bounty {
 		this.criminalid = criminalid;
 		this.turninid = turninid;
 		this.prefid = perfid;
-		this.timeid = timeid;
+		this.time = time;
+	}
+	
+	public Bounty(String capture, double amount, String currency, Host hostHolder, Criminal criminalid,
+			Status prefid, String time, Status activeid) {
+		super();
+		this.capture = capture;
+		this.amount = amount;
+		this.currency = currency;
+		this.hostHolder = hostHolder;
+		this.criminalid = criminalid;
+		this.activeid = activeid;
+		this.prefid = prefid;
+		this.time = time;
 	}
 
 	public String getCapture() {
@@ -160,24 +176,34 @@ public class Bounty {
 		this.prefid = perfid;
 	}
 
-	public Time getTimeid() {
-		return timeid;
+	public String getTime() {
+		return time;
 	}
 
-	public void setTimeid(Time timeid) {
-		this.timeid = timeid;
+	public void setTime(String time) {
+		this.time = time;
 	}
 
 	public int getBountyid() {
 		return bountyid;
 	}
 
+	public Status getActiveid() {
+		return activeid;
+	}
+
+	public void setActiveid(Status activeid) {
+		this.activeid = activeid;
+	}
+
 	@Override
 	public String toString() {
 		return "Bounty [bountyid=" + bountyid + ", capture=" + capture + ", amount=" + amount + ", currency=" + currency
-				+ ", bhHolder=" + bhHolder + ", hostHolder=" + hostHolder + ", criminalid=" + criminalid + ", turninid="
-				+ turninid + ", prefid=" + prefid + ", timeid=" + timeid + "]";
+				+ ", time=" + time + ", bhHolder=" + bhHolder + ", hostHolder=" + hostHolder + ", criminalid="
+				+ criminalid + ", turninid=" + turninid + ", prefid=" + prefid + ", activeid=" + activeid + "]";
 	}
+
+	
 	
 	
 }

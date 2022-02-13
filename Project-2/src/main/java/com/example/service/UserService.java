@@ -1,14 +1,17 @@
 package com.example.service;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import org.springframework.data.domain.Sort;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.dao.AccountDAO;
+import com.example.dao.AssetDAO;
 import com.example.dao.UserDAO;
+import com.example.model.Account;
+import com.example.model.Asset;
 import com.example.model.User;
 
 
@@ -16,20 +19,32 @@ import com.example.model.User;
 public class UserService {
 	
 	private UserDAO uDao;
+	private AccountDAO aDao;
+	private AssetDAO asDao;
 	
 	public UserService() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public UserService(UserDAO uDao) {
+	@Autowired
+	public UserService(UserDAO uDao, AccountDAO aDao, AssetDAO asDao) {
 		super();
 		this.uDao = uDao;
+		this.aDao = aDao;
+		this.asDao = asDao;
 	}
 	
-	public void insertUser(User user) {
+	//
+	public void insertUser(User user, Account account, Asset asset) {
 		uDao.save(user);
+		asDao.save(asset);
+		aDao.save(account);
 	}
 	
+	
+	/*
+	 * User section
+	 */
 	public List<User> findAllBountyHunters(){
 		return uDao.findAll();
 	}
