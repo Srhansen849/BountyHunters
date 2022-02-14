@@ -28,6 +28,10 @@ public class UserService {
 		this.uDao = uDao;
 	}
 	
+	public User getUserById(User user) {
+		return uDao.getById(user.getUserid());
+	}
+	
 	public User newUser(String username, String password, String first_name, String last_name, String email, String code_name) {
 		
 		Account account = new Account();

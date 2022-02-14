@@ -39,6 +39,7 @@ public class Account {
 	
 	@OneToMany(mappedBy="assetHolder", fetch=FetchType.EAGER)
 	@JsonBackReference
+	@JoinColumn(name="account_id")
 	private List<Asset> asset_list;
 
 
