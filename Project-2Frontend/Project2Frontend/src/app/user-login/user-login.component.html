@@ -1,12 +1,42 @@
+
+
+<a type="button" style="margin-top:25px" href="http://localhost:4200/homepage" class="btn btn-primary btn-lg">Home</a>
+
+<br> <br> <br> <br> 
+
 <form [formGroup]="userForm">
+
+<div class="center">
+    <input type="radio" id="hunterlogin" name="login" value="hunter">
+    <label style="margin-right:35px"for="hunter">&nbsp;&nbsp;Bounty Hunter Login</label>
+
+    <input type="radio" id="hostlogin" name="login" value="host">
+    <label for="host">&nbsp;&nbsp;Business Host Login</label>
+</div>
+
+    <br><br>
+
+<div class="center">    
     <div class="mb-3">
-        <label class="form-label">Username</label>
+        <label class="form-label">Username:</label>
         <input type="text" id="username" class="form-control" formControlName="username">
     </div>
     <div class="mb-3">
-        <label class="form-label">Password</label>
+        <label class="form-label">Password:</label>
         <input type="password" id="password" class="form-control" formControlName="password">
     </div>
+</div>  
+
+<div class="center"> 
+    <br>
     <button class="btn btn-primary" id="loginButton" (click)="login(userForm)">Login</button>
-    
+</div> 
+
+<br><br>
+
+<div class="center"> 
+    <br>
+    <a href="http://localhost:4200/forgotpassword" class="link-danger">Forgot your password</a>
+</div> 
+
 </form>

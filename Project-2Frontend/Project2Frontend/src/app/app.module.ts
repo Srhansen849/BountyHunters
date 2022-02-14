@@ -12,6 +12,10 @@ import { ActiveBountiesComponent } from './active-bounties/active-bounties.compo
 import { ProfileComponent } from './profile/profile.component';
 import { RegisterBountyComponent } from './register-bounty/register-bounty.component';
 import { ActiveHuntersComponent } from './active-hunters/active-hunters.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { HomepageBusiComponent } from './homepage-busi/homepage-busi.component';
+import { ProfileBusiComponent } from './profile-busi/profile-busi.component';
+import { ConfirmedBountiesComponent } from './confirmed-bounties/confirmed-bounties.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +26,11 @@ import { ActiveHuntersComponent } from './active-hunters/active-hunters.componen
     ActiveBountiesComponent,
     ProfileComponent,
     RegisterBountyComponent,
-    ActiveHuntersComponent
+    ActiveHuntersComponent,
+    ForgotPasswordComponent,
+    HomepageBusiComponent,
+    ProfileBusiComponent,
+    ConfirmedBountiesComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +40,8 @@ import { ActiveHuntersComponent } from './active-hunters/active-hunters.componen
     HttpClientModule // get http requests
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent]
 })
 export class AppModule { }
 
