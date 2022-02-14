@@ -24,5 +24,32 @@ public class HostService {
 	public void insertHost(Host host) {
 		hDao.save(host);
 	}
+	
+	//Find by first name
+	public Host findBusinessOwnerByFirstname(String firstname) {
+		return hDao.findBusinessOwnerByFirstname(firstname);
+	}
+	
+	//Find by last name
+	public Host findBusinessOwnerByLastname(String lastname) {
+		return hDao.findBusinessOwnerByLastname(lastname);
+	}
+	
+	//Find by code name
+	public Host findBusinessOwnerByCodename(String codename) {
+		return hDao.findBusinessOwnerByCodename(codename);
+	}
+	
+	//Find by username
+	public Host findBusinessOwnerByUsername(String username) {
+		return hDao.findBusinessOwnerByFirstname(username);
+	}
+	
+	//Find by email
+	public Host findBusinessOwnerByEmail(String email) {
+		return hDao.findBusinessOwnerByFirstname(email);
+	}
+	
+	//This verify password
 
 }

@@ -2,10 +2,13 @@ package com.example.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -96,9 +99,72 @@ public class UserController {
 		return ResponseEntity.status(201).body("Successfully Inserted");
 	}
 	
-	@GetMapping()
-	public ResponseEntity<List<User>> findAllUsers(){
+	//This will send a list of all users to the web
+	@GetMapping("/all")
+	public ResponseEntity<List<User>> findAllBountyHunters(){
 		return ResponseEntity.status(200).body(this.uServ.findAllBountyHunters());
+	}
+	
+	//This will send a list of top 10 users to the web
+	@GetMapping("/rank")
+	public ResponseEntity<List<User>> findTopTen(){
+		return ResponseEntity.status(200).body(this.uServ.findAllBountyHuntersRanked());
+	}
+	
+	//This is the login function, it will first verify that the user is present in the database,
+	//then it will verify that the password the user has entered in is correct
+	@PostMapping("/login")
+	public ResponseEntity<User> bountyHunterLogin(@RequestBody User user){
+		Optional<User> userOpt = Optional.ofNullable(uServ.findBountyHunterByUsername(user.getUsername()));
+		if(!userOpt.isPresent()) {
+			return ResponseEntity.badRequest().build();
+		}
+		uServ.verifyPassword(user.getUsername(), user.getPassword());
+		return ResponseEntity.status(201).body(user);
+	}
+	
+	//This is used for updating the current users profile
+	@PostMapping("/profile")
+	public ResponseEntity<User> updateProfile(@RequestBody User user){
+		Optional<User> username = Optional.ofNullable(uServ.findBountyHunterByUsername(user.getUsername()));
+		Optional<User> email = Optional.ofNullable(uServ.findBountyHunterByEmail(user.getEmail()));
+		Optional<User> codename = Optional.ofNullable(uServ.findBountyHunterByCodename(user.getCodename()));
+		Optional<User> firstname = Optional.ofNullable(uServ.findBountyHunterByFistname(user.getFirstname()));
+		Optional<User> lastname = Optional.ofNullable(uServ.findBountyHunterByLastname(user.getLastname()));
+		if(username.isPresent() | email.isPresent() | codename.isPresent() | firstname.isEmpty()
+				| lastname.isEmpty() | username.isEmpty()) {
+			return ResponseEntity.badRequest().build();
+		}
+		
+		uServ.insertUser(user);
+		return ResponseEntity.status(201).body(user);
+	}
+	
+	//This will get the current data on the users profile
+	@GetMapping("/profile")
+	public ResponseEntity<User> getProfileInfo(User user){
+		return ResponseEntity.status(201).body(user);
+	}
+	
+	//This is for creating a new user 
+	@PostMapping("/new")
+	public ResponseEntity<User> createNewUser(@RequestBody User user, @RequestBody Asset asset){
+		Optional<User> username = Optional.ofNullable(uServ.findBountyHunterByUsername(user.getUsername()));
+		Optional<User> email = Optional.ofNullable(uServ.findBountyHunterByEmail(user.getEmail()));
+		Optional<User> codename = Optional.ofNullable(uServ.findBountyHunterByCodename(user.getCodename()));
+		Optional<User> firstname = Optional.ofNullable(uServ.findBountyHunterByFistname(user.getFirstname()));
+		Optional<User> lastname = Optional.ofNullable(uServ.findBountyHunterByLastname(user.getLastname()));
+		if(username.isPresent() | email.isPresent() | codename.isPresent() | firstname.isEmpty()
+				| lastname.isEmpty() | username.isEmpty()) {
+			return ResponseEntity.badRequest().build();
+		}
+		
+		Asset newass = new Asset();
+		Account newacc = new Account();
+		newass.setCurrency(asset.getCurrency());
+		
+		uServ.insertUser(user, newacc, newass);
+		return ResponseEntity.status(201).body(user);
 	}
 	
 	

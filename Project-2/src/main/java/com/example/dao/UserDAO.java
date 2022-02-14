@@ -12,9 +12,11 @@ public interface UserDAO extends JpaRepository<User, Integer>{
 	
 	//public List<User> getAllBountyHunters();
 	//public User getBountyHunterById(int userid);
-	public User findUserByFirstname(String firstname);
+	public User findBountyHunterByFistname(String firstname);
 	public User findBountyHunterByLastname(String lastname);
 	public User findBountyHunterByCodename(String codename);
+	public User findBountyHunterByUsername(String username);
+	public User findBountyHunterByEmail(String email);
 	public List<User> findAll();
 
 }
