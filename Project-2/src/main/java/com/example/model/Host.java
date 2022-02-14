@@ -25,10 +25,10 @@ public class Host {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int hostid;
 	
-	@Column(name="first_name")
+	@Column(name="firstname")
 	private String firstname;
 	
-	@Column(name="last_name")
+	@Column(name="lastname")
 	private String lastname;
 	
 	@Column(name="username")
@@ -58,9 +58,9 @@ public class Host {
 		// TODO Auto-generated constructor stub
 	}
 
+
 	public Host(int hostid, String firstname, String lastname, String username, String password, String email,
-			String association, String representative, String codename,
-			List<Bounty> bounty_list) {
+			String association, String representative, String codename, List<Bounty> bounty_list) {
 		super();
 		this.hostid = hostid;
 		this.firstname = firstname;
@@ -73,6 +73,7 @@ public class Host {
 		this.codename = codename;
 		this.bounty_list = bounty_list;
 	}
+
 
 	public Host(String firstname, String lastname, String username, String password, String email, String association,
 			String representative, String codename, List<Bounty> bounty_list) {
@@ -88,65 +89,81 @@ public class Host {
 		this.bounty_list = bounty_list;
 	}
 
+
 	public String getFirstname() {
 		return firstname;
 	}
+
 
 	public void setFirstname(String firstname) {
 		this.firstname = firstname;
 	}
 
+
 	public String getLastname() {
 		return lastname;
 	}
+
 
 	public void setLastname(String lastname) {
 		this.lastname = lastname;
 	}
 
+
 	public String getUsername() {
 		return username;
 	}
+
 
 	public void setUsername(String username) {
 		this.username = username;
 	}
 
+
 	public String getPassword() {
 		return password;
 	}
+
 
 	public void setPassword(String password) {
 		this.password = password;
 	}
 
+
 	public String getEmail() {
 		return email;
 	}
+
 
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
+
 	public String getAssociation() {
 		return association;
 	}
+
 
 	public void setAssociation(String association) {
 		this.association = association;
 	}
 
+
 	public String getRepresentative() {
 		return representative;
 	}
+
 
 	public void setRepresentative(String representative) {
 		this.representative = representative;
 	}
 
+
 	public String getCodename() {
 		return codename;
 	}
+
 
 	public void setCodename(String codename) {
 		this.codename = codename;
@@ -157,21 +174,29 @@ public class Host {
 		return bounty_list;
 	}
 
+
 	public void setBounty_list(List<Bounty> bounty_list) {
 		this.bounty_list = bounty_list;
 	}
+
 
 	public int getHostid() {
 		return hostid;
 	}
 
+
 	@Override
 	public String toString() {
 		return "Host [hostid=" + hostid + ", firstname=" + firstname + ", lastname=" + lastname + ", username="
 				+ username + ", password=" + password + ", email=" + email + ", association=" + association
-				+ ", representative=" + representative + ", codename=" + codename + 
-				", bounty_list=" + bounty_list + "]";
+				+ ", representative=" + representative + ", codename=" + codename + ", bounty_list=" + bounty_list
+				+ "]";
 	}
+
+
+	
+
+	
 	
 	
 
