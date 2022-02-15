@@ -13,9 +13,20 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     show-sql: true
     hibernate:
-<<<<<<< HEAD
-      ddl-auto: create-drop
 
-=======
       ddl-auto: update
->>>>>>> 822ac995385d4d29a366b5e6dcb558866b105138
+      
+#ddl-auto
+#   this is a hibernate property that controls how hibernate can affect our Database Schema, is gives hibernate
+#     the ability to use DDL sub-lan so statements like Create, Drop, Alter table
+
+#     create:  It will automatically DROP all existing Table and other schema that is mapped by annotations on our models
+#               the will re-create those tables at runtime of our application
+
+#     update:  will not alter any existing schema but will create new tables if needed
+
+#     validate:  it will check to make sure the schema exists as expected but does not create new tables
+
+#     none:  it will not alter or create tables
+
+
