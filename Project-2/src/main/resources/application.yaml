@@ -1,19 +1,20 @@
+<<<<<<< HEAD
 #yaml (YAML ani't Markup Language) it is a configuration  file that uses white space and nesting for it's properties'
 server:
   port: 9015
-
-#We need to configure the DataSource connection information to our database
+  
+  
 spring:
   datasource:
     url: jdbc:postgresql://awb-rev-db.cohdzwvqac6y.us-east-2.rds.amazonaws.com:5432/proj2db
-    username: siemtime
+    username: srhansen84
     password: password
-    driver-class-name: org.postgresql.Driver #specifying where our SQL driver is at
-  jpa: #this is where we will configure Hibernate properties
+    driver-class-name: org.postgresql.Driver
+  jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
-    show-sql: true #this will show the sql statements hibernate will run on your DB in the Console
+    show-sql: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
       
 #ddl-auto
 #   this is a hibernate property that controls how hibernate can affect our Database Schema, is gives hibernate
@@ -27,3 +28,5 @@ spring:
 #     validate:  it will check to make sure the schema exists as expected but does not create new tables
 
 #     none:  it will not alter or create tables
+
+

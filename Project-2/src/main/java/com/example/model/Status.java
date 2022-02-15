@@ -1,11 +1,16 @@
 package com.example.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name="status")
@@ -14,24 +19,24 @@ public class Status {
 	@Id
 	@Column(name="status_id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int status_id;
+	private int statusid;
 	
-
 	@Column(name="status")
 	private String status;
+	
 	
 	public Status() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Status(String status) {
+	public Status(int statusid, String status) {
 		super();
+		this.statusid = statusid;
 		this.status = status;
 	}
 
-	public Status(int status_id, String status) {
+	public Status(String status) {
 		super();
-		this.status_id = status_id;
 		this.status = status;
 	}
 
@@ -43,17 +48,14 @@ public class Status {
 		this.status = status;
 	}
 
-	public int getStatus_id() {
-		return status_id;
+
+	public int getStatusid() {
+		return statusid;
 	}
 
 	@Override
 	public String toString() {
-		return "Status [status_id=" + status_id + ", status=" + status + "]";
+		return "Status [statusid=" + statusid + ", status=" + status + "]";
 	}
 	
-	
-	
-	
-
 }

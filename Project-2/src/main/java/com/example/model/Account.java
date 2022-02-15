@@ -1,67 +1,94 @@
 package com.example.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-@Entity 
-@Table(name="account") 
-public class Account {
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
+@Entity
+@Table(name="account")
+public class Account {
+	
 	@Id
-	@Column(name="account_id")	
+	@Column(name="account_id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int account_id;
+	private int accountid;
 	
-	@Column(name="currency")
-	private String currency;
+//	@Column(name="currency")
+//	private String currency;
+//	
+//	@Column(name="balance")
+//	private double balance;
 	
-	@Column(name="balance")
-	private Double balance;
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+//	@JoinColumn(name="account_id")
+	@JsonBackReference
+	private List<Asset> asset;
 	
 	public Account() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Account(String currency, Double balance) {
+	public Account(int accountid, /* String currency, double balance, */ List<Asset> asset) {
 		super();
-		this.currency = currency;
-		this.balance = balance;
+		this.accountid = accountid;
+//		this.currency = currency;
+//		this.balance = balance;
+		this.asset = asset;
 	}
-
-	public Account(int account_id, String currency, Double balance) {
+	
+	public Account(/* String currency, double balance, */ List<Asset> asset) {
 		super();
-		this.account_id = account_id;
-		this.currency = currency;
-		this.balance = balance;
+//		this.currency = currency;
+//		this.balance = balance;
+		this.asset = asset;
 	}
 
-	public String getCurrency() {
-		return currency;
+//	public String getCurrency() {
+//		return currency;
+//	}
+//
+//	public void setCurrency(String currancy) {
+//		this.currency = currancy;
+//	}
+//
+//	public double getBalance() {
+//		return balance;
+//	}
+//
+//	public void setBalance(double balance) {
+//		this.balance = balance;
+//	}
+
+
+	public int getAccountid() {
+		return accountid;
 	}
 
-	public void setCurrency(String currency) {
-		this.currency = currency;
+	public List<Asset> getAssets() {
+		return asset;
 	}
 
-	public Double getBalance() {
-		return balance;
-	}
-
-	public void setBalance(Double balance) {
-		this.balance = balance;
-	}
-
-	public int getAccount_id() {
-		return account_id;
+	public void setAssests(List<Asset> asset) {
+		this.asset = asset;
 	}
 
 	@Override
 	public String toString() {
-		return "Account [account_id=" + account_id + ", currency=" + currency + ", balance=" + balance + "]";
+		return "Account [accountid=" + accountid +  ", asset=" + asset + "]";
 	}
-	
+
+		
 }

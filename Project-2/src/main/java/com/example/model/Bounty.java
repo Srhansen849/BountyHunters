@@ -1,129 +1,208 @@
 package com.example.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name="bounty")
 public class Bounty {
-
+	
 	@Id
 	@Column(name="bounty_id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int bounty_id;
+	private int bountyid;
 	
-	@Column(name="capture_description")
-	private String capture_description;
+	@Column(name="capture")
+	private String capture;
 	
-	@Column(name="turnin_id")
-	private int turnin_id;
+	@Column(name="amount")
+	private double amount;
 	
-	@Column(name="criminal_id")
-	private int criminal_id;
+	@Column(name="currency")
+	private String currency;
 	
-	@Column(name="host_id")
-	private int host_id;
+	@Column(name="time")
+	private String time;
 	
-	@Column(name="prefered_status")
-	private int prefered_status;
+	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@JoinColumn(name="user_id")
+	@JsonManagedReference
+	private User bhHolder;
 	
-	@Column(name="time_limit_id")
-	private int time_limit_id;
+	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@JoinColumn(name="host_id")
+	@JsonManagedReference
+	private Host hostHolder;
+	
+	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@JoinColumn(name="criminal_id")
+	@JsonBackReference
+	private Criminal criminalid;
+	
+	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@JoinColumn(name="turnin_id")
+	@JsonBackReference
+	private Status turninid;
+	
+	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@JoinColumn(name="prefer_id")
+	@JsonBackReference
+	private Status prefid;
+	
+	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@JoinColumn(name="active_id")
+	@JsonBackReference
+	private Status activeid;
 	
 	public Bounty() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Bounty(String capture_description, int turnin_id, int criminal_id, int host_id, int prefered_status,
-			int time_limit_id) {
+	public Bounty(int bountyid, String capture, double amount, String currency, User bhHolder, Host hostHolder,
+			Criminal criminalid, Status turninid, Status perfid, String time, Status activeid) {
 		super();
-		this.capture_description = capture_description;
-		this.turnin_id = turnin_id;
-		this.criminal_id = criminal_id;
-		this.host_id = host_id;
-		this.prefered_status = prefered_status;
-		this.time_limit_id = time_limit_id;
+		this.bountyid = bountyid;
+		this.capture = capture;
+		this.amount = amount;
+		this.currency = currency;
+		this.bhHolder = bhHolder;
+		this.hostHolder = hostHolder;
+		this.criminalid = criminalid;
+		this.turninid = turninid;
+		this.prefid = perfid;
+		this.time = time;
 	}
 
-	public Bounty(int bounty_id, String capture_description, int turnin_id, int criminal_id, int host_id,
-			int prefered_status, int time_limit_id) {
+	public Bounty(String capture, double amount, String currency, User bhHolder, Host hostHolder, Criminal criminalid,
+			Status turninid, Status perfid, String time, Status activeid) {
 		super();
-		this.bounty_id = bounty_id;
-		this.capture_description = capture_description;
-		this.turnin_id = turnin_id;
-		this.criminal_id = criminal_id;
-		this.host_id = host_id;
-		this.prefered_status = prefered_status;
-		this.time_limit_id = time_limit_id;
+		this.capture = capture;
+		this.amount = amount;
+		this.currency = currency;
+		this.bhHolder = bhHolder;
+		this.hostHolder = hostHolder;
+		this.criminalid = criminalid;
+		this.turninid = turninid;
+		this.prefid = perfid;
+		this.time = time;
+	}
+	
+	public Bounty(String capture, double amount, String currency, Host hostHolder, Criminal criminalid,
+			Status prefid, String time, Status activeid) {
+		super();
+		this.capture = capture;
+		this.amount = amount;
+		this.currency = currency;
+		this.hostHolder = hostHolder;
+		this.criminalid = criminalid;
+		this.activeid = activeid;
+		this.prefid = prefid;
+		this.time = time;
 	}
 
-	public String getCapture_description() {
-		return capture_description;
+	public String getCapture() {
+		return capture;
 	}
 
-	public void setCapture_description(String capture_description) {
-		this.capture_description = capture_description;
+	public void setCapture(String capture) {
+		this.capture = capture;
 	}
 
-	public int getTurnin_id() {
-		return turnin_id;
+	public double getAmount() {
+		return amount;
 	}
 
-	public void setTurnin_id(int turnin_id) {
-		this.turnin_id = turnin_id;
+	public void setAmount(double amount) {
+		this.amount = amount;
 	}
 
-	public int getCriminal_id() {
-		return criminal_id;
+	public String getCurrency() {
+		return currency;
 	}
 
-	public void setCriminal_id(int criminal_id) {
-		this.criminal_id = criminal_id;
+	public void setCurrency(String currency) {
+		this.currency = currency;
 	}
 
-	public int getHost_id() {
-		return host_id;
+	public User getBhHolder() {
+		return bhHolder;
 	}
 
-	public void setHost_id(int host_id) {
-		this.host_id = host_id;
+	public void setBhHolder(User bhHolder) {
+		this.bhHolder = bhHolder;
 	}
 
-	public int getPrefered_status() {
-		return prefered_status;
+	public Host getHostHolder() {
+		return hostHolder;
 	}
 
-	public void setPrefered_status(int prefered_status) {
-		this.prefered_status = prefered_status;
+	public void setHostHolder(Host hostHolder) {
+		this.hostHolder = hostHolder;
 	}
 
-	public int getTime_limit_id() {
-		return time_limit_id;
+	public Criminal getCriminalid() {
+		return criminalid;
 	}
 
-	public void setTime_limit_id(int time_limit_id) {
-		this.time_limit_id = time_limit_id;
+	public void setCriminalid(Criminal criminalid) {
+		this.criminalid = criminalid;
 	}
 
-	public int getBounty_id() {
-		return bounty_id;
+	public Status getTurninid() {
+		return turninid;
+	}
+
+	public void setTurninid(Status turninid) {
+		this.turninid = turninid;
+	}
+
+	public Status getPrefid() {
+		return prefid;
+	}
+
+	public void setPerfid(Status perfid) {
+		this.prefid = perfid;
+	}
+
+	public String getTime() {
+		return time;
+	}
+
+	public void setTime(String time) {
+		this.time = time;
+	}
+
+	public int getBountyid() {
+		return bountyid;
+	}
+
+	public Status getActiveid() {
+		return activeid;
+	}
+
+	public void setActiveid(Status activeid) {
+		this.activeid = activeid;
 	}
 
 	@Override
 	public String toString() {
-		return "Bounty [bounty_id=" + bounty_id + ", capture_description=" + capture_description + ", turnin_id="
-				+ turnin_id + ", criminal_id=" + criminal_id + ", host_id=" + host_id + ", prefered_status="
-				+ prefered_status + ", time_limit_id=" + time_limit_id + "]";
+		return "Bounty [bountyid=" + bountyid + ", capture=" + capture + ", amount=" + amount + ", currency=" + currency
+				+ ", time=" + time + ", bhHolder=" + bhHolder + ", hostHolder=" + hostHolder + ", criminalid="
+				+ criminalid + ", turninid=" + turninid + ", prefid=" + prefid + ", activeid=" + activeid + "]";
 	}
-	
-	
-	
-	
-	
+
 	
 	
 	

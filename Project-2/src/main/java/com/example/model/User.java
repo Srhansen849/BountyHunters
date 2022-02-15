@@ -9,44 +9,54 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.springframework.data.domain.Sort;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
-@Table(name="user")
+@Table(name="user_table")
 public class User {
 
 	@Id
 	@Column(name="user_id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int user_id;
+
+	private int userid;
 	
-	@Column(name="username")
+	@Column(name="first_name", nullable=false)
+	private String firstname;
+	
+	@Column(name="last_name", nullable=false)
+	private String lastname;
+	
+	@Column(name="username", unique=true, nullable=false)
 	private String username;
 	
 	@Column(name="password")
 	private String password;
 	
-	@Column(name="first_name")
-	private String first_name;
-	
-	@Column(name="last_name")
-	private String last_name;
-	
-	@Column(name="email")
+	@Column(name="email", unique=true, nullable=false)
 	private String email;
 	
-	@Column(name="code_name")
-	private String code_name;
+	@Column(name="code_name", unique=true)
+	private String codename;
+	
+	@Column(name="rank", unique=true)
+	private int rank;
+	
+	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@JoinColumn(name="account_id")
+	@JsonBackReference
+	private Account account;
 	
 	@OneToMany(mappedBy="bhHolder", fetch=FetchType.EAGER)
-	@JsonBackReference
-	private List<Account> account_list;
-	
-	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	//@JoinColumn(name="bounty_fk")
 	@JsonBackReference
 	private List<Bounty> bounty_list;
 	
@@ -54,32 +64,63 @@ public class User {
 		// TODO Auto-generated constructor stub
 	}
 
-	public User(String username, String password, String first_name, String last_name, String email, String code_name,
-			List<Account> account_list, List<Bounty> bounty_list) {
+	public User(int userid, String firstname, String lastname, String username, String password, String email,
+			String codename, Account account, List<Bounty> bounty_list, int rank) {
 		super();
+		this.userid = userid;
+		this.firstname = firstname;
+		this.lastname = lastname;
 		this.username = username;
 		this.password = password;
-		this.first_name = first_name;
-		this.last_name = last_name;
 		this.email = email;
-		this.code_name = code_name;
-		this.account_list = account_list;
+		this.codename = codename;
+		this.account = account;
 		this.bounty_list = bounty_list;
+		this.rank = rank;
 	}
 
-	public User(int user_id, String username, String password, String first_name, String last_name, String email,
-			String code_name, List<Account> account_list, List<Bounty> bounty_list) {
+	public User(String firstname, String lastname, String username, String password, String email, String codename,
+			Account account, List<Bounty> bounty_list, int rank) {
 		super();
-		this.user_id = user_id;
+		this.firstname = firstname;
+		this.lastname = lastname;
 		this.username = username;
 		this.password = password;
-		this.first_name = first_name;
-		this.last_name = last_name;
 		this.email = email;
-		this.code_name = code_name;
-		this.account_list = account_list;
+		this.codename = codename;
+		this.account = account;
 		this.bounty_list = bounty_list;
-		
+		this.rank = rank;
+	}
+
+	public User(String firstname, String lastname, String username, String password, String email,
+			String codename, int rank, Account account) {
+		super();
+		this.userid = userid;
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.username = username;
+		this.password = password;
+		this.email = email;
+		this.codename = codename;
+		this.rank = rank;
+		this.account = account;
+	}
+
+	public String getFirstname() {
+		return firstname;
+	}
+
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
+	}
+
+	public String getLastname() {
+		return lastname;
+	}
+
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
 	}
 
 
@@ -103,26 +144,6 @@ public class User {
 	}
 
 
-	public String getFirst_name() {
-		return first_name;
-	}
-
-
-	public void setFirst_name(String first_name) {
-		this.first_name = first_name;
-	}
-
-
-	public String getLast_name() {
-		return last_name;
-	}
-
-
-	public void setLast_name(String last_name) {
-		this.last_name = last_name;
-	}
-
-
 	public String getEmail() {
 		return email;
 	}
@@ -133,30 +154,26 @@ public class User {
 	}
 
 
-	public String getCode_name() {
-		return code_name;
+	public String getCodename() {
+		return codename;
 	}
 
-
-	public void setCode_name(String code_name) {
-		this.code_name = code_name;
+	public void setCodename(String codename) {
+		this.codename = codename;
 	}
 
-
-	public List<Account> getAccount_list() {
-		return account_list;
+	public Account getAccount() {
+		return account;
 	}
 
-
-	public void setAccount_list(List<Account> account_list) {
-		this.account_list = account_list;
+	public void setAccount(Account account) {
+		this.account = account;
 	}
 
-
-	public int getUser_id() {
-		return user_id;
+	public int getUserid() {
+		return userid;
 	}
-	
+
 	public List<Bounty> getBounty_list() {
 		return bounty_list;
 	}
@@ -165,20 +182,23 @@ public class User {
 		this.bounty_list = bounty_list;
 	}
 
-	@Override
-	public String toString() {
-		return "User [user_id=" + user_id + ", username=" + username + ", password=" + password + ", first_name="
-				+ first_name + ", last_name=" + last_name + ", email=" + email + ", code_name=" + code_name
-				+ ", account_list=" + account_list + ", bounty_list=" + bounty_list + "]";
+
+	public int getRank() {
+		return rank;
 	}
 
+	public void setRank(int rank) {
+		this.rank = rank;
+	}
+
+	@Override
+	public String toString() {
+		return "User [userid=" + userid + ", firstname=" + firstname + ", lastname=" + lastname + ", username="
+				+ username + ", password=" + password + ", email=" + email + ", codename=" + codename + ", rank=" + rank
+				+ ", account=" + account + ", bounty_list=" + bounty_list + "]";
+	}
 
 	
-	
-} 
-	
-	
-	
-	
-	
 
+		
+}
