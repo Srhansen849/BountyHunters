@@ -120,28 +120,28 @@ public class BountyController {
 	}
 
 	// This is for creating a new user
-	@PostMapping("/new")
-	public ResponseEntity<User> createNewUser(@RequestBody Bounty bounty, @RequestBody Criminal criminal) {
-		Optional<Criminal> codename = Optional.ofNullable(bServ.findCriminalByCodename(criminal.getCodename()));
-		Optional<Criminal> firstname = Optional.ofNullable(bServ.findCriminalByFirstname(criminal.getFirstname()));
-		Optional<Criminal> lastname = Optional.ofNullable(bServ.findCriminalByLastname(criminal.getLastname()));
-		if (codename.isPresent() | firstname.isEmpty() | lastname.isEmpty()) {
-			return ResponseEntity.badRequest().build();
-		}
-
-		Bounty subbounty = bServ.findBountyByCriminalId(criminal);
-		subbounty.setTurninid(bounty.getTurninid());
-		subbounty.setCapture(bounty.getCapture());
-		subbounty.setBhHolder(bounty.getBhHolder());
-		
-		User user = uServ.findBountyHunterById(bounty.getBhHolder());
-		
-		asServ.updateAsset();
-		List<Criminal> uList = uServ.findAllBountyHunters();
-		user.setRank(uList.size() + 1);
-
-		uServ.insertUser(user, newacc, newasst);
-		return ResponseEntity.status(201).body(user);
-	}
+//	@PostMapping("/new")
+//	public ResponseEntity<User> createNewUser(@RequestBody Bounty bounty, @RequestBody Criminal criminal) {
+//		Optional<Criminal> codename = Optional.ofNullable(bServ.findCriminalByCodename(criminal.getCodename()));
+//		Optional<Criminal> firstname = Optional.ofNullable(bServ.findCriminalByFirstname(criminal.getFirstname()));
+//		Optional<Criminal> lastname = Optional.ofNullable(bServ.findCriminalByLastname(criminal.getLastname()));
+//		if (codename.isPresent() | firstname.isEmpty() | lastname.isEmpty()) {
+//			return ResponseEntity.badRequest().build();
+//		}
+//
+//		Bounty subbounty = bServ.findBountyByCriminalId(criminal);
+//		subbounty.setTurninid(bounty.getTurninid());
+//		subbounty.setCapture(bounty.getCapture());
+//		subbounty.setBhHolder(bounty.getBhHolder());
+//		
+//		User user = uServ.findBountyHunterById(bounty.getBhHolder());
+//		
+//		//asServ.updateAsset();
+//		//List<Criminal> uList = uServ.findAllBountyHunters();
+//		//user.setRank(uList.size() + 1);
+//
+//		//uServ.insertUser(user, newacc, newasst);
+//		return ResponseEntity.status(201).body(user);
+//	}
 
 }
