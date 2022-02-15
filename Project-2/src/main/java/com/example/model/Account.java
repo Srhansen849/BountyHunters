@@ -35,13 +35,12 @@ public class Account {
 //	
 //	@Column(name="balance")
 //	private double balance;
-	
-	
-	@OneToMany(mappedBy="assetHolder", fetch=FetchType.EAGER)
-	@JsonBackReference
-	@JoinColumn(name="account_id")
-	private List<Asset> asset_list;
 
+	
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+//	@JoinColumn(name="account_id")
+	@JsonBackReference
+	private List<Asset> asset;
 
 	
 	public Account() {
@@ -49,60 +48,27 @@ public class Account {
 	}
 
 
-
-	public Account(int accountid, List<Asset> asset_list) {
+	public Account(int accountid, /* String currency, double balance, */ List<Asset> asset) {
 		super();
 		this.accountid = accountid;
-		this.asset_list = asset_list;
-	}
-
-
-
-	public Account(List<Asset> asset_list) {
-		super();
-		this.asset_list = asset_list;
-	}
-
-
-
-	public List<Asset> getAsset_list() {
-		return asset_list;
-	}
-
-
-
-	public void setAsset_list(List<Asset> asset_list) {
-		this.asset_list = asset_list;
-	}
-
-
-
-	public int getAccountid() {
-		return accountid;
-	}
-
-
-
-	@Override
-	public String toString() {
-		return "Account [accountid=" + accountid + ", asset_list=" + asset_list + "]";
-	}
-	
-	
-
-//	public Account(int accountid, String currency, double balance) {
-//		super();
-//		this.accountid = accountid;
 //		this.currency = currency;
 //		this.balance = balance;
-//	}
-//
-//	public String getCurrancy() {
+		this.asset = asset;
+	}
+	
+	public Account(/* String currency, double balance, */ List<Asset> asset) {
+		super();
+//		this.currency = currency;
+//		this.balance = balance;
+		this.asset = asset;
+	}
+
+//	public String getCurrency() {
 //		return currency;
 //	}
 //
-//	public void setCurrancy(String currency) {
-//		this.currency = currency;
+//	public void setCurrency(String currancy) {
+//		this.currency = currancy;
 //	}
 //
 //	public double getBalance() {
@@ -112,18 +78,27 @@ public class Account {
 //	public void setBalance(double balance) {
 //		this.balance = balance;
 //	}
-//
-//
-//	public int getAccountid() {
-//		return accountid;
-//	}
-//
-//	@Override
-//	public String toString() {
-//		return "Account [accountid=" + accountid + ", currency=" + currency + ", balance=" + balance + "]";
-//	}
-	
-	
+
+
+
+	public int getAccountid() {
+		return accountid;
+	}
+
+
+	public List<Asset> getAssets() {
+		return asset;
+	}
+
+	public void setAssests(List<Asset> asset) {
+		this.asset = asset;
+	}
+
+	@Override
+	public String toString() {
+		return "Account [accountid=" + accountid +  ", asset=" + asset + "]";
+	}
+
 		
 
 }

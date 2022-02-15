@@ -14,6 +14,7 @@ Feature: A Business Owner can create a new bounty
 		
   Scenario Outline: Post a Bounty
     When the Business Owner clicks the Register a New Bounty link
+    And the Business Owner can see a list of active Bounty Hunters
     And the Business Owner inputs "firstname" into the first name input field
     And the Business Owner inputs "lastname" into the last name input field
     And the Business Owner inputs "codename" into the code name input field

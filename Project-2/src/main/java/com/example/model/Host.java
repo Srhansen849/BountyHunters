@@ -25,19 +25,21 @@ public class Host {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int hostid;
 	
-	@Column(name="firstname")
+
+	@Column(name="first_name", nullable=false)
 	private String firstname;
 	
-	@Column(name="lastname")
+	@Column(name="last_name", nullable=false)
+
 	private String lastname;
 	
-	@Column(name="username")
+	@Column(name="username", unique=true, nullable=false)
 	private String username;
 	
 	@Column(name="password")
 	private String password;
 	
-	@Column(name="email")
+	@Column(name="email", unique=true, nullable=false)
 	private String email;
 	
 	@Column(name="association")
@@ -46,7 +48,7 @@ public class Host {
 	@Column(name="representative")
 	private String representative;
 	
-	@Column(name="code_name")
+	@Column(name="code_name", unique=true, nullable=false)
 	private String codename;
 	
 	@OneToMany(mappedBy="hostHolder", fetch=FetchType.EAGER)
@@ -87,6 +89,19 @@ public class Host {
 		this.representative = representative;
 		this.codename = codename;
 		this.bounty_list = bounty_list;
+	}
+	
+	public Host(String firstname, String lastname, String username, String password, String email, String association,
+			String representative, String codename) {
+		super();
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.username = username;
+		this.password = password;
+		this.email = email;
+		this.association = association;
+		this.representative = representative;
+		this.codename = codename;
 	}
 
 

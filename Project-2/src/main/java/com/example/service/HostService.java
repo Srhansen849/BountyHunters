@@ -1,12 +1,17 @@
 package com.example.service;
 
+
 import java.util.List;
+
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.dao.HostDAO;
+
 import com.example.model.Bounty;
+
 import com.example.model.Host;
 
 @Service
@@ -24,36 +29,45 @@ public class HostService {
 		this.hDao = hDao;
 	}
 	
-	public Host newHost(String first_name, String last_name, String username, String password, String email, String association, String representative, String code_name) {
-		
-		return hDao.newHost(first_name, last_name, username, password, email, association, representative, code_name);
-		
+
+	public void insertHost(Host host) {
+		hDao.save(host);
 	}
 	
-	public Host editHost(int host_id, String first_name, String last_name, String username, String password, String email, String association, String representative, String code_name) {
-		
-		return hDao.editHost(host_id, first_name, last_name, username, password, email, association, representative, code_name);
-		
+	//Find by first name
+	public Host findBusinessOwnerByFirstname(String firstname) {
+		return hDao.findBusinessOwnerByFirstname(firstname);
 	}
 	
-	public Host getHostByName(String first_name, String last_name) {
-		return hDao.getHostByName(first_name, last_name);
+	//Find by last name
+	public Host findBusinessOwnerByLastname(String lastname) {
+		return hDao.findBusinessOwnerByLastname(lastname);
 	}
 	
-	public Host getHostByRepresentative(String representative) {
-		
-		return hDao.getHostByRepresentative(representative);
+	//Find by code name
+	public Host findBusinessOwnerByCodename(String codename) {
+		return hDao.findBusinessOwnerByCodename(codename);
 	}
 	
-	public Host getHostByCodename(String code_name) {
-		
-		return hDao.getHostByCodename(code_name);
+	//Find by username
+	public Host findBusinessOwnerByUsername(String username) {
+		return hDao.findBusinessOwnerByFirstname(username);
 	}
 	
-	public List<Bounty> getBountyList(int host_id){
-		
-		return hDao.getBountyList(host_id);
+	//Find by email
+	public Host findBusinessOwnerByEmail(String email) {
+		return hDao.findBusinessOwnerByFirstname(email);
 	}
+
+	//This verify password
+	public Host verifyPassword(String username, String password) {
+		Host host = hDao.findBusinessOwnerByUsername(username);
+		if(host.getPassword().equals(password)) {
+			return host;
+		}
+		return null;
+	}
+	
 	
 
 
