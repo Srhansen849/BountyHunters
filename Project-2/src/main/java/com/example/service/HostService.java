@@ -1,7 +1,7 @@
 package com.example.service;
 
 
-import java.util.List;
+
 
 
 
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.dao.HostDAO;
 
-import com.example.model.Bounty;
+
 
 import com.example.model.Host;
 
@@ -35,33 +35,33 @@ public class HostService {
 	}
 	
 	//Find by first name
-	public Host findBusinessOwnerByFirstname(String firstname) {
-		return hDao.findBusinessOwnerByFirstname(firstname);
+	public Host getHostByFirstname(String firstname) {
+		return hDao.getHostByFirstname(firstname);
 	}
 	
 	//Find by last name
-	public Host findBusinessOwnerByLastname(String lastname) {
-		return hDao.findBusinessOwnerByLastname(lastname);
+	public Host getHostByLastname(String lastname) {
+		return hDao.getHostByLastname(lastname);
 	}
 	
 	//Find by code name
-	public Host findBusinessOwnerByCodename(String codename) {
-		return hDao.findBusinessOwnerByCodename(codename);
+	public Host getHostByCodename(String codename) {
+		return hDao.getHostByCodename(codename);
 	}
 	
 	//Find by username
-	public Host findBusinessOwnerByUsername(String username) {
-		return hDao.findBusinessOwnerByFirstname(username);
+	public Host getHostByUsername(String username) {
+		return hDao.getHostByFirstname(username);
 	}
 	
 	//Find by email
-	public Host findBusinessOwnerByEmail(String email) {
-		return hDao.findBusinessOwnerByFirstname(email);
+	public Host getHostByEmail(String email) {
+		return hDao.getHostByFirstname(email);
 	}
 
 	//This verify password
 	public Host verifyPassword(String username, String password) {
-		Host host = hDao.findBusinessOwnerByUsername(username);
+		Host host = hDao.getHostByUsername(username);
 		if(host.getPassword().equals(password)) {
 			return host;
 		}

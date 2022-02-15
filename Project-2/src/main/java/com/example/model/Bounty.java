@@ -79,7 +79,7 @@ public class Bounty {
 
 	public Bounty(int bountyid, String capture, double amount, String currency, User bhHolder, Host hostHolder,
 
-			Criminal criminalid, Status turninid, Status perfid, String time, Status activeid) {
+			Criminal criminalid, Status turninid, Status preferid, String time, Status activeid) {
 
 		super();
 		this.bountyid = bountyid;

@@ -12,12 +12,11 @@ import javax.persistence.Id;
 
 import javax.persistence.JoinColumn;
 
-import javax.persistence.ManyToOne;
+
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 
@@ -29,16 +28,10 @@ public class Account {
 	@Column(name="account_id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int accountid;
-	
-//	@Column(name="currency")
-//	private String currency;
-//	
-//	@Column(name="balance")
-//	private double balance;
 
 	
 	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
-//	@JoinColumn(name="account_id")
+	@JoinColumn(name="account_id")
 	@JsonBackReference
 	private List<Asset> asset;
 
@@ -48,37 +41,17 @@ public class Account {
 	}
 
 
-	public Account(int accountid, /* String currency, double balance, */ List<Asset> asset) {
+	public Account(int accountid, List<Asset> asset) {
 		super();
 		this.accountid = accountid;
-//		this.currency = currency;
-//		this.balance = balance;
 		this.asset = asset;
 	}
 	
-	public Account(/* String currency, double balance, */ List<Asset> asset) {
+	public Account(List<Asset> asset) {
 		super();
-//		this.currency = currency;
-//		this.balance = balance;
+
 		this.asset = asset;
 	}
-
-//	public String getCurrency() {
-//		return currency;
-//	}
-//
-//	public void setCurrency(String currancy) {
-//		this.currency = currancy;
-//	}
-//
-//	public double getBalance() {
-//		return balance;
-//	}
-//
-//	public void setBalance(double balance) {
-//		this.balance = balance;
-//	}
-
 
 
 	public int getAccountid() {

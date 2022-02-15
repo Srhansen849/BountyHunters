@@ -1,12 +1,12 @@
 package com.example.controller;
 
 
-import java.util.List;
+
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -55,7 +55,7 @@ public class HostController {
 	// the database then it will verify that the password the host has entered in is correct 
 	@PostMapping("/login")
 	public ResponseEntity<Host> businessOwnerLogin(@RequestBody Host host) {
-		Optional<Host> username = Optional.ofNullable(hServ.findBusinessOwnerByUsername(host.getUsername()));
+		Optional<Host> username = Optional.ofNullable(hServ.getHostByUsername(host.getUsername()));
 		if (!username.isPresent()) {
 			return ResponseEntity.badRequest().build();
 		}
@@ -66,10 +66,10 @@ public class HostController {
 	// This is used for updating the current users profile
 	@PostMapping("/profile")
 	public ResponseEntity<Host> updateProfile(@RequestBody Host host) {
-		Optional<Host> email = Optional.ofNullable(hServ.findBusinessOwnerByEmail(host.getEmail()));
-		Optional<Host> codename = Optional.ofNullable(hServ.findBusinessOwnerByCodename(host.getCodename()));
-		Optional<Host> firstname = Optional.ofNullable(hServ.findBusinessOwnerByFirstname(host.getFirstname()));
-		Optional<Host> lastname = Optional.ofNullable(hServ.findBusinessOwnerByLastname(host.getLastname()));
+		Optional<Host> email = Optional.ofNullable(hServ.getHostByEmail(host.getEmail()));
+		Optional<Host> codename = Optional.ofNullable(hServ.getHostByCodename(host.getCodename()));
+		Optional<Host> firstname = Optional.ofNullable(hServ.getHostByFirstname(host.getFirstname()));
+		Optional<Host> lastname = Optional.ofNullable(hServ.getHostByLastname(host.getLastname()));
 		if ( email.isPresent() | codename.isPresent() | firstname.isEmpty() |
 				lastname.isEmpty() | email.isEmpty()) {
 			return ResponseEntity.badRequest().build();
@@ -88,11 +88,11 @@ public class HostController {
 	// This is for creating a new user
 	@PostMapping("/new")
 	public ResponseEntity<Host> createNewUser(@RequestBody Host host) {
-		Optional<Host> username = Optional.ofNullable(hServ.findBusinessOwnerByUsername(host.getEmail()));
-		Optional<Host> email = Optional.ofNullable(hServ.findBusinessOwnerByEmail(host.getEmail()));
-		Optional<Host> codename = Optional.ofNullable(hServ.findBusinessOwnerByCodename(host.getCodename()));
-		Optional<Host> firstname = Optional.ofNullable(hServ.findBusinessOwnerByFirstname(host.getFirstname()));
-		Optional<Host> lastname = Optional.ofNullable(hServ.findBusinessOwnerByLastname(host.getLastname()));
+		Optional<Host> username = Optional.ofNullable(hServ.getHostByUsername(host.getEmail()));
+		Optional<Host> email = Optional.ofNullable(hServ.getHostByEmail(host.getEmail()));
+		Optional<Host> codename = Optional.ofNullable(hServ.getHostByCodename(host.getCodename()));
+		Optional<Host> firstname = Optional.ofNullable(hServ.getHostByFirstname(host.getFirstname()));
+		Optional<Host> lastname = Optional.ofNullable(hServ.getHostByLastname(host.getLastname()));
 		if (username.isPresent() | email.isPresent() | codename.isPresent() | firstname.isEmpty() | 
 				lastname.isEmpty() | email.isEmpty() | username.isEmpty()) {
 			return ResponseEntity.badRequest().build();

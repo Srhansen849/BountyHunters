@@ -197,7 +197,7 @@ public class BountyController {
 		
 		String currency = finbounty.getCurrency();
 		
-		List<Asset> aslist = uServ.findAllAsset(user);
+		List<Asset> aslist = uServ.getAllAssets(user);
 		
 		Asset asset = asServ.getAssetUsingCurrency(aslist, currency);
 		
