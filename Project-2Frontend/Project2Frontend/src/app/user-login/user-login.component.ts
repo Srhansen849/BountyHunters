@@ -16,7 +16,6 @@ export class UserLoginComponent implements OnInit {
   userForm = new FormGroup({
     username: new FormControl(``),
     password: new FormControl(``),
-
   });
 
   isHunter = false;
@@ -31,7 +30,7 @@ export class UserLoginComponent implements OnInit {
   public hostButton() {
     this.isHunter = false;
     this.isHost = true;
-    console.log("Host");
+    console.log("Host Button");
   }
 
 
@@ -50,17 +49,19 @@ export class UserLoginComponent implements OnInit {
 
     // if a user is returned navigate to the next component you want, otherwise notify the user
     if (this.isHunter) {
-      this.uServ.bHunterLogin(JSON.stringify(user)).subscribe(
-        response => {
-          console.log(response);
-          this.router.navigate(['/profile']);
-        },
-        error => {
-          console.log("login failed");
-        }
-      );
+      this.router.navigate(['./profile-host']);
+      //this.uServ.bHunterLogin(JSON.stringify(user)).subscribe(
+      // response => {
+      //   console.log(response);
+      //   this.router.navigate(['profile-host']);
+      // },
+      // error => {
+      //   console.log("login failed");
+      // }
+      //);
     } else if (this.isHost) {
-      this.router.navigate(['/businessprofile']);
+
+      this.router.navigate(['/profile/profile-host']);
     }
   }
 }

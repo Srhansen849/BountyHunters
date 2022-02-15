@@ -18,7 +18,8 @@ export class UserLoginService {
   constructor(public http: HttpClient) { }
 
 
-  public bHunterLogin(user: string): Observable<User> {
-    return this.http.post<User>("http://localhost:9015/bhunter/login", user, this.httpHead);
-  }
+  // public bHunterLogin(user: string): Observable<User> {
+  //   return this.http.post<User>("http://localhost:9015/bhunter/login", user, this.httpHead);
+  // }
+
 }
