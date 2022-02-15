@@ -13,3 +13,5 @@ export class ConfirmedBountiesComponent implements OnInit {
   }
 
 }
+
+
