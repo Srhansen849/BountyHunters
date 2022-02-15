@@ -22,10 +22,10 @@ public class Host {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int hostid;
 	
-	@Column(name="first_name", unique=true, nullable=false)
+	@Column(name="first_name", nullable=false)
 	private String firstname;
 	
-	@Column(name="last_name", unique=true, nullable=false)
+	@Column(name="last_name", nullable=false)
 	private String lastname;
 	
 	@Column(name="username", unique=true, nullable=false)

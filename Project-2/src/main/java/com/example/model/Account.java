@@ -33,7 +33,7 @@ public class Account {
 //	private double balance;
 	
 	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
-	//@JoinColumn(name="asset_id")
+//	@JoinColumn(name="account_id")
 	@JsonBackReference
 	private List<Asset> asset;
 	

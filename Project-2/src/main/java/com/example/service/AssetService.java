@@ -31,5 +31,7 @@ public class AssetService {
 	public Asset findAssestByCurrency(String currency) {
 		return asDao.findAssetByCurrency(currency);
 	}
+	
+	
 
 }

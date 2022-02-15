@@ -47,18 +47,23 @@ public class UserService {
 		uDao.save(user);
 	}
 	
+	
+	public List<Asset> findAllAsset(Account account){
+		return aDao.findAllAsset(account);
+	}
+	
 	//This will get a list of all users in the database
 	public List<User> findAllBountyHunters(){
 		return uDao.findAll();
 	}
 	
 	//This will get a user by id 
-	public User findBountyHunterById(int userid) {
-		return uDao.getById(userid);
+	public User findBountyHunterById(User user) {
+		return uDao.getById(user.getUserid());
 	}
 	
 	//This will get a user by first name
-	public User findBountyHunterByFistname(String firstname) {
+	public User findBountyHunterByFirstname(String firstname) {
 		return uDao.findBountyHunterByFistname(firstname);
 	}
 	

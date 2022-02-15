@@ -53,10 +53,10 @@ public class UserController {
 		Account account4 = new Account();
 		
 		//This is creating the assets and setting them to their account
-		Asset assest1 = new Asset("Beskar", 63.5);
+		Asset assest1 = new Asset("Republic credit", 63.5);
 		Asset assest2 = new Asset("Emperial Credits", 63.5);
-		Asset assest3 = new Asset("Peggat", 63.5);
-		Asset assest4 = new Asset("Beskar", 63.5);
+		Asset assest3 = new Asset("Druggats", 63.5);
+		Asset assest4 = new Asset("Republic credit", 63.5);
 		
 		//This is creating a list of a single asset
 		List<Asset> asList1 = new ArrayList<Asset>();
@@ -119,25 +119,24 @@ public class UserController {
 		if(!userOpt.isPresent()) {
 			return ResponseEntity.badRequest().build();
 		}
-		uServ.verifyPassword(user.getUsername(), user.getPassword());
+		user = uServ.verifyPassword(user.getUsername(), user.getPassword());
 		return ResponseEntity.status(201).body(user);
 	}
 	
 	//This is used for updating the current users profile
 	@PostMapping("/profile")
 	public ResponseEntity<User> updateProfile(@RequestBody User user){
-		Optional<User> username = Optional.ofNullable(uServ.findBountyHunterByUsername(user.getUsername()));
 		Optional<User> email = Optional.ofNullable(uServ.findBountyHunterByEmail(user.getEmail()));
 		Optional<User> codename = Optional.ofNullable(uServ.findBountyHunterByCodename(user.getCodename()));
-		Optional<User> firstname = Optional.ofNullable(uServ.findBountyHunterByFistname(user.getFirstname()));
+		Optional<User> firstname = Optional.ofNullable(uServ.findBountyHunterByFirstname(user.getFirstname()));
 		Optional<User> lastname = Optional.ofNullable(uServ.findBountyHunterByLastname(user.getLastname()));
-		if(username.isPresent() | email.isPresent() | codename.isPresent() | firstname.isEmpty()
-				| lastname.isEmpty() | username.isEmpty()) {
+		if(email.isPresent() | codename.isPresent() | firstname.isEmpty()
+				| lastname.isEmpty() | email.isEmpty()) {
 			return ResponseEntity.badRequest().build();
 		}
-		
-		uServ.insertUser(user);
-		return ResponseEntity.status(201).body(user);
+		User upuser = uServ.findBountyHunterByUsername(user.getUsername());
+		uServ.insertUser(upuser);
+		return ResponseEntity.status(201).body(upuser);
 	}
 	
 	//This will get the current data on the users profile
@@ -149,21 +148,26 @@ public class UserController {
 	//This is for creating a new user 
 	@PostMapping("/new")
 	public ResponseEntity<User> createNewUser(@RequestBody User user, @RequestBody Asset asset){
-		Optional<User> username = Optional.ofNullable(uServ.findBountyHunterByUsername(user.getUsername()));
+		Optional<User> username = Optional.ofNullable(uServ.findBountyHunterByUsername(user.getEmail()));
 		Optional<User> email = Optional.ofNullable(uServ.findBountyHunterByEmail(user.getEmail()));
 		Optional<User> codename = Optional.ofNullable(uServ.findBountyHunterByCodename(user.getCodename()));
-		Optional<User> firstname = Optional.ofNullable(uServ.findBountyHunterByFistname(user.getFirstname()));
+		Optional<User> firstname = Optional.ofNullable(uServ.findBountyHunterByFirstname(user.getFirstname()));
 		Optional<User> lastname = Optional.ofNullable(uServ.findBountyHunterByLastname(user.getLastname()));
 		if(username.isPresent() | email.isPresent() | codename.isPresent() | firstname.isEmpty()
-				| lastname.isEmpty() | username.isEmpty()) {
+				| lastname.isEmpty() | email.isEmpty() | username.isPresent()) {
 			return ResponseEntity.badRequest().build();
 		}
 		
-		Asset newass = new Asset();
 		Account newacc = new Account();
-		newass.setCurrency(asset.getCurrency());
+		Asset newasst = new Asset();
 		
-		uServ.insertUser(user, newacc, newass);
+		newasst.setCurrency(asset.getCurrency());
+		newasst.setBalance(0);
+		
+		List<User> uList = uServ.findAllBountyHunters();
+		user.setRank(uList.size()+1);
+		
+		uServ.insertUser(user, newacc, newasst);
 		return ResponseEntity.status(201).body(user);
 	}
 	

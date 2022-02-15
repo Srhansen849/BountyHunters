@@ -49,7 +49,16 @@ public class HostService {
 	public Host findBusinessOwnerByEmail(String email) {
 		return hDao.findBusinessOwnerByFirstname(email);
 	}
-	
+
 	//This verify password
+	public Host verifyPassword(String username, String password) {
+		Host host = hDao.findBusinessOwnerByUsername(username);
+		if(host.getPassword().equals(password)) {
+			return host;
+		}
+		return null;
+	}
+	
+	
 
 }
