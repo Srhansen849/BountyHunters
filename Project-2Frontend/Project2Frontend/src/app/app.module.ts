@@ -16,6 +16,8 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { HomepageBusiComponent } from './homepage-busi/homepage-busi.component';
 import { ProfileBusiComponent } from './profile-busi/profile-busi.component';
 import { ConfirmedBountiesComponent } from './confirmed-bounties/confirmed-bounties.component';
+import { HomepageBountyComponent } from './homepage-bounty/homepage-bounty.component';
+import { UploadBountyComponent } from './upload-bounty/upload-bounty.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { ConfirmedBountiesComponent } from './confirmed-bounties/confirmed-bount
     ForgotPasswordComponent,
     HomepageBusiComponent,
     ProfileBusiComponent,
-    ConfirmedBountiesComponent
+    ConfirmedBountiesComponent,
+    HomepageBountyComponent,
+    UploadBountyComponent
   ],
   imports: [
     BrowserModule,
