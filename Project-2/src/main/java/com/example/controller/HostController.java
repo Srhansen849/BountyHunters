@@ -1,6 +1,5 @@
 package com.example.controller;
 
-
 import java.util.List;
 import java.util.Optional;
 
@@ -25,7 +24,6 @@ public class HostController {
 
 	private HostService hServ;
 
-
 	public HostController() {
 		// TODO Auto-generated constructor stub
 	}
@@ -35,7 +33,6 @@ public class HostController {
 		super();
 		this.hServ = hServ;
 	}
-
 
 	@GetMapping("/init")
 	public ResponseEntity<String> insertInitalValues() {
@@ -55,7 +52,7 @@ public class HostController {
 	// the database then it will verify that the password the host has entered in is correct 
 	@PostMapping("/login")
 	public ResponseEntity<Host> businessOwnerLogin(@RequestBody Host host) {
-		Optional<Host> username = Optional.ofNullable(hServ.findBusinessOwnerByUsername(host.getUsername()));
+		Optional<Host> username = Optional.ofNullable(hServ.getHostByUsername(host.getUsername()));
 		if (!username.isPresent()) {
 			return ResponseEntity.badRequest().build();
 		}
@@ -102,6 +99,5 @@ public class HostController {
 		hServ.insertHost(host);
 		return ResponseEntity.status(201).body(host);
 	}
-
 
 }

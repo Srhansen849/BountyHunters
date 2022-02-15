@@ -9,7 +9,7 @@ import com.example.model.Status;
 
 public interface StatusDAO extends JpaRepository<Status, Integer> {
 	
-	public Status newStatus(String status);
+	//public Status newStatus(String status);
 	
 
 

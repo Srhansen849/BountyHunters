@@ -133,8 +133,8 @@ public class UserController {
 		Optional<User> codename = Optional.ofNullable(uServ.findBountyHunterByCodename(user.getCodename()));
 		Optional<User> firstname = Optional.ofNullable(uServ.findBountyHunterByFirstname(user.getFirstname()));
 		Optional<User> lastname = Optional.ofNullable(uServ.findBountyHunterByLastname(user.getLastname()));
-		if(email.isPresent() | codename.isPresent() | firstname.isEmpty()
-				| lastname.isEmpty() | email.isEmpty()) {
+		if(email.isPresent() | codename.isPresent() | !firstname.isPresent()
+				| !lastname.isPresent() | !email.isPresent()) {
 			return ResponseEntity.badRequest().build();
 		}
 		User upuser = uServ.findBountyHunterByUsername(user.getUsername());
@@ -156,8 +156,8 @@ public class UserController {
 		Optional<User> codename = Optional.ofNullable(uServ.findBountyHunterByCodename(user.getCodename()));
 		Optional<User> firstname = Optional.ofNullable(uServ.findBountyHunterByFirstname(user.getFirstname()));
 		Optional<User> lastname = Optional.ofNullable(uServ.findBountyHunterByLastname(user.getLastname()));
-		if(username.isPresent() | email.isPresent() | codename.isPresent() | firstname.isEmpty()
-				| lastname.isEmpty() | email.isEmpty() | username.isPresent()) {
+		if(username.isPresent() | email.isPresent() | codename.isPresent() | !firstname.isPresent()
+				| !lastname.isPresent() | !email.isPresent() | username.isPresent()) {
 			return ResponseEntity.badRequest().build();
 		}
 		

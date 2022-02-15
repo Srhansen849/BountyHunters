@@ -13,11 +13,11 @@ import com.example.model.Asset;
 public interface AssetDAO extends JpaRepository<Asset, Integer>{
 	
 
-	public Asset updateAsset(Asset asset, double amount);
+	// public Asset updateAsset(Asset asset, double amount);
 
 
-	public Asset findAssetByCurrency(String currency);
-	public List<Asset> findAllUsersAsset();
+	//public Asset findAssetByCurrency(String currency);
+	//public List<Asset> findAllUsersAsset();
 
 
 }
