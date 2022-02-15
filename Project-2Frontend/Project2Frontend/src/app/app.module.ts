@@ -8,16 +8,9 @@ import { AppComponent } from './app.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { NewAccountComponent } from './new-account/new-account.component';
-import { ActiveBountiesComponent } from './active-bounties/active-bounties.component';
 import { ProfileComponent } from './profile/profile.component';
-import { RegisterBountyComponent } from './register-bounty/register-bounty.component';
-import { ActiveHuntersComponent } from './active-hunters/active-hunters.component';
-import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-import { HomepageBusiComponent } from './homepage-busi/homepage-busi.component';
-import { ProfileBusiComponent } from './profile-busi/profile-busi.component';
-import { ConfirmedBountiesComponent } from './confirmed-bounties/confirmed-bounties.component';
-import { HomepageBountyComponent } from './homepage-bounty/homepage-bounty.component';
-import { UploadBountyComponent } from './upload-bounty/upload-bounty.component';
+import { ConfirmedBountiesComponent } from './bounty/confirmed-bounties.component';
+
 
 @NgModule({
   declarations: [
@@ -25,16 +18,8 @@ import { UploadBountyComponent } from './upload-bounty/upload-bounty.component';
     UserLoginComponent,
     HomepageComponent,
     NewAccountComponent,
-    ActiveBountiesComponent,
     ProfileComponent,
-    RegisterBountyComponent,
-    ActiveHuntersComponent,
-    ForgotPasswordComponent,
-    HomepageBusiComponent,
-    ProfileBusiComponent,
-    ConfirmedBountiesComponent,
-    HomepageBountyComponent,
-    UploadBountyComponent
+    ConfirmedBountiesComponent
   ],
   imports: [
     BrowserModule,

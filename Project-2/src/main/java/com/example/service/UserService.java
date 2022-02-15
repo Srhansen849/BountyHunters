@@ -57,11 +57,11 @@ public class UserService {
 	}
 	
 	
-	public List<Asset> findAllAsset(User user){
-		Account account = user.getAccount();
-		Integer account_id = account.getAccountid();
-		return aDao.getAllAssets(account_id);
-	}
+//	public List<Asset> getAllAsset(User user){
+//		Account account = user.getAccount();
+//		Integer account_id = account.getAccountid();
+//		return aDao.getAllAssets(account_id);
+//	}
 	
 	//This will get a list of all users in the database
 	public List<User> findAllBountyHunters(){
@@ -69,38 +69,38 @@ public class UserService {
 	}
 	
 	//This will get a user by id 
-	public User findBountyHunterById(User user) {
+	public User getUserById(User user) {
 		return uDao.getById(user.getUserid());
 	}
 	
 	//This will get a user by first name
-	public User findBountyHunterByFirstname(String firstname) {
-		return uDao.findBountyHunterByFistname(firstname);
+	public User getUserByFirstname(String firstname) {
+		return uDao.getUserByFirstname(firstname);
 	}
 	
 	//This will get a user by last name
-	public User findBountyHunterByLastname(String lastname) {
-		return uDao.findBountyHunterByLastname(lastname);
+	public User getUserByLastname(String lastname) {
+		return uDao.getUserByLastname(lastname);
 	}
 	
 	//This will get a user by codename
-	public User findBountyHunterByCodename(String codename) {
-		return uDao.findBountyHunterByCodename(codename);
+	public User getUserByCodename(String codename) {
+		return uDao.getUserByCodename(codename);
 	}
 	
 	//This will get a user by username
-	public User findBountyHunterByUsername(String username) {
-		return uDao.findBountyHunterByUsername(username);
+	public User getUserByUsername(String username) {
+		return uDao.getUserByUsername(username);
 	}
 	
 	//This will get a user by email
-	public User findBountyHunterByEmail(String email) {
-		return uDao.findBountyHunterByEmail(email);
+	public User getUserByEmail(String email) {
+		return uDao.getUserByEmail(email);
 	}
 	
 	//This will verify that the users password is correct
 	public User verifyPassword(String username, String password) {
-		User user = uDao.findBountyHunterByUsername(username);
+		User user = uDao.getUserByUsername(username);
 		if(user.getPassword().equals(password)) {
 			return user;
 		}
@@ -121,11 +121,6 @@ public class UserService {
 		return ulist;
 	}
 
-
-	public User getUserById(User user) {
-		
-		return uDao.getById(user.getUserid());
-	}
 
 
 }

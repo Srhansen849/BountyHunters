@@ -12,12 +12,12 @@ import javax.persistence.Id;
 
 import javax.persistence.JoinColumn;
 
-import javax.persistence.ManyToOne;
+
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 
 @Entity
 
@@ -38,7 +38,7 @@ public class Account {
 
 	
 	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
-//	@JoinColumn(name="account_id")
+	@JoinColumn(name="account_id")
 	@JsonBackReference
 	private List<Asset> asset;
 

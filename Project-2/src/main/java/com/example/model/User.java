@@ -16,7 +16,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import org.springframework.data.domain.Sort;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
@@ -206,3 +205,4 @@ public class User {
 		
 
 }
+
