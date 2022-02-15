@@ -1,5 +1,6 @@
 package com.example.model;
 
+
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -10,7 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -22,6 +23,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 @Entity
 @Table(name="user_table")
 public class User {
+
 
 	@Id
 	@Column(name="user_id")
@@ -47,9 +49,11 @@ public class User {
 	@Column(name="code_name", unique=true)
 	private String codename;
 	
+
 	@Column(name="rank", unique=true)
 	private int rank;
 	
+
 	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	@JoinColumn(name="account_id")
 	@JsonBackReference
@@ -96,7 +100,6 @@ public class User {
 	public User(String firstname, String lastname, String username, String password, String email,
 			String codename, int rank, Account account) {
 		super();
-		this.userid = userid;
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.username = username;
@@ -201,5 +204,6 @@ public class User {
 	
 
 		
+
 }
 

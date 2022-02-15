@@ -1,18 +1,24 @@
 package com.example.service;
 
+
 import java.util.Collections;
 import java.util.Comparator;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.dao.AccountDAO;
+
 import com.example.dao.AssetDAO;
+
 import com.example.dao.UserDAO;
 import com.example.model.Account;
 import com.example.model.Asset;
 import com.example.model.User;
+
+
 
 
 @Service
@@ -20,11 +26,14 @@ public class UserService {
 	
 	private UserDAO uDao;
 	private AccountDAO aDao;
+
 	private AssetDAO asDao;
+
 	
 	public UserService() {
 		// TODO Auto-generated constructor stub
 	}
+
 
 	@Autowired
 	public UserService(UserDAO uDao, AccountDAO aDao, AssetDAO asDao) {
@@ -48,8 +57,10 @@ public class UserService {
 	}
 	
 	
-	public List<Asset> findAllAsset(Account account){
-		return aDao.findAllAsset(account);
+	public List<Asset> findAllAsset(User user){
+		Account account = user.getAccount();
+		Integer account_id = account.getAccountid();
+		return aDao.getAllAssets(account_id);
 	}
 	
 	//This will get a list of all users in the database
@@ -109,5 +120,12 @@ public class UserService {
 		
 		return ulist;
 	}
+
+
+	public User getUserById(User user) {
+		
+		return uDao.getById(user.getUserid());
+	}
+
 
 }

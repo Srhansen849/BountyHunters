@@ -1,5 +1,6 @@
 package com.example.controller;
 
+
 import java.util.List;
 import java.util.Optional;
 
@@ -24,6 +25,7 @@ public class HostController {
 
 	private HostService hServ;
 
+
 	public HostController() {
 		// TODO Auto-generated constructor stub
 	}
@@ -33,6 +35,7 @@ public class HostController {
 		super();
 		this.hServ = hServ;
 	}
+
 
 	@GetMapping("/init")
 	public ResponseEntity<String> insertInitalValues() {
@@ -99,5 +102,6 @@ public class HostController {
 		hServ.insertHost(host);
 		return ResponseEntity.status(201).body(host);
 	}
+
 
 }

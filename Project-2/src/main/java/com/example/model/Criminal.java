@@ -1,5 +1,6 @@
 package com.example.model;
 
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,13 +8,17 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
+
 @Table(name="criminal")
+
 public class Criminal {
 	
 	@Id
@@ -47,6 +52,7 @@ public class Criminal {
 	
 	@Column(name="associates")
 	private String associates;
+
 	
 	
 	public Criminal() {
@@ -166,6 +172,7 @@ public class Criminal {
 				+ ", height=" + height + ", weight=" + weight + ", species=" + species + ", associates=" + associates
 				+ "]";
 	}
+
 	
 
 }
