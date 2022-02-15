@@ -57,11 +57,13 @@ public class UserService {
 	}
 	
 	
-	public List<Asset> getAllAssets(User user){
-		Account account = user.getAccount();
-		Integer account_id = account.getAccountid();
-		return aDao.getAllAssets(account_id);
-	}
+
+//	public List<Asset> getAllAsset(User user){
+//		Account account = user.getAccount();
+//		Integer account_id = account.getAccountid();
+//		return aDao.getAllAssets(account_id);
+//	}
+
 	
 	//This will get a list of all users in the database
 	public List<User> findAllBountyHunters(){
@@ -120,7 +122,6 @@ public class UserService {
 		
 		return ulist;
 	}
-
 
 
 

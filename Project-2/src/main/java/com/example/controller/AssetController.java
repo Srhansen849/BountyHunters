@@ -25,9 +25,9 @@ public class AssetController {
 
 	}
 
-	public void EditAsset(Asset asset, double amount) {
-		asServ.updateAsset(asset, amount);
-	}
+//	public void EditAsset(Asset asset, double amount) {
+//		asServ.updateAsset(asset, amount);
+//	}
 	
 	
 

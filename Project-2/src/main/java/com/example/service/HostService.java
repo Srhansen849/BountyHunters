@@ -1,17 +1,23 @@
 package com.example.service;
 
 
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> 6f4b04aaea73daf95602b443e4ebbfc5d73858c8
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.dao.HostDAO;
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 6f4b04aaea73daf95602b443e4ebbfc5d73858c8
 import com.example.model.Host;
 
 @Service

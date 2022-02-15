@@ -1,6 +1,5 @@
 package com.example.controller;
 
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -61,6 +60,7 @@ public class UserController {
 		Asset assest3 = new Asset("Druggats", 63.5);
 		Asset assest4 = new Asset("Republic credit", 63.5);
 		
+
 		//This is creating a list of a single asset
 		List<Asset> asList1 = new ArrayList<Asset>();
 		asList1.add(assest1);
