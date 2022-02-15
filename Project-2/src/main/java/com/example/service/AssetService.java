@@ -30,9 +30,9 @@ public class AssetService {
 		this.acDao = acDao;
 	}
 	
-	public List<Asset> getAllAssets(int account_id){
-		return acDao.getAllAssets(account_id);
-	}
+//	public List<Asset> getAllAssets(int account_id){
+//		return acDao.getAllAssets(account_id);
+//	}
 	
 	public Asset getAssetUsingCurrency(List<Asset> aslist, String currency) {
 				
@@ -44,17 +44,17 @@ public class AssetService {
 		return null;
 	}
 		
-	public void updateAsset(Asset asset, double amount) {
-		
-		double balance = asset.getBalance();
-		balance += amount;
-		
-		asset.setBalance(balance);
-		
-		asDao.save(asset);
-		
-
-	}
+//	public void updateAsset(Asset asset, double amount) {
+//		
+//		double balance = asset.getBalance();
+//		balance += amount;
+//		
+//		asset.setBalance(balance);
+//		
+//		asDao.save(asset);
+//		
+//
+//	}
 	
 	public Integer getAccountId(Account account) {
 		return account.getAccountid();

@@ -28,26 +28,41 @@
 <div class="center">
 <form create="/newaccount" method="get">
     <label for="fname">First name:</label>
-    <input type="text" id="fname" name="fname">
+    <input type="text" id="fname" name="fname" placeholder="Enter your First Name">
     <label style="margin-left:65px" id="lname">Last name:</label>
-    <input type="text" id="lname" name="lname">  
+    <input type="text" id="lname" name="lname" placeholder="Enter your Last Name">  
     <br><br>
     <label for="cname">Codename:</label>
-    <input type="text" id="cname" name="cname">
+    <input type="text" id="cname" name="cname" placeholder="Enter your Codename">
     <label style="margin-left:75px" for="currency">Currency</label>
-    <input type="text" id="currency" name="currency">  
+    <input type="text" id="currency" name="currency" placeholder="Enter your Currency">  
     <br><br>
     <label for="uname">Username:</label>
-    <input type="text" id="uname" name="uname">
+    <input type="text" id="uname" name="uname" placeholder="Enter your Username">
     <label style="margin-left:105px" for="email">Email:</label>
-    <input type="text" id="email" name="email"> 
+    <input type="text" id="email" name="email" placeholder="Enter your Email"> 
     <br><br>
     <label style="margin-left:5px" for="password">Password:</label>
-    <input type="text" id="password" name="password">  
+    <input type="text" id="password" name="password" placeholder="Enter your Password">  
     <label style="margin-left:15px" for="cpassword">Confirm Password:</label>
-    <input type="text" id="cpassword" name="cpassword">  
+    <input type="text" id="cpassword" name="cpassword" placeholder="Confirm your Password">  
 
     <br><br>
+
+    <div class="row gx-3 mb-3">
+        <!-- Associates -->
+        <div class="col-md-6">
+            <label class="associates" for="inputAssociates">Associates:</label>
+            <input class="form-control" id="inputAssociates" type="text" placeholder="Enter your Associates"
+                value="">
+        </div>
+        <!-- Representative -->
+        <div class="col-md-6">
+            <label class="representative" for="inputRepresentative">Representative:</label>
+            <input class="form-control" id="inputRepresentative" type="text"
+                placeholder="Enter your Representative" value="">
+        </div>
+    </div>
     
     <div class="center">
     <div class="profile">

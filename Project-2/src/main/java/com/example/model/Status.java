@@ -1,8 +1,6 @@
 package com.example.model;
 
 
-
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 

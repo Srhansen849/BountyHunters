@@ -55,9 +55,9 @@ public class BountyController {
 	@PostMapping(value="/register")
 	public ResponseEntity<Bounty> RegisterBounty(@RequestBody Bounty bounty, @RequestBody Criminal criminal) {
 		
-		Optional<Criminal> crimfirst = Optional.ofNullable(bServ.getCriminalByFirstName(criminal.getFirstname()));
-		Optional<Criminal> crimlast = Optional.ofNullable(bServ.getCriminalByLastName(criminal.getLastname()));
-		Optional<Criminal> crimcode = Optional.ofNullable(bServ.getCriminalByCodeName(criminal.getCodename()));
+		Optional<Criminal> crimfirst = Optional.ofNullable(bServ.getCriminalByFirstname(criminal.getFirstname()));
+		Optional<Criminal> crimlast = Optional.ofNullable(bServ.getCriminalByLastname(criminal.getLastname()));
+		Optional<Criminal> crimcode = Optional.ofNullable(bServ.getCriminalByCodename(criminal.getCodename()));
 		if(!crimfirst.isPresent()|(crimfirst.isEmpty())|!crimlast.isPresent()|(crimlast.isEmpty())|!crimcode.isPresent()) {
 			return ResponseEntity.badRequest().build();
 		}
@@ -74,16 +74,16 @@ public class BountyController {
 		
 		Criminal crim;
 		if(Objects.nonNull(criminal.getCodename())) {
-			crim = bServ.getCriminalByCodeName(criminal.getCodename());
+			crim = bServ.getCriminalByCodename(criminal.getCodename());
 		}
 		else {
-			crim = bServ.verifyFirstAndLastName(criminal);
+			crim = bServ.verifyFirstnameAndLastname(criminal);
 			
 		}
 		
 		
-		Bounty subbounty = bServ.getBountyByCriminalId(crim);
-		return ResponseEntity.status(201).body(subbounty);
+//		Bounty subbounty = bServ.getBountyByCriminalId(crim);
+		return ResponseEntity.status(201).body(bounty);
 	}
 
 	
@@ -163,25 +163,25 @@ public class BountyController {
 
 	@PostMapping("/new")
 	public ResponseEntity<Bounty> createNewUser(@RequestBody Bounty bounty, @RequestBody Criminal criminal) {
-		Optional<Criminal> codename = Optional.ofNullable(bServ.getCriminalByCodeName(criminal.getCodename()));
-		Optional<Criminal> firstname = Optional.ofNullable(bServ.getCriminalByFirstName(criminal.getFirstname()));
-		Optional<Criminal> lastname = Optional.ofNullable(bServ.getCriminalByLastName(criminal.getLastname()));
+		Optional<Criminal> codename = Optional.ofNullable(bServ.getCriminalByCodename(criminal.getCodename()));
+		Optional<Criminal> firstname = Optional.ofNullable(bServ.getCriminalByFirstname(criminal.getFirstname()));
+		Optional<Criminal> lastname = Optional.ofNullable(bServ.getCriminalByLastname(criminal.getLastname()));
 		if (codename.isPresent() | firstname.isEmpty() | lastname.isEmpty()) {
 			return ResponseEntity.badRequest().build();
 		}
 
-		Bounty subbounty = bServ.getBountyByCriminalId(criminal);
-
-		subbounty.setTurninid(bounty.getTurninid());
-		subbounty.setCapture(bounty.getCapture());
-		subbounty.setBhHolder(bounty.getBhHolder());
+//		Bounty subbounty = bServ.getBountyByCriminalId(criminal);
+//
+//		subbounty.setTurninid(bounty.getTurninid());
+//		subbounty.setCapture(bounty.getCapture());
+//		subbounty.setBhHolder(bounty.getBhHolder());
 		
 
 		
 		
-		bServ.editBounty(subbounty);
+//		bServ.editBounty(subbounty);
 		
-		return ResponseEntity.status(201).body(subbounty);
+		return ResponseEntity.status(201).body(bounty);
 	}
 	
 	@PostMapping(value="/finishbounty")
@@ -195,11 +195,11 @@ public class BountyController {
 		
 		String currency = finbounty.getCurrency();
 		
-		List<Asset> aslist = uServ.getAllAsset(user);
+//		List<Asset> aslist = uServ.getAllAsset(user);
 		
-		Asset asset = asServ.getAssetUsingCurrency(aslist, currency);
+//		Asset asset = asServ.getAssetUsingCurrency(aslist, currency);
 		
-		asServ.updateAsset(asset, finbounty.getAmount());
+//		asServ.updateAsset(asset, finbounty.getAmount());
 		
 		bServ.editBounty(finbounty);
 		

@@ -17,7 +17,7 @@ public interface HostDAO extends JpaRepository<Host, Integer>{
 
 	public Host getHostByRepresentative(String representative);
 	public Host getHostByCodename(String code_name);
-	public List<Bounty> getBountyList(int host_id);
+//	public List<Bounty> getBountyList(int host_id);
 	
 
 	public Host getHostByUsername(String username);
@@ -27,3 +27,4 @@ public interface HostDAO extends JpaRepository<Host, Integer>{
 
 
 }
+

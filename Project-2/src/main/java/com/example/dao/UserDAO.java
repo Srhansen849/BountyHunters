@@ -13,7 +13,7 @@ import com.example.model.User;
 @Repository
 public interface UserDAO extends JpaRepository<User, Integer>{
 
-	public List<Bounty> bountyList(int user_id);
+//	public List<Bounty> bounty_List(int user_id);
 	public User getUserByUsername(String username);
 
 	
