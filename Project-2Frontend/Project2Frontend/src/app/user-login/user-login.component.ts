@@ -25,9 +25,10 @@ export class UserLoginComponent implements OnInit {
 
   public login(userForm:FormGroup){
     let user = new User(userForm.get("username").value, userForm.get("password").value);
-    //use the user information to make a request to your server and verigy username and password
     localStorage.setItem("loggedUser", JSON.stringify(user));
     console.log(user);
+
+    
 
     // if a user is returned navigate to the next component you want, otherwise notify the user
     // if (user.id='hunterlogin') {

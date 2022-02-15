@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ActiveHuntersComponent } from './active-hunters.component';
+import { ConfirmedBountiesComponent } from './bounty.component';
 
-describe('ActiveHuntersComponent', () => {
-  let component: ActiveHuntersComponent;
-  let fixture: ComponentFixture<ActiveHuntersComponent>;
+describe('ConfirmedBountiesComponent', () => {
+  let component: ConfirmedBountiesComponent;
+  let fixture: ComponentFixture<ConfirmedBountiesComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ActiveHuntersComponent ]
+      declarations: [ ConfirmedBountiesComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ActiveHuntersComponent);
+    fixture = TestBed.createComponent(ConfirmedBountiesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
