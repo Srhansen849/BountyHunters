@@ -27,8 +27,8 @@ public class AssetService {
 		this.acDao = acDao;
 	}
 	
-	public List<Asset> getAllAssets(Account account){
-		return acDao.getAllAssets(account);
+	public List<Asset> getAllAssets(int account_id){
+		return acDao.getAllAssets(account_id);
 	}
 	
 	public Asset getAssetUsingCurrency(List<Asset> aslist, String currency) {

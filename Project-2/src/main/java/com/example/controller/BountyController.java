@@ -98,15 +98,12 @@ public class BountyController {
 		
 		String currency = finbounty.getCurrency();
 		
-		Account account = user.getAccount();
-		
-		List<Asset> aslist = asServ.getAllAssets(account);
+		List<Asset> aslist = uServ.getAllAssets(user);
 		
 		Asset asset = asServ.getAssetUsingCurrency(aslist, currency);
 		
 		asServ.updateAsset(asset, finbounty.getAmount());
 		
-				
 		bServ.editBounty(finbounty);
 		
 		return ResponseEntity.status(201).body(finbounty);

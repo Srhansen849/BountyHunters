@@ -39,7 +39,8 @@ public class UserService {
 	}
 	
 	public List<Asset> getAllAssets(User user){
-		return aDao.getAllAssets(user.getAccount());
+		Account account = user.getAccount();
+		return aDao.getAllAssets(account.getAccountid());
 	}
 	
 
