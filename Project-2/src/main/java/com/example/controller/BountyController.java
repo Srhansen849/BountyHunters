@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.model.Account;
 import com.example.model.Asset;
 import com.example.model.Bounty;
 import com.example.model.Criminal;
@@ -196,7 +195,7 @@ public class BountyController {
 		
 		String currency = finbounty.getCurrency();
 		
-		List<Asset> aslist = uServ.findAllAsset(user);
+		List<Asset> aslist = uServ.getAllAsset(user);
 		
 		Asset asset = asServ.getAssetUsingCurrency(aslist, currency);
 		
@@ -207,8 +206,6 @@ public class BountyController {
 		return ResponseEntity.status(201).body(finbounty);
 	
 	
-
-		
 	}
 
 

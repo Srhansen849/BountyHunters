@@ -16,7 +16,6 @@ import com.example.model.Asset;
 public class AssetService {
 	
 	private AssetDAO asDao;
-
 	private AccountDAO acDao;
 
 	
@@ -25,7 +24,6 @@ public class AssetService {
 	}
 
 	@Autowired
-
 	public AssetService(AssetDAO asDao, AccountDAO acDao) {
 		super();
 		this.asDao = asDao;
