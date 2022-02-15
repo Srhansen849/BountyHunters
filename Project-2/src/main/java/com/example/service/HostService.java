@@ -1,9 +1,17 @@
 package com.example.service;
 
+
+import java.util.List;
+
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.dao.HostDAO;
+
+import com.example.model.Bounty;
+
 import com.example.model.Host;
 
 @Service
@@ -21,6 +29,7 @@ public class HostService {
 		this.hDao = hDao;
 	}
 	
+
 	public void insertHost(Host host) {
 		hDao.save(host);
 	}
@@ -60,5 +69,6 @@ public class HostService {
 	}
 	
 	
+
 
 }
