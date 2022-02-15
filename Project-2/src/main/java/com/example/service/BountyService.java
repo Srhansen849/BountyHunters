@@ -53,6 +53,10 @@ public class BountyService {
 		return cDao.getCriminalByName(first_name, last_name);
 	}
 	
+	public List<Criminal> getCriminalListByFirst(String first_name){
+		return cDao.getCriminalListByFirstName(first_name);
+	}
+	
 	public Bounty getBountyById(Bounty bounty) {
 		return bDao.getById(bounty.getBountyid());
 	}
@@ -62,11 +66,21 @@ public class BountyService {
 		String first = criminal.getFirstname();
 		String last = criminal.getLastname();
 		
+		List<Criminal> firstNames = cDao.getCriminalListByFirstName(first);
+		
 		Criminal x = getCriminalByFirstName(first);
 		Integer a = x.getCriminalid();
 		
 		Criminal y = getCriminalByLastName(last);
 		Integer b = y.getCriminalid();
+		
+		for(String firstname: cDao.getFirstNameList(first)) {
+			Criminal f = cDao.getCriminalByFirstName(firstname);
+			int fi = f.getCriminalid();
+			if(b==fi) {
+				return f;
+			}
+		}
 		
 		if(a.equals(b)) {
 			return criminal;

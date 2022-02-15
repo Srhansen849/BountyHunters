@@ -87,7 +87,7 @@ public class BountyController {
 		return ResponseEntity.status(201).body(subbounty);
 	}
 	
-	@PostMapping()
+	@PostMapping(value="/finishbounty")
 	public ResponseEntity<Bounty> FinishBounty(@RequestBody Bounty bounty){
 		
 		

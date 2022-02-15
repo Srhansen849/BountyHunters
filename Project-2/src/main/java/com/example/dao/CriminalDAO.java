@@ -16,6 +16,7 @@ public interface CriminalDAO extends JpaRepository<Criminal, Integer>{
 	public Criminal getCriminalByFirstName(String first_name);
 	public Criminal getCriminalByLastName(String last_name);
 	public List<Criminal> getCriminalListByFirstName(String first_name);
+	public List<String> getFirstNameList(String first_name);
 	public List<Criminal> getCriminalListByLastName(String last_name);
 
 }
