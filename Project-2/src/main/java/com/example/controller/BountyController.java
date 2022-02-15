@@ -1,6 +1,7 @@
 package com.example.controller;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,8 +65,17 @@ public class BountyController {
 	@PostMapping(value="/submitbounty")
 	public ResponseEntity<Bounty> SubmitBounty(@RequestBody Bounty bounty, @RequestBody Criminal criminal){
 		
+		Criminal crim;
+		if(Objects.nonNull(criminal.getCodename())) {
+			crim = bServ.getCriminalByCodeName(criminal.getCodename());
+		}
+		else {
+			crim = bServ.verifyFirstAndLastName(criminal);
+			
+		}
 		
-		Bounty subbounty = bServ.getBountyByCriminalId(criminal);
+		
+		Bounty subbounty = bServ.getBountyByCriminalId(crim);
 		subbounty.setTurninid(bounty.getTurninid());
 		subbounty.setCapture(bounty.getCapture());
 		subbounty.setBhHolder(bounty.getBhHolder());
@@ -81,9 +91,12 @@ public class BountyController {
 	public ResponseEntity<Bounty> FinishBounty(@RequestBody Bounty bounty){
 		
 		
-		User user = uServ.getUserById(bounty.getBhHolder());
 		
-		String currency = bounty.getCurrency();
+		Bounty finbounty = bServ.getBountyById(bounty);
+		
+		User user = uServ.getUserById(finbounty.getBhHolder());
+		
+		String currency = finbounty.getCurrency();
 		
 		Account account = user.getAccount();
 		
@@ -91,12 +104,12 @@ public class BountyController {
 		
 		Asset asset = asServ.getAssetUsingCurrency(aslist, currency);
 		
-		asServ.updateAsset(asset, bounty.getAmount());
+		asServ.updateAsset(asset, finbounty.getAmount());
 		
 				
-		bServ.editBounty(bounty);
+		bServ.editBounty(finbounty);
 		
-		return ResponseEntity.status(201).body(bounty);
+		return ResponseEntity.status(201).body(finbounty);
 	}
 	
 

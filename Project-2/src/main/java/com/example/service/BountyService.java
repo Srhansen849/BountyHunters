@@ -53,6 +53,30 @@ public class BountyService {
 		return cDao.getCriminalByName(first_name, last_name);
 	}
 	
+	public Bounty getBountyById(Bounty bounty) {
+		return bDao.getById(bounty.getBountyid());
+	}
+	
+	public Criminal verifyFirstAndLastName(Criminal criminal) {
+		
+		String first = criminal.getFirstname();
+		String last = criminal.getLastname();
+		
+		Criminal x = getCriminalByFirstName(first);
+		Integer a = x.getCriminalid();
+		
+		Criminal y = getCriminalByLastName(last);
+		Integer b = y.getCriminalid();
+		
+		if(a.equals(b)) {
+			return criminal;
+		}
+		
+		
+		
+		return null;
+	}
+	
 	 
 	
 	
