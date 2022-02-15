@@ -1,34 +1,42 @@
-
-<div class="center">  
-<a type="button" style="margin-right:150px" href="http://localhost:4200/homepage" class="btn btn-primary btn-lg">Home</a>
-<a type="button" href="http://localhost:4200/" class="btn btn-primary btn-lg">Upload a Bounty</a>
-<a type="button" style="margin-left:150px" href="http://localhost:4200/uploadbounty" class="btn btn-primary btn-lg">Logout</a>
-</div>
-
-<br><br>
-
-
+<body>
+    <br>
+    <br>
 
     <div class="center">
-        <h1>Bounty Hunter Profile</h1>
+        <a type="button" style="margin-right:150px;" href="http://localhost:4200/homepage"
+            class="btn btn-primary btn-lg">Home</a>
+
+        <a type="button" style="margin-right:150px" href="http://localhost:4200/confirmedbounty"
+            class="btn btn-primary btn-lg">Confirmed Bounties</a>
+
+        <a type="button" style="margin-left:150px" href="http://localhost:4200/registerbounty" 
+        class="btn btn-primary btn-lg">Register New Bounty</a>
+
+        <a type="button" style="margin-left:150px" href="http://localhost:4200/businessprofile"
+            class="btn btn-primary btn-lg">Profile</a>
+    </div>
+    <br>
+    <br>
+
+    <div class="center">
+        <h1>Buniness Owner Profile</h1>
     </div>
 
     <br>
 
     <div class="center">
-        <button class="btn btn-primary" id="edit">Edit Profile</button> <br>
+        <button class="btn btn-primary" id="#">Edit Profile</button> <br>
     </div>
     <br>
     <br>
 
-    <!--Bounty Hunter Personal History-->
+    <!--Check Current Personal Active bounties-->
     <div class="row">
-    <div class="column">
-        <form>
+        <div class="column">
             <table class="table table-striped table-white" id="#">
                 <thead>
                     <tr>
-                        <th scope="col" class="center">Bounty Hunter Personal History</th>
+                        <th scope="col" class="center">Check Current Personal Active bounties</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -37,10 +45,9 @@
                     </tr>
                 </tbody>
             </table>
-        </form>
-    </div>
+        </div>
 
-        <!--Bounty Hunter Profile-->
+        <!--Business Form Profile-->
         <div class="column">
             <form>
                 <div class="row gx-3 mb-3">
@@ -78,7 +85,7 @@
                 </div>
 
                 <div class="row gx-3 mb-3">
-                    <!-- First Name -->
+                    <!-- Form Group (first name)-->
                     <div class="col-md-6">
                         <label class="username" for="inputUsername">Username:</label>
                         <input class="form-control" id="inputUsername" type="text" placeholder="Enter your username"
@@ -99,6 +106,20 @@
                     </div>
                 </div>
 
+                <div class="row gx-3 mb-3">
+                    <!-- Associates -->
+                    <div class="col-md-6">
+                        <label class="associates" for="inputAssociates">Associates:</label>
+                        <input class="form-control" id="inputAssociates" type="text" placeholder="Enter your associates"
+                            value="">
+                    </div>
+                    <!-- Representative -->
+                    <div class="col-md-6">
+                        <label class="representative" for="inputRepresentative">Representative:</label>
+                        <input class="form-control" id="inputRepresentative" type="text"
+                            placeholder="Enter your email address" value="">
+                    </div>
+                </div>
 
                 <!--  Upload an image -->
                 <div class="row gx-3 mb-3">
@@ -113,13 +134,12 @@
             </form>
         </div>
 
-        <!--Bounty Hunter Private Request-->
+        <!--Post Personal Bounties Table-->
         <div class="column">
-            <form>
             <table class="table table-striped table-white" id="#">
                 <thead>
                     <tr>
-                        <th scope="col" class="center">Bounty Hunter Private Request</th>
+                        <th scope="col" class="center">Post Personal Bounties</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -128,8 +148,8 @@
                     </tr>
                 </tbody>
             </table>
-        </form>
         </div>
-   
 
     </div>
+
+</body>

@@ -10,17 +10,17 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
+
 @Table(name="account")
 public class Account {
 	
+
 	@Id
 	@Column(name="account_id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -31,15 +31,18 @@ public class Account {
 //	
 //	@Column(name="balance")
 //	private double balance;
+
 	
 	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
-//	@JoinColumn(name="account_id")
+	@JoinColumn(name="account_id")
 	@JsonBackReference
 	private List<Asset> asset;
+
 	
 	public Account() {
 		// TODO Auto-generated constructor stub
 	}
+
 
 	public Account(int accountid, /* String currency, double balance, */ List<Asset> asset) {
 		super();
@@ -73,9 +76,11 @@ public class Account {
 //	}
 
 
+
 	public int getAccountid() {
 		return accountid;
 	}
+
 
 	public List<Asset> getAssets() {
 		return asset;
@@ -91,4 +96,5 @@ public class Account {
 	}
 
 		
+
 }

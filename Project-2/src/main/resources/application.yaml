@@ -1,5 +1,5 @@
-<<<<<<< HEAD
 #yaml (YAML ani't Markup Language) it is a configuration  file that uses white space and nesting for it's properties'
+
 server:
   port: 9015
   
@@ -14,7 +14,8 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     show-sql: true
     hibernate:
-      ddl-auto: update
+      ddl-auto:
+
       
 #ddl-auto
 #   this is a hibernate property that controls how hibernate can affect our Database Schema, is gives hibernate
@@ -28,5 +29,3 @@ spring:
 #     validate:  it will check to make sure the schema exists as expected but does not create new tables
 
 #     none:  it will not alter or create tables
-
-
