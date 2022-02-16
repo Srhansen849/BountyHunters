@@ -11,7 +11,6 @@ import { NewAccountComponent } from './new-account/new-account.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ConfirmedBountiesComponent } from './bounty/confirmed-bounties.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +18,7 @@ import { ConfirmedBountiesComponent } from './bounty/confirmed-bounties.componen
     HomepageComponent,
     NewAccountComponent,
     ProfileComponent,
-    ConfirmedBountiesComponent
+    ConfirmedBountiesComponent,
   ],
   imports: [
     BrowserModule,

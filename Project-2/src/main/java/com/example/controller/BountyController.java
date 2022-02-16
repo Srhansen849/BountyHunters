@@ -1,26 +1,22 @@
 package com.example.controller;
 
 import java.util.List;
-
-import java.util.Objects;
-
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-
 import org.springframework.web.bind.annotation.GetMapping;
-
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+
 import com.example.model.Account;
 import com.example.model.Asset;
+
 import com.example.model.Bounty;
 import com.example.model.Criminal;
-
 import com.example.model.Host;
 import com.example.model.Status;
 import com.example.model.User;
@@ -73,11 +69,13 @@ public class BountyController {
 	@PostMapping(value="/submit")
 	public ResponseEntity<Bounty> SubmitBounty(@RequestBody Bounty bounty, @RequestBody Criminal criminal){
 		
+
 		Optional<Criminal> crimfirst = Optional.ofNullable(bServ.getCriminalByFirstname(criminal.getFirstname()));
 		Optional<Criminal> crimlast = Optional.ofNullable(bServ.getCriminalByLastname(criminal.getLastname()));
 		if(crimfirst.isEmpty() | crimlast.isEmpty()) {
 			return ResponseEntity.badRequest().build();
 		}
+
 		
 		Criminal crim = bServ.getCriminalByFirstname(criminal.getFirstname());
 //		if(Objects.nonNull(criminal.getCodename())) {
@@ -199,8 +197,7 @@ public class BountyController {
 		Account account = user.getAccount();
 		asServ.updateAsset(account, finbounty.getAmount(), finbounty.getCurrency());
 		
-//		String currency = finbounty.getCurrency();
-//		List<Asset> aslist = uServ.getAllAsset(user);
+
 //		Asset asset = asServ.getAssetUsingCurrency(aslist, currency);
 //		asServ.updateAsset(asset, finbounty.getAmount());
 		

@@ -1,7 +1,9 @@
 package com.example.model;
 
 
+
 import javax.persistence.CascadeType;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -29,10 +31,12 @@ public class Asset {
 	@Column(name="balance")
 	private double balance;
 	
+
 	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 //	@JoinColumn(name="account_fk")
 	@JsonManagedReference
 	private Account assetHolder;
+
 	
 	public Asset() {
 		// TODO Auto-generated constructor stub
@@ -87,6 +91,7 @@ public class Asset {
 				+ assetHolder + "]";
 	}
 
+}
 	
 
-}
+

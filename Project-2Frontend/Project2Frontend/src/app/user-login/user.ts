@@ -1,9 +1,9 @@
 export class User{
-    //username:string;
-    //password:password;
-    constructor(public username:string, public password:string){
-        //this.username=username;
-        //this.password=password;
-
+       
+    constructor(public username:string, public password:string, 
+                public userid?: number, public firstname?: string, 
+                public lastname?: string, public email?: string, 
+                public rank?: number, public codename?: string
+                ){
     }
 }

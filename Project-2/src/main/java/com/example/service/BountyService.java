@@ -5,7 +5,6 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +14,7 @@ import com.example.dao.StatusDAO;
 import com.example.model.Bounty;
 import com.example.model.Criminal;
 import com.example.model.Host;
+
 import com.example.model.Status;
 import com.example.model.User;
 
@@ -32,6 +32,7 @@ public class BountyService {
 	public BountyService() {
 		// TODO Auto-generated constructor stub
 	}
+
 	
 	@Autowired
 	public BountyService(BountyDAO bDao, CriminalDAO cDao, StatusDAO sDao) {
@@ -53,12 +54,14 @@ public class BountyService {
 	public Criminal getCriminalByCodename(String code_name) {
 		return cDao.getCriminalByCodename(code_name);
 	}
+
 	
 	public Bounty getBountyByCriminalId(Criminal criminal) {
 		Criminal crim = cDao.getById(criminal.getCriminalid());
 		return bDao.getBountyByCriminalid(crim);
 		
 	}
+
 	
 //	public List<Criminal> getCriminalListByName(String first_name, String last_name){
 //		return cDao.getCriminalByName(first_name, last_name);
@@ -85,6 +88,7 @@ public class BountyService {
 //		Criminal y = getCriminalByLastname(last);
 //		Integer b = y.getCriminalid();
 //		
+
 ////		for(String firstname: cDao.getFirstnameList(first)) {
 ////			Criminal f = cDao.getCriminalByFirstname(firstname);
 ////			int fi = f.getCriminalid();
@@ -117,13 +121,10 @@ public class BountyService {
 		cDao.save(criminal);
 	}
 	
-
 	public void editBounty(Bounty bounty) {
 		
 		bDao.save(bounty);
 	}
-	
-
 	
 	public List<Criminal> listAllCriminal(){
 		return cDao.findAll();

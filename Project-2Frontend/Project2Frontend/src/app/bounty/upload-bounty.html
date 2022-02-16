@@ -1,0 +1,131 @@
+<body>
+    <br>
+    <br>
+    
+    <div class="center">
+        <a type="button" style="margin-right:600px;" href="http://localhost:4200/homepage"
+            class="btn btn-primary btn-lg">Home</a>
+        <a type="button" style="margin-left:600px" href="http://localhost:4200/profile"
+            class="btn btn-primary btn-lg">Profile</a>
+    </div>
+    
+    <br>
+    <br>
+    
+    <div class="center">
+        <h1>Upload a Bounty</h1>
+    </div>
+    
+    <br>
+    <br>
+    
+    <!--Check Current Personal Active bounties-->
+    <div class="row">
+        <div class="column">
+            <table class="table table-striped table-white" id="#">
+                <thead>
+                    <tr>
+                        <th scope="col" class="center">List of Active Bounties</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    
+        <!--Criminal Data -->
+        <div class="column">
+            <h5 class="center">Criminal Data</h5>
+            <br>
+            <form style="padding: 20px">
+                <div class="row gx-3 mb-3">
+                    <!-- First Name-->
+                    <div class="col-md-6">
+                        <label class="first_name" for="inputFirstName">First name:</label>
+                        <input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name"
+                            value="">
+                    </div>
+                    <!-- Last Name-->
+                    <div class="col-md-6">
+                        <label class="last_name" for="inputLastName">Last name:</label>
+                        <input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name"
+                            value="">
+                    </div>
+    
+                    <!-- Physical Description
+                    <div class="status_of_bounty">
+                        <label class="description">Physical Description</label> <br>
+                        <div>
+                            <textarea name="description_of_crime" id="description_of_crime" class="control-form"
+                                rows="4" cols="55"></textarea>
+                        </div>
+                    </div> -->
+    
+                </div>
+    
+                <h5>Or</h5>
+    
+                <div class="row gx-3 mb-3">
+                    <!-- Code name-->
+                    <div class="col-md-6">
+                        <label class="codename" for="inputCodeName">CodeName:</label>
+                        <input class="form-control" id="inputCodeName" type="text" placeholder="Enter your code name"
+                            value="">
+                    </div>
+                </div>
+    
+                <div class="row gx-3 mb-3">
+                    <!--  Upload an image -->
+                    <div class="row gx-3 mb-3">
+                        <label for="avatar">Upload an Image</label>
+                        <input type="file" id="img" name="img" accept="image/png, image/jpeg">
+                    </div>
+    
+                </div>
+    
+            </form>
+        </div>
+    
+        <!--Post Personal Bounties Table-->
+        <div class="column">
+            <h5 class="center">Status of Bounty</h5>
+            <br>
+            <form action="" style="padding-left: 100px; padding-top: 20px;">
+    
+                <div class="status_of_bounty">
+                    <div class="row">
+                        <div class="column">
+                            <input type="radio" id="alive" name="preferred_status" value="ALIVE">
+                            <label for="alive">Alive</label><br>
+                        </div>
+                        <div class="column">
+                            <input type="radio" id="dead" name="preferred_status" value="DEAD">
+                            <label for="dead"> Dead</label>
+                        </div>
+                    </div>
+                </div>
+    
+                <br>
+    
+                <!-- Description of Capture -->
+                <div class="status_of_bounty">
+                    <label class="description">Description of Capture: </label> <br>
+                    <div>
+                        <textarea name="description_of_crime" id="description_of_crime" class="control-form" rows="4"
+                            cols="45"></textarea>
+                    </div>
+                </div>
+                <br>
+                <br>
+    
+                <div class="center" style="padding-right: 100px;">
+                    <button class="btn btn-primary" id="submit_profile">Submit</button>
+                </div>
+                <br>
+            </form>
+        </div>
+    </div>
+    </body>

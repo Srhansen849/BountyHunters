@@ -55,9 +55,9 @@ public class SendEmail {
 			Multipart multipart = new MimeMultipart();
 			multipart.addBodyPart(mimeBodyPart);
 
-			MimeBodyPart attachmentBodyPart = new MimeBodyPart();
-			attachmentBodyPart.attachFile(new File("E://Tools//Screenshot.JPG"));
-			multipart.addBodyPart(attachmentBodyPart);
+//			MimeBodyPart attachmentBodyPart = new MimeBodyPart();
+//			attachmentBodyPart.attachFile(new File("E://Tools//Screenshot.JPG"));
+//			multipart.addBodyPart(attachmentBodyPart);
 			message.setContent(multipart);
 
 			Transport.send(message);

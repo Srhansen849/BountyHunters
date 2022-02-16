@@ -1,6 +1,5 @@
 package com.example.service;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -50,7 +49,8 @@ public class HostService {
 	
 	//Find by email
 	public Host getHostByEmail(String email) {
-		return hDao.getHostByFirstname(email);
+		return hDao.getHostByEmail(email);
+
 	}
 
 	//This verify password
@@ -61,8 +61,4 @@ public class HostService {
 		}
 		return null;
 	}
-	
-	
-
-
 }

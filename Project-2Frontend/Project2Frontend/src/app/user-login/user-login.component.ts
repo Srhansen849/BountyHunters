@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { User } from './user';
 import { Router } from '@angular/router';
+import { UserLoginService } from './user-login.service';
 
 
 @Component({
@@ -17,7 +18,22 @@ export class UserLoginComponent implements OnInit {
       password: new FormControl(``),  
     });
 
-  constructor(public router: Router) { }
+    isHunter = false;
+    isHost = false;
+
+    public hunterButton() {
+      this.isHunter = true;
+      this.isHost = false;
+      console.log("Hunter Button");  
+    }
+
+    public hostButton() {
+      this.isHost = true;
+      this.isHunter = false;
+      console.log("Host Button");  
+    }
+
+  constructor(public router: Router, public uServ: UserLoginService) { }
 
   ngOnInit(): void {
     localStorage.removeItem("loggedUser");
@@ -29,15 +45,21 @@ export class UserLoginComponent implements OnInit {
     localStorage.setItem("loggedUser", JSON.stringify(user));
     console.log(user);
 
-    // if a user is returned navigate to the next component you want, otherwise notify the user
-    // if (user.id='hunterlogin') {
-    //   this.router.navigate(['/profile']);
-    // } 
-    // else if (user.id='hostlogin') {
-    //   this.router.navigate(['/businessprofile']);
-    // }
-    // else {
+    if (this.isHunter) {
+      this.uServ.bHunterLogin(JSON.stringify(user)).subscribe(
+        response => {
+          console.log(response);
+          this.router.navigate(['/profile']);
+        },
+        error => {
+          console.log("login failed");
+        }
+      );
+    } else if (this.isHost) {
 
+      this.router.navigate(['/businessprofile']);
+    }
+    
     }
 }
 
