@@ -1,6 +1,7 @@
 package com.example.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,6 +12,7 @@ import com.example.dao.AssetDAO;
 import com.example.model.Account;
 
 import com.example.model.Asset;
+import com.example.model.Criminal;
 
 @Service
 public class AssetService {
@@ -44,21 +46,27 @@ public class AssetService {
 		return null;
 	}
 		
-//	public void updateAsset(Asset asset, double amount) {
-//		
-//		double balance = asset.getBalance();
-//		balance += amount;
-//		
-//		asset.setBalance(balance);
-//		
-//		asDao.save(asset);
-//		
-//
-//	}
-	
-	public Integer getAccountId(Account account) {
-		return account.getAccountid();
+	public void updateAsset(Account account, double amount, String currency) {
 		
+		List<Asset> asList = asDao.getAssetByAssetHolder(account);
+		Optional<String> ascurr = Optional.ofNullable(currency);
+		for(Asset exchange: asList) {
+			if(!ascurr.isPresent()) {
+				exchange.setCurrency(currency);
+				exchange.setBalance(amount);
+				asDao.save(exchange);
+			}
+			else if(exchange.getCurrency().equals(currency)) {
+				exchange.setBalance(exchange.getBalance()+amount);
+				asDao.save(exchange);
+			}
+		}
+		
+
+	}
+	
+	public List<Asset> getAssetByAssetHolder(Account account) {
+		return asDao.getAssetByAssetHolder(account);
 	}
 	
 	

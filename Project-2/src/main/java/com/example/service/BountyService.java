@@ -1,5 +1,6 @@
 package com.example.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -11,8 +12,9 @@ import com.example.dao.CriminalDAO;
 import com.example.dao.StatusDAO;
 import com.example.model.Bounty;
 import com.example.model.Criminal;
-
+import com.example.model.Host;
 import com.example.model.Status;
+import com.example.model.User;
 
 
 
@@ -50,11 +52,11 @@ public class BountyService {
 		return cDao.getCriminalByCodename(code_name);
 	}
 	
-//	public Bounty getBountyByCriminalId(Criminal criminal) {
-//		Criminal criminal_id = cDao.getById(criminal.getCriminalid());
-//		return bDao.getBountyByCriminalId(criminal_id.getCriminalid());
-//		
-//	}
+	public Bounty getBountyByCriminalId(Criminal criminal) {
+		Criminal crim = cDao.getById(criminal.getCriminalid());
+		return bDao.getBountyByCriminalid(crim);
+		
+	}
 	
 //	public List<Criminal> getCriminalListByName(String first_name, String last_name){
 //		return cDao.getCriminalByName(first_name, last_name);
@@ -68,45 +70,40 @@ public class BountyService {
 		return bDao.getById(bounty.getBountyid());
 	}
 	
-	public Criminal verifyFirstnameAndLastname(Criminal criminal) {
-		
-		String first = criminal.getFirstname();
-		String last = criminal.getLastname();
-		
-		List<Criminal> firstNames = cDao.getCriminalListByFirstname(first);
-		
-		Criminal x = getCriminalByFirstname(first);
-		Integer a = x.getCriminalid();
-		
-		Criminal y = getCriminalByLastname(last);
-		Integer b = y.getCriminalid();
-		
-//		for(String firstname: cDao.getFirstnameList(first)) {
-//			Criminal f = cDao.getCriminalByFirstname(firstname);
-//			int fi = f.getCriminalid();
-//			if(b==fi) {
-//				return f;
-//			}
+//	public Criminal verifyFirstnameAndLastname(Criminal criminal) {
+//		
+//		String first = criminal.getFirstname();
+//		String last = criminal.getLastname();
+//		
+//		List<Criminal> firstNames = cDao.getCriminalListByFirstname(first);
+//		
+//		Criminal x = getCriminalByFirstname(first);
+//		Integer a = x.getCriminalid();
+//		
+//		Criminal y = getCriminalByLastname(last);
+//		Integer b = y.getCriminalid();
+//		
+////		for(String firstname: cDao.getFirstnameList(first)) {
+////			Criminal f = cDao.getCriminalByFirstname(firstname);
+////			int fi = f.getCriminalid();
+////			if(b==fi) {
+////				return f;
+////			}
+////		}
+//		
+//		if(a.equals(b)) {
+//			return criminal;
 //		}
-		
-		if(a.equals(b)) {
-			return criminal;
-		}
-		
-		
-		
-		return null;
-	}
-	
-	 
-	
-	
-//	public List<Criminal> getCriminalListByLastName(String last_name){
-//		return cDao.getCriminalListByLastName(last_name);
+//		
+//		
+//		
+//		return null;
 //	}
 	
+	public List<Criminal> getCriminalListByLastName(String last_name){
+		return cDao.getCriminalListByLastname(last_name);
+	}
 	
-
 	public void insertBounty(Bounty bounty, Criminal criminal, Status status) {
 		bDao.save(bounty);
 		cDao.save(criminal);
@@ -128,6 +125,31 @@ public class BountyService {
 	
 	public List<Criminal> listAllCriminal(){
 		return cDao.findAll();
+	}
+	
+	public List<Bounty> getAllActiveBounty(){
+		List <Bounty> bList = bDao.findAll();
+		List <Bounty> actList = new ArrayList<Bounty>();
+		for(Bounty temp: bList) {
+			Status activity = temp.getActiveid();
+			if(activity.getStatusid()==1) {
+				actList.add(temp);
+			}
+		}
+		return actList;
+	}
+	
+	
+	public List<Bounty> getBountyByBhHolder(User bhHolder){
+		return bDao.getBountyByBhHolder(bhHolder);
+	}
+	
+	public List<Bounty> getBountyByHostHolder(Host hostHolder){
+		return bDao.getBountyByHostHolder(hostHolder);
+	}
+	
+	public List<Bounty> getBountyByAmount(double amount){
+		return bDao.getBountyByAmount(amount);
 	}
 
 

@@ -45,7 +45,7 @@ public class HostService {
 	
 	//Find by username
 	public Host getHostByUsername(String username) {
-		return hDao.getHostByFirstname(username);
+		return hDao.getHostByUsername(username);
 	}
 	
 	//Find by email
