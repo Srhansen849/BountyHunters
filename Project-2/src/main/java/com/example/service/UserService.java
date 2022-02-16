@@ -1,6 +1,5 @@
 package com.example.service;
 
-
 import java.util.Collections;
 import java.util.Comparator;
 
@@ -18,15 +17,11 @@ import com.example.model.Account;
 import com.example.model.Asset;
 import com.example.model.User;
 
-
-
-
 @Service
 public class UserService {
 	
 	private UserDAO uDao;
 	private AccountDAO aDao;
-
 	private AssetDAO asDao;
 
 	
@@ -56,12 +51,11 @@ public class UserService {
 		uDao.save(user);
 	}
 	
-	
-	public List<Asset> getAllAsset(User user){
-		Account account = user.getAccount();
-		Integer account_id = account.getAccountid();
-		return aDao.getAllAssets(account_id);
-	}
+//	public List<Asset> getAllAsset(User user){
+//		Account account = user.getAccount();
+//		Integer account_id = account.getAccountid();
+//		return aDao.getAllAssets(account_id);
+//	}
 	
 	//This will get a list of all users in the database
 	public List<User> findAllBountyHunters(){
@@ -120,4 +114,5 @@ public class UserService {
 		
 		return ulist;
 	}
+
 }

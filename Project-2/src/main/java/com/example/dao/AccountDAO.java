@@ -13,8 +13,8 @@ import com.example.model.Asset;
 @Repository
 public interface AccountDAO extends JpaRepository<Account, Integer>{
 
-	public Account newAccount(Account account);
-	public List<Asset> getAllAssets(int account_id);
+	//public Account newAccount(Account account);
+	//public List<Asset> getAllAssets(int account_id);
 	
 	
 	

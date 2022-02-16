@@ -50,6 +50,7 @@ public class HostService {
 	//Find by email
 	public Host getHostByEmail(String email) {
 		return hDao.getHostByEmail(email);
+
 	}
 
 	//This verify password
