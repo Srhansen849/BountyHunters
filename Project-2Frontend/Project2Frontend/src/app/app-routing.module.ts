@@ -12,9 +12,7 @@ const routes: Routes = [
   { path: 'newaccount', component: NewAccountComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'confirmedbounty', component: ConfirmedBountiesComponent },
-  { path: 'profile', component: ProfileComponent },
-  { path: 'profile-host', redirectTo: 'profile-host' },
-  //{ path: '**', redirectTo: 'homepage' }
+  { path: '**', redirectTo: 'homepage' }
 ];
 
 @NgModule({
