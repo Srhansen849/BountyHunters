@@ -1,17 +1,19 @@
 package com.example.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 
 import javax.persistence.CascadeType;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
+
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -32,6 +34,7 @@ public class Asset {
 	private double balance;
 	
 
+
 	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 //	@JoinColumn(name="account_fk")
 	@JsonManagedReference
@@ -47,7 +50,9 @@ public class Asset {
 		this.assetid = assetid;
 		this.currency = currency;
 		this.balance = balance;
+
 		this.assetHolder = assetHolder;
+
 	}
 
 	public Asset(String currency, double balance, Account assetHolder) {
@@ -55,6 +60,7 @@ public class Asset {
 		this.currency = currency;
 		this.balance = balance;
 		this.assetHolder = assetHolder;
+
 	}
 
 	public String getCurrency() {
@@ -73,6 +79,7 @@ public class Asset {
 		this.balance = balance;
 	}
 
+
 	public Account getAssetHolder() {
 		return assetHolder;
 	}
@@ -80,6 +87,7 @@ public class Asset {
 	public void setAssetHolder(Account assetHolder) {
 		this.assetHolder = assetHolder;
 	}
+
 
 	public int getAssetid() {
 		return assetid;
@@ -89,6 +97,7 @@ public class Asset {
 	public String toString() {
 		return "Asset [assetid=" + assetid + ", currency=" + currency + ", balance=" + balance + ", assetHolder="
 				+ assetHolder + "]";
+
 	}
 
 }

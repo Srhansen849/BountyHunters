@@ -110,6 +110,7 @@ public class BountyService {
 		return cDao.getCriminalListByLastname(last_name);
 	}
 	
+
 	public void insertBounty(Bounty bounty, Criminal criminal, Status status) {
 		bDao.save(bounty);
 		cDao.save(criminal);

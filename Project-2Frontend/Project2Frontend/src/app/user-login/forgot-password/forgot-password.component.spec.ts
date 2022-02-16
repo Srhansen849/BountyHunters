@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ConfirmedBountiesComponent } from './bounty.component';
+import { ForgotPasswordComponent } from './forgot-password.component';
 
-describe('ConfirmedBountiesComponent', () => {
-  let component: ConfirmedBountiesComponent;
-  let fixture: ComponentFixture<ConfirmedBountiesComponent>;
+describe('ForgotPasswordComponent', () => {
+  let component: ForgotPasswordComponent;
+  let fixture: ComponentFixture<ForgotPasswordComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ConfirmedBountiesComponent ]
+      declarations: [ ForgotPasswordComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ConfirmedBountiesComponent);
+    fixture = TestBed.createComponent(ForgotPasswordComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

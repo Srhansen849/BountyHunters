@@ -3,8 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { NewAccountComponent } from './new-account/new-account.component';
+
 import { ProfileComponent } from './profile/profile.component';
 import { ConfirmedBountiesComponent } from './bounty/confirmed-bounties.component';
+
 
 const routes: Routes = [
   { path: 'login', component: UserLoginComponent},

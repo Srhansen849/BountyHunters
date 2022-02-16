@@ -41,27 +41,25 @@ export class UserLoginComponent implements OnInit {
 
   public login(userForm:FormGroup){
     let user = new User(userForm.get("username").value, userForm.get("password").value);
-    //use the user information to make a request to your server and verigy username and password
     localStorage.setItem("loggedUser", JSON.stringify(user));
     console.log(user);
 
-    if (this.isHunter) {
-      this.uServ.bHunterLogin(JSON.stringify(user)).subscribe(
-        response => {
-          console.log(response);
-          this.router.navigate(['/profile']);
-        },
-        error => {
-          console.log("login failed");
-        }
-      );
-    } else if (this.isHost) {
+    
+
+    // if a user is returned navigate to the next component you want, otherwise notify the user
+    // if (user.id='hunterlogin') {
+    //   this.router.navigate(['/profile']);
+    // } 
+    // else if (user.id='hostlogin') {
+    //   this.router.navigate(['/businessprofile']);
+    // }
+    // else {
 
       this.router.navigate(['/businessprofile']);
     }
     
     }
-}
+
 
 
 

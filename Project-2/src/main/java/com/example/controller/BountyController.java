@@ -196,6 +196,7 @@ public class BountyController {
 		
 		Account account = user.getAccount();
 		asServ.updateAsset(account, finbounty.getAmount(), finbounty.getCurrency());
+
 		
 
 //		Asset asset = asServ.getAssetUsingCurrency(aslist, currency);

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ConfirmedBountiesComponent } from './bounty.component';
+import { RegisterBountyComponent } from './register-bounty.component';
 
-describe('ConfirmedBountiesComponent', () => {
-  let component: ConfirmedBountiesComponent;
-  let fixture: ComponentFixture<ConfirmedBountiesComponent>;
+describe('RegisterBountyComponent', () => {
+  let component: RegisterBountyComponent;
+  let fixture: ComponentFixture<RegisterBountyComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ConfirmedBountiesComponent ]
+      declarations: [ RegisterBountyComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ConfirmedBountiesComponent);
+    fixture = TestBed.createComponent(RegisterBountyComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
