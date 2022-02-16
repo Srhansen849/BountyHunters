@@ -21,7 +21,7 @@ public interface BountyDAO extends JpaRepository<Bounty, Integer> {
 	public Bounty getBountyByCriminalid(Criminal criminal_id);
 	public List<Bounty> getBountyByBhHolder(User bhHolder);
 	public List<Bounty> getBountyByHostHolder(Host hostHolder);
-	public List<Bounty> getBountyByAmount(double amount);
-	
+//	public List<Bounty> getBountyByAmount(double amount);
+//	
 
 }

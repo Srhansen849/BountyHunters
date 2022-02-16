@@ -1,6 +1,8 @@
 package com.example.service;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 
@@ -127,6 +129,10 @@ public class BountyService {
 		return cDao.findAll();
 	}
 	
+	public List<Bounty> listAllBounty(){
+		return bDao.findAll();
+	}
+	
 	public List<Bounty> getAllActiveBounty(){
 		List <Bounty> bList = bDao.findAll();
 		List <Bounty> actList = new ArrayList<Bounty>();
@@ -148,8 +154,15 @@ public class BountyService {
 		return bDao.getBountyByHostHolder(hostHolder);
 	}
 	
-	public List<Bounty> getBountyByAmount(double amount){
-		return bDao.getBountyByAmount(amount);
+	public List<Bounty> orderBountyByAmount(){
+		List <Bounty> bList = bDao.findAll();
+		Collections.sort(bList, new Comparator<Bounty>() {
+            public int compare(Bounty o1, Bounty o2) {
+                return o1.getAmount() > o2.getAmount() ? -1 : o1.getAmount() == o2.getAmount() ? 0 : 1;
+            }
+        });
+		
+		return bList;
 	}
 
 

@@ -142,9 +142,9 @@ public class UserController {
 	}
 	
 	//This will get the current data on the users profile
-	@GetMapping("/profile")
+	@GetMapping("/profileinfo")
 	public ResponseEntity<User> getProfileInfo(User user){
-		return ResponseEntity.status(201).body(user);
+		return ResponseEntity.status(201).body(uServ.getUserById(user));
 	}
 	
 	//This is for creating a new user 

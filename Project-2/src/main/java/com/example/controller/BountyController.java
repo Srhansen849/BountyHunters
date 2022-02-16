@@ -170,7 +170,7 @@ public class BountyController {
 	}
 
 	@PostMapping("/new")
-	public ResponseEntity<Bounty> createNewUser(@RequestBody Bounty bounty, @RequestBody Criminal criminal) {
+	public ResponseEntity<Bounty> createNewBounty(@RequestBody Bounty bounty, @RequestBody Criminal criminal) {
 		Optional<Criminal> codename = Optional.ofNullable(bServ.getCriminalByCodename(criminal.getCodename()));
 		Optional<Criminal> firstname = Optional.ofNullable(bServ.getCriminalByFirstname(criminal.getFirstname()));
 		Optional<Criminal> lastname = Optional.ofNullable(bServ.getCriminalByLastname(criminal.getLastname()));
@@ -212,6 +212,16 @@ public class BountyController {
 	@GetMapping("/active")
 	public ResponseEntity<List<Bounty>> findAllActiveBounty(){
 		return ResponseEntity.status(200).body(this.bServ.getAllActiveBounty());
+	}
+	
+	@GetMapping("/all")
+	public ResponseEntity<List<Bounty>> findAllBounty(){
+		return ResponseEntity.status(200).body(this.bServ.listAllBounty());
+	}
+	
+	@GetMapping("/profile")
+	public ResponseEntity<Bounty> updateProfile(@RequestBody Bounty bounty){
+		return ResponseEntity.status(201).body(bServ.getBountyById(bounty));
 	}
 
 
