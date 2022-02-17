@@ -158,6 +158,7 @@ public class UserController {
 		Optional<User> lastname = Optional.ofNullable(uServ.getUserByLastname(user.getLastname()));
 		if(username.isPresent() | email.isPresent() | codename.isPresent() | firstname.isEmpty()
 				| lastname.isEmpty() | email.isEmpty() | username.isPresent()) {
+
 			return ResponseEntity.badRequest().build();
 		}
 		
