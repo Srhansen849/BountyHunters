@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { Bounty } from "./objects/bounty-object";
+import { Criminal } from "./objects/criminal-object";
 
 
 @Injectable({
@@ -20,7 +21,7 @@ export class BountyService{
 
     constructor(private http: HttpClient){}
 
-    public RegisterBounty(bounty:string): Observable<Bounty>{
+    public RegisterBounty(bounty:string, criminal:string): Observable<Bounty>{
         return this.http.post<Bounty>(this.urlBase+"/register", bounty, this.httpHead)
     }
 
