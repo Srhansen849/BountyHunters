@@ -5,7 +5,7 @@ import { BountyService } from '../bounty.service';
 @Component({
   selector: 'app-upload-bounty',
   templateUrl: './upload-bounty.component.html',
-  styleUrls: ['./bounty.component.css']
+  styleUrls: ['../bounty.component.css']
 })
 export class UploadBountyComponent implements OnInit {
 

@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { NewUser } from './new-account';
+import { NewHost, NewUser } from './new-account';
 
 @Injectable({
   providedIn: 'root'
@@ -21,8 +21,8 @@ export class NewaccountService {
     return this.http.post<NewUser>('http://localhost:9015/bhunter/new', user, this.httpHead);
   }
 
-  public AddHost(user: any[]): Observable<NewUser> {
-    return this.http.post<NewUser>('http://localhost:9015/host/new', user, this.httpHead);
+  public AddHost(host: any[]): Observable<NewHost> {
+    return this.http.post<NewHost>('http://localhost:9015/host/new', host, this.httpHead);
   }
 
 }

@@ -5,8 +5,8 @@ import { BountyService } from '../bounty.service';
 
 @Component({
   selector: 'app-confirmed-bounties',
-  templateUrl: './confirmed-bounties.html',
-  styleUrls: ['./bounties.component.css']
+  templateUrl: './confirm-bounty.component.html',
+  styleUrls: ['../bounty.component.css']
 })
 export class ComfirmBountyComponent implements OnInit {
 
