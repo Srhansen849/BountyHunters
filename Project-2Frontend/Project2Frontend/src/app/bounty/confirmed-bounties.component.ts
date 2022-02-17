@@ -11,6 +11,7 @@ import { BountyService } from './bounty.service';
 export class ConfirmedBountiesComponent implements OnInit {
 
   bounty:Bounty;
+  
 
   constructor(private bServ:BountyService, private router:Router, private actRoute:ActivatedRoute) { }
 

@@ -7,7 +7,7 @@ import { User } from "../bounty/user-object";
     providedIn: 'root'
 })
 
-export class BountyService{
+export class UserService{
 
     private urlBase = "http://localhost:9015/bhunter"
     httpHead = {

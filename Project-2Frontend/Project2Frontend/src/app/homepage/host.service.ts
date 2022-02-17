@@ -9,7 +9,7 @@ import { Host } from "../bounty/host-object";
     providedIn: 'root'
 })
 
-export class BountyService{
+export class HostService{
 
     private urlBase = "http://localhost:9015/host"
     httpHead = {
