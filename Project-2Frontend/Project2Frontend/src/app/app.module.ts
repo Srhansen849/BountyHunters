@@ -10,7 +10,6 @@ import { UserLoginComponent } from './user-login/user-login.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { NewAccountComponent } from './new-account/new-account.component';
 import { ProfileComponent } from './profile/profile.component';
-<<<<<<< HEAD
 import { RegisterBountyComponent } from './bounty/register-bounty/register-bounty.component';
 import { ForgotPasswordComponent } from './user-login/forgot-password/forgot-password.component';
 import { HomepageBusiComponent } from './homepage/homepage-busi/homepage-busi.component';
@@ -20,9 +19,6 @@ import { HomepageBountyComponent } from './homepage/homepage-bounty/homepage-bou
 import { UploadBountyComponent } from './bounty/upload-bounty/upload-bounty.component';
 
 
-=======
-import { ConfirmedBountiesComponent } from './bounty/confirmed-bounties.component';
->>>>>>> 6f4b04aaea73daf95602b443e4ebbfc5d73858c8
 
 
 @NgModule({
@@ -32,7 +28,6 @@ import { ConfirmedBountiesComponent } from './bounty/confirmed-bounties.componen
     HomepageComponent,
     NewAccountComponent,
     ProfileComponent,
-<<<<<<< HEAD
     RegisterBountyComponent,
     ForgotPasswordComponent,
     HomepageBusiComponent,
@@ -40,9 +35,6 @@ import { ConfirmedBountiesComponent } from './bounty/confirmed-bounties.componen
     ConfirmedBountiesComponent,
     HomepageBountyComponent,
     UploadBountyComponent
-=======
-    ConfirmedBountiesComponent
->>>>>>> 6f4b04aaea73daf95602b443e4ebbfc5d73858c8
   ],
   imports: [
     BrowserModule,

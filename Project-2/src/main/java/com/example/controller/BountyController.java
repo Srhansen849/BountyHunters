@@ -162,7 +162,7 @@ public class BountyController {
 	}
 
 	@PostMapping("/new")
-	public ResponseEntity<Bounty> createNewUser(@RequestBody Bounty bounty, @RequestBody Criminal criminal) {
+	public ResponseEntity<Bounty> createNewBounty(@RequestBody Bounty bounty, @RequestBody Criminal criminal) {
 		Optional<Criminal> codename = Optional.ofNullable(bServ.getCriminalByCodename(criminal.getCodename()));
 		Optional<Criminal> firstname = Optional.ofNullable(bServ.getCriminalByFirstname(criminal.getFirstname()));
 		Optional<Criminal> lastname = Optional.ofNullable(bServ.getCriminalByLastname(criminal.getLastname()));

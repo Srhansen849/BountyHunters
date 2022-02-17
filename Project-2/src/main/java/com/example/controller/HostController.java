@@ -54,7 +54,7 @@ public class HostController {
 	// This is the login function, it will first verify that the user is present in
 	// the database then it will verify that the password the host has entered in is correct 
 	@PostMapping("/login")
-	public ResponseEntity<Host> businessOwnerLogin(@RequestBody Host host) {
+	public ResponseEntity<Host> HostLogin(@RequestBody Host host) {
 		Optional<Host> username = Optional.ofNullable(hServ.getHostByUsername(host.getUsername()));
 		if (!username.isPresent()) {
 			return ResponseEntity.badRequest().build();
@@ -80,14 +80,14 @@ public class HostController {
 	}
 
 	// This will get the current data on the users profile
-	@GetMapping("/profile")
+	@GetMapping("/profileinfo")
 	public ResponseEntity<Host> getProfileInfo(Host host) {
 		return ResponseEntity.status(201).body(host);
 	}
 
 	// This is for creating a new user
 	@PostMapping("/new")
-	public ResponseEntity<Host> createNewUser(@RequestBody Host host) {
+	public ResponseEntity<Host> createNewHost(@RequestBody Host host) {
 		Optional<Host> username = Optional.ofNullable(hServ.getHostByUsername(host.getEmail()));
 		Optional<Host> email = Optional.ofNullable(hServ.getHostByEmail(host.getEmail()));
 		Optional<Host> codename = Optional.ofNullable(hServ.getHostByCodename(host.getCodename()));
