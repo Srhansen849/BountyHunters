@@ -55,10 +55,10 @@ public class UserController {
 		Account account4 = new Account();
 		
 		//This is creating the assets and setting them to their account
-		Asset assest1 = new Asset("Republic credit", 63.5);
-		Asset assest2 = new Asset("Emperial Credits", 63.5);
-		Asset assest3 = new Asset("Druggats", 63.5);
-		Asset assest4 = new Asset("Republic credit", 63.5);
+		Asset assest1 = new Asset("Republic credit", 63.5, account1);
+		Asset assest2 = new Asset("Emperial Credits", 63.5, account2);
+		Asset assest3 = new Asset("Druggats", 63.5, account3);
+		Asset assest4 = new Asset("Republic credit", 63.5, account4);
 		
 
 		//This is creating a list of a single asset
@@ -145,7 +145,7 @@ public class UserController {
 	//This will get the current data on the users profile
 	@GetMapping("/profileinfo")
 	public ResponseEntity<User> getProfileInfo(User user){
-		return ResponseEntity.status(201).body(user);
+		return ResponseEntity.status(201).body(uServ.getUserById(user));
 	}
 	
 	//This is for creating a new user 

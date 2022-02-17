@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { User } from './user';
 import { Router } from '@angular/router';
+import { UserLoginService } from './user-login.service';
 
 
 @Component({
@@ -17,7 +18,22 @@ export class UserLoginComponent implements OnInit {
       password: new FormControl(``),  
     });
 
-  constructor(public router: Router) { }
+    isHunter = false;
+    isHost = false;
+
+    public hunterButton() {
+      this.isHunter = true;
+      this.isHost = false;
+      console.log("Hunter Button");  
+    }
+
+    public hostButton() {
+      this.isHost = true;
+      this.isHunter = false;
+      console.log("Host Button");  
+    }
+
+  constructor(public router: Router, public uServ: UserLoginService) { }
 
   ngOnInit(): void {
     localStorage.removeItem("loggedUser");
@@ -39,8 +55,11 @@ export class UserLoginComponent implements OnInit {
     // }
     // else {
 
+      this.router.navigate(['/businessprofile']);
     }
-}
+    
+    }
+
 
 
 

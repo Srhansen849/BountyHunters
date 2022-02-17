@@ -1,7 +1,5 @@
 package com.example.controller;
 
-
-
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +33,6 @@ public class HostController {
 		super();
 		this.hServ = hServ;
 	}
-
 
 	@GetMapping("/init")
 	public ResponseEntity<String> insertInitalValues() {
@@ -102,6 +99,4 @@ public class HostController {
 		hServ.insertHost(host);
 		return ResponseEntity.status(201).body(host);
 	}
-
-
 }

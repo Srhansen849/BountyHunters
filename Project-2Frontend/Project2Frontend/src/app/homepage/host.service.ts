@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { Host } from "../bounty/host-object";
+import { Host } from "../bounty/objects/host-object";
 
 
 

@@ -1,12 +1,9 @@
 package com.example.service;
 
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.dao.HostDAO;
-
 
 import com.example.model.Host;
 
@@ -47,12 +44,13 @@ public class HostService {
 	
 	//Find by username
 	public Host getHostByUsername(String username) {
-		return hDao.getHostByFirstname(username);
+		return hDao.getHostByUsername(username);
 	}
 	
 	//Find by email
 	public Host getHostByEmail(String email) {
-		return hDao.getHostByFirstname(email);
+		return hDao.getHostByEmail(email);
+
 	}
 
 	//This verify password
@@ -63,8 +61,4 @@ public class HostService {
 		}
 		return null;
 	}
-	
-	
-
-
 }
