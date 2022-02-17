@@ -168,7 +168,7 @@ public class BountyController {
 		Optional<Criminal> codename = Optional.ofNullable(bServ.getCriminalByCodeName(criminal.getCodename()));
 		Optional<Criminal> firstname = Optional.ofNullable(bServ.getCriminalByFirstName(criminal.getFirstname()));
 		Optional<Criminal> lastname = Optional.ofNullable(bServ.getCriminalByLastName(criminal.getLastname()));
-		if (codename.isPresent() | firstname.isEmpty() | lastname.isEmpty()) {
+		if (codename.isPresent() | !firstname.isPresent() | lastname.isEmpty()) {
 			return ResponseEntity.badRequest().build();
 		}
 
