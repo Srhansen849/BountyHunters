@@ -12,6 +12,7 @@ const routes: Routes = [
   { path: 'login', component: UserLoginComponent},
   { path: 'homepage', component: HomepageComponent},
   { path: 'newaccount', component: NewAccountComponent},
+  { path: 'bounty', component: ConfirmedBountiesComponent},
   { path: 'profile', component: ProfileComponent},
   { path: 'confirmedbounty', component: ConfirmedBountiesComponent},
   { path: '**', redirectTo: 'homepage'}

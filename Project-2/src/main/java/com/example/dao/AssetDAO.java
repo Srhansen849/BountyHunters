@@ -14,6 +14,7 @@ import com.example.model.Asset;
 public interface AssetDAO extends JpaRepository<Asset, Integer>{
 	
 
+
 	public Asset getAssetByCurrency(String currency);
 	public List<Asset> getAssetByAssetHolder(Account account);
 
@@ -23,6 +24,5 @@ public interface AssetDAO extends JpaRepository<Asset, Integer>{
 
 	public Asset findAssetByCurrency(String currency);
 	//public List<Asset> findAllUsersAsset();
-
 
 }

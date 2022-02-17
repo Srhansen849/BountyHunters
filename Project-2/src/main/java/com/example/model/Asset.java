@@ -1,5 +1,6 @@
 package com.example.model;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -50,7 +51,6 @@ public class Asset {
 		this.assetid = assetid;
 		this.currency = currency;
 		this.balance = balance;
-
 		this.assetHolder = assetHolder;
 
 	}
@@ -80,6 +80,7 @@ public class Asset {
 	}
 
 
+
 	public Account getAssetHolder() {
 		return assetHolder;
 	}
@@ -97,7 +98,6 @@ public class Asset {
 	public String toString() {
 		return "Asset [assetid=" + assetid + ", currency=" + currency + ", balance=" + balance + ", assetHolder="
 				+ assetHolder + "]";
-
 	}
 
 }

@@ -19,7 +19,6 @@ import { ConfirmedBountiesComponent } from './bounty/confirmed-bounties.componen
     HomepageComponent,
     NewAccountComponent,
     ProfileComponent,
-
     ConfirmedBountiesComponent
 
   ],
