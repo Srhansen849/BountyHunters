@@ -15,7 +15,6 @@ export class UserLoginService {
     })
   };
 
-
   constructor(public http: HttpClient) { }
 
   public bHunterLogin(user: string): Observable<User> {

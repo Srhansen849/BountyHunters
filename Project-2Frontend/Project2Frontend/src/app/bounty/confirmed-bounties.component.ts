@@ -12,4 +12,5 @@ export class ConfirmedBountiesComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  
 }
