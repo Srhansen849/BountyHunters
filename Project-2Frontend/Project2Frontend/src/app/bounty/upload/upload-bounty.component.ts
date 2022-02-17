@@ -1,16 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Bounty } from './objects/bounty-object';
-import { BountyService } from './bounty.service';
+import { BountyService } from '../bounty.service';
 
 @Component({
-  selector: 'app-confirmed-bounties',
-  templateUrl: './register-bounty.component.html',
+  selector: 'app-upload-bounty',
+  templateUrl: './upload-bounty.component.html',
   styleUrls: ['./bounty.component.css']
 })
-export class BountyComponent implements OnInit {
-
-  bounty:Bounty;
+export class UploadBountyComponent implements OnInit {
 
   constructor(private bServ:BountyService, private router:Router, private actRoute:ActivatedRoute) { }
 

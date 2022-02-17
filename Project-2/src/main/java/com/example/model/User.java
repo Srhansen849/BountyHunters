@@ -26,7 +26,6 @@ public class User {
 	@Id
 	@Column(name="user_id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-
 	private int userid;
 	
 	@Column(name="first_name", nullable=false)
@@ -46,7 +45,6 @@ public class User {
 	
 	@Column(name="code_name", unique=true)
 	private String codename;
-	
 
 	@Column(name="rank", unique=true)
 	private int rank;

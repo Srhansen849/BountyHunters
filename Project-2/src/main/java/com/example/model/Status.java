@@ -21,7 +21,6 @@ import javax.persistence.Table;
 @Table(name="status")
 public class Status {
 	
-
 	@Id
 	@Column(name="status_id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -55,11 +54,15 @@ public class Status {
 		this.status = status;
 	}
 
-
+	
 	public int getStatusid() {
 		return statusid;
 	}
 
+	public void setStatusid(int statusid) {
+		this.statusid = statusid;
+	}
+	
 	@Override
 	public String toString() {
 		return "Status [statusid=" + statusid + ", status=" + status + "]";

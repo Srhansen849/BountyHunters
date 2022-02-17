@@ -71,8 +71,8 @@ public class BountyService {
 		return cDao.getCriminalListByFirstname(first_name);
 	}
 	
-	public Bounty getBountyById(Bounty bounty) {
-		return bDao.getById(bounty.getBountyid());
+	public Bounty getBountyById(int bountyid) {
+		return bDao.getById(bountyid);
 	}
 	
 //	public Criminal verifyFirstnameAndLastname(Criminal criminal) {
