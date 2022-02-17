@@ -1,70 +1,66 @@
-<body>
-    <br>
-    <br>
+<br>
+<br>
 
+<div class="center">
+    <a type="button" style="margin-right:600px;" href="http://localhost:4200/" class="btn btn-primary btn-lg">Home</a>
+</div>
+
+<br>
+<br>
+
+<div class="choose_account">
     <div class="center">
-        <a type="button" style="margin-right:600px;" href="http://localhost:4200/"
-            class="btn btn-primary btn-lg">Home</a>
-    </div>
+        <form>
+            <input (click)="hunterButton()" type="radio" id="bhunter_login" name="login" value="bhunter_login">
+            <label for="bhunter_login" style="padding-bottom: 20px; margin-right: 40px;">Bounty Hunter
+                Login</label>
+            <input (click)="hostButton()" type="radio" id="bhost_login" name="login" value="bhost_login">
+            <label for="bhost_login" style="padding-bottom: 20px;">Business Host Login</label>
 
-    <br>
-    <br>
-
-    <div class="choose_account">
-        <div class="center">
-            <form>
-                <input (click)="hunterButton()" type="radio" id="bhunter_login" name="login" value="bhunter_login">
-                <label for="bhunter_login" style="padding-bottom: 20px; margin-right: 40px;">Bounty Hunter
-                    Login</label>
-                <input (click)="hostButton()" type="radio" id="bhost_login" name="login" value="bhost_login">
-                <label for="bhost_login" style="padding-bottom: 20px;">Business Host Login</label>
-
-                <!-- <label for="form-label" style="padding-bottom: 20px; margin-right: 40px; ">Bounty Hunter
+            <!-- <label for="form-label" style="padding-bottom: 20px; margin-right: 40px; ">Bounty Hunter
                     Login</label>
                 <input type="radio" id="bhunter_login" name="login" value="bhunter_login">
 
                 <label for="form-label" style="padding-bottom: 20px;">Business Host Login</label>
                 <input type="radio" id="bhost_login" name="login" value="bhost_login"> -->
+        </form>
+    </div>
+</div>
+
+<div class=" center">
+    <h1>Login</h1>
+</div>
+
+<div class="center">
+    <div class="column">
+        <div class="row">
+            <form action="">
+                <div class="mb-3">
+                    <label class="form-label">Username:</label> <br>
+                    <input type="text" id="username" class="form-control" formControlName="username"
+                        placeholder="Enter username" value="">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Password:</label> <br>
+                    <input type="password" id="password" class="form-control" formControlName="password"
+                        placeholder="Enter password" value="">
+                </div>
             </form>
         </div>
     </div>
+</div>
 
-    <div class=" center">
-        <h1>Login</h1>
-    </div>
-
-    <div class="center">
-        <div class="column">
-            <div class="row">
-                <form action="">
-                    <div class="mb-3">
-                        <label class="form-label">Username:</label> <br>
-                        <input type="text" id="username" class="form-control" formControlName="username"
-                            placeholder="Enter username" value="">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Password:</label> <br>
-                        <input type="password" id="password" class="form-control" formControlName="password"
-                            placeholder="Enter password" value="">
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <div class="center">
-        <br>
-        <!-- onclick="window.open('https://www.angularjswiki.com') -->
-        <button class="btn btn-primary" id="loginButton" (click)="login(userForm)">Login</button>
-    </div>
-
+<div class="center">
     <br>
+    <!-- onclick="window.open('https://www.angularjswiki.com') -->
+    <button class="btn btn-primary" id="loginButton" (click)="login(userForm)">Login</button>
+</div>
 
-    <div class="center">
-        <br>
-        <a href="http://localhost:4200/forgotpassword" class="link-danger">Forgot your password?</a>
-    </div>
-    <br>
-    <br>
+<br>
 
-</body>
+<div class="center">
+    <br>
+    <a href="http://localhost:4200/forgotpassword" class="link-danger">Forgot your password?</a>
+</div>
+<br>
+<br>
