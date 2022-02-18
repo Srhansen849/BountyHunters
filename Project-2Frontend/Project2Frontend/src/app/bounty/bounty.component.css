@@ -13,8 +13,9 @@
     }
 
     form {
-        background-color: deepskyblue;
-    }
+        background-color: coral;
+        padding: 20px;
+      }
 
 
     .flat {

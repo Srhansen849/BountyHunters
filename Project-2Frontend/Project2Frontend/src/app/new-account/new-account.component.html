@@ -1,80 +1,92 @@
-<form>
+<div [ngStyle]="{'background' : 'url(https://wallpaperaccess.com/full/257381.jpg)'}">
+    <form>
 
-    <br><br>
-    
- <div class="center">
-    <a type="button"  style="margin-right:300px" href="http://localhost:4200/homepage" class="btn btn-primary btn-lg">Home</a>
-    <a type="button" style="margin-left:300px" href="http://localhost:4200/login" class="btn btn-primary btn-lg">Login</a>
-</div>
+        <br><br>
 
-    <br><br> 
-  
-<div class="center">
-    <h2><b>Create a New Account</b></h2>
-</div>
-
-<br>
-
-<div class="center">
-    <input type="radio" id="hunternewaccount" name="newaccount" value="hunter">
-    <label style="margin-right:50px"for="hunter">&nbsp;&nbsp;Bounty Hunter Login</label>
-
-    <input type="radio" id="hostnewaccount" name="newaccount" value="host">
-    <label for="host">&nbsp;&nbsp;Business Host Login</label>
-</div>
-
-<br><br>
-
-<div class="center">
-<form create="/newaccount" method="get">
-    <label for="fname">First name:</label>
-    <input type="text" id="fname" name="fname" placeholder="Enter your First Name">
-    <label style="margin-left:65px" id="lname">Last name:</label>
-    <input type="text" id="lname" name="lname" placeholder="Enter your Last Name">  
-    <br><br>
-    <label for="cname">Codename:</label>
-    <input type="text" id="cname" name="cname" placeholder="Enter your Codename">
-    <label style="margin-left:75px" for="currency">Currency</label>
-    <input type="text" id="currency" name="currency" placeholder="Enter your Currency">  
-    <br><br>
-    <label for="uname">Username:</label>
-    <input type="text" id="uname" name="uname" placeholder="Enter your Username">
-    <label style="margin-left:105px" for="email">Email:</label>
-    <input type="text" id="email" name="email" placeholder="Enter your Email"> 
-    <br><br>
-    <label style="margin-left:5px" for="password">Password:</label>
-    <input type="text" id="password" name="password" placeholder="Enter your Password">  
-    <label style="margin-left:15px" for="cpassword">Confirm Password:</label>
-    <input type="text" id="cpassword" name="cpassword" placeholder="Confirm your Password">  
-
-    <br><br>
-
-    <div class="row gx-3 mb-3">
-        <!-- Associates -->
-        <div class="col-md-6">
-            <label class="associates" for="inputAssociates">Associates:</label>
-            <input class="form-control" id="inputAssociates" type="text" placeholder="Enter your Associates"
-                value="">
+        <div class="center">
+            <a type="button" style="margin-right:300px" href="http://localhost:4200/homepage"
+                class="btn btn-primary btn-lg">Home</a>
+            <a type="button" style="margin-left:300px" href="http://localhost:4200/login"
+                class="btn btn-primary btn-lg">Login</a>
         </div>
-        <!-- Representative -->
-        <div class="col-md-6">
-            <label class="representative" for="inputRepresentative">Representative:</label>
-            <input class="form-control" id="inputRepresentative" type="text"
-                placeholder="Enter your Representative" value="">
+
+        <br><br>
+
+        <div class="center">
+            <h2><b>Create a New Account</b></h2>
         </div>
-    </div>
-    
-    <div class="center">
-    <div class="profile">
-        <label style="margin-left:105px" for="avatar">Upload An Avatar</label>
-        <input type="file" id="avatar" name="avatar" accept="avatar/png, avatar/jpeg">
-    </div>
-    </div>
 
-    <br>
+        <br>
 
-    <div class="center">
-        <input type="submit" value="Submit">
-    </div>
+        <div class="center">
+            <input type="radio" id="hunternewaccount" name="newaccount" value="hunter">
+            <label style="margin-right:50px" for="hunter">&nbsp;&nbsp;Bounty Hunter Login</label>
 
-  </form>
+            <input type="radio" id="hostnewaccount" name="newaccount" value="host">
+            <label for="host">&nbsp;&nbsp;Business Host Login</label>
+        </div>
+
+        <br><br>
+
+        <div class="center">
+            <form create="/newaccount" method="get">
+                <label for="fname">First name:</label>
+                <input type="text" id="fname" name="fname" placeholder="Enter your First Name">
+                <label style="margin-left:65px" id="lname">Last name:</label>
+                <input type="text" id="lname" name="lname" placeholder="Enter your Last Name">
+                <br><br>
+                <label for="cname">Codename:</label>
+                <input type="text" id="cname" name="cname" placeholder="Enter your Codename">
+                <label style="margin-left:75px" for="currency">Currency</label>
+                <input type="text" id="currency" name="currency" placeholder="Enter your Currency">
+                <br><br>
+                <label for="uname">Username:</label>
+                <input type="text" id="uname" name="uname" placeholder="Enter your Username">
+                <label style="margin-left:105px" for="email">Email:</label>
+                <input type="text" id="email" name="email" placeholder="Enter your Email">
+                <br><br>
+                <label style="margin-left:5px" for="password">Password:</label>
+                <input type="text" id="password" name="password" placeholder="Enter your Password">
+                <label style="margin-left:15px" for="cpassword">Confirm Password:</label>
+                <input type="text" id="cpassword" name="cpassword" placeholder="Confirm your Password">
+
+                <br><br>
+
+                <div class="row gx-3 mb-3">
+                    <!-- Associates -->
+                    <div class="col-md-6">
+                        <label class="associates" for="inputAssociates">Associates:</label>
+                        <input class="form-control" id="inputAssociates" type="text" placeholder="Enter your Associates"
+                            value="">
+                    </div>
+                    <!-- Representative -->
+                    <div class="col-md-6">
+                        <label class="representative" for="inputRepresentative">Representative:</label>
+                        <input class="form-control" id="inputRepresentative" type="text"
+                            placeholder="Enter your Representative" value="">
+                    </div>
+                </div>
+
+                <div class="center">
+                    <div class="profile">
+                        <label style="margin-left:105px" for="avatar">Upload An Avatar</label>
+                        <input type="file" id="avatar" name="avatar" accept="avatar/png, avatar/jpeg">
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="center">
+                    <input type="submit" value="Submit">
+                </div>
+
+            </form>
+            <br><br><br><br>
+            <br><br><br><br>
+            <br><br><br><br>
+            <br><br><br><br>
+            <br><br><br><br>
+            <br><br><br><br>
+            <br><br><br><br>
+            <br><br><br><br>
+        </div>
