@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { Bounty } from "./objects/bounty-object";
+import { Criminal } from "./objects/criminal-object";
 
 
 @Injectable({

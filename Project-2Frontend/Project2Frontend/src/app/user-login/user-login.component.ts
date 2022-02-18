@@ -13,10 +13,10 @@ import { UserLoginService } from './user-login.service';
 })
 export class UserLoginComponent implements OnInit {
 
-      userForm = new FormGroup({
-      username: new FormControl(``),
-      password: new FormControl(``),  
-    });
+  userForm = new FormGroup({
+    username: new FormControl(``),
+    password: new FormControl(``),
+  });
 
     isHunter = false;
     isHost = false;
@@ -39,27 +39,28 @@ export class UserLoginComponent implements OnInit {
     localStorage.removeItem("loggedUser");
   }
 
-  public login(userForm:FormGroup){
+  public login(userForm: FormGroup) {
     let user = new User(userForm.get("username").value, userForm.get("password").value);
     localStorage.setItem("loggedUser", JSON.stringify(user));
     console.log(user);
 
-    
-
     // if a user is returned navigate to the next component you want, otherwise notify the user
-    // if (user.id='hunterlogin') {
-    //   this.router.navigate(['/profile']);
-    // } 
-    // else if (user.id='hostlogin') {
-    //   this.router.navigate(['/businessprofile']);
-    // }
-    // else {
-
-      this.router.navigate(['/businessprofile']);
+    if (this.isHunter) {
+      this.router.navigate(['./profile-host']);
+      //this.uServ.bHunterLogin(JSON.stringify(user)).subscribe(
+      // response => {
+      //   console.log(response);
+      //   this.router.navigate(['profile-host']);
+      // },
+      // error => {
+      //   console.log("login failed");
+      // }
+      //);
+    } else if (this.isHost) {
+      this.router.navigate(['/profile/profile-host']);
     }
-    
-    }
-
+  }
+}
 
 
 

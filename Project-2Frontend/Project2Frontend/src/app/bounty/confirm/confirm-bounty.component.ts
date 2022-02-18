@@ -5,8 +5,9 @@ import { BountyService } from '../bounty.service';
 import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'app-confirmed-bounties',
-  templateUrl: './confirm-bounty.component.html'
+  selector: 'app-confirm-bounty',
+  templateUrl: './confirm-bounty.component.html',
+  styleUrls: ['../bounty.component.css']
 })
 export class ComfirmBountyComponent implements OnInit {
 
@@ -29,7 +30,7 @@ export class ComfirmBountyComponent implements OnInit {
 
 
   confirmBounty(confirm: FormGroup){
-    
+
   }
   ngOnInit(): void {
   }

@@ -42,4 +42,3 @@ import { RegisterBountyComponent } from './bounty/register/register-bounty.compo
     AppComponent]
 })
 export class AppModule { }
-

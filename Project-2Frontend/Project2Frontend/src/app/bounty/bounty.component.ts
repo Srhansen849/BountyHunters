@@ -5,7 +5,7 @@ import { BountyService } from './bounty.service';
 
 @Component({
   selector: 'app-confirmed-bounties',
-  templateUrl: './bounty.component.html',
+  templateUrl: './register/register-bounty.component.html',
   styleUrls: ['./bounty.component.css']
 })
 export class BountyComponent implements OnInit {

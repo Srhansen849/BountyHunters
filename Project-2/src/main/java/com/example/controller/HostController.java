@@ -1,5 +1,7 @@
 package com.example.controller;
 
+import java.util.List;
+
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +24,6 @@ import com.example.service.HostService;
 public class HostController {
 
 	private HostService hServ;
-
 
 	public HostController() {
 		// TODO Auto-generated constructor stub
@@ -52,6 +53,7 @@ public class HostController {
 	// the database then it will verify that the password the host has entered in is correct 
 	@PostMapping("/login")
 	public ResponseEntity<Host> HostLogin(@RequestBody Host host) {
+
 		Optional<Host> username = Optional.ofNullable(hServ.getHostByUsername(host.getUsername()));
 		if (!username.isPresent()) {
 			return ResponseEntity.badRequest().build();
@@ -99,4 +101,5 @@ public class HostController {
 		hServ.insertHost(host);
 		return ResponseEntity.status(201).body(host);
 	}
+
 }
