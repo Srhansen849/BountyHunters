@@ -1,46 +1,46 @@
-<form>
+<head>
+  <style>
+    body {
+      background-color: coral;
+    }
+  </style>
+</head>
 
-  <head>
-    <style>
-      body {
-        background-color: coral;
-      }
-    </style>
-  </head>
+<br> <br>
 
-  <br> <br>
+<div class="center">
+  <a type="button" style="margin-right:150px" href="http://localhost:4200/newaccount" class="btn btn-primary btn-lg">New
+    Account</a>
 
-  <div class="center">
-    <a type="button" style="margin-right:150px" href="http://localhost:4200/newaccount"
-      class="btn btn-primary btn-lg">New Account</a>
-    <a type="button" style="margin-left:150px" href="http://localhost:4200/login" class="btn btn-primary btn-lg">
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Login&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
-  </div>
+  <a type="button" style="margin-left:150px" href="http://localhost:4200/login" class="btn btn-primary btn-lg">Login</a>
+</div>
 
-  <br> <br>
+<br> <br>
 
-  <div class="center">
-    <h1><b>Star Hunters</b></h1>
-  </div>
+<div class="center">
+  <h1><b>Star Hunters</b></h1>
+</div>
 
-  <!--List of top ranked Bounties-->
-  <div class="center">
-    <div>
-      <table class="table table-striped table-white" id="#">
+<!--List of top ranked Bounties-->
+<div class="center">
+  <div>
+    <form>
+      <label>Top Ten Highest Bounties</label>
+      <table style="margin-right:150px" class="table table-striped table-white" id="bhunter">
         <thead>
           <tr>
-            <th scope="col">Highest Bounties</th>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            </p>
-            <th scope="col">Deadliest Hunters</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Codename</th>
+            <th scope="col">Rank</th>
           </tr>
         </thead>
         <tbody>
-          <!-- <tr *ngFor="let # of #">
-                  <td>{{#}}</td>
+          <!--  <tr *ngFor="let user of userList">
+                  <td>{{user.firstname}}</td>
+                  <td>{{user.lastname}}</td>
+                  <td>{{user.codename}}</td>
+                  <td>{{user.rank}}</td>
               </tr> -->
         </tbody>
       </table>
@@ -48,7 +48,6 @@
       <br><br><br><br><br>
       <br><br><br><br><br>
       <br><br><br><br>
-    </div>
+    </form>
   </div>
-
-</form>
+</div>
