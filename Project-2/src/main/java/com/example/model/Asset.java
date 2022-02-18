@@ -23,7 +23,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 
 @Entity
-@JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class, property="userid")
+@JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class, property="assetid")
 @Table(name="asset")
 public class Asset {
 	
@@ -42,8 +42,8 @@ public class Asset {
 
 	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 //	@JoinColumn(name="account_fk")
-	@JsonBackReference(value="ac")
-	private Account assetHolder;
+	@JsonBackReference
+	private Account accountid;
 
 	
 	public Asset() {
@@ -55,7 +55,7 @@ public class Asset {
 		this.assetid = assetid;
 		this.currency = currency;
 		this.balance = balance;
-		this.assetHolder = assetHolder;
+		this.accountid = assetHolder;
 
 	}
 
@@ -63,7 +63,7 @@ public class Asset {
 		super();
 		this.currency = currency;
 		this.balance = balance;
-		this.assetHolder = assetHolder;
+		this.accountid = assetHolder;
 
 	}
 
@@ -86,11 +86,11 @@ public class Asset {
 
 
 	public Account getAssetHolder() {
-		return assetHolder;
+		return accountid;
 	}
 
 	public void setAssetHolder(Account assetHolder) {
-		this.assetHolder = assetHolder;
+		this.accountid = assetHolder;
 	}
 
 
@@ -100,8 +100,8 @@ public class Asset {
 
 	@Override
 	public String toString() {
-		return "Asset [assetid=" + assetid + ", currency=" + currency + ", balance=" + balance + ", assetHolder="
-				+ assetHolder + "]";
+		return "Asset [assetid=" + assetid + ", currency=" + currency + ", balance=" + balance + ", account_id="
+				+ accountid + "]";
 	}
 
 }

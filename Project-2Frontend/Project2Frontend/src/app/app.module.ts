@@ -16,6 +16,8 @@ import { RegisterBountyComponent } from './bounty/register/register-bounty.compo
 import { BountyComponent } from './bounty/bounty.component';
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,6 +40,7 @@ import { BountyComponent } from './bounty/bounty.component';
     FormsModule, //2 way databinding
     ReactiveFormsModule, //Controllers
     HttpClientModule // get http requests
+
   ],
   providers: [],
   bootstrap: [

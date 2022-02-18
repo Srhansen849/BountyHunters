@@ -123,6 +123,7 @@ public class UserController {
 			return ResponseEntity.badRequest().build();
 		}
 		User nuser = uServ.verifyPassword(user.getUsername(), user.getPassword());
+
 		return ResponseEntity.status(201).body(nuser);
 	}
 	

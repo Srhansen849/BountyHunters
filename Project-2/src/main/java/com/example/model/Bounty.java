@@ -41,35 +41,35 @@ public class Bounty {
 	private String time;
 	
 	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	@JoinColumn(name="user_id")
+	@JoinColumn(name="user_fk")
 	@JsonBackReference(value="bh")
 	private User bhHolder;
 	
 	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	@JoinColumn(name="host_id")
+	@JoinColumn(name="host_fk")
 	@JsonBackReference(value="hh")
 	private Host hostHolder;
 	
 	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	@JoinColumn(name="criminal_id")
-//	@JsonBackReference
+	@JoinColumn(name="criminal_fk")
+//	@JsonBackReference(value="c")
 	private Criminal criminalid;
 	
 	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	@JoinColumn(name="turnin_id")
-//	@JsonBackReference
+	@JoinColumn(name="turnin_fk")
+//	@JsonBackReference(value="ts")
 	private Status turninid;
 	
 	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	@JoinColumn(name="prefer_id")
-//	@JsonBackReference
+	@JoinColumn(name="prefer_fk")
+//	@JsonBackReference(value="ps")
 	private Status preferid;
 
 	
 
 	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	@JoinColumn(name="active_id")
-//	@JsonBackReference
+	@JoinColumn(name="active_fk")
+//	@JsonBackReference(value="as")
 	private Status activeid;
 
 	

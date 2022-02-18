@@ -1,5 +1,7 @@
-<br>
-<br>
+
+
+    <br>
+    <br>
 
 <div class="center">
     <a type="button" style="margin-right:150px;" href="http://localhost:4200/homepage-host"
@@ -64,87 +66,80 @@
                 <div class="row gx-3 mb-3">
                     <!-- First Name-->
                     <div class="col-md-6">
-                        <label class="first_name" for="inputFirstName">First name:</label>
-                        <input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name"
-                            value="">
+                        <label class="form-label" for="inputFirstName">First name:</label>
+                        <input class="form-control" id="inputFirstName" type="text" placeholder="Enter criminal first name" formControlName="firstname">
                     </div>
                     <!-- Last Name-->
                     <div class="col-md-6">
-                        <label class="last_name" for="inputLastName">Last name:</label>
-                        <input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name"
-                            value=""> <br>
+                        <label class="form-label" for="inputLastName">Last name:</label>
+                        <input class="form-control" id="inputLastName" type="text" placeholder="Enter criminal last name" formControlName="lastname"> <br>
                     </div>
-
+        
                     <!-- Physical Description -->
                     <div class="status_of_bounty">
-                        <label class="description">Physical Description</label> <br>
+                        <label class="form-label">Physical Description</label> <br>
                         <div>
-                            <textarea name="description_of_crime" id="description_of_crime" class="control-form"
-                                rows="4" cols="55"></textarea>
+                            <textarea name="criminal_description" id="criminal_description" class="form-control" type="text"
+                                rows="4" cols="55" formControlName="description"></textarea>
                         </div>
                     </div>
-
+        
                 </div>
-
+        
                 <h5>Or</h5>
-
+        
                 <div class="row gx-3 mb-3">
                     <!-- Code name-->
                     <div class="col-md-6">
-                        <label class="codename" for="inputCodeName">CodeName:</label>
-                        <input class="form-control" id="inputCodeName" type="text" placeholder="Enter your code name"
-                            value="">
+                        <label class="form-label" for="inputCodeName">CodeName:</label>
+                        <input class="form-control" id="inputCodeName" type="text" placeholder="Enter criminal code name" formControlName="codename">
                     </div>
                 </div>
-
+        
                 <div class="row gx-3 mb-3">
                     <!-- Height-->
 
                     <div class="col-md-6">
-                        <label class="height" for="inputHeight">Height:</label>
-                        <input class="form-control" id="inputHeight" type="text" placeholder="Enter your height"
-                            value="">
+                        <label class="form-label" for="inputHeight">Height:</label>
+                        <input class="form-control" id="inputHeight" type="number" placeholder="Enter criminal height" formControlName="height">
                     </div>
-                    <!-- Height -->
+                    <!-- Weight -->
                     <div class="col-md-6">
-                        <label class="weight" for="inputWeight">Weight:</label>
-                        <input class="form-control" id="inputWeight" type="text" placeholder="Enter your weight"
-                            value="">
+                        <label class="form-label" for="inputWeight">Weight:</label>
+                        <input class="form-control" id="inputWeight" type="number" placeholder="Enter criminal weight" formControlName="weight">
                     </div>
-
+        
                 </div>
-
+        
                 <div class="row gx-3 mb-3">
                     <!-- Species -->
                     <div class="col-md-6">
-                        <label class="species" for="inputSpecies">Species:</label>
-                        <input class="form-control" id="inputSpecies" type="text" placeholder="Enter your species"
-                            value="">
+                        <label class="form-label" for="inputSpecies">Species:</label>
+                        <input class="form-control" id="inputSpecies" type="text" placeholder="Enter your species" formControlName="species">
                     </div>
                     <!-- Organization -->
                     <div class="col-md-6">
-                        <label class="organization" for="inputorganization">Organization:</label>
+                        <label class="form-label" for="inputorganization">Organization:</label>
                         <input class="form-control" id="inputorganization" type="text"
-                            placeholder="Enter your organization" value="">
+                            placeholder="Enter your organization" formControlName="organization">
                     </div>
-
+        
                 </div>
-
+        
                 <div class="row gx-3 mb-3">
                     <!-- Associates -->
                     <div class="col-md-6">
-                        <label class="associates" for="inputAssociates">Associates:</label>
-                        <input class="form-control" id="inputAssociates" type="text" placeholder="Enter your associates"
-                            value="">
+                        <label class="form-label" for="inputAssociates">Associates:</label>
+                        <input class="form-control" id="inputAssociates" type="text" placeholder="Enter your associates" formControlName="associates">
                     </div>
                 </div>
-
+        
                 <!--  Upload an image -->
-                <div class="row gx-3 mb-3">
+                <!-- <div class="row gx-3 mb-3">
                     <label for="avatar">Upload an Image</label>
                     <input type="file" id="img" name="img" accept="image/png, image/jpeg">
-                </div>
-
+                </div> -->
+        
                 <!-- <div class="center">
                     <button class="btn btn-primary" id="submit_bounty"
                         (click)="submitBounty(bountyForm)">Submit</button>

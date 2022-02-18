@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { FormControl, FormGroup } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BountyService } from '../bounty.service';
 import { Bounty } from '../objects/bounty-object';
 import { Criminal } from '../objects/criminal-object';
@@ -41,7 +41,7 @@ export class RegisterBountyComponent implements OnInit {
 
  
 
-  constructor(private bountyServ:BountyService, private router: Router) { }
+  constructor(private bountyServ:BountyService, private router: Router, private actRoute:ActivatedRoute) { }
 
 
 
