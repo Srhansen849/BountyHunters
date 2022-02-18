@@ -1,4 +1,6 @@
 <div [ngStyle]="{'background' : 'url(https://wallpaperaccess.com/full/257381.jpg)'}">
+    <!--https: //wallpaperaccess.com/full/257381.jpg-->
+
     <br>
     <br>
 
@@ -21,8 +23,9 @@
 
     <br>
     <br>
-
     <!--Check Current Personal Active bounties-->
+
+    <!--Check Current Active bounties-->
     <div class="row">
         <div class="column">
             <form>
@@ -63,14 +66,12 @@
                     <!-- First Name-->
                     <div class="col-md-6">
                         <label class="first_name" for="inputFirstName">First name:</label>
-                        <input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name"
-                            value="">
+                        <input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name">
                     </div>
                     <!-- Last Name-->
                     <div class="col-md-6">
                         <label class="last_name" for="inputLastName">Last name:</label>
-                        <input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name"
-                            value="">
+                        <input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name">
                     </div>
 
                     <!-- Physical Description
@@ -90,8 +91,7 @@
                     <!-- Code name-->
                     <div class="col-md-6">
                         <label class="codename" for="inputCodeName">CodeName:</label>
-                        <input class="form-control" id="inputCodeName" type="text" placeholder="Enter your code name"
-                            value="">
+                        <input class="form-control" id="inputCodeName" type="text" placeholder="Enter your code name">
                     </div>
                 </div>
 
@@ -116,12 +116,12 @@
                 <div class="status_of_bounty">
                     <div class="row">
                         <div class="column">
-                            <input type="radio" id="alive" name="preferred_status" value="ALIVE">
+                            <input type="radio" id="alive" name="turnin_status" value="alive">
                             <label for="alive">Alive</label><br>
                         </div>
                         <div class="column">
-                            <input type="radio" id="dead" name="preferred_status" value="DEAD">
-                            <label for="dead"> Dead</label>
+                            <input type="radio" id="dead" name="turnin_status" value="dead">
+                            <label for="dead">Dead</label>
                         </div>
                     </div>
                 </div>
