@@ -15,9 +15,12 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 
 @Entity
+@JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class, property="accountid")
 @Table(name="account")
 public class Account {
 	
@@ -29,8 +32,7 @@ public class Account {
 
 	
 	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
-	@JoinColumn(name="account_id")
-	@JsonBackReference
+	@JoinColumn(name="asset_id")
 	private List<Asset> asset;
 
 	

@@ -16,10 +16,14 @@ import javax.persistence.FetchType;
 
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 
 @Entity
+@JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class, property="assetid")
 @Table(name="asset")
 public class Asset {
 	
@@ -38,7 +42,7 @@ public class Asset {
 
 	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 //	@JoinColumn(name="account_fk")
-	@JsonManagedReference
+	@JsonBackReference
 	private Account assetHolder;
 
 	

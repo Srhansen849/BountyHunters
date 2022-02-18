@@ -17,10 +17,14 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
+@JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class, property="userid")
 @Table(name="user_table")
 public class User {
+
 
 
 	@Id
@@ -52,12 +56,11 @@ public class User {
 
 	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	@JoinColumn(name="account_id")
-	@JsonBackReference
 	private Account account;
 	
 	@OneToMany(mappedBy="bhHolder", fetch=FetchType.EAGER)
 	//@JoinColumn(name="bounty_fk")
-	@JsonBackReference
+//	@JsonBackReference(value="bh")
 	private List<Bounty> bounty_list;
 	
 	public User() {
