@@ -122,8 +122,8 @@ public class UserController {
 		if(!userOpt.isPresent()) {
 			return ResponseEntity.badRequest().build();
 		}
-		user = uServ.verifyPassword(user.getUsername(), user.getPassword());
-		return ResponseEntity.status(201).body(user);
+		User nuser = uServ.verifyPassword(user.getUsername(), user.getPassword());
+		return ResponseEntity.status(201).body(nuser);
 	}
 	
 	//This is used for updating the current users profile
@@ -157,7 +157,7 @@ public class UserController {
 		Optional<User> firstname = Optional.ofNullable(uServ.getUserByFirstname(user.getFirstname()));
 		Optional<User> lastname = Optional.ofNullable(uServ.getUserByLastname(user.getLastname()));
 		if(username.isPresent() | email.isPresent() | codename.isPresent() | firstname.isEmpty()
-				| lastname.isEmpty() | email.isEmpty() | username.isPresent()) {
+				| lastname.isEmpty() | email.isEmpty() | username.isEmpty()) {
 
 			return ResponseEntity.badRequest().build();
 		}
@@ -167,6 +167,7 @@ public class UserController {
 		
 		newasst.setCurrency(asset.getCurrency());
 		newasst.setBalance(0);
+		newasst.setAssetHolder(newacc);
 		
 		List<User> uList = uServ.findAllBountyHunters();
 		user.setRank(uList.size()+1);

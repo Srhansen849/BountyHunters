@@ -13,10 +13,12 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
-
+@JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class, property="bountyid")
 @Table(name="bounty")
 public class Bounty {
 	
@@ -40,34 +42,34 @@ public class Bounty {
 	
 	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	@JoinColumn(name="user_id")
-	@JsonManagedReference
+	@JsonBackReference(value="bh")
 	private User bhHolder;
 	
 	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	@JoinColumn(name="host_id")
-	@JsonManagedReference
+	@JsonBackReference(value="hh")
 	private Host hostHolder;
 	
 	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	@JoinColumn(name="criminal_id")
-	@JsonBackReference
+//	@JsonBackReference
 	private Criminal criminalid;
 	
 	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	@JoinColumn(name="turnin_id")
-	@JsonBackReference
+//	@JsonBackReference
 	private Status turninid;
 	
 	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	@JoinColumn(name="prefer_id")
-	@JsonBackReference
+//	@JsonBackReference
 	private Status preferid;
 
 	
 
 	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	@JoinColumn(name="active_id")
-	@JsonBackReference
+//	@JsonBackReference
 	private Status activeid;
 
 	
