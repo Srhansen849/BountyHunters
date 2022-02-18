@@ -18,7 +18,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
-
+@JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class, property="accountid")
 @Entity
 @JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class, property="accountid")
 @Table(name="account")
@@ -32,7 +32,11 @@ public class Account {
 
 	
 	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+<<<<<<< HEAD
 	@JoinColumn(name="asset_id")
+=======
+	@JoinColumn(name="account_id")
+>>>>>>> stuff
 	private List<Asset> asset;
 
 	

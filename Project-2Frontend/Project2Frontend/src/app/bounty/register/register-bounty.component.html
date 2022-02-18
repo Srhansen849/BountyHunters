@@ -1,109 +1,125 @@
+<br>
+<br>
 
+<div class="center">
+    <a type="button" style="margin-right:150px;" href="http://localhost:4200/homepage-host"
+        class="btn btn-primary btn-lg">Home</a>
 
-    <br>
-    <br>
+    <a type="button" style="margin-right:150px" href="http://localhost:4200/confirmbounty"
+        class="btn btn-primary btn-lg">Confirmed Bounties</a>
 
-    <div class="center">
-        <a type="button" style="margin-right:150px;" href="http://localhost:4200/homepage-host"
-            class="btn btn-primary btn-lg">Home</a>
+    <a type="button" style="margin-left:150px" href="http://localhost:4200/profile-host"
+        class="btn btn-primary btn-lg">Profile</a>
 
-        <a type="button" style="margin-right:150px" href="http://localhost:4200/confirmbounty"
-            class="btn btn-primary btn-lg">Confirmed Bounties</a>
+    <a type="button" style="margin-left:150px" href="http://localhost:4200/login"
+        class="btn btn-primary btn-lg">Logout</a>
+</div>
 
-        <a type="button" style="margin-left:150px" href="http://localhost:4200/profile-host"
-            class="btn btn-primary btn-lg">Profile</a>
+<br>
+<br>
 
-        <a type="button" style="margin-left:150px" href="http://localhost:4200/login"
-            class="btn btn-primary btn-lg">Logout</a>
-    </div>
+<div class="center">
+    <h1>Register a New Bounty</h1>
+</div>
 
-    <br>
-    <br>
+<br>
+<br>
 
-   
-        
-        <div class="center">
-        <h1>Register a New Bounty</h1>
-        </div>
-        
-        <br>
-        <br>
-        
-        <!--Check Current Personal Active Bounty Hunters-->
-        <div class="row">
-        <div class="column">
+<!--Check Current Personal Active bounties-->
+<div class="row">
+    <div class="column">
+        <form>
+            <label>List of Active Bounty Hunters</label>
             <table class="table table-striped table-white" id="#">
                 <thead>
                     <tr>
-                        <th scope="col" class="center">List of Active Bounty Hunters</th>
+                        <th scope="col">Select</th>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">Codename</th>
+                        <th scope="col">Rank</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td></td>
-                    </tr>
+                    <!--  <tr *ngFor="let user of userList">
+                        <td><input type="radio" name="something" [value]="food.foodname" (click)="whateverMethod(thisForm)">></td>
+                        <td>{{user.firstname}}</td>
+                        <td>{{user.lastname}}</td>
+                        <td>{{user.codename}}</td>
+                        <td>{{user.rank}}</td>
+                    </tr> -->
                 </tbody>
+
             </table>
-        </div>
-        
-        <!--Criminal Data -->
-        <div class="column">
-            <form style="padding: 20px" [formGroup]="bountyForm">
-                <h5 class="center">Criminal Data</h5>
-                <br>
-            
+        </form>
+    </div>
+
+    <!--Criminal Data -->
+    <div class="column">
+        <h5 class="center">Criminal Data</h5>
+        <br>
+        <form>
+            <form [formGroup]="bountyForm">
+                <!--[formGroup]=criminalForm-->
                 <div class="row gx-3 mb-3">
                     <!-- First Name-->
                     <div class="col-md-6">
                         <label class="form-label" for="inputFirstName">First name:</label>
-                        <input class="form-control" id="inputFirstName" type="text" placeholder="Enter criminal first name" formControlName="firstname">
+                        <input class="form-control" id="inputFirstName" type="text"
+                            placeholder="Enter criminal first name" formControlName="firstname">
                     </div>
                     <!-- Last Name-->
                     <div class="col-md-6">
                         <label class="form-label" for="inputLastName">Last name:</label>
-                        <input class="form-control" id="inputLastName" type="text" placeholder="Enter criminal last name" formControlName="lastname"> <br>
+                        <input class="form-control" id="inputLastName" type="text"
+                            placeholder="Enter criminal last name" formControlName="lastname"> <br>
                     </div>
-        
+
                     <!-- Physical Description -->
                     <div class="status_of_bounty">
                         <label class="form-label">Physical Description</label> <br>
                         <div>
-                            <textarea name="criminal_description" id="criminal_description" class="form-control" type="text"
-                                rows="4" cols="55" formControlName="description"></textarea>
+                            <textarea name="criminal_description" id="criminal_description" class="form-control"
+                                type="text" rows="4" cols="55" formControlName="description"></textarea>
                         </div>
                     </div>
-        
+
                 </div>
-        
+
                 <h5>Or</h5>
-        
+
                 <div class="row gx-3 mb-3">
                     <!-- Code name-->
                     <div class="col-md-6">
                         <label class="form-label" for="inputCodeName">CodeName:</label>
-                        <input class="form-control" id="inputCodeName" type="text" placeholder="Enter criminal code name" formControlName="codename">
+                        <input class="form-control" id="inputCodeName" type="text"
+                            placeholder="Enter criminal code name" formControlName="codename">
                     </div>
                 </div>
-        
+
                 <div class="row gx-3 mb-3">
                     <!-- Height-->
+
                     <div class="col-md-6">
                         <label class="form-label" for="inputHeight">Height:</label>
-                        <input class="form-control" id="inputHeight" type="number" placeholder="Enter criminal height" formControlName="height">
+                        <input class="form-control" id="inputHeight" type="number" placeholder="Enter criminal height"
+                            formControlName="height">
                     </div>
                     <!-- Weight -->
                     <div class="col-md-6">
                         <label class="form-label" for="inputWeight">Weight:</label>
-                        <input class="form-control" id="inputWeight" type="number" placeholder="Enter criminal weight" formControlName="weight">
+                        <input class="form-control" id="inputWeight" type="number" placeholder="Enter criminal weight"
+                            formControlName="weight">
                     </div>
-        
+
                 </div>
-        
+
                 <div class="row gx-3 mb-3">
                     <!-- Species -->
                     <div class="col-md-6">
                         <label class="form-label" for="inputSpecies">Species:</label>
-                        <input class="form-control" id="inputSpecies" type="text" placeholder="Enter your species" formControlName="species">
+                        <input class="form-control" id="inputSpecies" type="text" placeholder="Enter your species"
+                            formControlName="species">
                     </div>
                     <!-- Organization -->
                     <div class="col-md-6">
@@ -111,49 +127,54 @@
                         <input class="form-control" id="inputorganization" type="text"
                             placeholder="Enter your organization" formControlName="organization">
                     </div>
-        
+
                 </div>
-        
+
                 <div class="row gx-3 mb-3">
                     <!-- Associates -->
                     <div class="col-md-6">
                         <label class="form-label" for="inputAssociates">Associates:</label>
-                        <input class="form-control" id="inputAssociates" type="text" placeholder="Enter your associates" formControlName="associates">
+                        <input class="form-control" id="inputAssociates" type="text" placeholder="Enter your associates"
+                            formControlName="associates">
                     </div>
                 </div>
-        
+
                 <!--  Upload an image -->
                 <!-- <div class="row gx-3 mb-3">
                     <label for="avatar">Upload an Image</label>
                     <input type="file" id="img" name="img" accept="image/png, image/jpeg">
                 </div> -->
-        
+
                 <!-- <div class="center">
+<<<<<<< HEAD
                     <button class="btn btn-primary" id="submit_profile">Submit</button> <br>
                 </div> -->
-        
-         
-        
-        
+
+
+
+
                 <!--Post Bounty-->
-        
+
                 <!-- <h5 class="center">Status of Bounty</h5>
                 <br> -->
-        
+
                 <!--Bounty Prefered Status-->
                 <div class="col-md-6">
                     <p>Preferred Status:</p>
                     <div class="row">
                         <div class="column">
-                            <input type="radio" id="alive" name="preferred_status" value="alive" formControlName="preferid">
+                            <input type="radio" id="alive" name="preferred_status" value="alive"
+                                formControlName="preferid">
                             <label for="alive"> Alive</label><br>
                         </div>
                         <div class="column">
-                            <input type="radio" id="dora" name="preferred_status" value="deadoralive" formControlName="preferid">
+                            <input type="radio" id="dora" name="preferred_status" value="deadoralive"
+                                formControlName="preferid">
                             <label for="dora"> Dead or Alive</label><br>
                         </div>
                         <div class="column">
-                            <input type="radio" id="dead" name="preferred_status" value="dead" formControlName="preferid">
+                            <input type="radio" id="dead" name="preferred_status" value="dead"
+                                formControlName="preferid">
                             <label for="dead"> Dead</label>
                         </div>
                     </div>
@@ -163,26 +184,84 @@
                 <div class="col-md-6">
                     <label class="form-label" for="inputtimelimit">Time Limit:</label>
                     <input class="form-control" id="inputtimelimit" type="text" placeholder="Enter your time limit"
-                    formControlName="time">
+                        formControlName="time">
                 </div>
                 <br>
-        
+
                 <br>
                 <div class="col-md-6">
                     <label class="form-label" for="inputcurrency">Currency:</label>
                     <input class="form-control" id="inputcurrency" type="text" placeholder="Enter currency"
-                    formControlName="currency">
+                        formControlName="currency">
                 </div>
                 <br>
-        
+
                 <!--Bounty Amount-->
                 <div class="col-md-6">
                     <label class="amount_for_bounty" for="inputbounty">Amount for Bounty:</label>
-                    <input class="form-control" id="inputbounty" type="number" placeholder="Enter your amount for bounty"
-                    formControlName="amount">
+                    <input class="form-control" id="inputbounty" type="number"
+                        placeholder="Enter your amount for bounty" formControlName="amount">
                 </div>
-        
+
                 <div class="center">
-                    <button class="btn btn-primary" id="submit_bounty" (click)="submitBounty(bountyForm)">Submit</button>
+                    <button class="btn btn-primary" id="submit_bounty"
+                        (click)="submitBounty(bountyForm)">Submit</button>
                 </div>
-        
+
+                =======
+                <button class="btn btn-primary" id="submit_bounty" (click)="submitBounty(bountyForm)">Submit</button>
+    </div> -->
+
+
+    </form>
+
+
+    <!--Post Personal Bounties Table-->
+    <div class="column">
+        <h5 class="center">Status of Bounty</h5>
+        <br>
+        <form action="" style="padding: 20px">
+            <!--[formGroup]="bountyForm"-->
+
+            <div class="status_of_bounty">
+                <p>Preferred Status:</p>
+                <div class="row">
+                    <div class="column">
+                        <input type="radio" id="alive" name="preferred_status" value="ALIVE">
+                        <label for="alive"> Only Alive</label><br>
+                    </div>
+                    <div class="column">
+                        <input type="radio" id="dora" name="preferred_status" value="DORA">
+                        <label for="dora"> Dead or Alive</label><br>
+                    </div>
+                    <div class="column">
+                        <input type="radio" id="dead" name="preferred_status" value="DEAD">
+                        <label for="dead"> Only Dead</label>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+            <div class="col-md-6">
+                <label class="time_lime" for="inputtimelimit">Time Limit:</label>
+                <input class="form-control" id="inputtimelimit" type="text" placeholder="Enter your time limit"
+                    value="">
+            </div>
+            <br>
+
+            <div class="col-md-6">
+                <label class="amount_for_bounty" for="inputbounty">Amount for Bounty:</label>
+                <input class="form-control" id="inputbounty" type="text" placeholder="Enter your amount for bounty"
+                    value="">
+            </div>
+
+            <!-- <div class="center">
+                                <button class="btn btn-primary" id="submit_profile">Submit</button> <br>
+            </div> -->
+
+            <br>
+
+        </form>
+    </div>
+
+    >>>>>>> stuff

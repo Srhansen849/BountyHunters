@@ -20,7 +20,11 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 
 @Entity
+<<<<<<< HEAD
 @JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class, property="statusid")
+=======
+@JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class, property="userid")
+>>>>>>> stuff
 @Table(name="status")
 public class Status {
 	

@@ -20,6 +20,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
+@JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class, property="userid")
 @Entity
 @JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class, property="userid")
 @Table(name="user_table")
@@ -56,6 +57,10 @@ public class User {
 
 	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	@JoinColumn(name="account_id")
+<<<<<<< HEAD
+=======
+	@JsonBackReference(value="ac")
+>>>>>>> stuff
 	private Account account;
 	
 	@OneToMany(mappedBy="bhHolder", fetch=FetchType.EAGER)

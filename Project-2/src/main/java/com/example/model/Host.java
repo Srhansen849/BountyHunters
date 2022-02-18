@@ -19,7 +19,11 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
 @Table(name="host")
+<<<<<<< HEAD
 @JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class, property="hostid")
+=======
+@JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class, property="userid")
+>>>>>>> stuff
 public class Host {
 	
 	@Id
@@ -54,7 +58,10 @@ public class Host {
 	private String codename;
 	
 	@OneToMany(mappedBy="hostHolder", fetch=FetchType.EAGER)
+<<<<<<< HEAD
 	@JsonBackReference(value="hh")
+=======
+>>>>>>> stuff
 	private List<Bounty> bounty_list;
 
 	

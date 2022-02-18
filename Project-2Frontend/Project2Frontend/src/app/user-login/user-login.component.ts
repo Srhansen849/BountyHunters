@@ -14,6 +14,8 @@ import { UserLoginService } from './user-login.service';
 })
 export class UserLoginComponent implements OnInit {
 
+  wronglogin = false;
+
   userForm = new FormGroup({
     username: new FormControl(``),
     password: new FormControl(``),
@@ -24,7 +26,7 @@ export class UserLoginComponent implements OnInit {
     password: new FormControl(``),
   });
 
-  isHunter = false;
+  isHunter = true;
   isHost = false;
 
   public hunterButton() {
@@ -50,7 +52,26 @@ export class UserLoginComponent implements OnInit {
     let user = new User(userForm.get("username").value, userForm.get("password").value);
     localStorage.setItem("loggedUser", JSON.stringify(user));
     console.log(user);
-    this.router.navigate(['./homepage-user']);
+    
+
+    this.uServ.bHunterLogin(user).subscribe(
+      response => {
+        console.log(response);
+        this.wronglogin=false;
+        this.router.navigate(['./homepage-user']);
+
+      },
+      error => {
+        console.warn("that food already exists");
+        this.wronglogin=true;
+      }
+    )
+    /* this.foodServ.getAllFood().subscribe(
+      response => {
+        console.log(response);
+        this.foodList=response;
+      }
+    ); */
 
   }
 

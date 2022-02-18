@@ -23,7 +23,11 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 
 @Entity
+<<<<<<< HEAD
 @JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class, property="assetid")
+=======
+@JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class, property="userid")
+>>>>>>> stuff
 @Table(name="asset")
 public class Asset {
 	
@@ -42,7 +46,11 @@ public class Asset {
 
 	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 //	@JoinColumn(name="account_fk")
+<<<<<<< HEAD
 	@JsonBackReference
+=======
+	@JsonBackReference(value="ac")
+>>>>>>> stuff
 	private Account assetHolder;
 
 	
