@@ -10,12 +10,10 @@ import org.springframework.stereotype.Service;
 
 import com.example.dao.BountyDAO;
 import com.example.dao.CriminalDAO;
-import com.example.dao.StatusDAO;
 import com.example.model.Bounty;
 import com.example.model.Criminal;
 import com.example.model.Host;
 
-import com.example.model.Status;
 import com.example.model.User;
 
 
@@ -26,7 +24,7 @@ public class BountyService {
 	private BountyDAO bDao;
 	private CriminalDAO cDao;
 
-	private StatusDAO sDao;
+
 
 	
 	public BountyService() {
@@ -35,11 +33,11 @@ public class BountyService {
 
 	
 	@Autowired
-	public BountyService(BountyDAO bDao, CriminalDAO cDao, StatusDAO sDao) {
+	public BountyService(BountyDAO bDao, CriminalDAO cDao) {
 		super();
 		this.bDao = bDao;
 		this.cDao = cDao;
-		this.sDao = sDao;
+
 	}
 	
 	
@@ -111,10 +109,9 @@ public class BountyService {
 	}
 	
 
-	public void insertBounty(Bounty bounty, Criminal criminal, Status status) {
+	public void insertBounty(Bounty bounty, Criminal criminal, String status) {
 		bDao.save(bounty);
 		cDao.save(criminal);
-		sDao.save(status);
 	}
 	
 	public void insertBounty(Bounty bounty, Criminal criminal) {
@@ -139,8 +136,8 @@ public class BountyService {
 		List <Bounty> bList = bDao.findAll();
 		List <Bounty> actList = new ArrayList<Bounty>();
 		for(Bounty temp: bList) {
-			Status activity = temp.getActiveid();
-			if(activity.getStatusid()==1) {
+			String activity = temp.getActiveid();
+			if(activity.equals("Active")) {
 				actList.add(temp);
 			}
 		}

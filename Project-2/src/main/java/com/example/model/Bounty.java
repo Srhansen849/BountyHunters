@@ -55,22 +55,14 @@ public class Bounty {
 //	@JsonBackReference(value="c")
 	private Criminal criminalid;
 	
-	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	@JoinColumn(name="turnin_fk")
-//	@JsonBackReference(value="ts")
-	private Status turninid;
-	
-	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	@JoinColumn(name="prefer_fk")
-//	@JsonBackReference(value="ps")
-	private Status preferid;
 
+	private String turninid;
 	
 
-	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-//	@JoinColumn(name="active_fk")
-//	@JsonBackReference(value="as")
-	private Status activeid;
+	private String preferid;
+
+	
+	private String activeid;
 
 	
 
@@ -79,141 +71,259 @@ public class Bounty {
 	}
 
 
-	public Bounty(int bountyid, String capture, double amount, String currency, User bhHolder, Host hostHolder,
 
-			Criminal criminalid, Status turninid, Status preferid, String time, Status activeid) {
 
+
+
+	public Bounty(int bountyid, String capture, double amount, String currency, String time, User bhHolder,
+			Host hostHolder, Criminal criminalid, String turninid, String preferid, String activeid) {
 		super();
 		this.bountyid = bountyid;
 		this.capture = capture;
 		this.amount = amount;
 		this.currency = currency;
+		this.time = time;
 		this.bhHolder = bhHolder;
 		this.hostHolder = hostHolder;
 		this.criminalid = criminalid;
 		this.turninid = turninid;
-
 		this.preferid = preferid;
-
-
-		this.time = time;
+		this.activeid = activeid;
 	}
 
-	public Bounty(String capture, double amount, String currency, User bhHolder, Host hostHolder, Criminal criminalid,
 
-			Status turninid, Status preferid, String time) {
 
+
+
+
+	public Bounty(String capture, double amount, String currency, String time, User bhHolder, Host hostHolder,
+			Criminal criminalid, String turninid, String preferid, String activeid) {
 		super();
 		this.capture = capture;
 		this.amount = amount;
 		this.currency = currency;
+		this.time = time;
 		this.bhHolder = bhHolder;
 		this.hostHolder = hostHolder;
 		this.criminalid = criminalid;
 		this.turninid = turninid;
-
 		this.preferid = preferid;
-
-		this.time = time;
+		this.activeid = activeid;
 	}
 	
-	public Bounty(String capture, double amount, String currency, Host hostHolder, Criminal criminalid,
-			Status preferid, String time, Status activeid) {
+	
+	
+
+
+
+
+
+
+	public Bounty(double amount, String currency, Host hostHolder, Criminal criminalid, String preferid,
+			String time, String activeid) {
 		super();
-		this.capture = capture;
 		this.amount = amount;
 		this.currency = currency;
+		this.time = time;
 		this.hostHolder = hostHolder;
 		this.criminalid = criminalid;
-		this.activeid = activeid;
 		this.preferid = preferid;
-		this.time = time;
+		this.activeid = activeid;
 	}
+
+
+
+
+
 
 	public String getCapture() {
 		return capture;
 	}
 
+
+
+
+
+
 	public void setCapture(String capture) {
 		this.capture = capture;
 	}
+
+
+
+
+
 
 	public double getAmount() {
 		return amount;
 	}
 
+
+
+
+
+
 	public void setAmount(double amount) {
 		this.amount = amount;
 	}
+
+
+
+
+
 
 	public String getCurrency() {
 		return currency;
 	}
 
+
+
+
+
+
 	public void setCurrency(String currency) {
 		this.currency = currency;
 	}
 
-	public User getBhHolder() {
-		return bhHolder;
-	}
 
-	public void setBhHolder(User bhHolder) {
-		this.bhHolder = bhHolder;
-	}
 
-	public Host getHostHolder() {
-		return hostHolder;
-	}
 
-	public void setHostHolder(Host hostHolder) {
-		this.hostHolder = hostHolder;
-	}
-
-	public Criminal getCriminalid() {
-		return criminalid;
-	}
-
-	public void setCriminalid(Criminal criminalid) {
-		this.criminalid = criminalid;
-	}
-
-	public Status getTurninid() {
-		return turninid;
-	}
-
-	public void setTurninid(Status turninid) {
-		this.turninid = turninid;
-	}
-
-	public Status getPreferid() {
-		return preferid;
-	}
-
-	public void setPerfid(Status preferid) {
-		this.preferid = preferid;
-	}
 
 
 	public String getTime() {
 		return time;
 	}
 
+
+
+
+
+
 	public void setTime(String time) {
 		this.time = time;
 	}
+
+
+
+
+
+
+	public User getBhHolder() {
+		return bhHolder;
+	}
+
+
+
+
+
+
+	public void setBhHolder(User bhHolder) {
+		this.bhHolder = bhHolder;
+	}
+
+
+
+
+
+
+	public Host getHostHolder() {
+		return hostHolder;
+	}
+
+
+
+
+
+
+	public void setHostHolder(Host hostHolder) {
+		this.hostHolder = hostHolder;
+	}
+
+
+
+
+
+
+	public Criminal getCriminalid() {
+		return criminalid;
+	}
+
+
+
+
+
+
+	public void setCriminalid(Criminal criminalid) {
+		this.criminalid = criminalid;
+	}
+
+
+
+
+
+
+	public String getTurninid() {
+		return turninid;
+	}
+
+
+
+
+
+
+	public void setTurninid(String turninid) {
+		this.turninid = turninid;
+	}
+
+
+
+
+
+
+	public String getPreferid() {
+		return preferid;
+	}
+
+
+
+
+
+
+	public void setPreferid(String preferid) {
+		this.preferid = preferid;
+	}
+
+
+
+
+
+
+	public String getActiveid() {
+		return activeid;
+	}
+
+
+
+
+
+
+	public void setActiveid(String activeid) {
+		this.activeid = activeid;
+	}
+
+
+
+
+
 
 	public int getBountyid() {
 		return bountyid;
 	}
 
-	public Status getActiveid() {
-		return activeid;
-	}
 
-	public void setActiveid(Status activeid) {
-		this.activeid = activeid;
-	}
+
+
+
 
 	@Override
 	public String toString() {

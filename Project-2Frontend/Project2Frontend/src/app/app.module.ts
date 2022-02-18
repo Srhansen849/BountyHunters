@@ -14,6 +14,7 @@ import { ProfileHostComponent } from './profile/profile-host/profile-host.compon
 import { UploadBountyComponent } from './bounty/upload/upload-bounty.component'
 import { RegisterBountyComponent } from './bounty/register/register-bounty.component'
 import { BountyComponent } from './bounty/bounty.component';
+import { ComfirmBountyComponent } from './bounty/confirm/confirm-bounty.component';
 
 
 
@@ -30,8 +31,9 @@ import { BountyComponent } from './bounty/bounty.component';
     ForgotPasswordComponent,
     UploadBountyComponent,
     RegisterBountyComponent,
+    ComfirmBountyComponent,
     BountyComponent
-
+    
 
   ],
   imports: [
