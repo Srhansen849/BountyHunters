@@ -42,7 +42,7 @@ public class Asset {
 	
 
 	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-//	@JoinColumn(name="account_fk")
+	@JoinColumn(name="account_fk")
 	@JsonBackReference
 	private Account accountid;
 
