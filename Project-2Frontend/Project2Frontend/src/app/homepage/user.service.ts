@@ -3,6 +3,7 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { User } from "../bounty/objects/user-object";
 
+
 @Injectable({
     providedIn: 'root'
 })

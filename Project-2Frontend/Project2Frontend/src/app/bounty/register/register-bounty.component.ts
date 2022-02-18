@@ -9,7 +9,7 @@ import { BountyService } from '../bounty.service';
 })
 export class RegisterBountyComponent implements OnInit {
 
-  constructor(private bServ:BountyService, private router:Router, private actRoute:ActivatedRoute) { }
+  constructor(private bServ: BountyService, private router: Router, private actRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
   }
