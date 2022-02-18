@@ -18,7 +18,14 @@ import com.example.model.User;
 @Repository
 public interface BountyDAO extends JpaRepository<Bounty, Integer> {
 	
+
 //	public Bounty insertBounty(Bounty bounty);
+
+	//public Bounty insertBounty(Bounty bounty);
+	//public Bounty getBountyByCriminalId(int criminal_id);
+
+
+
 
 	public Bounty getBountyByCriminalid(Criminal criminal_id);
 	public List<Bounty> getBountyByBhHolder(User bhHolder);

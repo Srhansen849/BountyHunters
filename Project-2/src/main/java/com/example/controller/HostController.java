@@ -23,7 +23,6 @@ public class HostController {
 
 	private HostService hServ;
 
-
 	public HostController() {
 		// TODO Auto-generated constructor stub
 	}
@@ -94,9 +93,8 @@ public class HostController {
 				lastname.isEmpty() | email.isEmpty() | username.isEmpty()) {
 			return ResponseEntity.badRequest().build();
 		}
-
-
 		hServ.insertHost(host);
 		return ResponseEntity.status(201).body(host);
 	}
 }
+

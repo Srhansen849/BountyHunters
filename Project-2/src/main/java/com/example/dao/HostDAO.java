@@ -1,12 +1,7 @@
 package com.example.dao;
 
-
-import java.util.List;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
-import com.example.model.Bounty;
 
 import com.example.model.Host;
 
@@ -17,7 +12,11 @@ public interface HostDAO extends JpaRepository<Host, Integer>{
 
 	public Host getHostByRepresentative(String representative);
 	public Host getHostByCodename(String code_name);
+
 //	public List<Bounty> getBountyList(int host_id);
+
+	//public List<Bounty> getBountyList(int host_id);
+
 	
 
 	public Host getHostByUsername(String username);

@@ -127,29 +127,7 @@ public class UserController {
 	}
 	
 	//This is used for updating the current users profile
-	@PostMapping("/profile")
-	public ResponseEntity<User> updateProfile(@RequestBody User user){
-		Optional<User> email = Optional.ofNullable(uServ.getUserByEmail(user.getEmail()));
-		Optional<User> codename = Optional.ofNullable(uServ.getUserByCodename(user.getCodename()));
-		Optional<User> firstname = Optional.ofNullable(uServ.getUserByFirstname(user.getFirstname()));
-		Optional<User> lastname = Optional.ofNullable(uServ.getUserByLastname(user.getLastname()));
-		if(email.isPresent() | codename.isPresent() | firstname.isEmpty()
-				| lastname.isEmpty() | email.isEmpty()) {
-			return ResponseEntity.badRequest().build();
-		}
-		User upuser = uServ.getUserByUsername(user.getUsername());
-		uServ.insertUser(upuser);
-		return ResponseEntity.status(201).body(upuser);
-	}
-	
-	//This will get the current data on the users profile
-	@GetMapping("/profileinfo")
-	public ResponseEntity<User> getProfileInfo(User user){
-		return ResponseEntity.status(201).body(uServ.getUserById(user));
-	}
-	
-	//This is for creating a new user 
-	@PostMapping("/new")
+@PostMapping("/new")
 	public ResponseEntity<User> createNewUser(@RequestBody User user, @RequestBody Asset asset){
 		Optional<User> username = Optional.ofNullable(uServ.getUserByUsername(user.getEmail()));
 		Optional<User> email = Optional.ofNullable(uServ.getUserByEmail(user.getEmail()));
@@ -158,6 +136,7 @@ public class UserController {
 		Optional<User> lastname = Optional.ofNullable(uServ.getUserByLastname(user.getLastname()));
 		if(username.isPresent() | email.isPresent() | codename.isPresent() | firstname.isEmpty()
 				| lastname.isEmpty() | email.isEmpty() | username.isPresent()) {
+
 			return ResponseEntity.badRequest().build();
 		}
 		

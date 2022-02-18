@@ -1,4 +1,15 @@
-<<<<<<< HEAD
+Feature: A Bounty Hunter can upload a bounty
+	As a Bounty Hunter, I wish to register a bounty as complete
+
+  Background: A Bounty Hunter is logged in on the Star Hunter Page
+		Given the Bounty Hunter is on the login page
+		When the Bounty Hunter selects the Bounty Hunter Login
+		And the Bounty Hunter inputs "username" into the username field
+		And the Bounty Hunter inputs "password" into the password field
+		And the Bounty Hunter clicks login
+		Then the Bounty Hunter is directed to the home page
+		
+		
  Scenario Outline: Editing Profile
 		 	Given a bounty hunter inputs their user name "<username>"
 		 	And a bounty hunter inputs their password "<password>"
@@ -19,19 +30,6 @@
 		 		| username  | password  | name | description | amount | height | weight | org | associates | limit |
 		 		|  |  |  |  |  |  |  |  |  |  | 
 		 		|  |  |  |  |  |  |  |  |  |  |
-=======
-
-Feature: A Bounty Hunter can upload a bounty
-	As a Bounty Hunter, I wish to register a bounty as complete
-
-
-  Background: A Bounty Hunter is logged in on the Star Hunter Page
-		Given the Bounty Hunter is on the login page
-		When the Bounty Hunter selects the Bounty Hunter Login
-		And the Bounty Hunter inputs "username" into the username field
-		And the Bounty Hunter inputs "password" into the password field
-		And the Bounty Hunter clicks login
-		Then the Bounty Hunter is directed to the home page
 
 	Scenario: Editing Profile as Bounty Hunter
 		When the Bounty Hunter clicks the Upload a Bounty link
@@ -46,5 +44,5 @@ Feature: A Bounty Hunter can upload a bounty
 #		And the Bounty Hunter inputs "avatar" into the avatar input field
 		And the Bounty Hunter clicks submit
 		Then the Bounty Hunter profile will be updated
-		 	
->>>>>>> 1350411f104de58f136536079fd945e06fb7a054
+	
+
