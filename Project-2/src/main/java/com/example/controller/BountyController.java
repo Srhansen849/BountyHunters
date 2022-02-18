@@ -190,7 +190,7 @@ public class BountyController {
 		
 		
 		
-		Bounty finbounty = bServ.getBountyById(bounty);
+		Bounty finbounty = bServ.getBountyById(bounty.getBountyid());
 		
 		User user = uServ.getUserById(finbounty.getBhHolder());
 		
