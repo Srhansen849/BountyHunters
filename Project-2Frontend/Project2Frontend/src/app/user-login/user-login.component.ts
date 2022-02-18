@@ -1,7 +1,8 @@
 
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { User } from './user';
+import { User } from "../bounty/objects/user-object";
+import { Host } from "../bounty/objects/host-object";
 import { Router } from '@angular/router';
 import { UserLoginService } from './user-login.service';
 
@@ -18,47 +19,46 @@ export class UserLoginComponent implements OnInit {
     password: new FormControl(``),
   });
 
-    isHunter = false;
-    isHost = false;
+  hostForm = new FormGroup({
+    username: new FormControl(``),
+    password: new FormControl(``),
+  });
 
-    public hunterButton() {
-      this.isHunter = true;
-      this.isHost = false;
-      console.log("Hunter Button");  
-    }
+  isHunter = false;
+  isHost = false;
 
-    public hostButton() {
-      this.isHost = true;
-      this.isHunter = false;
-      console.log("Host Button");  
-    }
+  public hunterButton() {
+    this.isHunter = true;
+    this.isHost = false;
+    console.log("Hunter Button");
+  }
+
+  public hostButton() {
+    this.isHost = true;
+    this.isHunter = false;
+    console.log("Host Button");
+  }
 
   constructor(public router: Router, public uServ: UserLoginService) { }
 
   ngOnInit(): void {
     localStorage.removeItem("loggedUser");
+    document.getElementById("user_login");
   }
 
-  public login(userForm: FormGroup) {
+  public userlogin(userForm: FormGroup) {
     let user = new User(userForm.get("username").value, userForm.get("password").value);
     localStorage.setItem("loggedUser", JSON.stringify(user));
     console.log(user);
+    this.router.navigate(['./homepage-user']);
 
-    // if a user is returned navigate to the next component you want, otherwise notify the user
-    if (this.isHunter) {
-      this.router.navigate(['./profile-host']);
-      //this.uServ.bHunterLogin(JSON.stringify(user)).subscribe(
-      // response => {
-      //   console.log(response);
-      //   this.router.navigate(['profile-host']);
-      // },
-      // error => {
-      //   console.log("login failed");
-      // }
-      //);
-    } else if (this.isHost) {
-      this.router.navigate(['/profile/profile-host']);
-    }
+  }
+
+  public hostlogin(hostForm: FormGroup) {
+    let host = new Host(hostForm.get("username").value, hostForm.get("password").value);
+    localStorage.setItem("loggedUser", JSON.stringify(host));
+    console.log(host);
+    this.router.navigate(['./homepage-host']);
   }
 }
 
