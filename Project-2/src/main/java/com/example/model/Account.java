@@ -32,8 +32,9 @@ public class Account {
 
 	
 	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
-	@JoinColumn(name="asset_id")
-	private List<Asset> asset;
+//	@JoinColumn(name="asset_id")
+	@JsonBackReference(value="al")
+	private List<Asset> assetlist;
 
 	
 	public Account() {
@@ -41,16 +42,16 @@ public class Account {
 	}
 
 
-	public Account(int accountid, List<Asset> asset) {
+	public Account(int accountid, List<Asset> assetlist) {
 		super();
 		this.accountid = accountid;
-		this.asset = asset;
+		this.assetlist = assetlist;
 	}
-	
-	public Account(List<Asset> asset) {
-		super();
 
-		this.asset = asset;
+
+	public Account(List<Asset> assetlist) {
+		super();
+		this.assetlist = assetlist;
 	}
 
 
@@ -59,18 +60,24 @@ public class Account {
 	}
 
 
-	public List<Asset> getAssets() {
-		return asset;
+
+	public List<Asset> getAssetlist() {
+		return assetlist;
 	}
 
-	public void setAssests(List<Asset> asset) {
-		this.asset = asset;
+
+	public void setAssetlist(List<Asset> assetlist) {
+		this.assetlist = assetlist;
 	}
+
 
 	@Override
 	public String toString() {
-		return "Account [accountid=" + accountid +  ", asset=" + asset + "]";
+		return "Account [accountid=" + accountid + ", assetlist=" + assetlist + "]";
 	}
+
+
+	
 
 		
 

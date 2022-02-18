@@ -75,10 +75,10 @@ public class UserController {
 		asList4.add(assest4);
 		
 		//This is storing the assets into their accounts
-		account1.setAssests(asList1);
-		account2.setAssests(asList2);
-		account3.setAssests(asList3);
-		account4.setAssests(asList4);
+		account1.setAssetlist(asList1);
+		account2.setAssetlist(asList2);
+		account3.setAssetlist(asList3);
+		account4.setAssetlist(asList4);
 		
 		//This is creating the 4 users
 		User user1 = new User("Boba", "Fett", "AlphaFett1", "M4nd410ri4n",
