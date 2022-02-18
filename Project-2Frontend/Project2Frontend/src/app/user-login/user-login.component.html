@@ -36,10 +36,11 @@
         <h1>Login</h1>
     </div>
 
-    <div class="center">
+    <div *ngIf="isHunter" class="center">
         <div class="column">
             <div class="row">
-                <form>
+                <form [formGroup]="userForm">
+                    <label *ngIf="wronglogin" id="wronglogin" style="color: crimson" class="form-label">Bad Login</label>
                     <div class="mb-3">
                         <label class="form-label">Username:</label> <br>
                         <input type="text" id="username" class="form-control" formControlName="username"
@@ -53,14 +54,14 @@
                     <div class="center">
                         <br>
                         <!-- onclick="window.open('https://www.angularjswiki.com') -->
-                        <button class="btn btn-primary" id="loginButton" (click)="userlogin(userForm)">Login</button>
+                        <button class="btn btn-danger" id="loginButton" (click)="userlogin(userForm)">Login</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 
- <!--    <div *ngIf="isHunter" class="center">
+    <div *ngIf="isHost" class="center">
         <div class="column">
             <div class="row">
                 <form>
@@ -76,13 +77,13 @@
                     </div>
                     <div class="center">
                         <br>
-                         onclick="window.open('https://www.angularjswiki.com') 
-                        <button class="btn btn-primary" id="loginButton" (click)="userlogin(userForm)">Login</button>
+                         <!-- onclick="window.open('https://www.angularjswiki.com')  -->
+                        <button class="btn btn-primary" id="loginButton" (click)="hostlogin(hostForm)">Login</button>
                     </div>
                 </form>
             </div>
         </div>
-    </div> -->
+    </div>
 
     <br>
 

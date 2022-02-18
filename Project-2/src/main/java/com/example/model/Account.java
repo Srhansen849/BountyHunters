@@ -18,9 +18,8 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
-
-@Entity
 @JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class, property="accountid")
+@Entity
 @Table(name="account")
 public class Account {
 	
@@ -32,9 +31,10 @@ public class Account {
 
 	
 	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
-//	@JoinColumn(name="asset_id")
-	@JsonBackReference(value="al")
-	private List<Asset> assetlist;
+
+	@JoinColumn(name="account_id")
+	private List<Asset> asset;
+
 
 	
 	public Account() {
@@ -42,16 +42,16 @@ public class Account {
 	}
 
 
-	public Account(int accountid, List<Asset> assetlist) {
+	public Account(int accountid, List<Asset> asset) {
 		super();
 		this.accountid = accountid;
-		this.assetlist = assetlist;
+		this.asset = asset;
 	}
 
 
-	public Account(List<Asset> assetlist) {
+	public Account(List<Asset> asset) {
 		super();
-		this.assetlist = assetlist;
+		this.asset = asset;
 	}
 
 
@@ -61,19 +61,19 @@ public class Account {
 
 
 
-	public List<Asset> getAssetlist() {
-		return assetlist;
+	public List<Asset> getAsset() {
+		return asset;
 	}
 
 
-	public void setAssetlist(List<Asset> assetlist) {
-		this.assetlist = assetlist;
+	public void setAsset(List<Asset> asset) {
+		this.asset = asset;
 	}
 
 
 	@Override
 	public String toString() {
-		return "Account [accountid=" + accountid + ", assetlist=" + assetlist + "]";
+		return "Account [accountid=" + accountid + ", asset=" + asset + "]";
 	}
 
 

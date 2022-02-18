@@ -7,4 +7,5 @@ export class User{
                 public email?:string, public rank?:number, 
                 public codename?:string, public account?:Account, 
                 public userid?:number){}
+
 }

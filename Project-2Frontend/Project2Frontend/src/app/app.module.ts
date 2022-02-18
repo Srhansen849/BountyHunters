@@ -13,6 +13,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { ProfileHostComponent } from './profile/profile-host/profile-host.component';
 import { UploadBountyComponent } from './bounty/upload/upload-bounty.component'
 import { RegisterBountyComponent } from './bounty/register/register-bounty.component'
+import { BountyComponent } from './bounty/bounty.component';
 
 
 
@@ -29,7 +30,7 @@ import { RegisterBountyComponent } from './bounty/register/register-bounty.compo
     ForgotPasswordComponent,
     UploadBountyComponent,
     RegisterBountyComponent,
-    
+    BountyComponent
 
 
   ],

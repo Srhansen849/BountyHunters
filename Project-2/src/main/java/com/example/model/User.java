@@ -20,8 +20,8 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
-@Entity
 @JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class, property="userid")
+@Entity
 @Table(name="user_table")
 public class User {
 
