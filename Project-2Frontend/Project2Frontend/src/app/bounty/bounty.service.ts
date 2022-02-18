@@ -37,5 +37,19 @@ export class BountyService{
         return this.http.post<Bounty>(this.urlBase+"/finishbounty", bounty, this.httpHead)
     }
 
+    public getAllBountyHunters(): Observable<Bounty> {
+      return this.http.get<Bounty>(this.urlBase + "/bounty/submit", this.httpHead);
+  }
+
+  // get the complete bounty
+  public getAllCompleteBounty(): Observable<Bounty> {
+      return this.http.post<Bounty>(this.urlBase + "/bounty/finish", this.httpHead);
+  }
+
+  // get all the active bounty
+  public getAllActiveBounty(): Observable<Bounty> {
+      return this.http.get<Bounty>(this.urlBase + "/bounty/register", this.httpHead);
+  }
+
 
 }

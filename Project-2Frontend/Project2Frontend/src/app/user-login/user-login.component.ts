@@ -62,16 +62,11 @@ export class UserLoginComponent implements OnInit {
 
       },
       error => {
-        console.warn("that food already exists");
+        console.warn("the wrong cedensals");
         this.wronglogin=true;
       }
     )
-    /* this.foodServ.getAllFood().subscribe(
-      response => {
-        console.log(response);
-        this.foodList=response;
-      }
-    ); */
+    
 
   }
 

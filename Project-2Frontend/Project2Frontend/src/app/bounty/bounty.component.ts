@@ -4,7 +4,7 @@ import { Bounty } from './objects/bounty-object';
 import { BountyService } from './bounty.service';
 
 @Component({
-  selector: 'app-confirmed-bounties',
+  selector: 'app-bounty',
   templateUrl: './bounty.component.html',
   styleUrls: ['./bounty.component.css']
 })

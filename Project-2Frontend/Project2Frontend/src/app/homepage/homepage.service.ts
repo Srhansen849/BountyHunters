@@ -6,4 +6,8 @@ import { Injectable } from '@angular/core';
 export class HomepageService {
 
   constructor() { }
+
+  public getAllRankedBH(): Observable<Bounty[]> {
+    return this.http.get<Bounty[]>(this.urlBase, this.httpHead);
+  }
 }

@@ -117,10 +117,9 @@ public class Bounty {
 		this.time = time;
 	}
 	
-	public Bounty(String capture, double amount, String currency, Host hostHolder, Criminal criminalid,
+	public Bounty(double amount, String currency, Host hostHolder, Criminal criminalid,
 			Status preferid, String time, Status activeid) {
 		super();
-		this.capture = capture;
 		this.amount = amount;
 		this.currency = currency;
 		this.hostHolder = hostHolder;

@@ -31,7 +31,7 @@ public class Account {
 
 	
 	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
-	@JoinColumn(name="account_id")
+//	@JoinColumn(name="account_id")
 	private List<Asset> asset;
 
 	
