@@ -1,19 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Bounty } from '../bounty-object';
 import { BountyService } from '../bounty.service';
-import { Criminal } from '../criminal-object';
+
 
 @Component({
   selector: 'app-register-bounty',
-  templateUrl: './register-bounty.component.html',
-  styleUrls: ['./register-bounty.component.css']
+  templateUrl: './register-bounty.component.html'
 })
 export class RegisterBountyComponent implements OnInit {
 
 
-  bounty = new FormGroup({
+  bountyForm = new FormGroup({
     statusid: new FormControl(''),
     capture: new FormControl(''),
     amount: new FormControl(''),

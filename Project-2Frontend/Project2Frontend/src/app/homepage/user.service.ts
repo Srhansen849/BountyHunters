@@ -3,6 +3,7 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { User } from "../bounty/objects/user-object";
 
+
 @Injectable({
     providedIn: 'root'
 })
@@ -28,7 +29,7 @@ export class UserService{
     }
 
     public bountyHunterLogin(username:string, password:string): Observable<User>{
-        return this.http.post<User>(this.urlBase+"/login",this.httpHead)
+        return this.http.post<User>(this.urlBase+"/login", this.httpHead)
     }
 
     public updateProfile(user:string): Observable<User>{

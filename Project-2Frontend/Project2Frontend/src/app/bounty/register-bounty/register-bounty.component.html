@@ -41,7 +41,7 @@
 
 <!--Criminal Data -->
 <div class="column">
-    <form style="padding: 20px" [formGroup]="bounty">
+    <form style="padding: 20px">
         <h5 class="center">Criminal Data</h5>
         <br>
     
@@ -138,15 +138,15 @@
             <p>Preferred Status:</p>
             <div class="row">
                 <div class="column">
-                    <input type="radio" id="alive" name="preferred_status" value="2" formControlName="status">
+                    <input type="radio" id="alive" name="preferred_status" value="alive" formControlName="preferid">
                     <label for="alive"> Alive</label><br>
                 </div>
                 <div class="column">
-                    <input type="radio" id="dora" name="preferred_status" value="4" formControlName="status">
+                    <input type="radio" id="dora" name="preferred_status" value="deadoralive" formControlName="preferid">
                     <label for="dora"> Dead or Alive</label><br>
                 </div>
                 <div class="column">
-                    <input type="radio" id="dead" name="preferred_status" value="3" formControlName="status">
+                    <input type="radio" id="dead" name="preferred_status" value="dead" formControlName="preferid">
                     <label for="dead"> Dead</label>
                 </div>
             </div>
@@ -176,14 +176,14 @@
         </div>
 
         <div class="center">
-            <button class="btn btn-primary" id="submit_bounty" (click)="submitBounty(bounty)">Submit</button>
+            <button class="btn btn-primary" id="submit_bounty" (click)="submitBounty(bountyForm)">Submit</button>
         </div>
 
 
 
         <br>
 
-   </form>
+    </form>
 </div>
 
 

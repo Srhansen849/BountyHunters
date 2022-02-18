@@ -4,8 +4,7 @@ import { BountyService } from '../bounty.service';
 
 @Component({
   selector: 'app-register-bounty',
-  templateUrl: './register-bounty.component.html',
-  styleUrls: ['./bounty.component.css']
+  templateUrl: './register-bounty.component.html'
 })
 export class RegisterBountyComponent implements OnInit {
 

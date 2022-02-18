@@ -23,7 +23,7 @@
     <br>
     <br>
 
-    <!--Check Current Personal Active bounties-->
+    <!--Check Current Personal Active Bounties-->
     <div class="row">
         <div class="column">
             <table class="table table-striped table-white" id="#">
@@ -52,7 +52,7 @@
                         <label class="description">Description of Capture</label> <br>
                         <div>
                             <textarea name="description_of_capture" id="description_of_capture" class="control-form"
-                                rows="4" cols="55"></textarea>
+                                rows="4" cols="55" formControlName="capture"></textarea>
                         </div>
                     </div>
                 </div>
@@ -62,16 +62,16 @@
                         <p>Preferred Status:</p>
                         <div class="row">
                             <div class="column">
-                                <input type="radio" id="alive" name="preferred_status" value="ALIVE">
-                                <label for="alive"> Only Alive</label><br>
+                                <input type="radio" id="alive" name="preferred_status" value="alive" formControlName="preferid">
+                                <label for="alive">Alive</label><br>
                             </div>
                             <div class="column">
-                                <input type="radio" id="dora" name="preferred_status" value="DORA">
-                                <label for="dora"> Dead or Alive</label><br>
+                                <input type="radio" id="dora" name="preferred_status" value="dead_or_alive" formControlName="preferid">
+                                <label for="dora">Dead or Alive</label><br>
                             </div>
                             <div class="column">
-                                <input type="radio" id="dead" name="preferred_status" value="DEAD">
-                                <label for="dead"> Only Dead</label>
+                                <input type="radio" id="dead" name="preferred_status" value="dead" formControlName="preferid">
+                                <label for="dead">Dead</label>
                             </div>
                         </div>
                     </div>
@@ -83,12 +83,12 @@
                         <p>Status of Bounty:</p>
                         <div class="row">
                             <div class="column">
-                                <input type="radio" id="alive" name="preferred_status" value="ALIVE">
-                                <label for="alive"> Only Alive</label><br>
+                                <input type="radio" id="alive" name="preferred_status" value="alive" formControlName="turninid">
+                                <label for="alive">Alive</label><br>
                             </div>
                             <div class="column">
-                                <input type="radio" id="dead" name="preferred_status" value="DEAD">
-                                <label for="dead"> Dead </label><br>
+                                <input type="radio" id="dead" name="preferred_status" value="alive" formControlName="turninid">
+                                <label for="dead">Dead </label><br>
                             </div>
                         </div>
                     </div>
@@ -99,38 +99,36 @@
                     <div class="col-md-6">
                         <label class="amount_for_bounty" for="inputbounty">Amount for Bounty:</label>
                         <input class="form-control" id="inputbounty" type="text"
-                            placeholder="Enter your amount for bounty" value="$1000">
+                            placeholder="Enter amount for bounty" formControlName="amount">
                     </div>
                 </div>
                 <br>
-            </form>
-        </div>
+           
+        
 
-        <!--Post Personal Bounties Table-->
-        <div class="column">
+        <!--Post Bounty Hunter-->
+        
             <h5 class="center" style="padding-right: 180px;">Bounty Hunter Details</h5>
             <br>
-            <form action="" style="width: 70%; padding: 20px">
+            
 
                 <div class="row gx-3 mb-3">
                     <!-- First Name-->
                     <div class="col-md-6 column">
                         <label class="first_name" for="inputFirstName">First name:</label>
-                        <input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name"
-                            value="John"> <br>
+                        <input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" formControlName="firstname"
+                            > <br>
 
                         <h5>Or</h5>
 
                         <label class="last_name" for="inputLastName">CodeName:</label>
-                        <input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name"
-                            value="Smith">
+                        <input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name" formControlName="codename">
                     </div>
 
                     <!-- Last Name-->
                     <div class="col-md-6 column">
                         <label class="last_name" for="inputLastName">Last name:</label>
-                        <input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name"
-                            value="Smith">
+                        <input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name" formControlName="lastname">
                     </div>
                 </div>
 
@@ -140,13 +138,13 @@
             <form action="" style="width: 70%; padding: 20px">
                 <div class="col-md-6">
                     <label class="amount_for_bounty" for="inputbounty">Amount for Bounty:</label>
-                    <input class="form-control" id="inputbounty" type="text" placeholder="Enter your amount" value="">
+                    <input class="form-control" id="inputbounty" type="number" placeholder="Enter your amount" formControlName="amount">
                 </div>
 
                 <br>
 
                 <div>
-                    <button class="btn btn-primary" id="submit_amount">Submit</button> <br>
+                    <button class="btn btn-primary" id="submit_amount" (click)="confirmBounty(confirmBountyForm)">Submit</button>
                 </div>
                 <br>
             </form>
