@@ -204,63 +204,56 @@
                 </div>
 
                 <div class="center">
-                    <button class="btn btn-primary" id="submit_bounty"
-                        (click)="submitBounty(bountyForm)">Submit</button>
+                    <button class="btn btn-primary" id="submit_bounty">Submit</button>
                 </div>
 
-                <button class="btn btn-primary" id="submit_bounty" (click)="submitBounty(bountyForm)">Submit</button>
-    </div>
+                <button class="btn btn-primary" id="submit_bounty">Submit</button>
 
 
-    </form>
+                <!--Post Personal Bounties Table-->
+                <div class="column">
+                    <h5 class="center">Status of Bounty</h5>
+                    <br>
+                    <form action="" style="padding: 20px">
+                        <!--[formGroup]="bountyForm"-->
 
+                        <div class="status_of_bounty">
+                            <p>Preferred Status:</p>
+                            <div class="row">
+                                <div class="column">
+                                    <input type="radio" id="alive" name="preferred_status" value="ALIVE">
+                                    <label for="alive"> Only Alive</label><br>
+                                </div>
+                                <div class="column">
+                                    <input type="radio" id="dora" name="preferred_status" value="DORA">
+                                    <label for="dora"> Dead or Alive</label><br>
+                                </div>
+                                <div class="column">
+                                    <input type="radio" id="dead" name="preferred_status" value="DEAD">
+                                    <label for="dead"> Only Dead</label>
+                                </div>
+                            </div>
+                        </div>
 
-    <!--Post Personal Bounties Table-->
-    <div class="column">
-        <h5 class="center">Status of Bounty</h5>
-        <br>
-        <form action="" style="padding: 20px">
-            <!--[formGroup]="bountyForm"-->
+                        <br>
+                        <div class="col-md-6">
+                            <label class="time_lime" for="inputtimelimit">Time Limit:</label>
+                            <input class="form-control" id="inputtimelimit" type="text"
+                                placeholder="Enter your time limit" value="">
+                        </div>
+                        <br>
 
-            <div class="status_of_bounty">
-                <p>Preferred Status:</p>
-                <div class="row">
-                    <div class="column">
-                        <input type="radio" id="alive" name="preferred_status" value="ALIVE">
-                        <label for="alive"> Only Alive</label><br>
-                    </div>
-                    <div class="column">
-                        <input type="radio" id="dora" name="preferred_status" value="DORA">
-                        <label for="dora"> Dead or Alive</label><br>
-                    </div>
-                    <div class="column">
-                        <input type="radio" id="dead" name="preferred_status" value="DEAD">
-                        <label for="dead"> Only Dead</label>
-                    </div>
-                </div>
-            </div>
+                        <div class="col-md-6">
+                            <label class="amount_for_bounty" for="inputbounty">Amount for Bounty:</label>
+                            <input class="form-control" id="inputbounty" type="text"
+                                placeholder="Enter your amount for bounty" value="">
+                        </div>
 
-            <br>
-            <div class="col-md-6">
-                <label class="time_lime" for="inputtimelimit">Time Limit:</label>
-                <input class="form-control" id="inputtimelimit" type="text" placeholder="Enter your time limit"
-                    value="">
-            </div>
-            <br>
-
-            <div class="col-md-6">
-                <label class="amount_for_bounty" for="inputbounty">Amount for Bounty:</label>
-                <input class="form-control" id="inputbounty" type="text" placeholder="Enter your amount for bounty"
-                    value="">
-            </div>
-
-            <!-- <div class="center">
+                        <!-- <div class="center">
                                 <button class="btn btn-primary" id="submit_profile">Submit</button> <br>
             </div> -->
 
-            <br>
+                        <br>
 
-        </form>
-    </div>
-
-    >>>>>>> stuff
+                    </form>
+                </div>
