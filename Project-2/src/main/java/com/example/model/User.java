@@ -55,11 +55,11 @@ public class User {
 	
 
 	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	@JoinColumn(name="account_id")
+	@JoinColumn(name="account_fk")
 	private Account account;
 	
 	@OneToMany(mappedBy="bhHolder", fetch=FetchType.EAGER)
-	//@JoinColumn(name="bounty_fk")
+//	@JoinColumn(name="bounty_fk")
 //	@JsonBackReference(value="bh")
 	private List<Bounty> bounty_list;
 	

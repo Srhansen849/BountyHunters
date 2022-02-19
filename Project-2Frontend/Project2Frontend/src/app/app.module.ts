@@ -33,7 +33,7 @@ import { ComfirmBountyComponent } from './bounty/confirm/confirm-bounty.componen
     RegisterBountyComponent,
     ComfirmBountyComponent,
     BountyComponent
-
+    
 
   ],
   imports: [

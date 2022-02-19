@@ -12,7 +12,7 @@ import { Criminal } from '../objects/criminal-object';
 })
 export class RegisterBountyComponent implements OnInit {
 
-  bounty: Bounty;
+  
 
   bountyForm = new FormGroup({
     statusid: new FormControl(''),

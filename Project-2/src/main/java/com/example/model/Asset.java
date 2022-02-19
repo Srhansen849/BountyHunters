@@ -1,6 +1,5 @@
 package com.example.model;
 
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,9 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 
-
 import javax.persistence.CascadeType;
-
 
 import javax.persistence.FetchType;
 
@@ -22,30 +19,27 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
-
 @Entity
-@JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class, property="assetid")
-@Table(name="asset")
+@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "assetid")
+@Table(name = "asset")
 public class Asset {
-	
+
 	@Id
-	@Column(name="asset_id")
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name = "asset_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int assetid;
-	
-	@Column(name="currency")
+
+	@Column(name = "currency")
 	private String currency;
-	
-	@Column(name="balance")
+
+	@Column(name = "balance")
 	private double balance;
-	
-	
-	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	@JoinColumn(name="account_fk")
+
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = "account_fk")
 	@JsonBackReference
 	private Account accountid;
 
-	
 	public Asset() {
 		// TODO Auto-generated constructor stub
 	}
@@ -83,8 +77,6 @@ public class Asset {
 		this.balance = balance;
 	}
 
-
-
 	public Account getAssetHolder() {
 		return accountid;
 	}
@@ -92,7 +84,6 @@ public class Asset {
 	public void setAssetHolder(Account assetHolder) {
 		this.accountid = assetHolder;
 	}
-
 
 	public int getAssetid() {
 		return assetid;
@@ -105,6 +96,3 @@ public class Asset {
 	}
 
 }
-	
-
-
