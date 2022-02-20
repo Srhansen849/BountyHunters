@@ -49,34 +49,34 @@ td {
 }
 
 
- .regi_forms {
-        border-radius: 5px;
-        padding: 20px;
-        box-shadow: 1px 1px 20px cyan;
-        background-color: rgba(235, 120, 13, 0.7);
-    }
-  h1 h2 h3 h4 h5 h6 {
-        color: bisque;
-    }
+.regi_forms {
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 1px 1px 20px cyan;
+  background-color: rgba(235, 120, 13, 0.7);
+}
 
-    .fi
-            {
-                border: 1px solid cyan;
-                background-color: transparent;
-                width: 100%;
-                /* margin-right: 100px; */
-                margin-bottom: 15px;
-                display: flex;
-                 text-decoration: none;
-                color: rgb(91, 216, 216);
-            }
+h1 h2 h3 h4 h5 h6 {
+  color: bisque;
+}
 
-    .row_table {
-        color: rgb(201, 235, 8);
-    }
+.fi {
+  border: 1px solid cyan;
+  background-color: transparent;
+  width: 100%;
+  /* margin-right: 100px; */
+  margin-bottom: 15px;
+  display: flex;
+  text-decoration: none;
+  color: rgb(91, 216, 216);
+}
+
+.row_table {
+  color: rgb(201, 235, 8);
+}
 
 
 #username, #password {
-                text-decoration: none;
-                color: rgb(91, 216, 216);
+  text-decoration: none;
+  color: rgb(91, 216, 216);
 }
