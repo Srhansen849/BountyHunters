@@ -16,15 +16,14 @@ export class ComfirmBountyComponent implements OnInit {
     caputre: new FormControl(''),
     preferid: new FormControl(''),
     turninid: new FormControl(''),
-    amount: new FormControl(''),
-      userForm: new FormGroup({
-        firstname: new FormControl(''),
-        codename: new FormControl(''),
-        lastname: new FormControl(''),
-        amount: new FormControl('')
-      })
+    amount: new FormControl('')
   })
-  
+  userForm = new FormGroup({
+    firstname: new FormControl(''),
+    codename: new FormControl(''),
+    lastname: new FormControl(''),
+    amount: new FormControl('')
+    })
 
 
   constructor(private bServ:BountyService, private router:Router, private actRoute:ActivatedRoute) { }

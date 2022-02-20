@@ -32,9 +32,9 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     let user = JSON.parse(localStorage.getItem("loggedUser"));
     console.log(user);
-    if (!user) {
-      this.router.navigate(["/login"]);
-    }
+    // if (!user) {
+    //   this.router.navigate(["/login"]);
+    // }
 
     this.pServ.getAllPastBounty().subscribe(
       response => {
@@ -71,7 +71,7 @@ export class ProfileComponent implements OnInit {
     let stringprofile = JSON.stringify(profile.value);
     console.log(profile.value);
     this.pServ.editUserProfile(stringprofile).subscribe(
-      
+
     )
   }
 

@@ -1,0 +1,27 @@
+<div class="center">
+    <a type="button" style="margin-right:300px" href="http://localhost:4200/homepage"
+        class="btn btn-primary btn-lg">Home</a>
+    <a type="button" style="margin-left:300px" href="http://localhost:4200/login"
+        class="btn btn-primary btn-lg">Login</a>
+</div>
+
+<br><br>
+
+<div class="center">
+    <h2><b>Create a New Account</b></h2>
+</div>
+
+<br>
+
+<div class="center">
+    <input type="radio" id="hunternewaccount" name="newaccount" (click) = "newHunter()">
+    <label style="margin-right:50px" for="hunter">&nbsp;&nbsp;New Bounty Hunter</label>
+
+    <input type="radio" id="hostnewaccount" name="newaccount" (click) = "newHost()">
+    <label for="host">&nbsp;&nbsp;New Business Owner</label>
+</div>
+
+<br><br>
+
+<app-new-bounty-hunter *ngIf = "isHunter"></app-new-bounty-hunter>
+<app-new-host *ngIf = "isHost"></app-new-host>

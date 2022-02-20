@@ -41,6 +41,7 @@
             <div class="row">
                 <form [formGroup]="userForm">
                     <label *ngIf="wronglogin" id="wronglogin" style="color: crimson" class="form-label">the wrong credentials were entered</label>
+                    <br>
                     <div class="mb-3">
                         <label class="form-label">Username:</label> <br>
                         <input type="text" id="username" class="form-control" formControlName="username"
@@ -67,6 +68,7 @@
                 <form [formGroup]="hostForm">
                     <div class="mb-3">
                         <label *ngIf="wronglogin" id="wronglogin" style="color: crimson" class="form-label">the wrong credentials were entered</label>
+                        <br>
                         <label class="form-label">Username:</label> <br>
                         <input type="text" id="username" class="form-control" formControlName="username"
                             placeholder="Enter username" value="">

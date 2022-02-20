@@ -1,0 +1,67 @@
+
+
+
+
+
+<div class="center">
+    <h1>Bounty Hunter Profile</h1>
+</div>
+
+<br>
+
+<div class="center">
+
+</div>
+<br>
+<br>
+
+<div class="row">
+ <div class="column">
+    <form [formGroup]="profileForm">
+        <div class="row gx-3 mb-3">
+            <div class="col-md-6">
+                <label class="first_name" for="inputFirstName">Name:</label>
+                <label *ngIf="isTitle"></label>
+                <input *ngIf="isEditable" class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name">
+            </div>
+        </div>
+
+        <div class="row gx-3 mb-3">
+            <div class="col-md-6">
+                <label class="email_address" for="inputemailaddress">Email Address:</label>
+                <input *ngIf="isEditable" class="form-control" id="inputemailaddress" type="text"
+                    placeholder="email">
+            </div>
+        </div>
+
+        <div *ngIf="isEditable" class="row gx-3 mb-3">
+
+            <div class="col-md-6">
+                <label class="password" for="inputPassword">Password:</label>
+                <input class="form-control" id="inputPassword" type="text" placeholder="Enter your password">
+            </div>
+        </div>
+
+        <!-- <div class="row gx-3 mb-3">
+            <select name="type" class="asset" *ngFor="">
+                <option>none</option>
+                <option value="currency"></option>
+            </select> 
+           <label aria-placeholder="balance">balance</label>
+        </div> -->
+
+
+
+        <!-- <div class="row gx-3 mb-3">
+            <label for="avatar">Upload an Image</label>
+            <input type="file" id="img" name="img" accept="image/png, image/jpeg">
+        </div>  -->
+
+        <div class="center">
+            <button class="btn btn-primary" id="submit_profile" (click)="submitProfile(profileForm)">Submit</button> <br>
+            <button class="btn btn-primary" id="cancel_profile" (click)="editProfile()">Cancel</button> <br>
+        </div>
+
+    </form>
+</div>
+

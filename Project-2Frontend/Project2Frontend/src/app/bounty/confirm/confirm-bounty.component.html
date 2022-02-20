@@ -26,7 +26,7 @@
     <br>
     <br>
 
-    <!--Check Current Personal Active Bounties-->
+    <!--Check Current Active Bounties-->
     <div class="row">
         <div class="column">
             <form>
@@ -61,7 +61,7 @@
         <div class="column">
             <h5 class="center">Criminal Data</h5>
             <br>
-            <form style="padding: 20px">
+            <form style="padding: 20px" [formGroup]="confirmBountyForm">
                 <br>
                 <div class="row gx-3 mb-3">
                     <!-- Description of Capture -->
@@ -76,20 +76,10 @@
 
                 <div class="row gx-3 mb-3">
                     <div class="status_of_bounty">
-                        <p>Preferred Status:</p>
+                        <label>Preferred Status:</label>
                         <div class="row">
-                            <div class="column">
-                                <input type="radio" id="alive" name="preferred_status" value="alive" formControlName="preferid">
-                                <label for="alive">Alive</label><br>
-                            </div>
-                            <div class="column">
-                                <input type="radio" id="dora" name="preferred_status" value="dead_or_alive" formControlName="preferid">
-                                <label for="dora">Dead or Alive</label><br>
-                            </div>
-                            <div class="column">
-                                <input type="radio" id="dead" name="preferred_status" value="dead" formControlName="preferid">
-                                <label for="dead">Dead</label>
-                            </div>
+                            
+                            
                         </div>
                     </div>
                     <br>
@@ -100,12 +90,12 @@
                         <p>Status of Bounty:</p>
                         <div class="row">
                             <div class="column">
-                                <input type="radio" id="alive" name="preferred_status" value="alive" formControlName="turninid">
+                                <input type="radio" id="alive" name="turnin_status" value="Alive" formControlName="turninid">
                                 <label for="alive">Alive</label><br>
                             </div>
                             <div class="column">
-                                <input type="radio" id="dead" name="preferred_status" value="alive" formControlName="turninid">
-                                <label for="dead">Dead </label><br>
+                                <input type="radio" id="dead" name="turnin_status" value="Dead" formControlName="turninid">
+                                <label for="dead">Dead</label><br>
                             </div>
                         </div>
                     </div>
@@ -115,8 +105,6 @@
                 <div class="row gx-3 mb-3">
                     <div class="col-md-6">
                         <label class="amount_for_bounty" for="inputbounty">Amount for Bounty:</label>
-                        <input class="form-control" id="inputbounty" type="text"
-                            placeholder="Enter amount for bounty" formControlName="amount">
                     </div>
                 </div>
                 <br>
