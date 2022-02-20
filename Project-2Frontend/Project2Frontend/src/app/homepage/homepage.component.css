@@ -1,12 +1,120 @@
+body{
+    background-image: url('https://wallpaperaccess.com/full/257381.jpg');
+    font-family: Arial, Helvetica, sans-serif;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode:darken;
+}
+
 .center {
     display: flex;
     justify-content: center;
+}
+
+.flat {
+    width: 50%;
+    padding: 5px;
+}
+
+h1 h2 h3 h4 h5 h6 {
+    text-decoration: solid;
+    color: bisque;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.row {
+    margin-left: -5px;
+    margin-right: -5px;
+}
+
+.column {
+    float: left;
+    width: 33%;
+    padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 16px;
+}
+
+label {
+    color: bisque;    
+}
+
+.regi_forms {
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 1px 1px 20px cyan;
+  background-color: rgba(235, 120, 13, 0.7);
+}
+  
+h1 h2 h3 h4 h5 h6 {
+  color: bisque;
+}
+
+.fi {
+  border: 1px solid cyan;
+  border-radius: 100px;
+  background-color: transparent;
+  width: 100%;
+  /* margin-right: 100px; */
+  margin-bottom: 15px;
+  display: flex;
+}
+
+.row_table {
+  color: rgb(201, 235, 8);
+}
+
+
+#username, #password {
+  text-decoration: none;
+  color: rgb(91, 216, 216);
+}
+  
+@media screen and (max-width:810px) {
+  body {
+    background-image: url('https://wallpaperaccess.com/full/257381.jpg');
+    font-family: Arial, Helvetica, sans-serif;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode:darken;
   }
 
-form {
-    background-color: coral;
-    padding: 20px;
+  .center {
+    flex-direction: column;
   }
 
-  
-  
+  #button1 {
+    margin-right:150px;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin: 0 50px 0 0;
+  }
+
+  h1 {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+  }
+
+}

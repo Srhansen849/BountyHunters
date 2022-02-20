@@ -45,12 +45,14 @@ export class UserLoginComponent implements OnInit {
 
   ngOnInit(): void {
     localStorage.removeItem("loggedUser");
+    document.getElementById("user_login");
   }
 
   public userlogin(userForm: FormGroup) {
     let user = new User(userForm.get("username").value, userForm.get("password").value);
     localStorage.setItem("loggedUser", JSON.stringify(user));
     console.log(user);
+    
 
     this.uServ.bHunterLogin(user).subscribe(
       response => {

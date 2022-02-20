@@ -5,9 +5,6 @@ import { Bounty } from '../bounty/objects/bounty-object';
 import { Host } from '../bounty/objects/host-object';
 import { User } from '../bounty/objects/user-object';
 
-@Injectable({
-  providedIn: 'root'
-})
 export class ProfileService {
 
 

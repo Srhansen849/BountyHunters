@@ -16,11 +16,16 @@ public interface AssetDAO extends JpaRepository<Asset, Integer>{
 
 
 	public Asset getAssetByCurrency(String currency);
-	public List<Asset> getAssetByAccountid(Account account);
+
+	public List<Asset> getAssetByAssetHolder(Account account);
+
+
 
 	//public Asset updateAsset(Asset asset, double amount);
 
 	public Asset findAssetByCurrency(String currency);
+
+	public List<Asset> getAssetByAccountid(Account account);
 	
 
 }

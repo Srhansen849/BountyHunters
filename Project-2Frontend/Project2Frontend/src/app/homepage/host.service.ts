@@ -9,32 +9,32 @@ import { Host } from "../bounty/objects/host-object";
     providedIn: 'root'
 })
 
-export class HostService{
+export class HostService {
 
     private urlBase = "http://localhost:9015/host"
     httpHead = {
         headers: new HttpHeaders({
-            'Content-Type':'application/json',
-            'Access-Control-Allow-Origin':'*'
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
         })
     };
 
-    constructor(private http: HttpClient){}
+    constructor(private http: HttpClient) { }
 
-    public HostLogin(host:string): Observable<Host>{
-        return this.http.post<Host>(this.urlBase+"/login", host, this.httpHead)
+    public HostLogin(host: string): Observable<Host> {
+        return this.http.post<Host>(this.urlBase + "/login", host, this.httpHead)
     }
 
-    public updateProfile(host:string): Observable<Host>{
-        return this.http.post<Host>(this.urlBase+"/profile", host, this.httpHead)
+    public updateProfile(host: string): Observable<Host> {
+        return this.http.post<Host>(this.urlBase + "/profile", host, this.httpHead)
     }
 
-    public getProfileInfo(host:string): Observable<Host>{
-        return this.http.get<Host>(this.urlBase+"/profileinfo", this.httpHead)
+    public getProfileInfo(host: string): Observable<Host> {
+        return this.http.get<Host>(this.urlBase + "/profileinfo", this.httpHead)
     }
 
-    public createNewHost(host:string): Observable<Host>{
-        return this.http.post<Host>(this.urlBase+"/new", host, this.httpHead)
+    public createNewHost(host: string): Observable<Host> {
+        return this.http.post<Host>(this.urlBase + "/new", host, this.httpHead)
     }
 
 

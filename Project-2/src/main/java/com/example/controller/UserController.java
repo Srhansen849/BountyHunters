@@ -122,7 +122,8 @@ public class UserController {
 		if (!userOpt.isPresent()) {
 			return ResponseEntity.badRequest().build();
 		}
-		User nuser = uServ.verifyPassword(user.getUsername(), user.getPassword());
+
+		User nuser =  uServ.verifyPassword(user.getUsername(), user.getPassword());
 
 		return ResponseEntity.status(201).body(nuser);
 	}
@@ -156,8 +157,10 @@ public class UserController {
 		Optional<User> codename = Optional.ofNullable(uServ.getUserByCodename(user.getCodename()));
 		Optional<User> firstname = Optional.ofNullable(uServ.getUserByFirstname(user.getFirstname()));
 		Optional<User> lastname = Optional.ofNullable(uServ.getUserByLastname(user.getLastname()));
+
 		if (username.isPresent() | email.isPresent() | codename.isPresent() | firstname.isEmpty() | lastname.isEmpty()
 				| email.isEmpty() | username.isEmpty()) {
+
 
 			return ResponseEntity.badRequest().build();
 		}

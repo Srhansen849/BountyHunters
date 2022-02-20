@@ -10,7 +10,6 @@ import { User } from '../bounty/objects/user-object';
 })
 export class HomepageService {
 
-
   private urlBase = "http://localhost:9015/bounty"
   httpHead = {
     headers: new HttpHeaders({
