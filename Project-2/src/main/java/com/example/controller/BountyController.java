@@ -215,9 +215,24 @@ public class BountyController {
 		return ResponseEntity.status(200).body(this.bServ.getAllActiveBounty());
 	}
 	
+	@GetMapping("/complete")
+	public ResponseEntity<List<Bounty>> findAllCompletedBounty(){
+		return ResponseEntity.status(200).body(this.bServ.getAllCompletedBounty());
+	}
+	
+	@GetMapping("/private")
+	public ResponseEntity<List<Bounty>> findAllPrivateBounty(){
+		return ResponseEntity.status(200).body(this.bServ.getAllPrivateBounty());
+	}
+	
 	@GetMapping("/all")
 	public ResponseEntity<List<Bounty>> findAllBounty(){
 		return ResponseEntity.status(200).body(this.bServ.listAllBounty());
+	}
+	
+	@GetMapping("/criminal")
+	public ResponseEntity<List<Criminal>> findAllCriminals(){
+		return ResponseEntity.status(200).body(this.bServ.getCriminalAll());
 	}
 	
 	@GetMapping("/profile/{id}")

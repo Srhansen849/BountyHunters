@@ -108,6 +108,9 @@ public class BountyService {
 		return cDao.getCriminalListByLastname(last_name);
 	}
 	
+	public List<Criminal> getCriminalAll(){
+		return cDao.findAll();
+	}
 
 	public void insertBounty(Bounty bounty, Criminal criminal, String status) {
 		bDao.save(bounty);
@@ -133,6 +136,30 @@ public class BountyService {
 	}
 	
 	public List<Bounty> getAllActiveBounty(){
+		List <Bounty> bList = bDao.findAll();
+		List <Bounty> actList = new ArrayList<Bounty>();
+		for(Bounty temp: bList) {
+			String activity = temp.getActiveid();
+			if(activity.equals("Active") & temp.getBhHolder().equals(null)) {
+				actList.add(temp);
+			}
+		}
+		return actList;
+	}
+	
+	public List<Bounty> getAllCompletedBounty(){
+		List <Bounty> bList = bDao.findAll();
+		List <Bounty> actList = new ArrayList<Bounty>();
+		for(Bounty temp: bList) {
+			String activity = temp.getActiveid();
+			if(activity.equals("Completed")) {
+				actList.add(temp);
+			}
+		}
+		return actList;
+	}
+	
+	public List<Bounty> getAllPrivateBounty(){
 		List <Bounty> bList = bDao.findAll();
 		List <Bounty> actList = new ArrayList<Bounty>();
 		for(Bounty temp: bList) {

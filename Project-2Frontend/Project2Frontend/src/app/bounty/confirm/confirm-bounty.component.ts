@@ -34,6 +34,11 @@ export class ComfirmBountyComponent implements OnInit {
 
   }
   ngOnInit(): void {
+    let user = JSON.parse(localStorage.getItem("loggedUser"));
+    console.log(user);
+    if(!user){
+      this.router.navigate(["/login"]);
+    }
   }
 
 }

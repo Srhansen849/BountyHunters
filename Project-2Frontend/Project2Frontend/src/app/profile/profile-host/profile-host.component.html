@@ -1,4 +1,4 @@
-
+<div [ngStyle]="{'background' : 'url(https://wallpaperaccess.com/full/257381.jpg)'}">
     <br>
     <br>
 
@@ -47,14 +47,16 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- <tr *ngFor="let bounty of bountyList">
-                        <td>{{bounty.currency}}</td>
-                        <td>{{bounty.amount}}</td>
-                        <td>{{bounty.time}}</td>
-                        <td>{{criminal.firstname}}</td>
-                        <td>{{criminal.lastname}}</td>
-                        <td>{{criminal.codename}}</td>
-                    </tr> -->
+                        <tr *ngFor="let bounty of bountyList">
+                            <td>{{bounty.currency}}</td>
+                            <td>{{bounty.amount}}</td>
+                            <td>{{bounty.time}}</td>
+                        </tr>
+                        <tr *ngFor="let criminal of criminalList">
+                            <td>{{criminal.firstname}}</td>
+                            <td>{{criminal.lastname}}</td>
+                            <td>{{criminal.codename}}</td>
+                        </tr>
                     </tbody>
                 </table>
             </form>
@@ -67,38 +69,41 @@
                     <!-- First Name-->
                     <div class="col-md-6">
                         <label class="first_name" for="inputFirstName">First name:</label>
-                        <input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name"
-                            value="">
+                        <label *ngIf="isTitle"></label>
+                        <input *ngIf="isEditable" class="form-control" id="inputFirstName" type="text"
+                            placeholder="Enter your first name" value="">
                     </div>
                     <!-- Last Name-->
                     <div class="col-md-6">
                         <label class="last_name" for="inputLastName">Last name:</label>
-                        <input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name"
-                            value="">
+                        <label *ngIf="isTitle"></label>
+                        <input *ngIf="isEditable" class="form-control" id="inputLastName" type="text"
+                            placeholder="Enter your last name" value="">
                     </div>
                 </div>
 
                 <br>
-                <h5>Or</h5>
+                <p>Or</p>
                 <br>
 
                 <div class="row gx-3 mb-3">
                     <!-- Code name-->
                     <div class="col-md-6">
                         <label class="codename" for="inputCodeName">CodeName:</label>
-                        <input class="form-control" id="inputCodeName" type="text" placeholder="Enter your code name"
-                            value="">
+                        <label *ngIf="isTitle"></label>
+                        <input *ngIf="isEditable" class="form-control" id="inputCodeName" type="text"
+                            placeholder="Enter your code name" value="">
                     </div>
                     <!-- Email Address -->
                     <div class="col-md-6">
                         <label class="email_address" for="inputemailaddress">Email Address:</label>
-                        <input class="form-control" id="inputemailaddress" type="text"
+                        <label *ngIf="isTitle"></label>
+                        <input *ngIf="isEditable" class="form-control" id="inputemailaddress" type="text"
                             placeholder="Enter your email address" value="">
                     </div>
                 </div>
 
-                <div class="row gx-3 mb-3">
-                    <!-- Form Group (first name)-->
+                <div *ngIf="isEditable" class="row gx-3 mb-3">
                     <!-- Password -->
                     <div class="col-md-6">
                         <label class="password" for="inputPassword">Password:</label>
@@ -118,24 +123,26 @@
                     <!-- Associates -->
                     <div class="col-md-6">
                         <label class="associates" for="inputAssociates">Associates:</label>
-                        <input class="form-control" id="inputAssociates" type="text" placeholder="Enter your associates"
-                            value="">
+                        <label *ngIf="isTitle"></label>
+                        <input *ngIf="isEditable" class="form-control" id="inputAssociates" type="text"
+                            placeholder="Enter your associates" value="">
                     </div>
                     <!-- Representative -->
                     <div class="col-md-6">
                         <label class="representative" for="inputRepresentative">Representative:</label>
-                        <input class="form-control" id="inputRepresentative" type="text"
+                        <label *ngIf="isTitle"></label>
+                        <input *ngIf="isEditable" class="form-control" id="inputRepresentative" type="text"
                             placeholder="Enter your email address" value="">
                     </div>
                 </div>
 
                 <!--  Upload an image -->
-                <div class="row gx-3 mb-3">
+                <!-- <div class="row gx-3 mb-3">
                     <label for="avatar">Upload an Image</label>
                     <input type="file" id="img" name="img" accept="image/png, image/jpeg">
-                </div>
+                </div> -->
 
-                <div class="center">
+                <div *ngIf="isEditable" class="center">
                     <button class="btn btn-primary" id="submit_profile">Submit</button> <br>
                 </div>
 
@@ -158,14 +165,16 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- <tr *ngFor="let bounty of bountyList">
-                        <td>{{bounty.currency}}</td>
-                        <td>{{bounty.amount}}</td>
-                        <td>{{bounty.time}}</td>
-                        <td>{{criminal.firstname}}</td>
-                        <td>{{criminal.lastname}}</td>
-                        <td>{{criminal.codename}}</td>
-                    </tr> -->
+                        <tr *ngFor="let bounty of bountyList">
+                            <td>{{bounty.currency}}</td>
+                            <td>{{bounty.amount}}</td>
+                            <td>{{bounty.time}}</td>
+                        </tr>
+                        <tr *ngFor="let criminal of criminalList">
+                            <td>{{criminal.firstname}}</td>
+                            <td>{{criminal.lastname}}</td>
+                            <td>{{criminal.codename}}</td>
+                        </tr>
                     </tbody>
                 </table>
             </form>
@@ -173,84 +182,4 @@
 
     </div>
     <br><br><br><br>
-
-<!-- <div *ngIf="isVisable">
-<form> -->
-    <!-- <div class="row gx-3 mb-3">
-         First Name
-        <div class="col-md-6">
-            <label class="first_name" for="inputFirstName">First name:</label>
-            <input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name"
-                value="">
-        </div> -->
-        <!-- Last Name-->
-        <!-- <div class="col-md-6">
-            <label class="last_name" for="inputLastName">Last name:</label>
-            <input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name"
-                value="">
-        </div>
-    </div>
-
-    <br>
-    <h5>Or</h5>
-    <br>
-
-    <div class="row gx-3 mb-3"> -->
-        <!-- Code name-->
-        <!-- <div class="col-md-6">
-            <label class="codename" for="inputCodeName">CodeName:</label>
-            <input class="form-control" id="inputCodeName" type="text" placeholder="Enter your code name"
-                value="">
-        </div> -->
-        <!-- Email Address -->
-        <!-- <div class="col-md-6">
-            <label class="email_address" for="inputemailaddress">Email Address:</label>
-            <input class="form-control" id="inputemailaddress" type="text"
-                placeholder="Enter your email address" value="">
-        </div>
-    </div> -->
-
-    <!-- <div class="row gx-3 mb-3"> -->
-        <!-- Form Group (first name)-->
-        <!-- Password -->
-        <!-- <div class="col-md-6"> -->
-        <!--     <label class="password" for="inputPassword">Password:</label>
-            <input class="form-control" id="inputPassword" type="text" placeholder="Enter your password"
-                value="">
-        </div> -->
-
-        <!-- Confirm Password -->
-        <!-- <div class="col-md-6" style="margin-left: auto">
-            <label class="c_password" for="input_c_password">Confirm Password:</label>
-            <input class="form-control" id="input_c_password" type="text" placeholder="Confirm the password"
-                value="">
-        </div> -->
-    <!-- </div>
-
-    <div class="row gx-3 mb-3"> -->
-        <!-- Associates -->
-        <!-- <div class="col-md-6">
-            <label class="associates" for="inputAssociates">Associates:</label>
-            <input class="form-control" id="inputAssociates" type="text" placeholder="Enter your associates"
-                value=""> -->
-        <!-- </div> -->
-        <!-- Representative -->
-        <!-- <div class="col-md-6">
-            <label class="representative" for="inputRepresentative">Representative:</label>
-            <input class="form-control" id="inputRepresentative" type="text"
-                placeholder="Enter your email address" value="">
-        </div>
-    </div> -->
-
-    <!--  Upload an image -->
-    <!-- <div class="row gx-3 mb-3">
-        <label for="avatar">Upload an Image</label>
-        <input type="file" id="img" name="img" accept="image/png, image/jpeg">
-    </div>
-
-    <div class="center">
-        <button class="btn btn-primary" id="submit_profile">Submit</button> <br>
-    </div> -->
-
-<!-- </form> -->
-<!-- </div> -->
+</div>

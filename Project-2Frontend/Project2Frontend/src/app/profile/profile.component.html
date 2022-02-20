@@ -21,7 +21,7 @@
     <br>
 
     <div class="center">
-        <button class="btn btn-primary" id="edit">Edit Profile</button> <br>
+        <button class="btn btn-primary" id="edit" (click)="toggleEdit()">Edit Profile</button> <br>
     </div>
     <br>
     <br>
@@ -43,14 +43,16 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- <tr *ngFor="let bounty of bountyList">
+                        <tr *ngFor="let bounty of bountyList">
                             <td>{{bounty.currency}}</td>
                             <td>{{bounty.amount}}</td>
                             <td>{{bounty.time}}</td>
+                        </tr>
+                        <tr *ngFor="let criminal of criminalList">
                             <td>{{criminal.firstname}}</td>
                             <td>{{criminal.lastname}}</td>
                             <td>{{criminal.codename}}</td>
-                        </tr> -->
+                        </tr>
                     </tbody>
                 </table>
             </form>
@@ -58,72 +60,80 @@
 
         <!--Bounty Hunter Profile-->
         <div class="column">
-            <form>
+            <form [formGroup]="profileForm">
                 <div class="row gx-3 mb-3">
                     <!-- First Name-->
                     <div class="col-md-6">
                         <label class="first_name" for="inputFirstName">First name:</label>
-                        <input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name"
-                            value="">
+                        <label *ngIf="isTitle"></label>
+                        <input *ngIf="isEditable" class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name">
                     </div>
                     <!-- Last Name-->
                     <div class="col-md-6">
                         <label class="last_name" for="inputLastName">Last name:</label>
-                        <input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name"
-                            value="">
+                        <label *ngIf="isTitle"></label>
+                        <input *ngIf="isEditable" class="form-control" id="inputLastName" type="text" placeholder="Enter your last name">
                     </div>
                 </div>
 
                 <br>
-                <h5>Or</h5>
+                <p>Or</p>
                 <br>
 
                 <div class="row gx-3 mb-3">
                     <!-- Code name-->
                     <div class="col-md-6">
                         <label class="codename" for="inputCodeName">CodeName:</label>
-                        <input class="form-control" id="inputCodeName" type="text" placeholder="Enter your code name"
-                            value="">
+                        <label *ngIf="isTitle"></label>
+                        <input *ngIf="isEditable" class="form-control" id="inputCodeName" type="text" placeholder="Enter your code name">
                     </div>
                     <!-- Email Address -->
                     <div class="col-md-6">
                         <label class="email_address" for="inputemailaddress">Email Address:</label>
-                        <input class="form-control" id="inputemailaddress" type="text"
-                            placeholder="Enter your email address" value="">
+                        <label *ngIf="isTitle"></label>
+                        <input *ngIf="isEditable" class="form-control" id="inputemailaddress" type="text"
+                            placeholder="Enter your email address">
                     </div>
                 </div>
 
-                <div class="row gx-3 mb-3">
+                <div *ngIf="isEditable" class="row gx-3 mb-3">
                     <!-- First Name -->
 
                     <!-- Password -->
                     <div class="col-md-6">
                         <label class="password" for="inputPassword">Password:</label>
-                        <input class="form-control" id="inputPassword" type="text" placeholder="Enter your password"
-                            value="">
+                        <input class="form-control" id="inputPassword" type="text" placeholder="Enter your password">
                     </div>
 
                     <!-- Confirm Password -->
                     <div class="col-md-6" style="margin-left: auto">
                         <label class="c_password" for="input_c_password">Confirm Password:</label>
-                        <input class="form-control" id="input_c_password" type="text" placeholder="Confirm the password"
-                            value="">
+                        <input class="form-control" id="input_c_password" type="text" placeholder="Confirm the password">
                     </div>
+                </div>
+
+                <div class="row gx-3 mb-3">
+                    <!-- <select name="type" class="asset" *ngFor="">
+                        <option>none</option>
+                        <option value="currency" (select)=""></option>
+                    </select> -->
+                    <!-- <label aria-placeholder="balance">{{asset.balance}}</label> -->
                 </div>
 
 
                 <!--  Upload an image -->
-                <div class="row gx-3 mb-3">
+                <!-- <div class="row gx-3 mb-3">
                     <label for="avatar">Upload an Image</label>
                     <input type="file" id="img" name="img" accept="image/png, image/jpeg">
-                </div>
+                </div> -->
 
-                <div class="center">
-                    <button class="btn btn-primary" id="submit_profile">Submit</button> <br>
+                <div *ngIf="isEditable" class="center">
+                    <button class="btn btn-primary" id="submit_profile" (click)="submitProfile(profileForm)">Submit</button> <br>
                 </div>
 
             </form>
         </div>
+
 
         <!--Bounty Hunter Private Request-->
         <div class="column">
@@ -141,14 +151,16 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- <tr *ngFor="let bounty of bountyList">
+                        <tr *ngFor="let bounty of bountyList">
                             <td>{{bounty.currency}}</td>
                             <td>{{bounty.amount}}</td>
                             <td>{{bounty.time}}</td>
+                        </tr>
+                        <tr *ngFor="let criminal of criminalList">
                             <td>{{criminal.firstname}}</td>
                             <td>{{criminal.lastname}}</td>
                             <td>{{criminal.codename}}</td>
-                        </tr> -->
+                        </tr>
                     </tbody>
                 </table>
             </form>
