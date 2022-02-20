@@ -27,7 +27,7 @@ const routes: Routes = [
   { path: 'registerbounty', component: RegisterBountyComponent },
   { path: 'forgotpassword', component: ForgotPasswordComponent },
   { path: 'profile-host', component: ProfileHostComponent },
-  // { path: '**', redirectTo: 'homepage' }
+  { path: '**', redirectTo: 'homepage' }
 ];
 
 @NgModule({
