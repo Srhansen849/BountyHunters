@@ -1,0 +1,32 @@
+<div class="center">
+    <form [formGroup]="userForm">
+        <label for="fname">Name:</label>
+        <input type="text" id="fname" name="fname" placeholder="Enter your First Name" formControlName="huntername">
+        <br><br>
+        <label for="uname">Username:</label>
+        <input type="text" id="uname" name="uname" placeholder="Enter your Username" formControlName="uusername" >
+        <label style="margin-left:105px" for="email">Email:</label>
+        <input type="text" id="email" name="email" placeholder="Enter your Email" formControlName="uemail">
+        <br><br>
+        <label style="margin-left:5px" for="password">Password:</label>
+        <input type="text" id="password" name="password" placeholder="Enter your Password" formControlName="upassword">
+
+
+        <br><br>
+
+        
+<!--  <div class="center">
+            <div class="profile">
+                <label style="margin-left:105px" for="avatar">Upload An Avatar</label>
+                <input type="file" id="avatar" name="avatar" accept="avatar/png, avatar/jpeg">
+            </div>
+        </div> -->
+
+        <br>
+
+        <div class="center">
+            <br>
+            <button class="btn btn-danger" id="loginButton" (click)="newUser(userForm)">Submit</button>
+        </div>
+
+    </form>

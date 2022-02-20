@@ -62,16 +62,10 @@ export class UserLoginComponent implements OnInit {
 
       },
       error => {
-        console.warn("that food already exists");
+        console.warn("Bad Login");
         this.wronglogin=true;
       }
     )
-    /* this.foodServ.getAllFood().subscribe(
-      response => {
-        console.log(response);
-        this.foodList=response;
-      }
-    ); */
 
   }
 
@@ -80,8 +74,22 @@ export class UserLoginComponent implements OnInit {
     localStorage.setItem("loggedUser", JSON.stringify(host));
     console.log(host);
     this.router.navigate(['./homepage-host']);
+  
+
+
+  this.uServ.HostLogin(host).subscribe(
+    response => {
+      console.log(response);
+      this.wronglogin=false;
+      this.router.navigate(['./homepage-host']);
+
+    },
+    error => {
+      console.warn("Bad Login");
+      this.wronglogin=true;
+    }
+  )
   }
 }
-
 
 

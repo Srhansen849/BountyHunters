@@ -1,0 +1,24 @@
+<div  class="center">
+    <div class="column">
+        <div class="row">
+            <form [formGroup]="userForm">
+                <label id="wronglogin" style="color: crimson" class="form-label">Bad Login</label>
+                <div class="mb-3">
+                    <label class="form-label">Username:</label> <br>
+                    <input type="text" id="username" class="form-control"
+                        placeholder="Enter username" formControlName="uusername" value = "">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Password:</label> <br>
+                    <input type="password" id="password" class="form-control"
+                        placeholder="Enter password" formControlName="upassword" value ="">
+                </div>
+                <div class="center">
+                    <br>
+                    <!-- <button class="btn btn-danger" id="loginButton" (click)="userlogin(userForm)">Login</button> -->
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
