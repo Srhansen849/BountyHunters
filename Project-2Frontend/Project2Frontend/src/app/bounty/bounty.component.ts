@@ -15,23 +15,6 @@ export class BountyComponent implements OnInit {
 
   bounty: Bounty;
 
-
-
-  // bountyForm = new FormGroup({
-  //   statusid: new FormControl(''),
-  //   capture: new FormControl(''),
-  //   amount: new FormControl(''),
-  //   currency: new FormControl(''),
-  //   time: new FormControl(''),
-  //   preferid: new FormControl(''),
-  //     criminal: new FormGroup({
-  //       firstname: new FormControl(''),
-  //       lastname: new FormControl(''),
-  //       codename: new FormControl('')
-  //   })
-
-  // })
-
   constructor(private bServ: BountyService, private router: Router, private actRoute: ActivatedRoute) { }
 
   ngOnInit(): void {

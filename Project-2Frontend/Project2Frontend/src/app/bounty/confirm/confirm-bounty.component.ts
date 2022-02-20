@@ -3,7 +3,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Bounty } from '../objects/bounty-object';
 import { BountyService } from '../bounty.service';
 import { FormControl, FormGroup } from '@angular/forms';
-import { NgStyle } from '@angular/common';
 
 @Component({
   selector: 'app-confirm-bounty',
