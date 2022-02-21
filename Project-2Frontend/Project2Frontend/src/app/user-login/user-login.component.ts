@@ -44,8 +44,6 @@ export class UserLoginComponent implements OnInit {
     localStorage.setItem("loggedUser", JSON.stringify(user));
     console.log(user);
 
-    
-
     // if a user is returned navigate to the next component you want, otherwise notify the user
     if (this.isHunter) {
       this.router.navigate(['./profile-host']);
@@ -59,7 +57,6 @@ export class UserLoginComponent implements OnInit {
       // }
       //);
     } else if (this.isHost) {
-
       this.router.navigate(['/profile/profile-host']);
     }
   }

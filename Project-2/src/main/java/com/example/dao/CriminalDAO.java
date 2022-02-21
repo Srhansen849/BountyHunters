@@ -9,7 +9,6 @@ import com.example.model.Criminal;
 
 @Repository
 public interface CriminalDAO extends JpaRepository<Criminal, Integer>{
-	
 
 //	public List<Criminal> getCriminalByName(String first_name, String last_name);
 	public Criminal getCriminalByCodename(String codename);
@@ -17,7 +16,6 @@ public interface CriminalDAO extends JpaRepository<Criminal, Integer>{
 	public Criminal getCriminalByLastname(String last_name);
 	public List<Criminal> getCriminalListByFirstname(String first_name);
 	public List<Criminal> getCriminalListByLastname(String last_name);
-
 
 
 }

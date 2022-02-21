@@ -12,7 +12,6 @@ import com.example.model.Bounty;
 
 import com.example.model.Criminal;
 import com.example.model.Host;
-import com.example.model.Status;
 import com.example.model.User;
 
 @Repository
@@ -24,13 +23,8 @@ public interface BountyDAO extends JpaRepository<Bounty, Integer> {
 	//public Bounty insertBounty(Bounty bounty);
 	//public Bounty getBountyByCriminalId(int criminal_id);
 
-
-
-
 	public Bounty getBountyByCriminalid(Criminal criminal_id);
 	public List<Bounty> getBountyByBhHolder(User bhHolder);
 	public List<Bounty> getBountyByHostHolder(Host hostHolder);
-//	public List<Bounty> getBountyByAmount(double amount);
-//	
 
 }
