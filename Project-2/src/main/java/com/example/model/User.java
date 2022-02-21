@@ -62,12 +62,13 @@ public class User {
 		this.ubountylist = ubountylist;
 	}
 
-	public User(String huntername, String uusername, String upassword, String uemail) {
+	public User(String huntername, String uusername, String upassword, String uemail, Account uaccount) {
 		super();
 		this.huntername = huntername;
 		this.uusername = uusername;
 		this.upassword = upassword;
 		this.uemail = uemail;
+		this.uaccount = uaccount;
 	}
 
 	public String getHuntername() {

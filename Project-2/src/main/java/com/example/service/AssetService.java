@@ -45,7 +45,7 @@ public class AssetService {
 	}
 
 	public void updateAsset(Account account, double amount, String currency) {
-		List<Asset> asList = asDao.getAssetByAssetid(account);
+		List<Asset> asList = asDao.getAssetByAccountfk(account);
 		Optional<String> ascurr = Optional.ofNullable(currency);
 		for (Asset exchange : asList) {
 			if (!ascurr.isPresent()) {
@@ -61,7 +61,7 @@ public class AssetService {
 	}
 
 	public List<Asset> getAssetByAssetHolder(Account account) {
-		return asDao.getAssetByAssetid(account);
+		return asDao.getAssetByAccountfk(account);
 	}
 
 }

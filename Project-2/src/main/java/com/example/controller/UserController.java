@@ -50,20 +50,20 @@ public class UserController {
 		 */
 
 		// This is creating the accounts to hold the assets
-//		Account account1 = new Account();
+		Account account1 = new Account();
 //		Account account2 = new Account();
 //		Account account3 = new Account();
 //		Account account4 = new Account();
 //
 //		// This is creating the assets and setting them to their account
-//		Asset assest1 = new Asset("Republic credit", 63.5, account1);
+		Asset assest1 = new Asset("Republic credit", 63.5, account1);
 //		Asset assest2 = new Asset("Emperial Credits", 63.5, account2);
 //		Asset assest3 = new Asset("Druggats", 63.5, account3);
 //		Asset assest4 = new Asset("Republic credit", 63.5, account4);
 //
 //		// This is creating a list of a single asset
-//		List<Asset> asList1 = new ArrayList<Asset>();
-//		asList1.add(assest1);
+		List<Asset> asList1 = new ArrayList<Asset>();
+		asList1.add(assest1);
 //
 //		List<Asset> asList2 = new ArrayList<Asset>();
 //		asList2.add(assest2);
@@ -75,14 +75,14 @@ public class UserController {
 //		asList4.add(assest4);
 //
 //		// This is storing the assets into their accounts
-//		account1.setAsset(asList1);
+		account1.setAssetlist(asList1);
 //		account2.setAsset(asList2);
 //		account3.setAsset(asList3);
 //		account4.setAsset(asList4);
 //
 //		// This is creating the 4 users
-//		User user1 = new User("Boba", "Fett", "AlphaFett1", "M4nd410ri4n", "BobaFett1@StarHunter.com", "Alpha", 1,
-//				account1);
+		User user1 = new User("Boba Fett", "AlphaFett1", "M4nd410ri4n", "BobaFett1@StarHunter.com", 
+				account1);
 //
 //		User user2 = new User("Cad", "Bane", "DuroBane1", "T4t00in3", "CadBane1@StarHunter.com", "Duro", 3, account2);
 //
@@ -93,7 +93,7 @@ public class UserController {
 //				account4);
 //
 //		// These are storing the data onto the database
-//		uServ.insertUser(user1, account1, assest1);
+		uServ.insertUser(user1, account1, assest1);
 //		uServ.insertUser(user2, account2, assest2);
 //		uServ.insertUser(user3, account3, assest3);
 //		uServ.insertUser(user4, account4, assest4);
