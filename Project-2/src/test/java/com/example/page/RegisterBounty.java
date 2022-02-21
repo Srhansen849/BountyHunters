@@ -12,6 +12,11 @@ public class RegisterBounty {
 	@FindBy (xpath = "//tr")
 	private List<WebElement> bountiesRow;
 	
+	@FindBy(xpath="//a")
+	private List<WebElement> bountiesAnchorTags;
+
+	
+	
 	@FindBy(xpath="//input[@id='inputFirstName']")
 	private WebElement firstname;
 	
@@ -44,9 +49,6 @@ public class RegisterBounty {
 	
 	@FindBy(xpath="//input[@id='inputbounty']")
 	private WebElement amount;
-	
-	@FindBy(xpath="//a")
-	private List<WebElement> bountiesAnchorTags;
 	
 	public RegisterBounty(WebDriver driver) {
 		PageFactory.initElements(driver, this);

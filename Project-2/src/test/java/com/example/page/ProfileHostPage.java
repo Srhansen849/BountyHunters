@@ -9,8 +9,29 @@ import org.openqa.selenium.support.PageFactory;
 
 public class ProfileHostPage {
 	
-	@FindBy (xpath = "//tr")
-	private List<WebElement> bountiesRow;
+	@FindBy (xpath = "//input[@id='profile_table1']/tr")
+	private List<WebElement> profileRow1;
+	
+	@FindBy(xpath="//input[@id='currency1']")
+	private WebElement currency1;
+	
+	@FindBy(xpath="//input[@id='amount1']")
+	private WebElement amount1;
+	
+	@FindBy(xpath="//input[@id='due_date1']")
+	private WebElement due_date1;
+	
+	@FindBy(xpath="//input[@id='first_name1']")
+	private WebElement first_name1;
+	
+	@FindBy(xpath="//input[@id='last_name1']")
+	private WebElement last_name1;
+	
+	@FindBy(xpath="//input[@id='codename1']")
+	private WebElement codename1;
+	
+	@FindBy(xpath="//a")
+	private List<WebElement> profile1AnchorTags;
 	
 	@FindBy(xpath="//input[@id='inputFirstName']")
 	private WebElement firstName;
@@ -30,37 +51,53 @@ public class ProfileHostPage {
 	@FindBy(xpath="//input[@id='input_c_password']")
 	private WebElement c_password;
 	
-	@FindBy(xpath="//input[@id='inputAssociates']")
-	private WebElement associates;
-	
-	@FindBy(xpath="//input[@id='inputRepresentative']")
-	private WebElement representative;
-	
 	@FindBy(xpath="//button[@id='submit_profile']")
 	private WebElement submit;
+	
+	@FindBy (xpath = "//input[@id='profile_table2']/tr")
+	private List<WebElement> profileRow2;
+	
+	@FindBy(xpath="//input[@id='currency2']")
+	private WebElement currency2;
+	
+	@FindBy(xpath="//input[@id='amount2']")
+	private WebElement amount2;
+	
+	@FindBy(xpath="//input[@id='due_date2']")
+	private WebElement due_date2;
+	
+	@FindBy(xpath="//input[@id='first_name2']")
+	private WebElement first_name2;
+	
+	@FindBy(xpath="//input[@id='last_name2']")
+	private WebElement last_name2;
+	
+	@FindBy(xpath="//input[@id='codename2']")
+	private WebElement codename2;
+	
+	@FindBy(xpath="//a")
+	private List<WebElement> profile2AnchorTags;
 	
 	public ProfileHostPage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
 	
-	@FindBy(xpath="//a")
-	private List<WebElement> bountiesAnchorTags;
-	
-	public int sizeOfTable() {
-		return this.bountiesRow.size();
+	public int sizeOfTable1() {
+		return this.profileRow1.size();
 	}
 	
-	public void submitProfile(String firstname, String lastname, String codeName, 
-			String emailaddress, String password, String c_password,
-			String associates, String representative) {
+	public int sizeOfTable2() {
+		return this.profileRow2.size();
+	}
+	
+	public void submitProfile(String firstname, String lastname, String codeName,
+			String emailaddress, String password, String c_password) {
 		this.firstName.clear();
 		this.lastName.clear();
 		this.codeName.clear();
 		this.emailaddress.clear();
 		this.password.clear();
 		this.c_password.clear();
-		this.associates.clear();
-		this.representative.clear();
 		
 		this.firstName.sendKeys(firstname);
 		this.lastName.sendKeys(lastname);
@@ -68,23 +105,33 @@ public class ProfileHostPage {
 		this.emailaddress.sendKeys(emailaddress);
 		this.password.sendKeys(password);
 		this.c_password.sendKeys(c_password);
-		this.associates.sendKeys(associates);
-		this.representative.sendKeys(representative);
 		
 		this.submit.click();
 		
 	}
 	
-	public void clickLink(String firstname) {
-		for(WebElement link: this.bountiesAnchorTags) {
+	public void clickLink1(String firstname) {
+		for(WebElement link: this.profile1AnchorTags) {
 			if(link.getText().equals(firstname)) {
 				link.click();
 			}
 		}
 	}
 	
-	public List<WebElement> getBountiesAnchorTags() {
-		return bountiesAnchorTags;
+	public void clickLink2(String firstname) {
+		for(WebElement link: this.profile2AnchorTags) {
+			if(link.getText().equals(firstname)) {
+				link.click();
+			}
+		}
+	}
+
+	public List<WebElement> getProfile1AnchorTags() {
+		return profile1AnchorTags;
+	}
+	
+	public List<WebElement> getProfile2AnchorTags() {
+		return profile2AnchorTags;
 	}
 
 }
