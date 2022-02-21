@@ -82,5 +82,9 @@ public class ProfileHostPage {
 			}
 		}
 	}
+	
+	public List<WebElement> getBountiesAnchorTags() {
+		return bountiesAnchorTags;
+	}
 
 }

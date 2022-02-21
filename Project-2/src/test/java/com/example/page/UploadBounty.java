@@ -61,5 +61,9 @@ public class UploadBounty {
 		}
 	}
 	
+	public List<WebElement> getBountiesAnchorTags() {
+		return bountiesAnchorTags;
+	}
+	
 
 }

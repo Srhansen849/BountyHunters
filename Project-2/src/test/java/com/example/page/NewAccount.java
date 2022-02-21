@@ -94,5 +94,9 @@ public class NewAccount {
 		}
 	}
 	
+	public List<WebElement> getBountiesAnchorTags() {
+		return bountiesAnchorTags;
+	}
+	
 
 }

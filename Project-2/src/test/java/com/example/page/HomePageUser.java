@@ -59,5 +59,9 @@ public class HomePageUser {
 			}
 		}
 	}
+	
+	public List<WebElement> getBountiesAnchorTags() {
+		return bountiesAnchorTags;
+	}
 
 }

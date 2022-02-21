@@ -75,5 +75,9 @@ public class ConfirmBounty {
 			}
 		}
 	}
+	
+	public List<WebElement> getBountiesAnchorTags() {
+		return bountiesAnchorTags;
+	}
 
 }

@@ -61,4 +61,8 @@ public class HomePage {
 		}
 	}
 	
+	public List<WebElement> getBountiesAnchorTags() {
+		return bountiesAnchorTags;
+	}
+	
 }
