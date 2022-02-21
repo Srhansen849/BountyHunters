@@ -14,13 +14,9 @@ import javax.persistence.FetchType;
 
 import javax.persistence.ManyToOne;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
-@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "assetid")
 @Table(name = "asset")
 public class Asset {
 
@@ -30,43 +26,41 @@ public class Asset {
 	private int assetid;
 
 	@Column(name = "currency")
-	private String currency;
+	private String ascurrency;
 
 	@Column(name = "balance")
 	private double balance;
 
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "account_fk")
-	@JsonBackReference
-	private Account accountid;
+	@JsonManagedReference
+	private Account accountfk;
 
 	public Asset() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Asset(int assetid, String currency, double balance, Account assetHolder) {
+	public Asset(int assetid, String ascurrency, double balance, Account accountfk) {
 		super();
 		this.assetid = assetid;
-		this.currency = currency;
+		this.ascurrency = ascurrency;
 		this.balance = balance;
-		this.accountid = assetHolder;
-
+		this.accountfk = accountfk;
 	}
 
-	public Asset(String currency, double balance, Account assetHolder) {
+	public Asset(String ascurrency, double balance, Account accountfk) {
 		super();
-		this.currency = currency;
+		this.ascurrency = ascurrency;
 		this.balance = balance;
-		this.accountid = assetHolder;
-
+		this.accountfk = accountfk;
 	}
 
-	public String getCurrency() {
-		return currency;
+	public String getAscurrency() {
+		return ascurrency;
 	}
 
-	public void setCurrency(String currency) {
-		this.currency = currency;
+	public void setAscurrency(String ascurrency) {
+		this.ascurrency = ascurrency;
 	}
 
 	public double getBalance() {
@@ -77,12 +71,12 @@ public class Asset {
 		this.balance = balance;
 	}
 
-	public Account getAssetHolder() {
-		return accountid;
+	public Account getAccountfk() {
+		return accountfk;
 	}
 
-	public void setAssetHolder(Account assetHolder) {
-		this.accountid = assetHolder;
+	public void setAccountfk(Account accountfk) {
+		this.accountfk = accountfk;
 	}
 
 	public int getAssetid() {
@@ -91,8 +85,8 @@ public class Asset {
 
 	@Override
 	public String toString() {
-		return "Asset [assetid=" + assetid + ", currency=" + currency + ", balance=" + balance + ", account_id="
-				+ accountid + "]";
+		return "Asset [assetid=" + assetid + ", ascurrency=" + ascurrency + ", balance=" + balance + ", accountfk="
+				+ accountfk + "]";
 	}
 
 }

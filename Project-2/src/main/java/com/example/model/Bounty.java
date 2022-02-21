@@ -27,9 +27,6 @@ public class Bounty {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int bountyid;
 
-	@Column(name = "capture")
-	private String capture;
-
 	@Column(name = "amount")
 	private double amount;
 
@@ -42,17 +39,17 @@ public class Bounty {
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "user_fk")
 	@JsonBackReference(value = "bh")
-	private User bhHolder;
+	private User userfk;
 
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "host_fk")
 	@JsonBackReference(value = "hh")
-	private Host hostHolder;
+	private Host hostfk;
 
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "criminal_fk")
 //	@JsonBackReference(value="c")
-	private Criminal criminalid;
+	private Criminal criminalfk;
 
 	private String turninid;
 
@@ -64,40 +61,63 @@ public class Bounty {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Bounty(int bountyid, String capture, double amount, String currency, String time, User bhHolder,
-			Host hostHolder, Criminal criminalid, String turninid, String preferid, String activeid) {
+	public Bounty(int bountyid, double amount, String currency, String time, User userfk, Host hostfk,
+			Criminal criminalfk, String turninid, String preferid, String activeid) {
 		super();
 		this.bountyid = bountyid;
-		this.capture = capture;
 		this.amount = amount;
 		this.currency = currency;
 		this.time = time;
-		this.bhHolder = bhHolder;
-		this.hostHolder = hostHolder;
-		this.criminalid = criminalid;
+		this.userfk = userfk;
+		this.hostfk = hostfk;
+		this.criminalfk = criminalfk;
 		this.turninid = turninid;
 		this.preferid = preferid;
 		this.activeid = activeid;
 	}
 
-	public Bounty(double amount, String currency, Host hostHolder, Criminal criminalid, String preferid, String time,
+	public Bounty(double amount, String currency, String time, User userfk, Host hostfk, Criminal criminalfk,
+			String turninid, String preferid, String activeid) {
+		super();
+		this.amount = amount;
+		this.currency = currency;
+		this.time = time;
+		this.userfk = userfk;
+		this.hostfk = hostfk;
+		this.criminalfk = criminalfk;
+		this.turninid = turninid;
+		this.preferid = preferid;
+		this.activeid = activeid;
+	}
+
+	public Bounty(double amount, String currency, String time, Host hostfk, Criminal criminalfk, String preferid,
 			String activeid) {
 		super();
 		this.amount = amount;
 		this.currency = currency;
 		this.time = time;
-		this.hostHolder = hostHolder;
-		this.criminalid = criminalid;
+		this.hostfk = hostfk;
+		this.criminalfk = criminalfk;
 		this.preferid = preferid;
 		this.activeid = activeid;
 	}
 
-	public String getCapture() {
-		return capture;
+	public Bounty(int bountyid, User userfk, Criminal criminalfk, String turninid) {
+		super();
+		this.bountyid = bountyid;
+		this.userfk = userfk;
+		this.criminalfk = criminalfk;
+		this.turninid = turninid;
 	}
 
-	public void setCapture(String capture) {
-		this.capture = capture;
+	public Bounty(int bountyid, double amount, User userfk, Host hostfk, Criminal criminalfk, String activeid) {
+		super();
+		this.bountyid = bountyid;
+		this.amount = amount;
+		this.userfk = userfk;
+		this.hostfk = hostfk;
+		this.criminalfk = criminalfk;
+		this.activeid = activeid;
 	}
 
 	public double getAmount() {
@@ -124,28 +144,28 @@ public class Bounty {
 		this.time = time;
 	}
 
-	public User getBhHolder() {
-		return bhHolder;
+	public User getUserfk() {
+		return userfk;
 	}
 
-	public void setBhHolder(User bhHolder) {
-		this.bhHolder = bhHolder;
+	public void setUserfk(User userfk) {
+		this.userfk = userfk;
 	}
 
-	public Host getHostHolder() {
-		return hostHolder;
+	public Host getHostfk() {
+		return hostfk;
 	}
 
-	public void setHostHolder(Host hostHolder) {
-		this.hostHolder = hostHolder;
+	public void setHostfk(Host hostfk) {
+		this.hostfk = hostfk;
 	}
 
-	public Criminal getCriminalid() {
-		return criminalid;
+	public Criminal getCriminalfk() {
+		return criminalfk;
 	}
 
-	public void setCriminalid(Criminal criminalid) {
-		this.criminalid = criminalid;
+	public void setCriminalfk(Criminal criminalfk) {
+		this.criminalfk = criminalfk;
 	}
 
 	public String getTurninid() {
@@ -178,10 +198,9 @@ public class Bounty {
 
 	@Override
 	public String toString() {
-		return "Bounty [bountyid=" + bountyid + ", capture=" + capture + ", amount=" + amount + ", currency=" + currency
-				+ ", bhHolder=" + bhHolder + ", hostHolder=" + hostHolder + ", criminalid=" + criminalid + ", turninid="
-				+ turninid + ", preferid=" + preferid + ", time=" + time + "]";
-
+		return "Bounty [bountyid=" + bountyid + ", amount=" + amount + ", currency=" + currency + ", time=" + time
+				+ ", userfk=" + userfk + ", hostfk=" + hostfk + ", criminalfk=" + criminalfk + ", turninid=" + turninid
+				+ ", preferid=" + preferid + ", activeid=" + activeid + "]";
 	}
 
 }
