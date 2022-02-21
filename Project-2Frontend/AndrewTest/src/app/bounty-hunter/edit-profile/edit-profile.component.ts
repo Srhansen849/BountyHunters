@@ -18,53 +18,44 @@ export class EditProfileComponent implements OnInit {
 
 
   profileForm = new FormGroup({
-    firstname: new FormControl(''),
-    lastname: new FormControl(''),
-    codename: new FormControl(''),
-    email: new FormControl(''),
-    password: new FormControl(''),
-    cpassword: new FormControl('')
+    huntername: new FormControl(''),
+    uemail: new FormControl(''),
+    password: new FormControl('')
   })
-
-
 
 
 
   constructor(private uServ: UserService, private router: Router, private actRoute: ActivatedRoute, public bhcomp: BountyHunterComponent) { }
 
-  
 
 
 
-
-
-    
-  public editProfile(){
+  public editProfile() {
     this.bhcomp.bhprofile = false;
-}
+  }
 
-ngOnInit(): void {
-  // let user = JSON.parse(localStorage.getItem("loggedUser")||'{}')
-  // console.log(user);
-  // if (!user) {
-  //   this.router.navigate(["/login"]);
-  // }
-}
+  ngOnInit(): void {
+    // let user = JSON.parse(localStorage.getItem("loggedUser")||'{}')
+    // console.log(user);
+    // if (!user) {
+    //   this.router.navigate(["/login"]);
+    // }
+  }
 
 
-toggleEdit() {
-  console.log("button click");
-  this.isEditable = !this.isEditable;
-  this.isTitle = !this.isTitle;
-}
+  toggleEdit() {
+    console.log("button click");
+    this.isEditable = !this.isEditable;
+    this.isTitle = !this.isTitle;
+  }
 
   public submitProfile(profile: FormGroup) {
-  let stringprofile = JSON.stringify(profile.value);
-  console.log(profile.value);
-  this.uServ.updateProfile(stringprofile).subscribe(
+    let stringprofile = JSON.stringify(profile.value);
+    console.log(profile.value);
+    this.uServ.updateProfile(stringprofile).subscribe(
 
-  )
-}
+    )
+  }
 
 }
 

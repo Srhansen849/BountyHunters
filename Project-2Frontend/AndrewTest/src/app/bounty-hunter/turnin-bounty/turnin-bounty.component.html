@@ -1,28 +1,22 @@
+
 <div class="column">
-    <h5 class="center">Criminal Data</h5>
+    <h5 class="center">Bounty Status</h5>
     <br>
-    <form style="padding: 20px">
-        <div class="row gx-3 mb-3">
-            <!-- Name-->
+    <form [formGroup]="bountyForm">
+        <div class="status_of_bounty">
+            <label class="center">Criminal Data</label>
+            <br>
             <div class="col-md-6">
                 <label class="first_name" for="inputFirstName">Name:</label>
-                <input class="form-control" id="inputFirstName" type="text" placeholder="Enter bounty name">
+                <input class="form-control" id="criminalfk" type="text" placeholder="Enter bounty name" formControlName="criminalfk">
             </div>
-        </div>
-    </form>
-</div>
-<div class="column">
-    <h5 class="center">Status of Bounty</h5>
-    <br>
-    <form style="padding-left: 100px; padding-top: 20px;">
-        <div class="status_of_bounty">
             <div class="row">
                 <div class="column">
-                    <input type="radio" id="alive" name="turnin_status" value="Alive">
+                    <input type="radio" id="alive" name="turninid" value="Alive" formControlName="turninid">
                     <label for="alive">Alive</label><br>
                 </div>
                 <div class="column">
-                    <input type="radio" id="dead" name="turnin_status" value="Dead">
+                    <input type="radio" id="dead" name="turninid" value="Dead" formControlName="turninid">
                     <label for="dead">Dead</label>
                 </div>
             </div>
@@ -34,4 +28,3 @@
         <br>
     </form>
 </div>
-

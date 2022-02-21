@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { BountyService } from 'src/app/services/bounty.service';
 
 @Component({
   selector: 'app-turnin-bounty',
@@ -7,7 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TurninBountyComponent implements OnInit {
 
-  constructor() { }
+  bountyForm = new FormGroup({
+    turninid: new FormControl(''),
+    criminalfk: new FormControl('')
+  });
+
+  constructor(private bServ: BountyService, private router: Router, private actRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
   }

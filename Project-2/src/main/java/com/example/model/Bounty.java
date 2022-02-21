@@ -43,7 +43,7 @@ public class Bounty {
 
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "host_fk")
-	@JsonBackReference(value = "hh")
+	@JsonBackReference(value="hh")
 	private Host hostfk;
 
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)

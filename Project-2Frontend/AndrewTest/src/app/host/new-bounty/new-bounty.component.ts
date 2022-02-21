@@ -17,14 +17,14 @@ export class NewBountyComponent implements OnInit {
     currency: new FormControl(''),
     time: new FormControl(''),
     preferid: new FormControl('')
-  })
+  });
 
   criminalForm = new FormGroup({
     crimname: new FormControl(''),
     species: new FormControl(''),
     height: new FormControl(''),
     weight: new FormControl('')
-  })
+  });
 
 
   // generateCriminal(criminal: FormGroup){
@@ -40,17 +40,31 @@ export class NewBountyComponent implements OnInit {
   constructor(private bServ:BountyService, private router: Router, private actRoute:ActivatedRoute) { }
 
 
-  // submitBounty(bounty){
-  //   let stringbounty = JSON.stringify(bounty.value)
-  //   criminal = new Criminal();
-  //   bounty = new Bounty();
+  submitBounty(bounty: FormGroup, criminal: FormGroup){
+    let stringbounty = JSON.stringify(bounty.value);
+    let stringcriminal = JSON.stringify(criminal.value)
+    // criminal = new Criminal();
+    // bounty = new Bounty();
 
-  //   console.log(bounty.value);
-  //   this.bountyServ.createNewBounty(stringbounty);
+    console.log(bounty.value);
+    this.bServ.createNewBounty(stringbounty);
     
-  // }
+  }
 
- 
+  // public submitFood(food: FormGroup){
+  //   let stringFood = JSON.stringify(food.value);
+  //   this.foodServ.insertFood(stringFood).subscribe(
+  //     response => {
+  //       this.foodExists=false;
+  //       console.log(response);
+  //       this.foodList.push(response);
+  //     },
+  //     error => {
+  //       console.warn("that food already exists");
+  //       this.foodExists=true;
+  //     }
+  //   );
+  // }
 
   
 

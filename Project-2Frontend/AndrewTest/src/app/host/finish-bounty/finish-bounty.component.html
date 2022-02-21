@@ -1,1 +1,97 @@
-<p>finish-bounty works!</p>
+<!--Criminal Data -->
+<div class="column">
+    <h5 class="center">Criminal Data</h5>
+    <br>
+
+    <br>
+    <div class="row gx-3 mb-3">
+        <!-- Description of Capture -->
+        <div class="status_of_bounty">
+            <label class="description">Description of Capture</label> <br>
+            <div>
+                <textarea name="description_of_capture" id="description_of_capture" class="control-form" rows="4"
+                    cols="55" formControlName="capture"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="row gx-3 mb-3">
+        <div class="status_of_bounty">
+            <label>Preferred Status:</label>
+            <div class="row">
+
+            </div>
+        </div>
+        <br>
+    </div>
+    <div class="row gx-3 mb-3">
+        <div class="status_of_bounty">
+            <p>Status of Bounty:</p>
+            <div class="row">
+                <div class="column">
+                    <input type="radio" id="alive" name="turnin_status" value="Alive" formControlName="turninid">
+                    <label for="alive">Alive</label><br>
+                </div>
+                <div class="column">
+                    <input type="radio" id="dead" name="turnin_status" value="Dead" formControlName="turninid">
+                    <label for="dead">Dead</label><br>
+                </div>
+            </div>
+        </div>
+        <br>
+    </div>
+
+    <div class="row gx-3 mb-3">
+        <div class="col-md-6">
+            <label class="amount_for_bounty" for="inputbounty">Amount for Bounty:</label>
+        </div>
+    </div>
+    <br>
+
+
+
+    <!--Post Bounty Hunter-->
+
+    <h5 class="center" style="padding-right: 180px;">Bounty Hunter Details</h5>
+    <br>
+
+
+    <div class="row gx-3 mb-3">
+        <!-- First Name-->
+        <div class="col-md-6 column">
+            <label class="first_name" for="inputFirstName">First name:</label>
+            <input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name"
+                formControlName="firstname"> <br>
+
+            <p>Or</p>
+
+            <label class="last_name" for="inputLastName">CodeName:</label>
+            <input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name"
+                formControlName="codename">
+        </div>
+
+        <!-- Last Name-->
+        <div class="col-md-6 column">
+            <label class="last_name" for="inputLastName">Last name:</label>
+            <input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name"
+                formControlName="lastname">
+        </div>
+    </div>
+    <br>
+
+    <div class="row gx-3 mb-3">
+        <form style="padding: 20px" [formGroup]="bountyForm">
+            <div class="col-md-6">
+                <label class="amount_for_bounty" for="inputbounty">Amount for Bounty:</label>
+                <input class="form-control" id="inputbounty" type="number" placeholder="Enter your amount"
+                    formControlName="amount">
+            </div>
+            <br>
+            <div>
+                <button class="btn btn-primary" id="submit_amount"
+                    (click)="confirmBounty(confirmBountyForm)">Submit</button>
+            </div>
+            <br>
+        </form>
+    </div>
+
+</div>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { HostService } from '../services/host.service';
 
 @Component({
   selector: 'app-host',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HostComponent implements OnInit {
 
-  constructor() { }
+  constructor(private hServ: HostService, private router: Router, private actRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
   }

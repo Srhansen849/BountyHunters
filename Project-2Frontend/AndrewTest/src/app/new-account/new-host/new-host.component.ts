@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HostService } from 'src/app/services/host.service';
 
 @Component({
@@ -22,7 +22,7 @@ export class NewHostComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  constructor(private router:Router, private hServ: HostService) { }
+  constructor(private router:Router, private hServ: HostService, private actRoute:ActivatedRoute) { }
 
   public newHost(newhost: FormGroup) {
     let host = JSON.stringify(newhost);

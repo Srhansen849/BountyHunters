@@ -52,7 +52,7 @@ public class HostController {
 	// correct
 	@PostMapping("/login")
 	public ResponseEntity<Host> HostLogin(@RequestBody Host host) {
-		Optional<Host> username = Optional.ofNullable(hServ.getHostByEmail(host.getHusername()));
+		Optional<Host> username = Optional.ofNullable(hServ.getHostByUsername(host.getHusername()));
 		if (!username.isPresent()) {
 			return ResponseEntity.badRequest().build();
 		}
