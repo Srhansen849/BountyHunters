@@ -1,15 +1,20 @@
 package com.example.page;
 
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class ConfirmBounty {
+	@FindBy (xpath = "//tr")
+	private List<WebElement> bountiesRow;
+	
+	
 	
 	@FindBy(xpath="//input[@id='description_of_capture']")
 	private WebElement description;
-	
 	
 	@FindBy(xpath="//input[@id='inputamount1']")
 	private WebElement amount1;
@@ -29,8 +34,17 @@ public class ConfirmBounty {
 	@FindBy(xpath="//button[@id='submit_amount']")
 	private WebElement confirmbounty;
 	
+	@FindBy(xpath="//a")
+	private List<WebElement> bountiesAnchorTags;
+	
+	
+	
 	public ConfirmBounty(WebDriver driver) {
 		PageFactory.initElements(driver, this);
+	}
+	
+	public int sizeOfTable() {
+		return this.bountiesRow.size();
 	}
 	
 	public void submitConfirmBounty(String description, String amount1, String firstname,
@@ -52,6 +66,14 @@ public class ConfirmBounty {
 		this.codename.sendKeys(codename);
 		
 		this.confirmbounty.click();
+	}
+	
+	public void clickLink(String firstname) {
+		for(WebElement link: this.bountiesAnchorTags) {
+			if(link.getText().equals(firstname)) {
+				link.click();
+			}
+		}
 	}
 
 }

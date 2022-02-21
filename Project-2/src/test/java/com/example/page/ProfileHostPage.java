@@ -1,11 +1,16 @@
 package com.example.page;
 
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class ProfileHostPage {
+	
+	@FindBy (xpath = "//tr")
+	private List<WebElement> bountiesRow;
 	
 	@FindBy(xpath="//input[@id='inputFirstName']")
 	private WebElement firstName;
@@ -38,6 +43,13 @@ public class ProfileHostPage {
 		PageFactory.initElements(driver, this);
 	}
 	
+	@FindBy(xpath="//a")
+	private List<WebElement> bountiesAnchorTags;
+	
+	public int sizeOfTable() {
+		return this.bountiesRow.size();
+	}
+	
 	public void submitProfile(String firstname, String lastname, String codeName, 
 			String emailaddress, String password, String c_password,
 			String associates, String representative) {
@@ -61,6 +73,14 @@ public class ProfileHostPage {
 		
 		this.submit.click();
 		
+	}
+	
+	public void clickLink(String firstname) {
+		for(WebElement link: this.bountiesAnchorTags) {
+			if(link.getText().equals(firstname)) {
+				link.click();
+			}
+		}
 	}
 
 }
