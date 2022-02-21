@@ -11,15 +11,10 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-<<<<<<< HEAD
-
-=======
->>>>>>> stuff
 
 
 
 @Entity
-@JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class, property="userid")
 @Table(name="criminal")
 @JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class, property="criminalid")
 public class Criminal {
@@ -179,3 +174,4 @@ public class Criminal {
 	
 
 }
+

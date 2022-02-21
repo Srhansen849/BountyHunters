@@ -1,4 +1,3 @@
-
 Feature: A Business Owner can Confirm a Bounty has been completed 
 	As a Business Owner, I wish to check the status of the bounty
 	
@@ -18,5 +17,6 @@ Feature: A Business Owner can Confirm a Bounty has been completed
     And the Business Owner add an "amount"
     And the Business Owner submits the information
     Then the bounty will be registered as complete
+
     
     

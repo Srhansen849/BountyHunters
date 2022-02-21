@@ -12,7 +12,6 @@ import com.example.model.Bounty;
 
 import com.example.model.Criminal;
 import com.example.model.Host;
-import com.example.model.Status;
 import com.example.model.User;
 
 @Repository

@@ -1,6 +1,5 @@
 package com.example.controller;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.Properties;
 
@@ -15,6 +14,9 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
+
+@CrossOrigin(origins="*")
 public class SendEmail {
 
 	public void sendAEmail() throws IOException {
@@ -70,3 +72,4 @@ public class SendEmail {
 	}
 
 }
+

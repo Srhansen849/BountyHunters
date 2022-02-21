@@ -22,5 +22,3 @@ Feature: A Bounty Hunter can upload a bounty
 		And the Bounty Hunter inputs "decription_of_capture" into the decription of capture input field
 		And the Bounty Hunter clicks submits
 		Then the bounty will be registered as complete 
-		 	
-		 	

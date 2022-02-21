@@ -1,16 +1,14 @@
 package com.example.model;
 
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 
-
 import javax.persistence.CascadeType;
-
 
 import javax.persistence.FetchType;
 
@@ -21,39 +19,27 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
-
 @Entity
-<<<<<<< HEAD
-@JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class, property="assetid")
-=======
-@JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class, property="userid")
->>>>>>> stuff
-@Table(name="asset")
+@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "assetid")
+@Table(name = "asset")
 public class Asset {
-	
+
 	@Id
-	@Column(name="asset_id")
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name = "asset_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int assetid;
-	
-	@Column(name="currency")
+
+	@Column(name = "currency")
 	private String currency;
-	
-	@Column(name="balance")
+
+	@Column(name = "balance")
 	private double balance;
-	
 
-
-	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-//	@JoinColumn(name="account_fk")
-<<<<<<< HEAD
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = "account_fk")
 	@JsonBackReference
-=======
-	@JsonBackReference(value="ac")
->>>>>>> stuff
-	private Account assetHolder;
+	private Account accountid;
 
-	
 	public Asset() {
 		// TODO Auto-generated constructor stub
 	}
@@ -63,7 +49,7 @@ public class Asset {
 		this.assetid = assetid;
 		this.currency = currency;
 		this.balance = balance;
-		this.assetHolder = assetHolder;
+		this.accountid = assetHolder;
 
 	}
 
@@ -71,7 +57,7 @@ public class Asset {
 		super();
 		this.currency = currency;
 		this.balance = balance;
-		this.assetHolder = assetHolder;
+		this.accountid = assetHolder;
 
 	}
 
@@ -91,16 +77,13 @@ public class Asset {
 		this.balance = balance;
 	}
 
-
-
 	public Account getAssetHolder() {
-		return assetHolder;
+		return accountid;
 	}
 
 	public void setAssetHolder(Account assetHolder) {
-		this.assetHolder = assetHolder;
+		this.accountid = assetHolder;
 	}
-
 
 	public int getAssetid() {
 		return assetid;
@@ -108,11 +91,8 @@ public class Asset {
 
 	@Override
 	public String toString() {
-		return "Asset [assetid=" + assetid + ", currency=" + currency + ", balance=" + balance + ", assetHolder="
-				+ assetHolder + "]";
+		return "Asset [assetid=" + assetid + ", currency=" + currency + ", balance=" + balance + ", account_id="
+				+ accountid + "]";
 	}
 
 }
-	
-
-

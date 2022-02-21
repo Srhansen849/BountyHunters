@@ -9,8 +9,10 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +23,6 @@ import com.example.model.Bounty;
 import com.example.model.Criminal;
 
 import com.example.model.Host;
-import com.example.model.Status;
 import com.example.model.User;
 import com.example.service.AssetService;
 import com.example.service.BountyService;
@@ -30,6 +31,7 @@ import com.example.service.UserService;
 
 @RestController
 @RequestMapping(value = "/bounty")
+@CrossOrigin(origins="*")
 public class BountyController {
 
 	private BountyService bServ;
@@ -53,7 +55,9 @@ public class BountyController {
 	}
 	
 	@PostMapping(value="/register")
-	public ResponseEntity<Bounty> RegisterBounty(@RequestBody Bounty bounty, @RequestBody Criminal criminal) {
+	public ResponseEntity<Bounty> RegisterBounty(@RequestBody Bounty bounty) {
+		
+		Criminal criminal = bounty.getCriminalid();
 		
 		Optional<Criminal> crimfirst = Optional.ofNullable(bServ.getCriminalByFirstname(criminal.getFirstname()));
 		Optional<Criminal> crimlast = Optional.ofNullable(bServ.getCriminalByLastname(criminal.getLastname()));
@@ -77,7 +81,7 @@ public class BountyController {
 			crim = bServ.getCriminalByCodename(criminal.getCodename());
 		}
 		else {
-			crim = bServ.verifyFirstnameAndLastname(criminal);
+			//crim = bServ.verifyFirstnameAndLastname(criminal);
 			
 		}
 		
@@ -112,11 +116,7 @@ public class BountyController {
 		Criminal criminal10 = new Criminal("Trigo", "Erantes-do-Nascimento", "XDR-708",
 				"Dagobah sidious skywalker darth", "Palpatine", 170, 205, "Gungan", "Boba");
 
-		Status status1 = new Status("Alive");
-		Status status2 = new Status("Dead");
-		Status status3 = new Status("Dead or Alive");
-		Status status4 = new Status("Active");
-		Status status5 = new Status("Complete");
+
 
 		Host host1 = new Host("Jabba", "Tiure", "TheHutt1", "D3si1ijic", "JabbTheHutt@StarHunter.com",
 				"Grand Hutt Council", "Eminence of Tatooine", "JabbaTheHutt");
@@ -125,33 +125,36 @@ public class BountyController {
 
 		hServ.insertHost(host1);
 		hServ.insertHost(host2);
+		
+		
+		
 
-		Bounty bounty1 = new Bounty("Solo yoda calamari fisto jawa", 1000, "Republic credit", host1, criminal1, status1,
-				"34 ABY", status4);
-		Bounty bounty2 = new Bounty("Darth wedge luke jade", 100000, "Republic credit", host1, criminal2, status2,
-				"64 BBY", status4);
-		Bounty bounty3 = new Bounty("Chewbacca antilles dantooine darth jinn", 500, "Republic credit", host1, criminal3,
-				status3, "74 ABY", status4);
-		Bounty bounty4 = new Bounty("Yoda mace binks yavin", 250, "Druggats", host1, criminal4, status1, "28 BBY",
-				status4);
-		Bounty bounty5 = new Bounty("Sith moff gamorrean kashyyyk.", 3750, "Emperial Credits", host1, criminal5,
-				status2, "73 ABY", status4);
-		Bounty bounty6 = new Bounty("Calamari bespin binks obi-wan mustafar", 8760, "Imperial credit", host2, criminal6,
-				status3, "22 ABY", status4);
-		Bounty bounty7 = new Bounty("Ahsoka skywalker grievous darth", 95000, "Republic credit", host2, criminal7,
-				status1, "45 BBY", status4);
-		Bounty bounty8 = new Bounty("Jawa ackbar bespin han luke jango", 70000, "Emperial Credits", host2, criminal8,
-				status2, "32 BBY", status4);
-		Bounty bounty9 = new Bounty("Organa jango mandalorians calrissian", 14000, "Imperial credit", host2, criminal9,
-				status3, "67 BBY", status4);
-		Bounty bounty10 = new Bounty("Dantooine mandalorians hoth tatooine", 300, "Druggats", host2, criminal10,
-				status1, "89 ABY", status4);
+		Bounty bounty1 = new Bounty(1000, "Republic credit", host1, criminal1, "Alive",
+				"34 ABY", "Active");
+		Bounty bounty2 = new Bounty(100000, "Republic credit", host1, criminal2, "Alive",
+				"64 BBY", "Active");
+		Bounty bounty3 = new Bounty(500, "Republic credit", host1, criminal3,
+				"Dead Or Alive", "74 ABY", "Active");
+		Bounty bounty4 = new Bounty(250, "Druggats", host1, criminal4, "Dead", "28 BBY",
+				"Active");
+		Bounty bounty5 = new Bounty(3750, "Emperial Credits", host1, criminal5,
+				"Alive", "73 ABY", "Active");
+		Bounty bounty6 = new Bounty(8760, "Imperial credit", host2, criminal6,
+				"Dead Or Alive", "22 ABY", "Active");
+		Bounty bounty7 = new Bounty(95000, "Republic credit", host2, criminal7,
+				"Dead", "45 BBY", "Active");
+		Bounty bounty8 = new Bounty(70000, "Emperial Credits", host2, criminal8,
+				"Alive", "32 BBY", "Active");
+		Bounty bounty9 = new Bounty(14000, "Imperial credit", host2, criminal9,
+				"Dead Or Alive", "67 BBY", "Active");
+		Bounty bounty10 = new Bounty(300, "Druggats", host2, criminal10,
+				"Dead", "89 ABY", "Active");
 
-		bServ.insertBounty(bounty1, criminal1, status1);
-		bServ.insertBounty(bounty2, criminal2, status2);
-		bServ.insertBounty(bounty3, criminal3, status3);
-		bServ.insertBounty(bounty4, criminal4, status4);
-		bServ.insertBounty(bounty5, criminal5, status5);
+		bServ.insertBounty(bounty1, criminal1);
+		bServ.insertBounty(bounty2, criminal2);
+		bServ.insertBounty(bounty3, criminal3);
+		bServ.insertBounty(bounty4, criminal4);
+		bServ.insertBounty(bounty5, criminal5);
 		bServ.insertBounty(bounty6, criminal6);
 		bServ.insertBounty(bounty7, criminal7);
 		bServ.insertBounty(bounty8, criminal8);
@@ -171,11 +174,13 @@ public class BountyController {
 			return ResponseEntity.badRequest().build();
 		}
 
-//		Bounty subbounty = bServ.getBountyByCriminalId(criminal);
-//
-//		subbounty.setTurninid(bounty.getTurninid());
-//		subbounty.setCapture(bounty.getCapture());
-//		subbounty.setBhHolder(bounty.getBhHolder());
+
+		Bounty subbounty = bServ.getBountyByCriminalId(criminal);
+		subbounty.setPreferid(bounty.getPreferid());
+		subbounty.setCapture(bounty.getCapture());
+		subbounty.setHostHolder(bounty.getHostHolder());
+		subbounty.setActiveid("Active");
+
 		
 
 		
@@ -190,11 +195,9 @@ public class BountyController {
 		
 		
 		
-<<<<<<< HEAD
+
 		Bounty finbounty = bServ.getBountyById(bounty.getBountyid());
-=======
-		Bounty finbounty = bServ.getBountyById(bounty);
->>>>>>> AndrewUpload
+
 		
 		User user = uServ.getUserById(finbounty.getBhHolder());
 		
@@ -212,8 +215,34 @@ public class BountyController {
 		
 		return ResponseEntity.status(201).body(finbounty);
 	
+	}
+
+	@GetMapping("/complete")
+	public ResponseEntity<List<Bounty>> findAllCompletedBounty(){
+		return ResponseEntity.status(200).body(this.bServ.getAllCompletedBounty());
+	}
 	
+	@GetMapping("/private")
+	public ResponseEntity<List<Bounty>> findAllPrivateBounty(){
+		return ResponseEntity.status(200).body(this.bServ.getAllPrivateBounty());
+	}
+	
+	@GetMapping("/all")
+	public ResponseEntity<List<Bounty>> findAllBounty(){
+		return ResponseEntity.status(200).body(this.bServ.listAllBounty());
+	}
+	
+	@GetMapping("/criminal")
+	public ResponseEntity<List<Criminal>> findAllCriminals(){
+		return ResponseEntity.status(200).body(this.bServ.getCriminalAll());
+	}
+	
+	@GetMapping("/profile/{id}")
+	public ResponseEntity<Bounty> updateProfile(@PathVariable("id") int bountyid){
+		return ResponseEntity.status(201).body(bServ.getBountyById(bountyid));
+
 	}
 
 
 }
+

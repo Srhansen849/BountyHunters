@@ -25,3 +25,5 @@ public interface HostDAO extends JpaRepository<Host, Integer>{
 
 }
 
+
+

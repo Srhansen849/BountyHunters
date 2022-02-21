@@ -44,5 +44,6 @@ Feature: A Bounty Hunter can upload a bounty
 #		And the Bounty Hunter inputs "avatar" into the avatar input field
 		And the Bounty Hunter clicks submit
 		Then the Bounty Hunter profile will be updated
+
 	
 
