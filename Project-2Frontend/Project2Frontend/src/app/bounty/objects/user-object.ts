@@ -1,7 +1,11 @@
+import { Account } from "./account-object";
+import { Bounty } from "./bounty-object";
+
 export class User{
-    constructor(public codename:string, public email:string, 
-                public firstname:string, public lastname:string, 
-                public password:string, public rank:number, 
-                public username:string, public accountid:number, 
+    constructor(public username:string, public password:string, 
+                public firstname?:string, public lastname?:string, 
+                public email?:string, public rank?:number, 
+                public codename?:string, public account?:Account, 
                 public userid?:number){}
+
 }

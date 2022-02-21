@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Host, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { User } from '../bounty/objects/user-object';
+import { NewAccountService } from './new-account.service';
 
 @Component({
   selector: 'app-new-account',
@@ -7,11 +11,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewAccountComponent implements OnInit {
 
-  constructor() { }
+  userForm = new FormGroup({
+    firstname: new FormControl(''),
+    lastname: new FormControl(''),
+    codename: new FormControl(''),
+    username: new FormControl(''),
+    password: new FormControl(''),
+    preferid: new FormControl('')
+  })
+
+  host: Host;
+
+  constructor(private nServ:NewAccountService, private router:Router, private actRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
+
   }
+
 
   
 
 }
+
+

@@ -15,7 +15,6 @@ import com.example.dao.BountyDAO;
 import com.example.model.Bounty;
 import com.example.model.Criminal;
 import com.example.model.Host;
-import com.example.model.Status;
 import com.example.service.BountyService;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -24,7 +23,6 @@ public class BountyServiceTest {
 	Bounty bounty;
 	Host host;
 	Criminal criminal;
-	Status status;
 	
 	@InjectMocks
 	BountyService service;
@@ -34,35 +32,33 @@ public class BountyServiceTest {
 	
 	@BeforeEach
 	public void setUp() throws Exception{
-		criminal =  new Criminal("Amarant", "Procjnow", "K-656",
-				"han sidious bespin dantooine mon c-3po yoda luke", 
-				"Tusken", 241, 222, "Bith", "Antilles");
-		status = new Status("Alive");
-		host = new Host("Jabba", "Tiure", "TheHutt1", "D3si1ijic", 
-						"JabbTheHutt@StarHunter.com", "Grand Hutt Council", 
-						"Eminence of Tatooine", "JabbaTheHutt");
-		bounty = new Bounty("Solo yoda calamari fisto jawa", 1000, 
-						"Republic credit", host, criminal, status,
-						"34 ABY", status);
+		criminal =  new Criminal("Amarant Procjnow", 241, 222, "Bith");
+		host = new Host("Jabba The Hutt", "TheHutt1", "D3si1ijic", "JabbTheHutt@StarHunter.com",
+				"Grand Hutt Council", "Eminence of Tatooine");
+		bounty = new Bounty(1000, "Credits", "34 ABY", host, criminal, "Alive", "Active");
 		doNothing().when(this.service).editBounty(bounty);	
 	}
 	
 	@Test
-	public void testgetCriminalByFirstname() {
-		when(this.service.getCriminalByFirstname("Amarant")).thenReturn(criminal);
-		assertEquals(criminal, service.getCriminalByFirstname(criminal.getFirstname()));
+	public void testgetCriminalByCrimname() {
+		when(this.service.getCriminalByCrimname("Amarant")).thenReturn(criminal);
+		assertEquals(criminal, service.getCriminalByCrimname(criminal.getCrimname()));
+	}
+	
+//	@Test
+//	public void testgetBountyByCriminalfk() {
+//		when(this.service.getBountyByCriminalfk("Codename")).thenReturn(criminal);
+//		assertEquals(criminal, service.getBountyByCriminalfk(criminal.getCrimname()));
+//	}
+	
+	@Test
+	public void testgetBountyById() {
+	
 	}
 	
 	@Test
-	public void testgetCriminalByLastname() {
-		when(this.service.getCriminalByLastname("Procjnow")).thenReturn(criminal);
-		assertEquals(criminal, service.getCriminalByLastname(criminal.getLastname()));
-	}
+	public void testinsertBounty() {
 	
-	@Test
-	public void testgetCriminalByCodename() {
-		when(this.service.getCriminalByCodename("Codename")).thenReturn(criminal);
-		assertEquals(criminal, service.getCriminalByCodename(criminal.getCodename()));
 	}
 	
 	@Test
@@ -81,17 +77,7 @@ public class BountyServiceTest {
 	}
 	
 	@Test
-	public void testgetBountyById() {
-	
-	}
-	
-	@Test
-	public void testinsertBounty() {
-	
-	}
-	
-	@Test
-	public void testlistAllCriminal() {
+	public void testeditBounty() {
 	
 	}
 	
@@ -101,19 +87,42 @@ public class BountyServiceTest {
 	}
 	
 	@Test
-	public void testgetBountyByBhHolder() {
+	public void testgetAllActiveBounty() {
 	
 	}
 	
 	@Test
-	public void testgetBountyByHostHolder() {
+	public void testgetAllCompletedBounty() {
 	
 	}
 	
 	@Test
-	public void testorderBountyByAmount() {
+	public void testgetAllPrivateBounty() {
 	
 	}
 	
-
+	@Test
+	public void testgetHostBounties() {
+	
+	}
+	
+	@Test
+	public void testgetUserBounties() {
+	
+	}
+	
+	@Test
+	public void testgetBountyByUserfk() {
+	
+	}
+	
+	@Test
+	public void testgetBountyByHostfk() {
+	
+	}
+	
+	
+	
+	
+	
 }

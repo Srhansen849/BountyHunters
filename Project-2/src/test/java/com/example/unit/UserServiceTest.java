@@ -31,6 +31,7 @@ public class UserServiceTest {
 	Account account;
 	User user;
 	Asset asset;
+	List<Asset> bList = new ArrayList<Asset>();
 	
 	@InjectMocks
 	UserService service;
@@ -40,88 +41,51 @@ public class UserServiceTest {
 	
 	@BeforeEach
 	public void setUp() throws Exception{
-		user = new User("Boba", "Fett", "AlphaFett1", "M4nd410ri4n",
-				"BobaFett1@StarHunter.com", "Alpha", 1, account);
+		user = new User("Boba Fett", "AlphaFett1", "M4nd410ri4n", "BobaFett1@StarHunter.com", account);
+		asset = new Asset("Republic credit", 63.5, account);
 		asset = new Asset("Republic credit", 63.5, account);
 		account = new Account();
 		List<Asset> List= new ArrayList<Asset>();
 		doNothing().when(this.service).insertUser(user);	
 	}
 	
-	@Test
-	public void testgetUserByFirstname() {
-		when(this.service.getUserByFirstname("Firstname")).thenReturn(user);
-		assertEquals(user, service.getUserByFirstname(user.getFirstname()));
-	}
+//	@Test
+//	public void testfindAllBountyHunters() throws Exception{
+//		List<User> bList = new ArrayList<User>();
+//		bList.add(user);
+//		when(this.service.findAllBountyHunters()).thenReturn(bList);
+//		this.mockDAO.perform(get("/all").contentType(MediaType.APPLICATION_JSON))
+//		.andExpect(status().isOk())
+//		.andExpect(jsonPath("$[0].Boba Fett", is(user.getHuntername())))
+//		.andExpect(jsonPath("$[0].AlphaFett1", is(user.getUusername())))
+//		.andExpect(jsonPath("$[0].M4nd410ri4n", is(user.getUpassword())))
+//		.andExpect(jsonPath("$[0].BobaFett1@StarHunter.com", is(user.getUemail())))
+//		.andExpect(jsonPath("$[0].account", is(user.getUaccount())));
+//	}
 	
 	@Test
-	public void testgetUserByLastname() {
-		when(this.service.getUserByLastname("Lastname")).thenReturn(user);
-		assertEquals(user, service.getUserByLastname(user.getLastname()));
-	}
-	
-	@Test
-	public void testgetUserByCodename() {
-		when(this.service.getUserByCodename("Codename")).thenReturn(user);
-		assertEquals(user, service.getUserByCodename(user.getCodename()));
+	public void testgetUserByHuntername() {
+		when(this.service.getUserByHuntername("huntername")).thenReturn(user);
+		assertEquals(user, service.getUserByHuntername(user.getHuntername()));
 	}
 	
 	@Test
 	public void testgetUserByUsername() {
-		when(this.service.getUserByUsername("Username")).thenReturn(user);
-		assertEquals(user, service.getUserByUsername(user.getUsername()));
+		when(this.service.getUserByUsername("uusername")).thenReturn(user);
+		assertEquals(user, service.getUserByUsername(user.getUusername()));
 	}
 	
 	@Test
 	public void testgetUserByEmail() {
-		when(this.service.getUserByEmail("Email")).thenReturn(user);
-		assertEquals(user, service.getUserByEmail(user.getEmail()));
-	}
-	
-	@Test
-	public void testgetUserbyId() {
-		
+		when(this.service.getUserByEmail("upassword")).thenReturn(user);
+		assertEquals(user, service.getUserByEmail(user.getUemail()));
 	}
 	
 	@Test
 	public void testverifyPassword() {
 		
 	}
-	
-//	@Test
-//	public void testfindAllBountyHunters() throws Exception{
-//		List<User> bList = new ArrayList<User>();
-//		bList.add(user);
-//		when(this.uServ.findAllBountyHunters()).thenReturn(bList);
-//		this.mock.perform(get("/all").contentType(MediaType.APPLICATION_JSON))
-//		.andExpect(status().isOk())
-//		.andExpect(jsonPath("$[0].firstname", is(user.getFirstname())))
-//		.andExpect(jsonPath("$[0].lastname", is(user.getLastname())))
-//		.andExpect(jsonPath("$[0].username", is(user.getUsername())))
-//		.andExpect(jsonPath("$[0].password", is(user.getPassword())))
-//		.andExpect(jsonPath("$[0].email", is(user.getEmail())))
-//		.andExpect(jsonPath("$[0].codename", is(user.getCodename())))
-//		.andExpect(jsonPath("$[0].rank", is(user.getRank())))
-//		.andExpect(jsonPath("$[0].account", is(user.getAccount())));
-//	}
-//		
-//	@Test
-//	public void testfindTopTen() throws Exception{
-//		List<User> bList = new ArrayList<User>();
-//		bList.add(user);
-//		when(this.uServ.findAllBountyHuntersRanked()).thenReturn(bList);
-//		when(this.uServ.findAllBountyHuntersRanked()).thenReturn(bList);
-//		this.mock.perform(get("/rank").contentType(MediaType.APPLICATION_JSON))
-//		.andExpect(status().isOk())
-//		.andExpect(jsonPath("$[0].firstname", is(user.getFirstname())))
-//		.andExpect(jsonPath("$[0].lastname", is(user.getLastname())))
-//		.andExpect(jsonPath("$[0].username", is(user.getUsername())))
-//		.andExpect(jsonPath("$[0].password", is(user.getPassword())))
-//		.andExpect(jsonPath("$[0].email", is(user.getEmail())))
-//		.andExpect(jsonPath("$[0].codename", is(user.getCodename())))
-//		.andExpect(jsonPath("$[0].rank", is(user.getRank())))
-//		.andExpect(jsonPath("$[0].account", is(user.getAccount())));
-//	}
+
 
 	
 	

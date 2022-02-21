@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { HomepageService } from '../homepage.service';
 
 @Component({
   selector: 'app-homepage-user',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomepageUserComponent implements OnInit {
 
-  constructor() { }
+  constructor(private hServ:HomepageService, private router:Router, private actRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
+    let user = JSON.parse(localStorage.getItem("loggedUser"));
+    console.log(user);
+    if(!user){
+      this.router.navigate(["/login"]);
+    }
   }
 
 }

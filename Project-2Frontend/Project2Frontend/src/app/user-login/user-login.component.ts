@@ -1,8 +1,9 @@
 
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { User } from './user';
-import { Router } from '@angular/router';
+import { User } from "../bounty/objects/user-object";
+import { Host } from "../bounty/objects/host-object";
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserLoginService } from './user-login.service';
 
 
@@ -13,54 +14,79 @@ import { UserLoginService } from './user-login.service';
 })
 export class UserLoginComponent implements OnInit {
 
+  wronglogin = false;
+
   userForm = new FormGroup({
     username: new FormControl(``),
     password: new FormControl(``),
   });
 
-    isHunter = false;
-    isHost = false;
+  hostForm = new FormGroup({
+    username: new FormControl(``),
+    password: new FormControl(``),
+  });
 
-    public hunterButton() {
-      this.isHunter = true;
-      this.isHost = false;
-      console.log("Hunter Button");  
-    }
+  isHunter = true;
+  isHost = false;
 
-    public hostButton() {
-      this.isHost = true;
-      this.isHunter = false;
-      console.log("Host Button");  
-    }
+  public hunterButton() {
+    this.isHunter = true;
+    this.isHost = false;
+    console.log("Hunter Button");
+  }
 
-  constructor(public router: Router, public uServ: UserLoginService) { }
+  public hostButton() {
+    this.isHost = true;
+    this.isHunter = false;
+    console.log("Host Button");
+  }
+
+  constructor(public router: Router, public uServ: UserLoginService, private actRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
     localStorage.removeItem("loggedUser");
+    document.getElementById("user_login");
   }
 
-  public login(userForm: FormGroup) {
+  public userlogin(userForm: FormGroup) {
     let user = new User(userForm.get("username").value, userForm.get("password").value);
     localStorage.setItem("loggedUser", JSON.stringify(user));
     console.log(user);
+    
 
-    // if a user is returned navigate to the next component you want, otherwise notify the user
-    if (this.isHunter) {
-      this.router.navigate(['./profile-host']);
-      //this.uServ.bHunterLogin(JSON.stringify(user)).subscribe(
-      // response => {
-      //   console.log(response);
-      //   this.router.navigate(['profile-host']);
-      // },
-      // error => {
-      //   console.log("login failed");
-      // }
-      //);
-    } else if (this.isHost) {
-      this.router.navigate(['/profile/profile-host']);
-    }
+    this.uServ.bHunterLogin(user).subscribe(
+      response => {
+        console.log(response);
+        this.wronglogin = false;
+        this.router.navigate(['./homepage-user']);
+
+      },
+      error => {
+        console.warn("the wrong credentials");
+        this.wronglogin = true;
+      }
+    )
+
+
+  }
+
+  public hostlogin(hostForm: FormGroup) {
+    let host = new Host(hostForm.get("username").value, hostForm.get("password").value);
+    localStorage.setItem("loggedUser", JSON.stringify(host));
+    console.log(host);
+
+    this.uServ.bOwnerLogin(host).subscribe(
+      response => {
+        console.log(response);
+        this.router.navigate(['./homepage-host']);
+        this.wronglogin = false;
+      },
+      error => {
+        console.warn("the wrong credentials");
+        this.wronglogin = true;
+      }
+    )
   }
 }
-
 
 

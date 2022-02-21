@@ -28,44 +28,32 @@ public class HostServiceTest {
 	
 	@BeforeEach
 	public void setUp() throws Exception{
-		host = new Host("Jabba", "Tiure", "TheHutt1", "D3si1ijic", "JabbTheHutt@StarHunter.com",
-				"Grand Hutt Council", "Eminence of Tatooine", "JabbaTheHutt");
+		host = new Host("Jabba The Hutt", "TheHutt1", "D3si1ijic", "JabbTheHutt@StarHunter.com",
+				"Grand Hutt Council", "Eminence of Tatooine");
 		doNothing().when(this.service).insertHost(host);
-	}
-
-	@Test
-	public void testgetHostByFirstname() {
-		when(this.service.getHostByFirstname("Firstname")).thenReturn(host);
-		assertEquals(host, service.getHostByFirstname(host.getFirstname()));
-	}
-	
-	@Test
-	public void testgetHostByLastname() {
-		when(this.service.getHostByLastname("Lastname")).thenReturn(host);
-		assertEquals(host, service.getHostByLastname(host.getLastname()));
-	}
-	
-	@Test
-	public void testgetHostByCodename() {
-		when(this.service.getHostByCodename("Codename")).thenReturn(host);
-		assertEquals(host, service.getHostByCodename(host.getCodename()));
-	}
-	
-	@Test
-	public void testgetHostByUsername() {
-		when(this.service.getHostByUsername("Codename")).thenReturn(host);
-		assertEquals(host, service.getHostByUsername(host.getCodename()));
-	}
-	
-	@Test
-	public void testgetUserByEmail() {
-		when(this.service.getHostByEmail("Email")).thenReturn(host);
-		assertEquals(host, service.getHostByEmail(host.getEmail()));
 	}
 	
 	@Test
 	public void testinsertHost() {
 		
+	}
+
+	@Test
+	public void testgetHostByHostname() {
+		when(this.service.getHostByHostname("Firstname")).thenReturn(host);
+		assertEquals(host, service.getHostByHostname(host.getHostname()));
+	}
+	
+	@Test
+	public void testgetHostByUsername() {
+		when(this.service.getHostByUsername("Codename")).thenReturn(host);
+		assertEquals(host, service.getHostByUsername(host.getHusername()));
+	}
+	
+	@Test
+	public void testgetUserByEmail() {
+		when(this.service.getHostByEmail("Email")).thenReturn(host);
+		assertEquals(host, service.getHostByEmail(host.getHemail()));
 	}
 	
 	@Test

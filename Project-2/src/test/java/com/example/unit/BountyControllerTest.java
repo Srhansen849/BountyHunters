@@ -15,8 +15,6 @@ import com.example.controller.UserController;
 import com.example.model.Bounty;
 import com.example.model.Criminal;
 import com.example.model.Host;
-import com.example.model.Status;
-import com.example.model.User;
 import com.example.service.BountyService;
 
 @ExtendWith(SpringExtension.class)
@@ -32,20 +30,13 @@ public class BountyControllerTest {
 	Bounty bounty;
 	Host host;
 	Criminal criminal;
-	Status status;
 	
 	@BeforeEach
 	public void setUp() throws Exception{
-		criminal =  new Criminal("Amarant", "Procjnow", "K-656",
-				"han sidious bespin dantooine mon c-3po yoda luke", 
-				"Tusken", 241, 222, "Bith", "Antilles");
-		status = new Status("Alive");
-		host = new Host("Jabba", "Tiure", "TheHutt1", "D3si1ijic", 
-						"JabbTheHutt@StarHunter.com", "Grand Hutt Council", 
-						"Eminence of Tatooine", "JabbaTheHutt");
-		bounty = new Bounty("Solo yoda calamari fisto jawa", 1000, 
-						"Republic credit", host, criminal, status,
-						"34 ABY", status);
+		criminal =  new Criminal("Amarant Procjnow", 241, 222, "Bith");
+		host = new Host("Jabba The Hutt", "TheHutt1", "D3si1ijic", "JabbTheHutt@StarHunter.com",
+				"Grand Hutt Council", "Eminence of Tatooine");
+		bounty = new Bounty(1000, "Credits", "34 ABY", host, criminal, "Alive", "Active");
 		doNothing().when(this.bServ).editBounty(bounty);	
 	}
 

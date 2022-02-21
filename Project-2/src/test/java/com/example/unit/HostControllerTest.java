@@ -16,13 +16,11 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.http.MediaType;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 
 import com.example.controller.UserController;
 import com.example.model.Host;
-import com.example.model.User;
 import com.example.service.HostService;
 
 @ExtendWith(SpringExtension.class)
@@ -39,8 +37,8 @@ public class HostControllerTest {
 	
 	@BeforeEach
 	public void setUp() throws Exception{
-		host = new Host("Jabba", "Tiure", "TheHutt1", "D3si1ijic", "JabbTheHutt@StarHunter.com",
-				"Grand Hutt Council", "Eminence of Tatooine", "JabbaTheHutt");
+		host = new Host("Jabba The Hutt", "TheHutt1", "D3si1ijic", "JabbTheHutt@StarHunter.com",
+				"Grand Hutt Council", "Eminence of Tatooine");
 		doNothing().when(this.hServ).insertHost(host);
 	}
 		
@@ -62,19 +60,17 @@ public class HostControllerTest {
 //	@Test
 //	public void getProfileInfo() throws Exception {
 //		List<Host> hList = new ArrayList<Host>();
-//		bList.add(host);
+//		hList.add(host);
 //		when(this.hServ.getProfileInfo()).thenReturn(hList);
 //		when(this.hServ.getProfileInfo()).thenReturn(hList);
 //		this.mock.perform(get("/profileinfo").contentType(MediaType.APPLICATION_JSON))
 //		.andExpect(status().isOk())
-//		.andExpect(jsonPath("$[0].firstname", is(host.getFirstname())))
-//		.andExpect(jsonPath("$[0].lastname", is(host.getLastname())))
-//		.andExpect(jsonPath("$[0].username", is(host.getUsername())))
-//		.andExpect(jsonPath("$[0].password", is(host.getPassword())))
-//		.andExpect(jsonPath("$[0].email", is(host.getEmail())))
-//		.andExpect(jsonPath("$[0].association", is(host.getAssociation())))
-//		.andExpect(jsonPath("$[0].representative", is(host.getRepresentative())))	
-//		.andExpect(jsonPath("$[0].codename", is(host.getCodename())));
+//		.andExpect(jsonPath("$[0].hostname", is(host.getHostname())))
+//		.andExpect(jsonPath("$[0].husername", is(host.getHusername())))
+//		.andExpect(jsonPath("$[0].Hpassword", is(host.getHpassword())))
+//		.andExpect(jsonPath("$[0].hemail", is(host.getHemail())))
+//		.andExpect(jsonPath("$[0].association", is(host.getHassociation())))
+//		.andExpect(jsonPath("$[0].representative", is(host.getRepresentative())));
 //	}
 	
 	@Test

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Bounty } from '../objects/bounty-object';
 import { BountyService } from '../bounty.service';
+import { FormControl, FormGroup } from '@angular/forms';
+import { NgStyle } from '@angular/common';
 
 @Component({
   selector: 'app-confirm-bounty',
@@ -10,12 +12,32 @@ import { BountyService } from '../bounty.service';
 })
 export class ComfirmBountyComponent implements OnInit {
 
-  bounty:Bounty;
-  
+  confirmBountyForm = new FormGroup({
+    caputre: new FormControl(''),
+    preferid: new FormControl(''),
+    turninid: new FormControl(''),
+    amount: new FormControl('')
+  })
+  userForm = new FormGroup({
+    firstname: new FormControl(''),
+    codename: new FormControl(''),
+    lastname: new FormControl(''),
+    amount: new FormControl('')
+    })
+  router: any;
 
-  constructor(private bServ:BountyService, private router:Router, private actRoute:ActivatedRoute) { }
 
+
+
+  confirmBounty(confirm: FormGroup){
+
+  }
   ngOnInit(): void {
+    let user = JSON.parse(localStorage.getItem("loggedUser"));
+    console.log(user);
+    if(!user){
+      this.router.navigate(["/login"]);
+    }
   }
 
 }

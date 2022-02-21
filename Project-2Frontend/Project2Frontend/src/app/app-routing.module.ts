@@ -15,19 +15,19 @@ import { BountyComponent } from './bounty/bounty.component';
 
 
 const routes: Routes = [
-  { path: 'login', component: UserLoginComponent},
-  { path: 'homepage', component: HomepageComponent},
-  { path: 'homepage-user', component: HomepageUserComponent},
-  { path: 'homepage-host', component: HomepageHostComponent},
-  { path: 'newaccount', component: NewAccountComponent},
-  { path: 'bounty', component: BountyComponent},
-  { path: 'profile', component: ProfileComponent},
-  { path: 'confirmbounty', component: ComfirmBountyComponent},
-  { path: 'uploadbounty', component: UploadBountyComponent},
-  { path: 'registerbounty', component: RegisterBountyComponent},
-  { path: 'forgotpassword', component: ForgotPasswordComponent},
-  { path: 'profile-host', component: ProfileHostComponent},
-  { path: '**', redirectTo: 'homepage'}
+  { path: 'login', component: UserLoginComponent },
+  { path: 'homepage', component: HomepageComponent },
+  { path: 'homepage-user', component: HomepageUserComponent },
+  { path: 'homepage-host', component: HomepageHostComponent },
+  { path: 'newaccount', component: NewAccountComponent },
+  { path: 'bounty', component: BountyComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: 'confirmbounty', component: ComfirmBountyComponent },
+  { path: 'uploadbounty', component: UploadBountyComponent },
+  { path: 'registerbounty', component: RegisterBountyComponent },
+  { path: 'forgotpassword', component: ForgotPasswordComponent },
+  { path: 'profile-host', component: ProfileHostComponent },
+  { path: '**', redirectTo: 'homepage' }
 ];
 
 @NgModule({

@@ -44,17 +44,12 @@ public class UserControllerTest {
 	
 	@BeforeEach
 	public void setUp() throws Exception{
-		user = new User("Boba", "Fett", "AlphaFett1", "M4nd410ri4n",
-				"BobaFett1@StarHunter.com", "Alpha", 1, account);
+		user = new User("Boba Fett", "AlphaFett1", "M4nd410ri4n", "BobaFett1@StarHunter.com", account);
 		asset = new Asset("Republic credit", 63.5, account);
 		account = new Account();
 		List<Asset> List= new ArrayList<Asset>();
 		doNothing().when(this.uServ).insertUser(user);	
 	}
-	
-
-	
-//	insertInitalValues
 	
 	@Test
 	public void testfindAllBountyHunters() throws Exception{
@@ -63,34 +58,13 @@ public class UserControllerTest {
 		when(this.uServ.findAllBountyHunters()).thenReturn(bList);
 		this.mock.perform(get("/all").contentType(MediaType.APPLICATION_JSON))
 		.andExpect(status().isOk())
-		.andExpect(jsonPath("$[0].firstname", is(user.getFirstname())))
-		.andExpect(jsonPath("$[0].lastname", is(user.getLastname())))
-		.andExpect(jsonPath("$[0].username", is(user.getUsername())))
-		.andExpect(jsonPath("$[0].password", is(user.getPassword())))
-		.andExpect(jsonPath("$[0].email", is(user.getEmail())))
-		.andExpect(jsonPath("$[0].codename", is(user.getCodename())))
-		.andExpect(jsonPath("$[0].rank", is(user.getRank())))
-		.andExpect(jsonPath("$[0].account", is(user.getAccount())));
+		.andExpect(jsonPath("$[0].huntername", is(user.getHuntername())))
+		.andExpect(jsonPath("$[0].uusername", is(user.getUusername())))
+		.andExpect(jsonPath("$[0].upassword", is(user.getUpassword())))
+		.andExpect(jsonPath("$[0].uemail", is(user.getUemail())))
+		.andExpect(jsonPath("$[0].uaccount", is(user.getUaccount())));
 	}
 		
-	@Test
-	public void testfindTopTen() throws Exception{
-		List<User> bList = new ArrayList<User>();
-		bList.add(user);
-		when(this.uServ.findAllBountyHuntersRanked()).thenReturn(bList);
-		when(this.uServ.findAllBountyHuntersRanked()).thenReturn(bList);
-		this.mock.perform(get("/rank").contentType(MediaType.APPLICATION_JSON))
-		.andExpect(status().isOk())
-		.andExpect(jsonPath("$[0].firstname", is(user.getFirstname())))
-		.andExpect(jsonPath("$[0].lastname", is(user.getLastname())))
-		.andExpect(jsonPath("$[0].username", is(user.getUsername())))
-		.andExpect(jsonPath("$[0].password", is(user.getPassword())))
-		.andExpect(jsonPath("$[0].email", is(user.getEmail())))
-		.andExpect(jsonPath("$[0].codename", is(user.getCodename())))
-		.andExpect(jsonPath("$[0].rank", is(user.getRank())))
-		.andExpect(jsonPath("$[0].account", is(user.getAccount())));
-	}
-	
 	@Test
 	public void testbountyHunterLogin() throws Exception{
 		
@@ -101,23 +75,10 @@ public class UserControllerTest {
 		
 	}
 	
-//	@Test
-//	public void testgetProfileInfo() throws Exception{
-//		List<User> bList = new ArrayList<User>();
-//		bList.add(user);
-//		when(this.uServ.testgetProfileInfo()).thenReturn(bList);
-//		when(this.uServ.testgetProfileInfo()).thenReturn(bList);
-//		this.mock.perform(get("/all").contentType(MediaType.APPLICATION_JSON))
-//		.andExpect(status().isOk())
-//		.andExpect(jsonPath("$[0].firstname", is(user.getFirstname())))
-//		.andExpect(jsonPath("$[0].lastname", is(user.getLastname())))
-//		.andExpect(jsonPath("$[0].username", is(user.getUsername())))
-//		.andExpect(jsonPath("$[0].password", is(user.getPassword())))
-//		.andExpect(jsonPath("$[0].email", is(user.getEmail())))
-//		.andExpect(jsonPath("$[0].codename", is(user.getCodename())))
-//		.andExpect(jsonPath("$[0].rank", is(user.getRank())))
-//		.andExpect(jsonPath("$[0].account", is(user.getAccount())));
-//	}
+	@Test
+	public void testgetProfileInfo() throws Exception{
+		
+	}
 	
 	@Test
 	public void testcreateNewUser() throws Exception{
@@ -128,6 +89,4 @@ public class UserControllerTest {
 	
 	
 	
-
-//	createNewUser	
 }

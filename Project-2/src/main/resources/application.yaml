@@ -11,5 +11,9 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     show-sql: true
     hibernate:
-
       ddl-auto: update
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 06cc178bbd77f82a573816d90d9175df0d2c2063
