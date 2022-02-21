@@ -1,3 +1,5 @@
+ 
+ 
  Scenario Outline: Completed Bounty Hunter 
 		 	Given a bounty hunter inputs their user name "<username>"
 		 	And a bounty hunter inputs their password "<password>"
