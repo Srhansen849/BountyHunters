@@ -43,7 +43,6 @@ public class Host {
 	private String representative;
 	
 	@OneToMany(mappedBy="hostfk", fetch=FetchType.EAGER)
-	@JsonManagedReference(value="hh")
 	private List<Bounty> hbountylist;
 
 	public Host() {

@@ -119,6 +119,7 @@ public class UserController {
 	@PostMapping("/login")
 	public ResponseEntity<User> bountyHunterLogin(@RequestBody User user) {
 		Optional<User> userOpt = Optional.ofNullable(uServ.getUserByUsername(user.getUusername()));
+		System.out.println(user);
 		if (!userOpt.isPresent()) {
 			return ResponseEntity.badRequest().build();
 		}

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 @Component({
@@ -12,15 +13,32 @@ export class BountyHunterComponent implements OnInit {
 
   public actbountlist = true;
 
-  public editBHProfile(){
+  public turnin = false;
 
-    // this.eBHProfile.bhprofile = true;
-
+  public profile(){
     this.bhprofile = true;
     this.actbountlist = false;
+    this.turnin = false;
   }
 
-  constructor() { }
+  public submitBounty(){
+    this.bhprofile = false;
+    this.actbountlist = false;
+    this.turnin = true;
+  }
+
+  public home(){
+    this.bhprofile = false;
+    this.actbountlist = true;
+    this.turnin = false;
+  }
+
+  public logout(){
+    localStorage.removeItem("loggedUser");
+    this.route.navigate(['./login'])
+  }
+
+  constructor(public route: Router) { }
   // public eBHProfile: EditProfileComponent
 
   ngOnInit(): void {

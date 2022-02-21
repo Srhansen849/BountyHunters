@@ -47,7 +47,7 @@ export class NewBountyComponent implements OnInit {
     // bounty = new Bounty();
 
     console.log(bounty.value);
-    this.bServ.createNewBounty(stringbounty);
+    this.bServ.createNewBounty(stringbounty, stringcriminal);
     
   }
 

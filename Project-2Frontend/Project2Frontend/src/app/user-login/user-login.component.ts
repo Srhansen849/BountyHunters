@@ -41,7 +41,7 @@ export class UserLoginComponent implements OnInit {
     console.log("Host Button");
   }
 
-  constructor(public router: Router, public uServ: UserLoginService, private actRoute:ActivatedRoute) { }
+  constructor(public router: Router, public uServ: UserLoginService, private actRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     localStorage.removeItem("loggedUser");
@@ -52,7 +52,7 @@ export class UserLoginComponent implements OnInit {
     let user = new User(userForm.get("username").value, userForm.get("password").value);
     localStorage.setItem("loggedUser", JSON.stringify(user));
     console.log(user);
-    
+
 
     this.uServ.bHunterLogin(user).subscribe(
       response => {
@@ -66,8 +66,6 @@ export class UserLoginComponent implements OnInit {
         this.wronglogin = true;
       }
     )
-
-
   }
 
   public hostlogin(hostForm: FormGroup) {

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BountyService } from 'src/app/services/bounty.service';
+import { BountyHunterComponent } from '../bounty-hunter.component';
 
 @Component({
   selector: 'app-turnin-bounty',
@@ -15,7 +16,11 @@ export class TurninBountyComponent implements OnInit {
     criminalfk: new FormControl('')
   });
 
-  constructor(private bServ: BountyService, private router: Router, private actRoute: ActivatedRoute) { }
+  constructor(private bServ: BountyService, private router: Router, private actRoute: ActivatedRoute, public bhcomp: BountyHunterComponent) { }
+
+  public cancelSubmit() {
+    this.bhcomp.bhprofile = false;
+  }
 
   ngOnInit(): void {
   }

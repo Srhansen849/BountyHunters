@@ -47,7 +47,6 @@ public class User {
 	
 	@OneToMany(mappedBy="userfk", fetch=FetchType.EAGER)
 	//@JoinColumn(name="bounty_fk")
-	@JsonBackReference
 	private List<Bounty> ubountylist;
 	
 	public User() {

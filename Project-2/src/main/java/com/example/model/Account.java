@@ -29,7 +29,6 @@ public class Account {
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "asset_fk")
-	@JsonBackReference
 	private List<Asset> assetlist;
 
 	public Account() {

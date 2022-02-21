@@ -19,4 +19,9 @@ export class FinishBountyComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public confirmBounty(bounty: FormGroup){
+    let stringbounty = JSON.stringify(bounty);
+    this.bServ.FinishBounty(stringbounty).subscribe();
+  }
+
 }

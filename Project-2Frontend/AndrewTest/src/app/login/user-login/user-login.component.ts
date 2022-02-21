@@ -26,9 +26,6 @@ export class UserLoginComponent implements OnInit {
     // localStorage.removeItem("loggedUser");
   }
 
-
-
-
   // public userlogin(userForm: FormGroup) {
   //   let user = new User(userForm.get("uusername").value, userForm.get("upassword").value);
   //   localStorage.setItem("loggedUser", JSON.stringify(user));
@@ -50,6 +47,7 @@ export class UserLoginComponent implements OnInit {
 
   // }
 
+  
   
 }
 

@@ -4,21 +4,12 @@
     <br>
 
     <br>
-    <div class="row gx-3 mb-3">
-        <!-- Description of Capture -->
-        <div class="status_of_bounty">
-            <label class="description">Description of Capture</label> <br>
-            <div>
-                <textarea name="description_of_capture" id="description_of_capture" class="control-form" rows="4"
-                    cols="55" formControlName="capture"></textarea>
-            </div>
-        </div>
-    </div>
+
     <div class="row gx-3 mb-3">
         <div class="status_of_bounty">
             <label>Preferred Status:</label>
             <div class="row">
-
+                <label></label><br>
             </div>
         </div>
         <br>
@@ -27,22 +18,16 @@
         <div class="status_of_bounty">
             <p>Status of Bounty:</p>
             <div class="row">
-                <div class="column">
-                    <input type="radio" id="alive" name="turnin_status" value="Alive" formControlName="turninid">
-                    <label for="alive">Alive</label><br>
-                </div>
-                <div class="column">
-                    <input type="radio" id="dead" name="turnin_status" value="Dead" formControlName="turninid">
-                    <label for="dead">Dead</label><br>
-                </div>
+                <label></label><br>
             </div>
         </div>
         <br>
     </div>
 
     <div class="row gx-3 mb-3">
+        <label class="bounty">Amount for Bounty:</label>
         <div class="col-md-6">
-            <label class="amount_for_bounty" for="inputbounty">Amount for Bounty:</label>
+            <label></label><br>
         </div>
     </div>
     <br>
@@ -56,24 +41,9 @@
 
 
     <div class="row gx-3 mb-3">
-        <!-- First Name-->
+        <label class="first_name" for="inputFirstName">Hunter Name:</label>
         <div class="col-md-6 column">
-            <label class="first_name" for="inputFirstName">First name:</label>
-            <input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name"
-                formControlName="firstname"> <br>
-
-            <p>Or</p>
-
-            <label class="last_name" for="inputLastName">CodeName:</label>
-            <input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name"
-                formControlName="codename">
-        </div>
-
-        <!-- Last Name-->
-        <div class="col-md-6 column">
-            <label class="last_name" for="inputLastName">Last name:</label>
-            <input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name"
-                formControlName="lastname">
+            <label></label><br>
         </div>
     </div>
     <br>
@@ -87,8 +57,8 @@
             </div>
             <br>
             <div>
-                <button class="btn btn-primary" id="submit_amount"
-                    (click)="confirmBounty(confirmBountyForm)">Submit</button>
+                <!-- <button class="btn btn-primary" id="submit_amount"
+                    (click)="confirmBounty(bountyForm)">Submit</button> -->
             </div>
             <br>
         </form>
