@@ -23,12 +23,4 @@ export class ActiveBountyListComponent implements OnInit {
       }
     );
   }
-
-
-
-
-
-
-
-
 }

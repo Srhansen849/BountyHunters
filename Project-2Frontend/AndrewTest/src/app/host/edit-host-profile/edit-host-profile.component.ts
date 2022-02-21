@@ -24,16 +24,13 @@ export class EditHostProfileComponent implements OnInit {
   constructor(private router:Router, private hServ: HostService) { }
 
   public updateHost(uphost: FormGroup) {
+    let hostlog = JSON.parse(localStorage.getItem("loggedHost")||'{}')
     let host = JSON.stringify(uphost);
+
     console.log(host);
     
     this.hServ.updateProfile(host).subscribe(
-      response => {
-        console.log(response);
-        
-
-      },
-      error => {
+       error => {
         console.warn("wrong credentials");
       }
     )

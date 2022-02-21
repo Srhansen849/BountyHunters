@@ -1,18 +1,18 @@
-<p>bounty-hunter works!</p>
 
 <button class="btn btn-primary" id="cancel_profile" (click)="editBHProfile()">Edit Profile</button> <br>
 
-<button class="btn btn-primary" id="cancel_profile">Finish Bounty</button> <br>
+<button class="btn btn-primary" id="cancel_profile" (click)="turnin()">Turnin Bounty</button> <br>
 
-<button class="btn btn-primary" id="cancel_profile" (click)="editBHProfile()"></button> <br>
+<button class="btn btn-primary" id="cancel_profile" (click)="editBHProfile()">Past Completed Bounties</button> <br>
+
+<button class="btn btn-primary" id="cancel_profile" (click)="logout()">Logout</button> <br>
 
 <app-edit-profile *ngIf = "bhprofile"></app-edit-profile>
 <br>
 <app-active-bounty-list *ngIf = "actbountlist"></app-active-bounty-list>
 <br>
-<app-turnin-bounty></app-turnin-bounty>
+<app-turnin-bounty *ngIf = "bountyturnin"></app-turnin-bounty>
 <br>
-<app-finished-bounty-list></app-finished-bounty-list>
-
+<app-finished-bounty-list *ngIf = "finbountlist"></app-finished-bounty-list>
 
 

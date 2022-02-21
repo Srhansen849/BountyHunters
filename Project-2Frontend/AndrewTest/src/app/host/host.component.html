@@ -1,7 +1,14 @@
-<p>host works!</p>
+<button class="btn btn-primary" id="cancel_profile" (click)="editProfile()">Edit Profile</button> <br>
 
-<app-new-bounty></app-new-bounty>
-<app-edit-host-profile></app-edit-host-profile>
-<app-finish-bounty></app-finish-bounty>
-<app-host-bounty-list></app-host-bounty-list>
-<app-pending-bounty-list></app-pending-bounty-list>
+<button class="btn btn-primary" id="cancel_profile" (click)="FinishBounty()">Finish Bounty</button> <br>
+
+<button class="btn btn-primary" id="cancel_profile" (click)="PastBounties()">Past Completed Bounties</button> <br>
+
+<button class="btn btn-primary" id="cancel_profile" (click)="logout()">Logout</button> <br>
+
+
+<app-new-bounty *ngIf = "newbounty"></app-new-bounty>
+<app-edit-host-profile *ngIf = "hostprofedit"></app-edit-host-profile>
+<app-finish-bounty *ngIf = "finishbounty"></app-finish-bounty>
+<app-host-bounty-list *ngIf = "hostblist"></app-host-bounty-list>
+<app-pending-bounty-list *ngIf = "pendblist"></app-pending-bounty-list>

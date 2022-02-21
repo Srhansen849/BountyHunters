@@ -23,32 +23,36 @@ export class UserLoginComponent implements OnInit {
   constructor(public router: Router, public uServ: UserService, private actRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
-    // localStorage.removeItem("loggedUser");
+    localStorage.removeItem("loggedUser");
   }
 
 
 
-
-  // public userlogin(userForm: FormGroup) {
-  //   let user = new User(userForm.get("uusername").value, userForm.get("upassword").value);
-  //   localStorage.setItem("loggedUser", JSON.stringify(user));
-  //   console.log(user);
-
-  //   this.uServ.bountyHunterLogin(user).subscribe(
-  //     response => {
-  //       console.log(response);
-  //       this.wronglogin = false;
-  //       this.router.navigate(['./bounty-hunter']);
-
-  //     },
-  //     error => {
-  //       console.warn("wrong credentials");
-  //       this.wronglogin = true;
-  //     }
-  //   )
+  public userlogin(userForm: FormGroup) {
 
 
-  // }
+    let userstring = JSON.stringify(userForm);
+    let user = new User(userstring);
+
+
+    localStorage.setItem("loggedUser", JSON.stringify(user));
+    console.log(user);
+
+    this.uServ.bountyHunterLogin(user).subscribe(
+      response => {
+        console.log(response);
+        this.wronglogin = false;
+        this.router.navigate(['./bounty-hunter']);
+
+      },
+      error => {
+        console.warn("wrong credentials");
+        this.wronglogin = true;
+      }
+    )
+
+
+  }
 
   
 }

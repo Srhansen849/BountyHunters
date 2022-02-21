@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Bounty } from 'src/app/objects/bounty-object';
+import { User } from 'src/app/objects/user-object';
 import { UserService } from 'src/app/services/user.service';
 import { BountyHunterComponent } from '../bounty-hunter.component';
 
@@ -18,17 +18,13 @@ export class EditProfileComponent implements OnInit {
 
 
   profileForm = new FormGroup({
-    firstname: new FormControl(''),
-    lastname: new FormControl(''),
-    codename: new FormControl(''),
-    email: new FormControl(''),
-    password: new FormControl(''),
-    cpassword: new FormControl('')
+    huntername: new FormControl(''),
+    uemail: new FormControl(''),
+    upassword: new FormControl('')
   })
 
 
-
-
+  
 
   constructor(private uServ: UserService, private router: Router, private actRoute: ActivatedRoute, public bhcomp: BountyHunterComponent) { }
 
@@ -43,12 +39,14 @@ export class EditProfileComponent implements OnInit {
     this.bhcomp.bhprofile = false;
 }
 
+profuser = new User();
+
+
 ngOnInit(): void {
-  // let user = JSON.parse(localStorage.getItem("loggedUser")||'{}')
-  // console.log(user);
-  // if (!user) {
-  //   this.router.navigate(["/login"]);
-  // }
+  
+  let user = JSON.parse(localStorage.getItem("loggedUser")||'{}')
+  this.profuser = user;
+  this.uServ.getProfileInfo(this.profuser)
 }
 
 
@@ -59,11 +57,21 @@ toggleEdit() {
 }
 
   public submitProfile(profile: FormGroup) {
-  let stringprofile = JSON.stringify(profile.value);
-  console.log(profile.value);
-  this.uServ.updateProfile(stringprofile).subscribe(
 
+    let user = JSON.parse(localStorage.getItem("loggedUser")||'{}')
+    let stringprof = JSON.stringify(profile.value)
+    let bhunter = new User(stringprof);
+    bhunter.uusername = user.uusername;
+
+
+
+  this.uServ.updateProfile(bhunter).subscribe(
+      response =>
+      console.log(response)
   )
+
+  this.bhcomp.bhprofile = false;
+
 }
 
 }

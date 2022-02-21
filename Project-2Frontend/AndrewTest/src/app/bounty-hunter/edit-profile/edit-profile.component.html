@@ -1,8 +1,4 @@
 
-
-
-
-
 <div class="center">
     <h1>Bounty Hunter Profile</h1>
 </div>
@@ -22,7 +18,7 @@
             <div class="col-md-6">
                 <label class="first_name" for="inputFirstName">Name:</label>
                 <label *ngIf="isTitle"></label>
-                <input *ngIf="isEditable" class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name">
+                <input *ngIf="isEditable" class="form-control" id="inputFirstName" type="text" [placeholder]="profuser.huntername" formControlName = "huntername" [value] = "profuser.huntername">
             </div>
         </div>
 
@@ -30,7 +26,7 @@
             <div class="col-md-6">
                 <label class="email_address" for="inputemailaddress">Email Address:</label>
                 <input *ngIf="isEditable" class="form-control" id="inputemailaddress" type="text"
-                    placeholder="email">
+                    [placeholder]="profuser.uemail" formControlName = "uemail" [value] = "profuser.uemail">
             </div>
         </div>
 
@@ -38,7 +34,7 @@
 
             <div class="col-md-6">
                 <label class="password" for="inputPassword">Password:</label>
-                <input class="form-control" id="inputPassword" type="text" placeholder="Enter your password">
+                <input class="form-control" id="inputPassword" type="text" placeholder="Enter Your New Password" formControlName = "upassword" [value] = "profuser.upassword">
             </div>
         </div>
 

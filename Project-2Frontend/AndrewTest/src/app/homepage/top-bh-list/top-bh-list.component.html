@@ -1,1 +1,29 @@
-<p>top-bh-list works!</p>
+<div>
+    <form>
+        <label style="margin-left:50px">Top Bounty Hunters</label>
+        <table style="margin-left:50px" class="table table-striped table-white" id="bounties">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <!-- <th scope="col">Finished Bounties</th> -->
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let hunter of bhunterList">
+                    <td>{{hunter.huntername}}</td>
+                    <td>{{hunter.uemail}}</td>
+                    <!-- <td>Number Of Completed Bounties</td> -->
+                </tr>
+            </tbody>
+        </table>
+    </form>
+    <br><br><br><br>
+    <br><br><br><br>
+    <br><br><br><br>
+    <br><br><br><br>
+    <br><br><br><br>
+    <br><br><br><br>
+    <br><br><br><br>
+    <br><br><br><br>
+</div>

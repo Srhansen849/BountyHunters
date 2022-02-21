@@ -33,7 +33,7 @@ export class UserService{
         return this.http.post<User>(this.urlBase+"/login", user, this.httpHead)
     }
 
-    public updateProfile(user:string): Observable<User>{
+    public updateProfile(user:User): Observable<User>{
         return this.http.post<User>(this.urlBase+"/profile", user, this.httpHead)
     }
 
