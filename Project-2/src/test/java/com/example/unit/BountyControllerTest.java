@@ -11,6 +11,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 
+import com.example.controller.BountyController;
 import com.example.controller.UserController;
 import com.example.model.Bounty;
 import com.example.model.Criminal;
@@ -18,7 +19,7 @@ import com.example.model.Host;
 import com.example.service.BountyService;
 
 @ExtendWith(SpringExtension.class)
-@WebMvcTest(UserController.class)
+@WebMvcTest(BountyController.class)
 public class BountyControllerTest {
 	
 	@MockBean

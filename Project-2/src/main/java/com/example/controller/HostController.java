@@ -16,8 +16,7 @@ import com.example.service.HostService;
 
 @RestController
 @RequestMapping(value = "/host")
-@CrossOrigin(origins = "*") // CORS - cross origin resource sharing, it is a mechinism that can restrict
-							// access for resource from external server
+@CrossOrigin(origins="*")//CORS - cross origin resource sharing, it is a mechinism that can restrict access for resource from external server
 //requests(aka requests outside of the servers domain) if you set the origin to *, it will allow any domain to request the server
 public class HostController {
 

@@ -11,6 +11,7 @@ import com.example.dao.AssetDAO;
 import com.example.model.Account;
 
 import com.example.model.Asset;
+import com.example.model.Criminal;
 
 @Service
 public class AssetService {

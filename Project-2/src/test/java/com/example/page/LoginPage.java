@@ -16,7 +16,7 @@ public class LoginPage {
 	@FindBy(xpath="//button[@id='loginButton']")
 	private WebElement loginButton;
 	
-	public void bountyHunterLogin(WebDriver driver) {
+	public LoginPage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
 	
@@ -34,5 +34,5 @@ public class LoginPage {
 	
 	
 	
-	
+
 }

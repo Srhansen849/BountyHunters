@@ -19,12 +19,14 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 
+import com.example.controller.HostController;
 import com.example.controller.UserController;
+import com.example.model.Asset;
 import com.example.model.Host;
 import com.example.service.HostService;
 
 @ExtendWith(SpringExtension.class)
-@WebMvcTest(UserController.class)
+@WebMvcTest(HostController.class)
 public class HostControllerTest {
 	
 	@MockBean
@@ -34,10 +36,12 @@ public class HostControllerTest {
 	MockMvc mock;
 	
 	Host host;
+	List<Host> hList = new ArrayList<Host>();
 	
 	@BeforeEach
 	public void setUp() throws Exception{
-		host = new Host("Jabba The Hutt", "TheHutt1", "D3si1ijic", "JabbTheHutt@StarHunter.com",
+		host = new Host("Jabba The Hutt", "TheHutt1", 
+				"D3si1ijic", "JabbTheHutt@StarHunter.com",
 				"Grand Hutt Council", "Eminence of Tatooine");
 		doNothing().when(this.hServ).insertHost(host);
 	}

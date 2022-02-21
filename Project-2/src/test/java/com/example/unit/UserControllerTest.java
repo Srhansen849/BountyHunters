@@ -24,6 +24,7 @@ import com.example.controller.UserController;
 import com.example.model.Account;
 import com.example.model.Asset;
 import com.example.model.User;
+import com.example.service.AssetService;
 import com.example.service.UserService;
 
 @ExtendWith(SpringExtension.class)
@@ -32,6 +33,9 @@ public class UserControllerTest {
 	
 	@MockBean
 	UserService uServ;
+	
+	@MockBean
+	AssetService aServ;
 	
 	@Autowired
 	MockMvc mock;
@@ -56,13 +60,12 @@ public class UserControllerTest {
 		List<User> bList = new ArrayList<User>();
 		bList.add(user);
 		when(this.uServ.findAllBountyHunters()).thenReturn(bList);
-		this.mock.perform(get("/all").contentType(MediaType.APPLICATION_JSON))
+		this.mock.perform(get("/hunter/all").contentType(MediaType.APPLICATION_JSON))
 		.andExpect(status().isOk())
 		.andExpect(jsonPath("$[0].huntername", is(user.getHuntername())))
 		.andExpect(jsonPath("$[0].uusername", is(user.getUusername())))
 		.andExpect(jsonPath("$[0].upassword", is(user.getUpassword())))
-		.andExpect(jsonPath("$[0].uemail", is(user.getUemail())))
-		.andExpect(jsonPath("$[0].uaccount", is(user.getUaccount())));
+		.andExpect(jsonPath("$[0].uemail", is(user.getUemail())));
 	}
 		
 	@Test

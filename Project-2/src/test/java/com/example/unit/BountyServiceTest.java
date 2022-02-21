@@ -6,29 +6,45 @@ import static org.mockito.Mockito.when;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.test.web.servlet.MockMvc;
 
+import com.example.controller.BountyController;
 import com.example.dao.BountyDAO;
+import com.example.dao.CriminalDAO;
 import com.example.model.Bounty;
 import com.example.model.Criminal;
 import com.example.model.Host;
 import com.example.service.BountyService;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
+//@WebMvcTest(BountyController.class)
+@ExtendWith(SpringExtension.class)
 public class BountyServiceTest {
 	
 	Bounty bounty;
 	Host host;
 	Criminal criminal;
 	
+//	@MockBean
 	@InjectMocks
 	BountyService service;
 	
 	@MockBean
-	BountyDAO mockDAO;
+	CriminalDAO cDAO;
+	
+	@MockBean
+	BountyDAO bDAO;
+	
+
 	
 	@BeforeEach
 	public void setUp() throws Exception{
@@ -36,20 +52,20 @@ public class BountyServiceTest {
 		host = new Host("Jabba The Hutt", "TheHutt1", "D3si1ijic", "JabbTheHutt@StarHunter.com",
 				"Grand Hutt Council", "Eminence of Tatooine");
 		bounty = new Bounty(1000, "Credits", "34 ABY", host, criminal, "Alive", "Active");
-		doNothing().when(this.service).editBounty(bounty);	
+//		doNothing().when(this.service).editBounty(bounty);	
 	}
 	
 	@Test
 	public void testgetCriminalByCrimname() {
-		when(this.service.getCriminalByCrimname("Amarant")).thenReturn(criminal);
+		when(this.cDAO.getCriminalByCrimname("Amarant Procjnow")).thenReturn(criminal);
 		assertEquals(criminal, service.getCriminalByCrimname(criminal.getCrimname()));
 	}
 	
-//	@Test
-//	public void testgetBountyByCriminalfk() {
-//		when(this.service.getBountyByCriminalfk("Codename")).thenReturn(criminal);
-//		assertEquals(criminal, service.getBountyByCriminalfk(criminal.getCrimname()));
-//	}
+	@Test
+	public void testgetBountyByCriminalfk() {
+//		when(this.bDAO.getBountyByCriminalfk(String)).thenReturn(String);
+//		assertEquals(bounty, service.getBountyByCriminalfk(criminal.getCrimname()));
+	}
 	
 	@Test
 	public void testgetBountyById() {

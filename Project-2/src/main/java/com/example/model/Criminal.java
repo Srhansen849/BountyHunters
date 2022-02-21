@@ -16,6 +16,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 @JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "crimname")
 public class Criminal {
 
+
 	@Id
 	@Column(name = "crim_name", unique = true, nullable = false)
 	private String crimname;
@@ -80,3 +81,4 @@ public class Criminal {
 	}
 
 }
+
