@@ -29,7 +29,7 @@ export class UserService{
         return this.http.get<User[]>(this.urlBase+"/rank",this.httpHead)
     }
 
-    public bountyHunterLogin(user: User): Observable<User>{
+    public bountyHunterLogin(user: string): Observable<User>{
         return this.http.post<User>(this.urlBase+"/login", user, this.httpHead)
     }
 

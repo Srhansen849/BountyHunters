@@ -4,21 +4,16 @@
         <table style="margin-right:150px" class="table table-striped table-white" id="bhunter">
             <thead>
                 <tr>
-                    <th scope="col">First Name</th>
-                    <th scope="col">Last Name</th>
-                    <th scope="col">Codename</th>
-                    <th scope="col">Rank</th>
+                    <th scope="col">Hunters Name</th>
+                    <th scope="col">Hunter Email</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let user of hunterList">
-                    <td>{{user.firstname}}</td>
-                    <td>{{user.lastname}}</td>
-                    <td>{{user.codename}}</td>
-                    <td>{{user.rank}}</td>
+                    <td>{{user.huntername}}</td>
+                    <td>{{user.uemail}}</td>
                 </tr>
             </tbody>
-
         </table>
     </form>
     <br><br><br><br>

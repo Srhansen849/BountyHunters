@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/objects/user-object';
 
 @Component({
   selector: 'app-top-bh-list',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./top-bh-list.component.css']
 })
 export class TopBHListComponent implements OnInit {
+
+  hunterList: User[] = [];
 
   constructor() { }
 

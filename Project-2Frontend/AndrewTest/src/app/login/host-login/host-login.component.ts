@@ -18,37 +18,38 @@ export class HostLoginComponent implements OnInit {
     hpassword: new FormControl('')
   });
 
-  
 
-  constructor(public router: Router, public hServ: HostService, private actRoute:ActivatedRoute) { }
+
+  constructor(public router: Router, public hServ: HostService, private actRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     // localStorage.removeItem("loggedHost");
   }
 
+  public hostlogin(hostForm: FormGroup) {
+
+
+    let hoststring = JSON.stringify(hostForm);
+    let host = new Host(hoststring);
+
+    localStorage.setItem("loggedHost", JSON.stringify(host));
+    console.log(host);
+
+    this.hServ.HostLogin(host).subscribe(
+      response => {
+        console.log(response);
+        this.wronglogin = false;
+        this.router.navigate(['./bounty-hunter']);
+      },
+      error => {
+        console.warn("wrong credentials");
+        this.wronglogin = true;
+      }
+    )
+
+
+  }
 
 
 
-  // public hostlogin(hostForm: FormGroup) {
-  //   let host = new Host(hostForm.get("husername").value, hostForm.get("hpassword").value);
-  //   localStorage.setItem("loggedHost", JSON.stringify(host));
-  //   console.log(host);
-
-  //   this.hServ.HostLogin(host).subscribe(
-  //     response => {
-  //       console.log(response);
-  //       this.wronglogin = false;
-  //       this.router.navigate(['./host']);
-
-  //     },
-  //     error => {
-  //       console.warn("wrong credentials");
-  //       this.wronglogin = true;
-  //     }
-  //   )
-
-
-  // }
-
-  
 }

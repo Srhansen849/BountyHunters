@@ -114,15 +114,15 @@ public class BountyService {
 //		return cDao.findAll();
 //	}
 
-	public void insertBounty(Bounty bounty, Criminal criminal, String status) {
-		bDao.save(bounty);
-		cDao.save(criminal);
-	}
-
 	public void insertBounty(Bounty bounty, Criminal criminal) {
 		bDao.save(bounty);
 		cDao.save(criminal);
 	}
+
+//	public void insertBounty(Bounty bounty, Criminal criminal) {
+//		bDao.save(bounty);
+//		cDao.save(criminal);
+//	}
 
 	public void editBounty(Bounty bounty) {
 

@@ -25,10 +25,7 @@ export class LoginComponent implements OnInit {
     console.log("Host Button");
   }
 
-
   constructor() { }
-
- 
 
 
   ngOnInit(): void {
