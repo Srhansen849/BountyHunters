@@ -45,15 +45,15 @@ export class BountyService{
   }
 
   // get the complete bounty
-  public getAllCompleteBounty(): Observable<Bounty> {
-      return this.http.post<Bounty>(this.urlBase + "/bounty/finish", this.httpHead);
+  public getAllCompleteBounty(): Observable<Bounty[]> {
+      return this.http.get<Bounty[]>(this.urlBase + "/bounty/finish", this.httpHead);
   }
 
   // get all the active bounty
   public getAllActiveBounty(): Observable<Bounty[]> {
       return this.http.get<Bounty[]>(this.urlBase + "/bounty/register", this.httpHead);
   }
-
+  // completed bounties by logged in Hunter
   public getAllPastBounty(): Observable<Bounty[]>{
     return this.http.get<Bounty[]>(this.urlBase + "bounty/complete", this.httpHead);
   }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Host } from '../objects/host-object';
 import { HostService } from '../services/host.service';
 
 @Component({
@@ -9,9 +10,48 @@ import { HostService } from '../services/host.service';
 })
 export class HostComponent implements OnInit {
 
-  constructor(private hServ: HostService, private router: Router, private actRoute: ActivatedRoute) { }
+  public newbounty = false;
+
+  public hostprofedit = false;
+
+  public finishbounty = false;
+
+  public hostblist = false;
+
+  public pendblist = false;
+
+
+  constructor(private router: Router, private hServ: HostService, private actRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    let hostlog = JSON.parse(localStorage.getItem("loggedHost") || '{}')
+    console.log(hostlog);
+    localStorage.setItem("loggedHost", JSON.stringify(this.getHost(hostlog)));
+    if (!hostlog) {
+      this.router.navigate(["/login"]);
+    }
+  }
+
+  public getHost(hostlog: Host) {
+    let stringhost = JSON.stringify(hostlog)
+    this.hServ.getProfileInfo(stringhost);
+  }
+
+  editProfile(){
+    this.hostprofedit = true;
+  }
+
+  PastBounties(){
+    this.hostblist = true;
+  }
+
+  FinishBounty(){
+    this.finishbounty = true;
+  }
+
+  logout(){
+    localStorage.removeItem("loggedHost")
+    this.router.navigate(['./login'])
   }
 
 }

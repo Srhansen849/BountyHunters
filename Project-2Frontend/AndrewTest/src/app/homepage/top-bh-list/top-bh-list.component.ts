@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from 'src/app/objects/user-object';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-top-bh-list',
@@ -8,11 +10,20 @@ import { User } from 'src/app/objects/user-object';
 })
 export class TopBHListComponent implements OnInit {
 
-  hunterList: User[] = [];
+  bhunterList: User[] = []
 
-  constructor() { }
+  constructor(private uServ: UserService, private router: Router) { }
 
   ngOnInit(): void {
+    this.uServ.findAllBountyHunters().subscribe(
+      response =>{
+        this.bhunterList = response;
+      }
+      
+
+    )
+
+
   }
 
 }

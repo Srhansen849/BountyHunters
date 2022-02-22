@@ -19,7 +19,7 @@ export class EditProfileComponent implements OnInit {
   profileForm = new FormGroup({
     huntername: new FormControl(''),
     uemail: new FormControl(''),
-    password: new FormControl('')
+    upassword: new FormControl('')
   })
 
   constructor(private uServ: UserService, private router: Router, private actRoute: ActivatedRoute, public bhcomp: BountyHunterComponent) { }
@@ -29,13 +29,15 @@ export class EditProfileComponent implements OnInit {
     this.bhcomp.actbountlist = true;
   }
 
-  ngOnInit(): void {
-    // let user = JSON.parse(localStorage.getItem("loggedUser")||'{}')
-    // console.log(user);
-    // if (!user) {
-    //   this.router.navigate(["/login"]);
-    // }
-  }
+profuser = new User();
+
+
+ngOnInit(): void {
+  
+  let user = JSON.parse(localStorage.getItem("loggedUser")||'{}')
+  this.profuser = user;
+  // this.uServ.getProfileInfo(this.profuser)
+}
 
 
   toggleEdit() {
@@ -45,30 +47,22 @@ export class EditProfileComponent implements OnInit {
   }
 
   public submitProfile(profile: FormGroup) {
+
     let user = JSON.parse(localStorage.getItem("loggedUser")||'{}')
-    let stringprofile = JSON.stringify(profile.value);
-    console.log(profile.value);
-    let bhunter = new User(stringprofile);
-    this.uServ.updateProfile(stringprofile).subscribe(
+    let stringprof = JSON.stringify(profile.value)
+    let bhunter = new User(stringprof);
+    bhunter.uusername = user.uusername;
 
-    )
-  }
 
-  // public submitFood(food: FormGroup){
-  //   let stringFood = JSON.stringify(food.value);
-  //   this.foodServ.insertFood(stringFood).subscribe(
-  //     response => {
-  //       this.foodExists=false;
-  //       console.log(response);
-  //       this.foodList.push(response);
-  //     },
-  //     error => {
-  //       console.warn("that food already exists");
-  //       this.foodExists=true;
-  //     }
-  //   );
-  // }
 
+  // this.uServ.updateProfile(bhunter).subscribe(
+  //     response =>
+  //     console.log(response)
+  // )
+
+  this.bhcomp.bhprofile = false;
+
+}
 
 }
 

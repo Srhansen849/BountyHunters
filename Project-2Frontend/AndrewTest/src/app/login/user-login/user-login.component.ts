@@ -18,14 +18,13 @@ export class UserLoginComponent implements OnInit {
     upassword: new FormControl('')
   });
 
-  constructor(public router: Router, public uServ: UserService, private actRoute:ActivatedRoute) { }
+  constructor(public router: Router, public uServ: UserService, private actRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    // localStorage.removeItem("loggedUser");
+    localStorage.removeItem("loggedUser");
   }
 
   public userlogin(userForm: FormGroup) {
-
     let userstring = JSON.stringify(userForm.value);
     // let user = new User(userstring);
     // console.log(user);
@@ -35,20 +34,12 @@ export class UserLoginComponent implements OnInit {
         this.wronglogin = false;
         localStorage.setItem("loggedUser", JSON.stringify(response));
         this.router.navigate(['./bounty-hunter']);
-
       },
       error => {
         console.warn("wrong credentials");
         this.wronglogin = true;
       }
     )
-
-
   }
 
-
-  
-  
 }
-
-

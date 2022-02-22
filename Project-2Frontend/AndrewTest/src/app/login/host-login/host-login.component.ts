@@ -23,7 +23,8 @@ export class HostLoginComponent implements OnInit {
   constructor(public router: Router, public hServ: HostService, private actRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    // localStorage.removeItem("loggedHost");
+    localStorage.removeItem("loggedHost");
+    localStorage.removeItem("loggedUser");
   }
 
   public hostlogin(hostForm: FormGroup) {
@@ -46,7 +47,5 @@ export class HostLoginComponent implements OnInit {
     )
 
   }
-
-
 
 }

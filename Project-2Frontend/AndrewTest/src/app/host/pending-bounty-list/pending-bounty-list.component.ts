@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Bounty } from 'src/app/objects/bounty-object';
-import { HostService } from 'src/app/services/host.service';
+import { BountyService } from 'src/app/services/bounty.service';
 
 @Component({
   selector: 'app-pending-bounty-list',
@@ -11,10 +11,24 @@ import { HostService } from 'src/app/services/host.service';
 export class PendingBountyListComponent implements OnInit {
 
   bountyList: Bounty[] = [];
-
-  constructor(private hServ: HostService, private router: Router, private actRoute: ActivatedRoute) { }
+  
+  constructor(private bServ: BountyService, private actroute: ActivatedRoute, private route: Router) { }
 
   ngOnInit(): void {
+  let hostlog = JSON.parse(localStorage.getItem("loggedHost")||'{}')
+    this.bServ.getAllActiveBounty().subscribe(
+      response => {
+        console.log(response);
+        this.bountyList = response;
+           let tempHostList = this.bountyList.filter(
+        (bounty: Bounty) => {
+          return bounty.hostfk == hostlog.hostname;
+        }
+      );
+      tempHostList = response;
+    }
+    );
   }
 
+  
 }
