@@ -1,14 +1,11 @@
 package com.example.model;
 
-
 import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 
@@ -40,10 +37,16 @@ public class User {
 	private String uemail;
 	
 
-	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	
+
+	@OneToMany(mappedBy="bhHolder", fetch=FetchType.EAGER)
+//	@JoinColumn(name="bounty_fk")
 	@JoinColumn(name="account_id")
 	@JsonBackReference
 	private Account uaccount;
+	
+	@JsonBackReference(value="ac")
+	private Account account;
 	
 	@OneToMany(mappedBy="userfk", fetch=FetchType.EAGER)
 	//@JoinColumn(name="bounty_fk")
@@ -126,4 +129,3 @@ public class User {
 	}
 
 }
-

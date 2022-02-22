@@ -11,4 +11,4 @@ export class NewUser {
                 public username:string, public password:string,
                 public email:string,
                 public representative:string, public association:string) {}
-}
+    }

@@ -142,7 +142,7 @@ public class BountyService {
 		List<Bounty> actList = new ArrayList<Bounty>();
 		for (Bounty temp : bList) {
 			String activity = temp.getActiveid();
-			if (activity.equals("Active")) {
+			if (activity.equals("Active")/* & bounty.userfk.equals(null)*/) {
 				actList.add(temp);
 			}
 		}
