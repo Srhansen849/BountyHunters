@@ -1,42 +1,103 @@
 
-
-<a type="button" style="margin-top:25px" href="http://localhost:4200/homepage" class="btn btn-primary btn-lg">Home</a>
-
-<br> <br> <br> <br> 
-
-<form [formGroup]="userForm">
-
-<div class="center">
-    <input type="radio" id="hunterlogin" name="login" value="hunter">
-    <label style="margin-right:35px"for="hunter">&nbsp;&nbsp;Bounty Hunter Login</label>
-
-    <input type="radio" id="hostlogin" name="login" value="host">
-    <label for="host">&nbsp;&nbsp;Business Host Login</label>
-</div>
-
-    <br><br>
-
-<div class="center">    
-    <div class="mb-3">
-        <label class="form-label">Username:</label>
-        <input type="text" id="username" class="form-control" formControlName="username">
-    </div>
-    <div class="mb-3">
-        <label class="form-label">Password:</label>
-        <input type="password" id="password" class="form-control" formControlName="password">
-    </div>
-</div>  
-
-<div class="center"> 
     <br>
-    <button class="btn btn-primary" id="loginButton" (click)="login(userForm)">Login</button>
-</div> 
-
-<br><br>
-
-<div class="center"> 
     <br>
-    <a href="http://localhost:4200/forgotpassword" class="link-danger">Forgot your password</a>
-</div> 
 
-</form>
+    <div class="center">
+        <a type="button" style="margin-right:350px;" href="http://localhost:4200/homepage"
+            class="btn btn-primary btn-lg">Home</a>
+
+        <a type="button" style="margin-right:150px" href="http://localhost:4200/newaccount"
+            class="btn btn-primary btn-lg">New Account</a>
+    </div>
+
+    <br>
+    <br>
+
+    <div class="choose_account">
+        <div class="center">
+            <form>
+                <input (click)="hunterButton()" type="radio" id="user_login" name="login" value="user_login">
+                <label for="bhunter_login" style="padding-bottom: 20px; margin-right: 40px;">Bounty Hunter
+                    Login</label>
+                <input (click)="hostButton()" type="radio" id="host_login" name="login" value="host_login">
+                <label for="bhost_login" style="padding-bottom: 20px;">Business Host Login</label>
+
+                <!-- <label for="form-label" style="padding-bottom: 20px; margin-right: 40px; ">Bounty Hunter
+                    Login</label>
+                <input type="radio" id="bhunter_login" name="login" value="bhunter_login">
+
+                <label for="form-label" style="padding-bottom: 20px;">Business Host Login</label>
+                <input type="radio" id="bhost_login" name="login" value="bhost_login"> -->
+            </form>
+        </div>
+    </div>
+
+    <div class=" center">
+        <h1>Login</h1>
+    </div>
+
+    <div *ngIf="isHunter" class="center">
+        <div class="column">
+            <div class="row">
+                <form [formGroup]="userForm">
+                    <label *ngIf="wronglogin" id="wronglogin" style="color: crimson" class="form-label">the wrong credentials were entered</label>
+                    <br>
+                    <div class="mb-3">
+                        <label class="form-label">Username:</label> <br>
+                        <input type="text" id="username" class="form-control" formControlName="username"
+                            placeholder="Enter username">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Password:</label> <br>
+                        <input type="password" id="password" class="form-control" formControlName="password"
+                            placeholder="Enter password">
+                    </div>
+                    <div class="center">
+                        <br>
+                        <!-- onclick="window.open('https://www.angularjswiki.com') -->
+                        <button class="btn btn-dark" id="loginButton" (click)="userlogin(userForm)">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="isHost" class="center">
+        <div class="column">
+            <div class="row">
+                <form [formGroup]="hostForm">
+                    <div class="mb-3">
+                        <label *ngIf="wronglogin" id="wronglogin" style="color: crimson" class="form-label">the wrong credentials were entered</label>
+                        <br>
+                        <label class="form-label">Username:</label> <br>
+                        <input type="text" id="username" class="form-control" formControlName="username"
+                            placeholder="Enter username" value="">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Password:</label> <br>
+                        <input type="password" id="password" class="form-control" formControlName="password"
+                            placeholder="Enter password" value="">
+                    </div>
+                    <div class="center">
+                        <br>
+                         <!-- onclick="window.open('https://www.angularjswiki.com')  -->
+                        <button class="btn btn-dark" id="loginButton" (click)="hostlogin(hostForm)">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="center">
+        <br>
+        <a href="http://localhost:4200/forgotpassword" class="link-danger">Forgot your password?</a>
+    </div>
+    <br><br><br><br>
+    <br><br><br><br>
+    <br><br><br><br>
+    <br><br><br><br>
+    <br><br><br><br>
+    <br><br><br>
+

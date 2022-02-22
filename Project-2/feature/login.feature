@@ -1,4 +1,3 @@
-
 Feature: User Logs into Star Hunter
   As a user, I wish to login to the Star Hunters website using proper Credentials
 

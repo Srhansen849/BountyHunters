@@ -13,127 +13,111 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
-
-@Table(name="bounty")
+@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "bountyid")
+@Table(name = "bounty")
 public class Bounty {
-	
 
 	@Id
-	@Column(name="bounty_id")
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name = "bounty_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int bountyid;
-	
-	@Column(name="capture")
-	private String capture;
-	
-	@Column(name="amount")
+
+	@Column(name = "amount")
 	private double amount;
-	
-	@Column(name="currency")
+
+	@Column(name = "currency")
 	private String currency;
-	
-	@Column(name="time")
+
+	@Column(name = "time")
 	private String time;
-	
-	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	@JoinColumn(name="user_id")
-	@JsonManagedReference
-	private User bhHolder;
-	
-	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	@JoinColumn(name="host_id")
-	@JsonManagedReference
-	private Host hostHolder;
-	
-	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	@JoinColumn(name="criminal_id")
-	@JsonBackReference
-	private Criminal criminalid;
-	
-	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	@JoinColumn(name="turnin_id")
-	@JsonBackReference
-	private Status turninid;
-	
-	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	@JoinColumn(name="prefer_id")
-	@JsonBackReference
-	private Status preferid;
 
-	
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = "user_fk")
+	@JsonBackReference(value = "bh")
+	private User userfk;
 
-	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	@JoinColumn(name="active_id")
-	@JsonBackReference
-	private Status activeid;
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = "host_fk")
+	@JsonBackReference(value="hh")
+	private Host hostfk;
 
-	
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = "criminal_fk")
+//	@JsonBackReference(value="c")
+	private Criminal criminalfk;
+
+	private String turninid;
+
+	private String preferid;
+
+	private String activeid;
 
 	public Bounty() {
 		// TODO Auto-generated constructor stub
 	}
 
-
-	public Bounty(int bountyid, String capture, double amount, String currency, User bhHolder, Host hostHolder,
-
-			Criminal criminalid, Status turninid, Status preferid, String time, Status activeid) {
-
+	public Bounty(int bountyid, double amount, String currency, String time, User userfk, Host hostfk,
+			Criminal criminalfk, String turninid, String preferid, String activeid) {
 		super();
 		this.bountyid = bountyid;
-		this.capture = capture;
 		this.amount = amount;
 		this.currency = currency;
-		this.bhHolder = bhHolder;
-		this.hostHolder = hostHolder;
-		this.criminalid = criminalid;
-		this.turninid = turninid;
-
-		this.preferid = preferid;
-
-
 		this.time = time;
-	}
-
-	public Bounty(String capture, double amount, String currency, User bhHolder, Host hostHolder, Criminal criminalid,
-
-			Status turninid, Status preferid, String time) {
-
-		super();
-		this.capture = capture;
-		this.amount = amount;
-		this.currency = currency;
-		this.bhHolder = bhHolder;
-		this.hostHolder = hostHolder;
-		this.criminalid = criminalid;
+		this.userfk = userfk;
+		this.hostfk = hostfk;
+		this.criminalfk = criminalfk;
 		this.turninid = turninid;
-
 		this.preferid = preferid;
-
-		this.time = time;
-	}
-	
-	public Bounty(String capture, double amount, String currency, Host hostHolder, Criminal criminalid,
-			Status preferid, String time, Status activeid) {
-		super();
-		this.capture = capture;
-		this.amount = amount;
-		this.currency = currency;
-		this.hostHolder = hostHolder;
-		this.criminalid = criminalid;
 		this.activeid = activeid;
-		this.preferid = preferid;
+	}
+
+	public Bounty(double amount, String currency, String time, User userfk, Host hostfk, Criminal criminalfk,
+			String turninid, String preferid, String activeid) {
+		super();
+		this.amount = amount;
+		this.currency = currency;
 		this.time = time;
+		this.userfk = userfk;
+		this.hostfk = hostfk;
+		this.criminalfk = criminalfk;
+		this.turninid = turninid;
+		this.preferid = preferid;
+		this.activeid = activeid;
 	}
 
-	public String getCapture() {
-		return capture;
+	public Bounty(double amount, String currency, String time, Host hostfk, Criminal criminalfk, String preferid,
+			String activeid) {
+		super();
+		this.amount = amount;
+		this.currency = currency;
+		this.time = time;
+		this.hostfk = hostfk;
+		this.criminalfk = criminalfk;
+		this.preferid = preferid;
+		this.activeid = activeid;
 	}
 
-	public void setCapture(String capture) {
-		this.capture = capture;
+	public Bounty(int bountyid, User userfk, Criminal criminalfk, String turninid) {
+		super();
+		this.bountyid = bountyid;
+		this.userfk = userfk;
+		this.criminalfk = criminalfk;
+		this.turninid = turninid;
+	}
+
+	public Bounty(int bountyid, double amount, User userfk, Host hostfk, Criminal criminalfk, String activeid) {
+		super();
+		this.bountyid = bountyid;
+		this.amount = amount;
+		this.userfk = userfk;
+		this.hostfk = hostfk;
+		this.criminalfk = criminalfk;
+		this.activeid = activeid;
 	}
 
 	public double getAmount() {
@@ -152,47 +136,6 @@ public class Bounty {
 		this.currency = currency;
 	}
 
-	public User getBhHolder() {
-		return bhHolder;
-	}
-
-	public void setBhHolder(User bhHolder) {
-		this.bhHolder = bhHolder;
-	}
-
-	public Host getHostHolder() {
-		return hostHolder;
-	}
-
-	public void setHostHolder(Host hostHolder) {
-		this.hostHolder = hostHolder;
-	}
-
-	public Criminal getCriminalid() {
-		return criminalid;
-	}
-
-	public void setCriminalid(Criminal criminalid) {
-		this.criminalid = criminalid;
-	}
-
-	public Status getTurninid() {
-		return turninid;
-	}
-
-	public void setTurninid(Status turninid) {
-		this.turninid = turninid;
-	}
-
-	public Status getPreferid() {
-		return preferid;
-	}
-
-	public void setPerfid(Status preferid) {
-		this.preferid = preferid;
-	}
-
-
 	public String getTime() {
 		return time;
 	}
@@ -201,28 +144,63 @@ public class Bounty {
 		this.time = time;
 	}
 
+	public User getUserfk() {
+		return userfk;
+	}
+
+	public void setUserfk(User userfk) {
+		this.userfk = userfk;
+	}
+
+	public Host getHostfk() {
+		return hostfk;
+	}
+
+	public void setHostfk(Host hostfk) {
+		this.hostfk = hostfk;
+	}
+
+	public Criminal getCriminalfk() {
+		return criminalfk;
+	}
+
+	public void setCriminalfk(Criminal criminalfk) {
+		this.criminalfk = criminalfk;
+	}
+
+	public String getTurninid() {
+		return turninid;
+	}
+
+	public void setTurninid(String turninid) {
+		this.turninid = turninid;
+	}
+
+	public String getPreferid() {
+		return preferid;
+	}
+
+	public void setPreferid(String preferid) {
+		this.preferid = preferid;
+	}
+
+	public String getActiveid() {
+		return activeid;
+	}
+
+	public void setActiveid(String activeid) {
+		this.activeid = activeid;
+	}
+
 	public int getBountyid() {
 		return bountyid;
 	}
 
-	public Status getActiveid() {
-		return activeid;
-	}
-
-	public void setActiveid(Status activeid) {
-		this.activeid = activeid;
-	}
-
 	@Override
 	public String toString() {
-		return "Bounty [bountyid=" + bountyid + ", capture=" + capture + ", amount=" + amount + ", currency=" + currency
-				+ ", bhHolder=" + bhHolder + ", hostHolder=" + hostHolder + ", criminalid=" + criminalid + ", turninid="
-				+ turninid + ", preferid=" + preferid + ", time=" + time + "]";
-
+		return "Bounty [bountyid=" + bountyid + ", amount=" + amount + ", currency=" + currency + ", time=" + time
+				+ ", userfk=" + userfk + ", hostfk=" + hostfk + ", criminalfk=" + criminalfk + ", turninid=" + turninid
+				+ ", preferid=" + preferid + ", activeid=" + activeid + "]";
 	}
-
-	
-	
-	
 
 }

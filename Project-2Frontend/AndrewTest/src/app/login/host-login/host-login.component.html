@@ -1,0 +1,25 @@
+
+<div class="center">
+    <div class="column">
+        <div class="row">
+            <form [formGroup]="hostForm">
+                <label *ngIf="wronglogin" id="wronglogin" style="color: crimson" class="form-label">the wrong credentials were entered</label>
+                <br>
+                <div class="mb-3">
+                    <label class="form-label">Username:</label> <br>
+                    <input type="text" id="username" class="form-control" formControlName="husername"
+                        placeholder="Enter username" value="">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Password:</label> <br>
+                    <input type="password" id="password" class="form-control" formControlName="hpassword"
+                        placeholder="Enter password" value="">
+                </div>
+                <div class="center">
+                    <br>
+                    <!-- <button class="btn btn-primary" id="loginButton" (click)="hostlogin(hostForm)">Login</button> -->
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+<button class="btn btn-primary" id="edit_profile" (click)="profile()">Profile</button> <br>
+
+<button class="btn btn-primary" id="submit_bounty" (click)="submitBounty()">Submit Bounty</button> <br>
+
+<button class="btn btn-primary" id="home" (click)="home()">Home</button> <br>
+
+<button class="btn btn-primary" id="home" (click)="logout()">Logout</button>
+
+    <h5 *ngIf = "actbountlist">Welcome </h5>
+
+<br>
+<app-edit-profile *ngIf = "bhprofile"></app-edit-profile>
+
+<app-active-bounty-list *ngIf = "actbountlist"></app-active-bounty-list>
+
+<app-top-bh-list *ngIf = "actbountlist"></app-top-bh-list>
+
+<app-turnin-bounty *ngIf = "turnin"></app-turnin-bounty>
+
+
+
+

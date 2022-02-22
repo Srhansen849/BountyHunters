@@ -1,8 +1,10 @@
 
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { User } from './user';
-import { Router } from '@angular/router';
+import { User } from "../bounty/objects/user-object";
+import { Host } from "../bounty/objects/host-object";
+import { ActivatedRoute, Router } from '@angular/router';
+import { UserLoginService } from './user-login.service';
 
 
 @Component({
@@ -12,34 +14,77 @@ import { Router } from '@angular/router';
 })
 export class UserLoginComponent implements OnInit {
 
-      userForm = new FormGroup({
-      username: new FormControl(``),
-      password: new FormControl(``),  
-    });
+  wronglogin = false;
 
-  constructor(public router: Router) { }
+  userForm = new FormGroup({
+    username: new FormControl(``),
+    password: new FormControl(``),
+  });
+
+  hostForm = new FormGroup({
+    username: new FormControl(``),
+    password: new FormControl(``),
+  });
+
+  isHunter = true;
+  isHost = false;
+
+  public hunterButton() {
+    this.isHunter = true;
+    this.isHost = false;
+    console.log("Hunter Button");
+  }
+
+  public hostButton() {
+    this.isHost = true;
+    this.isHunter = false;
+    console.log("Host Button");
+  }
+
+  constructor(public router: Router, public uServ: UserLoginService, private actRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     localStorage.removeItem("loggedUser");
+    document.getElementById("user_login");
   }
 
-  public login(userForm:FormGroup){
+  public userlogin(userForm: FormGroup) {
     let user = new User(userForm.get("username").value, userForm.get("password").value);
-    //use the user information to make a request to your server and verigy username and password
     localStorage.setItem("loggedUser", JSON.stringify(user));
     console.log(user);
 
-    // if a user is returned navigate to the next component you want, otherwise notify the user
-    // if (user.id='hunterlogin') {
-    //   this.router.navigate(['/profile']);
-    // } 
-    // else if (user.id='hostlogin') {
-    //   this.router.navigate(['/businessprofile']);
-    // }
-    // else {
 
-    }
+    this.uServ.bHunterLogin(user).subscribe(
+      response => {
+        console.log(response);
+        this.wronglogin = false;
+        this.router.navigate(['./homepage-user']);
+
+      },
+      error => {
+        console.warn("the wrong credentials");
+        this.wronglogin = true;
+      }
+    )
+  }
+
+  public hostlogin(hostForm: FormGroup) {
+    let host = new Host(hostForm.get("username").value, hostForm.get("password").value);
+    localStorage.setItem("loggedUser", JSON.stringify(host));
+    console.log(host);
+
+    this.uServ.bOwnerLogin(host).subscribe(
+      response => {
+        console.log(response);
+        this.router.navigate(['./homepage-host']);
+        this.wronglogin = false;
+      },
+      error => {
+        console.warn("the wrong credentials");
+        this.wronglogin = true;
+      }
+    )
+  }
 }
-
 
 

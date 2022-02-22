@@ -1,4 +1,51 @@
-.center {
-    display: flex;
-    justify-content: center;
-  }
+
+  .center {
+        display: flex;
+        justify-content: center;
+    }
+
+    h1 h2 h3 h4 h5 h6 {
+        color: bisque;
+    }
+
+    .title {
+        color: bisque;
+    }
+
+    .list {
+        color: bisque;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .row {
+        margin-left: -5px;
+        margin-right: -5px;
+    }
+
+    .column {
+        float: left;
+        width: 50%;
+        padding: 5px;
+    }
+
+    .regi_forms {
+        border-radius: 5px;
+        box-shadow: 1px 1px 20px cyan;
+        background-color: rgba(235, 120, 13, 0.7);
+    }
+
+    .fi {
+        border: 2px solid cyan;
+        background-color: transparent;
+        width: 100%;
+        display: flex;
+        text-decoration: none;
+        color: rgb(16, 233, 233);
+    }
+
+    .row_table {
+        color: rgb(201, 235, 8);
+    }

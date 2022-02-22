@@ -1,4 +1,3 @@
-
 Feature: A Business Owner can create a new bounty 
 	As a Business Owner, I wish to create a new bounty
 	
@@ -31,5 +30,6 @@ Feature: A Business Owner can create a new bounty
     And the Business Owner inputs "crime" into the description of crime input field
     And the Business Owner submits the information
     Then a new bounty will uploaded 
+
 
 
