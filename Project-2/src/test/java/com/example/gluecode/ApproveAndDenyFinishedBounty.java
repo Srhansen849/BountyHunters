@@ -1,11 +1,22 @@
 package com.example.gluecode;
 
+import com.example.page.FoodItemPage;
+import com.example.page.FoodTablePage;
+import com.example.page.LoginPage;
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class ApproveAndDenyFinishedBounty {
 	
+	private LoginPage lp;
+//	private FoodTablePage ftp;
+//	private FoodItemPage fItemP;
+	private String username;
+	private String password;
+	private String foodname;
+	private String calories;
 
 @Given("the Business Owner is on the login page")
 public void the_business_owner_is_on_the_login_page() {
