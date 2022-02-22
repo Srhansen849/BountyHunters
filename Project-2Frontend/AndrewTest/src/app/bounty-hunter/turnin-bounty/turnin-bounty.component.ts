@@ -26,30 +26,26 @@ ngOnInit(): void {
 
   }
 
-  constructor(private router: Router, private bServ: BountyService, private bhcomp: BountyHunterComponent, private bount: Bounty) { }
+  constructor(private router: Router, private bServ: BountyService, private bhcomp: BountyHunterComponent) { }
 
 
-  public turninBounty(bountyf: FormGroup){
-    let userlog = JSON.parse(localStorage.getItem("loggedUser")||'{}')
-    let bountystring = JSON.stringify(bountyf);
-    let crim = new Criminal(this.bountyForm.get("criminalfk")?.get("crimname")?.value);
-    this.bount.criminalfk = crim;
-    this.bount.turninid = this.bountyForm.get("turninid")?.value
-    let user = new User(this.bhcomp.getUser)
-
-
-    let bounty = new Bounty(bountystring, crim);
-    bounty.userfk = userlog;
-    
-    
-    console.log(bounty);
-
-    this.bServ.SubmitBounty(bounty).subscribe(
+  public turninBounty(){
+    let bount = new Bounty();
+    let crim = new Criminal();
+    crim.crimname = this.bountyForm.get("criminalfk")?.get("crimname")?.value
+    bount.criminalfk = crim;
+    bount.turninid = this.bountyForm.get("turninid")?.value
+    bount.userfk = JSON.parse(localStorage.getItem("loggedUser")||'{}')
+    bount.activeid = "Caught"
+    this.bServ.SubmitBounty(JSON.stringify(bount)).subscribe(
       error => {
         console.warn("bad turnin")
       }
     )
+  }
 
+  cancelTurnin(){
+    this.bhcomp.bhprofile = false;
   }
 
 }

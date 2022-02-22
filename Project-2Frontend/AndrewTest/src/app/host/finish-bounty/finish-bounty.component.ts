@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Bounty } from 'src/app/objects/bounty-object';
 import { Criminal } from 'src/app/objects/criminal-object';
@@ -19,20 +19,20 @@ export class FinishBountyComponent implements OnInit {
     })
   });
 
-  constructor(private bServ: BountyService, private router: Router, private actRoute: ActivatedRoute, private fb: FormBuilder) { }
+  constructor(private bServ: BountyService, private router: Router, private actRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
   }
 
   public confirmBounty(bounty: FormGroup){
+
+
+    let bount = new Bounty(bounty.value)
     let criminal = new Criminal();
-    criminal.crimname; bounty.get("criminalfk")
-
-
-    bounty.setValue({criminalfk: criminal.crimname})
-    let stringbounty = JSON.stringify(bounty);
-    let conbounty = new Bounty(stringbounty);
-    this.bServ.FinishBounty(conbounty).subscribe();
+    criminal.crimname = this.bountyForm.get("criminalfk")?.get("crimname")?.value
+    bount.criminalfk = criminal;
+    bount.activeid = "Completed"
+    this.bServ.FinishBounty(JSON.stringify(bount)).subscribe();
   }
 
 }

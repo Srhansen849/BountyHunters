@@ -31,10 +31,7 @@ profuser = new User();
 
 
 ngOnInit(): void {
-  
-  let user = JSON.parse(localStorage.getItem("loggedUser")||'{}')
-  this.profuser = user;
-  this.uServ.getProfileInfo(this.profuser)
+  this.profuser = JSON.parse(localStorage.getItem("loggedUser")||'{}')
 }
 
 
@@ -44,16 +41,20 @@ toggleEdit() {
   this.isTitle = !this.isTitle;
 }
 
-  public submitProfile(profile: FormGroup) {
+  public submitProfile() {
+    let user = new User();
+    user = JSON.parse(localStorage.getItem("loggedUser")||'{}')
+    let puser = new User();
+    puser.huntername = this.profileForm.get("huntername")?.value;
+    puser.uemail = this.profileForm.get("uemail")?.value;
+    puser.upassword = this.profileForm.get("upassword")?.value;
+    puser.uusername = user.uusername;
 
-    let user = JSON.parse(localStorage.getItem("loggedUser")||'{}')
-    let stringprof = JSON.stringify(profile.value)
-    let bhunter = new User(stringprof);
-    bhunter.uusername = user.uusername;
 
 
 
-  this.uServ.updateProfile(bhunter).subscribe(
+
+  this.uServ.updateProfile(JSON.stringify(puser)).subscribe(
       response =>
       console.log(response)
   )

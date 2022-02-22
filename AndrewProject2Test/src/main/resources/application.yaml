@@ -1,0 +1,18 @@
+server:
+  port: 9015
+  
+spring:
+  datasource:
+    url: jdbc:postgresql://awb-rev-db.cohdzwvqac6y.us-east-2.rds.amazonaws.com:5432/proj2db
+    username: srhansen84
+    password: password
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    hibernate:
+
+
+      ddl-auto: update
+
+

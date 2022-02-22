@@ -37,16 +37,13 @@ export class BountyHunterComponent implements OnInit {
 
 
   ngOnInit(): void {
-    let userlog = JSON.parse(localStorage.getItem("loggedUser") || '{}')
-    localStorage.setItem("loggedUser", JSON.stringify(this.getUser(userlog)));
+    let userlog = new User(JSON.parse(localStorage.getItem("loggedUser") || '{}'))
     if (!userlog) {
       this.router.navigate(["/login"]);
     }
   }
 
-  public getUser(user: User) {
-    return this.uServ.getProfileInfo(user)
-  }
+  
 
   logout(){
     localStorage.removeItem("loggedUser")

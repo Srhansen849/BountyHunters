@@ -19,7 +19,7 @@ export class FinishedBountyListComponent implements OnInit {
 
   ngOnInit(): void {//NEEDS TESTING 
     
-    let userlog = JSON.parse(localStorage.getItem("loggedUser")||'{}')
+    let userlog = new User(JSON.parse(localStorage.getItem("loggedUser")||'{}'))
     this.bServ.getAllCompleteBounty().subscribe(
       response => {
         console.log(response);

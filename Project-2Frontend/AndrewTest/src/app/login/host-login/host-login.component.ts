@@ -32,16 +32,11 @@ export class HostLoginComponent implements OnInit {
 
   public hostlogin(hostForm: FormGroup) {
 
-    let hoststring = JSON.stringify(hostForm);
+    let hoststring = hostForm.value;
 
 
-
-    
-
-
-    this.hServ.HostLogin(hoststring).subscribe(
+    this.hServ.HostLogin(JSON.stringify(hoststring)).subscribe(
       response => {
-        console.log(response);
         localStorage.setItem("loggedHost", JSON.stringify(response))
         this.wronglogin = false;
         this.router.navigate(['./host']);

@@ -24,6 +24,7 @@ export class UserLoginComponent implements OnInit {
 
   ngOnInit(): void {
     localStorage.removeItem("loggedUser");
+    localStorage.removeItem("loggedHost");
   }
 
 
@@ -31,20 +32,13 @@ export class UserLoginComponent implements OnInit {
   public userlogin(userForm: FormGroup) {
 
 
-    let userstring = JSON.stringify(userForm);
-    
 
-
-    
- 
-
-    this.uServ.bountyHunterLogin(userstring).subscribe(
+    this.uServ.bountyHunterLogin(JSON.stringify(userForm.value)).subscribe(
       response => {
-        console.log(response);
         localStorage.setItem("loggedUser", JSON.stringify(response))
         this.wronglogin = false;
-        this.router.navigate(['./bounty-hunter']);
-
+        this.router.navigate(['./bountyhunter']);
+        
       },
       error => {
         console.warn("wrong credentials");

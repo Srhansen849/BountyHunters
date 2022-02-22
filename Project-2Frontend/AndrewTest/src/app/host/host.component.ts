@@ -26,17 +26,13 @@ export class HostComponent implements OnInit {
   constructor(private router: Router, private hServ: HostService) { }
 
   ngOnInit(): void {
-    let hostlog = JSON.parse(localStorage.getItem("loggedHost") || '{}')
-    console.log(hostlog);
-    localStorage.setItem("loggedHost", JSON.stringify(this.getHost(hostlog)));
+    let hostlog = new Host(JSON.parse(localStorage.getItem("loggedHost") || '{}'))
     if (!hostlog) {
       this.router.navigate(["/login"]);
     }
   }
 
-  public getHost(hostlog: Host) {
-    this.hServ.getProfileInfo(hostlog);
-  }
+
 
   editProfile(){
     this.hostprofedit = true;

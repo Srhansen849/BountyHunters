@@ -16,13 +16,11 @@ export class LoginComponent implements OnInit {
   public hunterButton() {
     this.isHunter = true;
     this.isHost = false;
-    console.log("Hunter Button");
   }
 
   public hostButton() {
     this.isHost = true;
     this.isHunter = false;
-    console.log("Host Button");
   }
 
 
@@ -32,6 +30,8 @@ export class LoginComponent implements OnInit {
 
 
   ngOnInit(): void {
+    localStorage.removeItem("loggedHost");
+    localStorage.removeItem("loggedUser");
   }
 
 }

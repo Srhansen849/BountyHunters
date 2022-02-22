@@ -1,6 +1,6 @@
 
 <div class="center">
-    <h1>Bounty Hunter Profile</h1>
+    <h1>{{profuser.huntername}}</h1>
 </div>
 
 <br>
@@ -11,7 +11,7 @@
 <br>
 <br>
 
-<div class="row">
+<div class="center">
  <div class="column">
     <form [formGroup]="profileForm">
         <div class="row gx-3 mb-3">
@@ -54,7 +54,7 @@
         </div>  -->
 
         <div class="center">
-            <button class="btn btn-primary" id="submit_profile" (click)="submitProfile(profileForm)">Submit</button> <br>
+            <button class="btn btn-primary" id="submit_profile" (click)="submitProfile()">Submit</button> <br>
             <button class="btn btn-primary" id="cancel_profile" (click)="editProfile()">Cancel</button> <br>
         </div>
 

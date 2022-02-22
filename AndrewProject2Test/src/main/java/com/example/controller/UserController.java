@@ -20,7 +20,7 @@ import com.example.service.AssetService;
 import com.example.service.UserService;
 
 @RestController
-@RequestMapping(value="/bhunter")
+@RequestMapping(value="/hunter")
 @CrossOrigin(origins="*")
 //@CrossOrigin(origins="*")//CORS - cross origin resource sharing, it is a mechinism that can restrict access for resource from external server
 //requests(aka requests outside of the servers domain) if you set the origin to *, it will allow any domain to request the server
@@ -143,30 +143,30 @@ public class UserController {
 		List<Asset> asList4 = new ArrayList<Asset>();
 		asList4.add(assest4);
 		
-		//This is storing the assets into their accounts
-		account1.setAsset(asList1);
-		account2.setAsset(asList2);
-		account3.setAsset(asList3);
-		account4.setAsset(asList4);
-		
-		//This is creating the 4 users
-		User user1 = new User("Boba", "Fett", "AlphaFett1", "M4nd410ri4n",
-				"BobaFett1@StarHunter.com", "Alpha", 1, account1);
-		
-		User user2 = new User("Cad", "Bane", "DuroBane1", "T4t00in3",
-				"CadBane1@StarHunter.com", "Duro", 3, account2);
-		
-		User user3 = new User("Jango", "Fett", "Mandalorians1", "D4wnM4nd4l",
-				"JangFett2@StarHunter.com", "A0050", 4, account3);
-		
-		User user4 = new User("Fennec", "Shand", "Boba1Fan", "F3ttg0tr4",
-				"FennShan1@StarHunter.com", "Overwatch", 2, account4);
-		
-		//These are storing the data onto the database
-		uServ.insertUser(user1, account1, assest1);
-		uServ.insertUser(user2, account2, assest2);
-		uServ.insertUser(user3, account3, assest3);
-		uServ.insertUser(user4, account4, assest4);
+//		//This is storing the assets into their accounts
+//		account1.setAsset(asList1);
+//		account2.setAsset(asList2);
+//		account3.setAsset(asList3);
+//		account4.setAsset(asList4);
+//		
+//		//This is creating the 4 users
+//		User user1 = new User("Boba", "Fett", "AlphaFett1", "M4nd410ri4n",
+//				"BobaFett1@StarHunter.com", "Alpha", 1, account1);
+//		
+//		User user2 = new User("Cad", "Bane", "DuroBane1", "T4t00in3",
+//				"CadBane1@StarHunter.com", "Duro", 3, account2);
+//		
+//		User user3 = new User("Jango", "Fett", "Mandalorians1", "D4wnM4nd4l",
+//				"JangFett2@StarHunter.com", "A0050", 4, account3);
+//		
+//		User user4 = new User("Fennec", "Shand", "Boba1Fan", "F3ttg0tr4",
+//				"FennShan1@StarHunter.com", "Overwatch", 2, account4);
+//		
+//		//These are storing the data onto the database
+//		uServ.insertUser(user1, account1, assest1);
+//		uServ.insertUser(user2, account2, assest2);
+//		uServ.insertUser(user3, account3, assest3);
+//		uServ.insertUser(user4, account4, assest4);
 		
 		return ResponseEntity.status(201).body("Successfully Inserted");
 	}
