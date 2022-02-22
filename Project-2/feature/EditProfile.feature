@@ -22,7 +22,7 @@ Feature: A Bounty Hunter can upload a bounty
 		 	And a bounty hunter edits the organization "<org>"
 		 	And a bounty hunter edits the associates "<associates>"
 		 	And a bounty hunter edits the time limit "<limit>"
-		 	And a bounty hunter edits the image
+#		 	And a bounty hunter edits the image
 		 	Then a bounty hunter submits the information for changes
 		 	And  a bounty hunter is redirected to the successful editing page
 		 	
