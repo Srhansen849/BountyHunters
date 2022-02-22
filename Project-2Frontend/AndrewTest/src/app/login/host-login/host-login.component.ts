@@ -28,25 +28,22 @@ export class HostLoginComponent implements OnInit {
 
   public hostlogin(hostForm: FormGroup) {
 
-
-    let hoststring = JSON.stringify(hostForm);
-    let host = new Host(hoststring);
-
-    localStorage.setItem("loggedHost", JSON.stringify(host));
-    console.log(host);
-
-    this.hServ.HostLogin(host).subscribe(
+    let hoststring = JSON.stringify(hostForm.value);
+    // let user = new User(userstring);
+    // console.log(user);
+    this.hServ.HostLogin(hoststring).subscribe(
       response => {
         console.log(response);
         this.wronglogin = false;
+        localStorage.setItem("loggedUser", JSON.stringify(response));
         this.router.navigate(['./bounty-hunter']);
+
       },
       error => {
         console.warn("wrong credentials");
         this.wronglogin = true;
       }
     )
-
 
   }
 
