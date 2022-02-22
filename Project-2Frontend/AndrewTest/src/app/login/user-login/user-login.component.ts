@@ -32,15 +32,16 @@ export class UserLoginComponent implements OnInit {
 
 
     let userstring = JSON.stringify(userForm);
-    let user = new User(userstring);
+    
 
 
-    localStorage.setItem("loggedUser", JSON.stringify(user));
-    console.log(user);
+    
+ 
 
-    this.uServ.bountyHunterLogin(user).subscribe(
+    this.uServ.bountyHunterLogin(userstring).subscribe(
       response => {
         console.log(response);
+        localStorage.setItem("loggedUser", JSON.stringify(response))
         this.wronglogin = false;
         this.router.navigate(['./bounty-hunter']);
 

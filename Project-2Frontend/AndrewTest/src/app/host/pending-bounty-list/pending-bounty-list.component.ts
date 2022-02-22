@@ -27,8 +27,8 @@ export class PendingBountyListComponent implements OnInit {
       );
       tempHostList = response;
     }
-      
-      
     );
   }
+
+  
 }

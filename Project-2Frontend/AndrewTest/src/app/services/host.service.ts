@@ -21,7 +21,7 @@ export class HostService{
 
     constructor(private http: HttpClient){}
 
-    public HostLogin(host:Host): Observable<Host>{
+    public HostLogin(host:string): Observable<Host>{
         return this.http.post<Host>(this.urlBase+"/login", host, this.httpHead)
     }
 

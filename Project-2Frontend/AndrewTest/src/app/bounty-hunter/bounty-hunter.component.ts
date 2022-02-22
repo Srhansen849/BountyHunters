@@ -45,7 +45,7 @@ export class BountyHunterComponent implements OnInit {
   }
 
   public getUser(user: User) {
-    this.uServ.getProfileInfo(user)
+    return this.uServ.getProfileInfo(user)
   }
 
   logout(){

@@ -1,1 +1,72 @@
-<p>finish-bounty works!</p>
+<!--Criminal Data -->
+<div class="column">
+    <h5 class="center">Criminal Data</h5>
+    <br>
+
+    <br>
+
+    <div class="row gx-3 mb-3">
+        <div class="status_of_bounty">
+            <label>Preferred Status:</label>
+            <div class="row">
+                <label></label><br>
+            </div>
+        </div>
+        <br>
+    </div>
+    <div class="row gx-3 mb-3">
+        <div class="status_of_bounty">
+            <p>Status of Bounty:</p>
+            <div class="row">
+                <label></label><br>
+            </div>
+        </div>
+        <br>
+    </div>
+
+    <div class="row gx-3 mb-3">
+        <label class="bounty">Amount for Bounty:</label>
+        <div class="col-md-6">
+            <label></label><br>
+        </div>
+    </div>
+    <br>
+
+
+
+    <!--Post Bounty Hunter-->
+
+    <h5 class="center" style="padding-right: 180px;">Bounty Hunter Details</h5>
+    <br>
+
+
+    <div class="row gx-3 mb-3">
+        <label class="first_name" for="inputFirstName">Hunter Name:</label>
+        <div class="col-md-6 column">
+            <label></label><br>
+        </div>
+    </div>
+    <br>
+
+    <div class="row gx-3 mb-3">
+        <form style="padding: 20px" [formGroup]="bountyForm">
+            <div class="col-md-6">
+                <label class="amount_for_bounty" for="inputbounty">Criminal</label>
+                <input class="form-control" id="inputbounty" type="text" placeholder="Enter Bounty Criminal"
+                    formControlName="crimname">
+            </div>
+            <div class="col-md-6">
+                <label class="amount_for_bounty" for="inputbounty">Amount for Bounty:</label>
+                <input class="form-control" id="inputbounty" type="number" placeholder="Enter your amount"
+                    formControlName="amount">
+            </div>
+            <br>
+            <div>
+                <button class="btn btn-primary" id="submit_amount"
+                    (click)="confirmBounty(bountyForm)">Submit</button>
+            </div>
+            <br>
+        </form>
+    </div>
+
+</div>

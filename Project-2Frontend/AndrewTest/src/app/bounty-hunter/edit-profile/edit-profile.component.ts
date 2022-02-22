@@ -15,26 +15,14 @@ export class EditProfileComponent implements OnInit {
   isTitle = true;
   isEditable = false;
 
-
-
   profileForm = new FormGroup({
     huntername: new FormControl(''),
     uemail: new FormControl(''),
     upassword: new FormControl('')
   })
 
-
-  
-
   constructor(private uServ: UserService, private router: Router, private actRoute: ActivatedRoute, public bhcomp: BountyHunterComponent) { }
 
-  
-
-
-
-
-
-    
   public editProfile(){
     this.bhcomp.bhprofile = false;
 }
