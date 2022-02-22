@@ -193,15 +193,8 @@ public class BountyController {
 	@PostMapping(value="/finishbounty")
 	public ResponseEntity<Bounty> FinishBounty(@RequestBody Bounty bounty){
 		
-		
-		
-<<<<<<< HEAD
 
 		Bounty finbounty = bServ.getBountyById(bounty.getBountyid());
-
-=======
-		Bounty finbounty = bServ.getBountyById(bounty.getBountyid());
->>>>>>> Trash
 		
 		User user = uServ.getUserById(finbounty.getBhHolder());
 		

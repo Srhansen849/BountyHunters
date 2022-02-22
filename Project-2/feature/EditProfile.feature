@@ -15,7 +15,7 @@ Feature: A Bounty Hunter can upload a bounty
 		 	And a bounty hunter inputs their password "<password>"
 		 	When a bounty hunter is in the editing profile
 		 	And a bounty hunter edits the name "<name>"
-		 	And a bounty hunter edits the description "<description"
+		 	And a bounty hunter edits the description "<description>"
 		 	And a bounty hunter edits the amount "<amount>"
 		 	And a bounty hunter edits the height "<height>"
 		 	And a bounty hunter edits the weight "<weight"

@@ -32,7 +32,7 @@ Feature: Create a New User
     And a user inputs "password" into the confirmed password input field
     And a user inputs "email" into the email input field
     And a user inputs "representative" into the representative input field
-    And a user inputs "association" into the association input field
+    And a user inputs "associates" into the association input field
 #   And a user inputs "avatar" into the avatar input field
     And a user submits the information
     Then a user will be created on the database

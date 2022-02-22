@@ -20,7 +20,7 @@ public class LoginPage {
 		PageFactory.initElements(driver, this);
 	}
 	
-	public void bountyHunterLogin(String username, String password) {
+	public void login(String username, String password) {
 		this.username.clear();
 		this.password.clear();
 		this.username.sendKeys(username);
