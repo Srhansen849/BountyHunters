@@ -38,6 +38,7 @@ public class Bounty {
 
 	@Column(name = "time")
 	private String time;
+<<<<<<< HEAD
 
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "user_fk")
@@ -53,6 +54,70 @@ public class Bounty {
 	@JoinColumn(name = "criminal_fk")
 //	@JsonBackReference(value="c")
 	private Criminal criminalid;
+=======
+	
+	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+<<<<<<< HEAD
+	@JoinColumn(name="user_fk")
+=======
+	@JoinColumn(name="user_id")
+>>>>>>> stuff
+	@JsonBackReference(value="bh")
+	private User bhHolder;
+	
+	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+<<<<<<< HEAD
+	@JoinColumn(name="host_fk")
+=======
+	@JoinColumn(name="host_id")
+>>>>>>> stuff
+	@JsonBackReference(value="hh")
+	private Host hostHolder;
+	
+	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+<<<<<<< HEAD
+	@JoinColumn(name="criminal_fk")
+//	@JsonBackReference(value="c")
+	private Criminal criminalid;
+	
+	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@JoinColumn(name="turnin_fk")
+//	@JsonBackReference(value="ts")
+	private Status turninid;
+	
+	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@JoinColumn(name="prefer_fk")
+//	@JsonBackReference(value="ps")
+=======
+	@JoinColumn(name="criminal_id")
+//	@JsonBackReference
+	private Criminal criminalid;
+	
+	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@JoinColumn(name="turnin_id")
+//	@JsonBackReference
+	private Status turninid;
+	
+	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@JoinColumn(name="prefer_id")
+//	@JsonBackReference
+>>>>>>> stuff
+	private Status preferid;
+
+	
+
+	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+<<<<<<< HEAD
+	@JoinColumn(name="active_fk")
+//	@JsonBackReference(value="as")
+=======
+	@JoinColumn(name="active_id")
+//	@JsonBackReference
+>>>>>>> stuff
+	private Status activeid;
+
+	
+>>>>>>> stuff
 
 	private String turninid;
 

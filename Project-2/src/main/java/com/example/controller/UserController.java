@@ -122,9 +122,17 @@ public class UserController {
 		if (!userOpt.isPresent()) {
 			return ResponseEntity.badRequest().build();
 		}
+<<<<<<< HEAD
 
 		User nuser =  uServ.verifyPassword(user.getUsername(), user.getPassword());
 
+=======
+<<<<<<< HEAD
+		User nuser =  uServ.verifyPassword(user.getUsername(), user.getPassword());
+=======
+		User nuser = uServ.verifyPassword(user.getUsername(), user.getPassword());
+>>>>>>> stuff
+>>>>>>> stuff
 		return ResponseEntity.status(201).body(nuser);
 	}
 
@@ -157,10 +165,15 @@ public class UserController {
 		Optional<User> codename = Optional.ofNullable(uServ.getUserByCodename(user.getCodename()));
 		Optional<User> firstname = Optional.ofNullable(uServ.getUserByFirstname(user.getFirstname()));
 		Optional<User> lastname = Optional.ofNullable(uServ.getUserByLastname(user.getLastname()));
+<<<<<<< HEAD
 
 		if (username.isPresent() | email.isPresent() | codename.isPresent() | firstname.isEmpty() | lastname.isEmpty()
 				| email.isEmpty() | username.isEmpty()) {
 
+=======
+		if(username.isPresent() | email.isPresent() | codename.isPresent() | firstname.isEmpty()
+				| lastname.isEmpty() | email.isEmpty() | username.isEmpty()) {
+>>>>>>> stuff
 
 			return ResponseEntity.badRequest().build();
 		}
@@ -171,7 +184,11 @@ public class UserController {
 		newasst.setCurrency(asset.getCurrency());
 		newasst.setBalance(0);
 		newasst.setAssetHolder(newacc);
+<<<<<<< HEAD
 
+=======
+		
+>>>>>>> stuff
 		List<User> uList = uServ.findAllBountyHunters();
 		user.setRank(uList.size() + 1);
 

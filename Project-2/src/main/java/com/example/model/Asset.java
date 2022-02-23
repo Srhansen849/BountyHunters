@@ -20,8 +20,17 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
+<<<<<<< HEAD
 @JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "assetid")
 @Table(name = "asset")
+=======
+<<<<<<< HEAD
+@JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class, property="assetid")
+=======
+@JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class, property="userid")
+>>>>>>> stuff
+@Table(name="asset")
+>>>>>>> stuff
 public class Asset {
 
 	@Id
@@ -35,10 +44,21 @@ public class Asset {
 	@Column(name = "balance")
 	private double balance;
 
+<<<<<<< HEAD
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "account_fk")
 	@JsonBackReference
 	private Account accountid;
+=======
+	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+//	@JoinColumn(name="account_fk")
+<<<<<<< HEAD
+	@JsonBackReference
+=======
+	@JsonBackReference(value="ac")
+>>>>>>> stuff
+	private Account assetHolder;
+>>>>>>> stuff
 
 	public Asset() {
 		// TODO Auto-generated constructor stub
