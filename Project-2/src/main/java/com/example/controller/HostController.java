@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,39 +36,35 @@ public class HostController {
 	@GetMapping("/init")
 	public ResponseEntity<String> insertInitalValues() {
 
-		Host host1 = new Host("Jabba", "Tiure", "TheHutt1", "D3si1ijic", "JabbTheHutt@StarHunter.com",
-				"Grand Hutt Council", "Eminence of Tatooine", "JabbaTheHutt");
-		Host host2 = new Host("Anakin", "Skywalker", "DarthVader1", "P4dm343v3r", "DarthVader@StarHunter.com",
-				"Imperial High Command", "Emperor Palpatine", "DarthVader");
+		Host host1 = new Host("Jabba The Hutt", "TheHutt1", "D3si1ijic", "JabbTheHutt@StarHunter.com",
+				"Grand Hutt Council", "Eminence of Tatooine");
+//		Host host2 = new Host("Anakin", "Skywalker", "DarthVader1", "P4dm343v3r", "DarthVader@StarHunter.com",
+//				"Imperial High Command", "Emperor Palpatine", "DarthVader");
 
 		hServ.insertHost(host1);
-		hServ.insertHost(host2);
+//		hServ.insertHost(host2);
 
 		return ResponseEntity.status(201).body("Successfully Inserted");
 	}
 
 	// This is the login function, it will first verify that the user is present in
-	// the database then it will verify that the password the host has entered in is correct 
+	// the database then it will verify that the password the host has entered in is
+	// correct
 	@PostMapping("/login")
 	public ResponseEntity<Host> HostLogin(@RequestBody Host host) {
-
-		Optional<Host> username = Optional.ofNullable(hServ.getHostByUsername(host.getUsername()));
+		Optional<Host> username = Optional.ofNullable(hServ.getHostByUsername(host.getHusername()));
 		if (!username.isPresent()) {
 			return ResponseEntity.badRequest().build();
 		}
-		host = hServ.verifyPassword(host.getUsername(), host.getPassword());
+		host = hServ.verifyPassword(host.getHusername(), host.getHpassword());
 		return ResponseEntity.status(201).body(host);
 	}
 
 	// This is used for updating the current users profile
 	@PostMapping("/profile")
 	public ResponseEntity<Host> updateProfile(@RequestBody Host host) {
-		Optional<Host> email = Optional.ofNullable(hServ.getHostByEmail(host.getEmail()));
-		Optional<Host> codename = Optional.ofNullable(hServ.getHostByCodename(host.getCodename()));
-		Optional<Host> firstname = Optional.ofNullable(hServ.getHostByFirstname(host.getFirstname()));
-		Optional<Host> lastname = Optional.ofNullable(hServ.getHostByLastname(host.getLastname()));
-		if ( email.isPresent() | codename.isPresent() | firstname.isEmpty() |
-				lastname.isEmpty() | email.isEmpty()) {
+		Optional<Host> email = Optional.ofNullable(hServ.getHostByEmail(host.getHemail()));
+		if (email.isPresent() | email.isEmpty()) {
 			return ResponseEntity.badRequest().build();
 		}
 
@@ -76,24 +73,21 @@ public class HostController {
 	}
 
 	// This will get the current data on the users profile
-	@GetMapping("/profileinfo")
-	public ResponseEntity<Host> getProfileInfo(Host host) {
-		return ResponseEntity.status(201).body(host);
+	@GetMapping("/profileinfo/{name}")
+	public ResponseEntity<Host> getProfileInfo(@PathVariable("name") String host) {
+		return ResponseEntity.status(201).body(hServ.getHostByHostname(host));
 	}
 
 	// This is for creating a new user
 	@PostMapping("/new")
 	public ResponseEntity<Host> createNewHost(@RequestBody Host host) {
-		Optional<Host> username = Optional.ofNullable(hServ.getHostByUsername(host.getEmail()));
-		Optional<Host> email = Optional.ofNullable(hServ.getHostByEmail(host.getEmail()));
-		Optional<Host> codename = Optional.ofNullable(hServ.getHostByCodename(host.getCodename()));
-		Optional<Host> firstname = Optional.ofNullable(hServ.getHostByFirstname(host.getFirstname()));
-		Optional<Host> lastname = Optional.ofNullable(hServ.getHostByLastname(host.getLastname()));
-		if (username.isPresent() | email.isPresent() | codename.isPresent() | firstname.isEmpty() | 
-				lastname.isEmpty() | email.isEmpty() | username.isEmpty()) {
+		Optional<Host> username = Optional.ofNullable(hServ.getHostByEmail(host.getHusername()));
+		Optional<Host> email = Optional.ofNullable(hServ.getHostByEmail(host.getHemail()));
+		Optional<Host> name = Optional.ofNullable(hServ.getHostByHostname(host.getHostname()));
+		if (username.isPresent() | email.isPresent() | name.isPresent() | name.isEmpty() | username.isEmpty()
+				| email.isEmpty()) {
 			return ResponseEntity.badRequest().build();
 		}
-
 
 		hServ.insertHost(host);
 		return ResponseEntity.status(201).body(host);
