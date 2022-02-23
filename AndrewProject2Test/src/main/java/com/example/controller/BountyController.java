@@ -56,6 +56,7 @@ public class BountyController {
 	@PostMapping("/new")
 	public ResponseEntity<Bounty> createNewBounty(@RequestBody Bounty bounty) {
 		Criminal criminal = bounty.getCriminalfk();
+		Host host = bounty.getHostfk();
 		Optional<Criminal> crimname = Optional.ofNullable(bServ.getCriminalByCrimname(criminal.getCrimname()));
 		if (crimname.isEmpty()) {
 			return ResponseEntity.badRequest().build();
@@ -65,11 +66,12 @@ public class BountyController {
 		
 		bServ.insertBounty(bounty, criminal);
 		
-		return ResponseEntity.status(201).body(bounty);
+		System.out.println(bounty);
+		return ResponseEntity.status(201).body(bServ.getBountyByHostfk(host));
 	}
 	
 	//Hunter Submits Bounty
-	@PostMapping(value="/submit")
+	@PostMapping("/submit")
 	public ResponseEntity<Bounty> SubmitBounty(@RequestBody Bounty bounty){
 		
 		Criminal criminal = bounty.getCriminalfk();
@@ -90,7 +92,7 @@ public class BountyController {
 	}
 	
 	//Host Finishes Bounty
-	@PostMapping(value="/finish")
+	@PostMapping("/finish")
 	public ResponseEntity<Bounty> FinishBounty(@RequestBody Bounty bounty){
 		
 		Criminal criminal = bounty.getCriminalfk();
@@ -131,10 +133,10 @@ public class BountyController {
 	}
 	
 	
-	@GetMapping("/hostbounties")
-	public ResponseEntity<List<Bounty>> getAllHostBounties(Host host){
-		return ResponseEntity.status(200).body(this.bServ.getBountyByHostfk(host));
-	}
+//	@GetMapping("/hostbounties")
+//	public ResponseEntity<List<Bounty>> getAllHostBounties(Host host){
+//		return ResponseEntity.status(200).body(this.bServ.getBountyByHostfk(host));
+//	}
 	
 	@GetMapping("/userbounties")
 	public ResponseEntity<List<Bounty>> getAllUserBounties(User user){

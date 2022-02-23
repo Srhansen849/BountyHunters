@@ -43,12 +43,14 @@ export class NewBountyComponent implements OnInit {
     bounty.time = fbounty.get("time")?.value
     bounty.amount = fbounty.get("amount")?.value
     bounty.preferid = fbounty.get("preferid")?.value
+    bounty.currency = fbounty.get("currency")?.value
+
+    
 
 
 
     console.log(bounty);
-    // this.bServ.createNewBounty(JSON.stringify(bounty)).subscribe();
-
+    this.bServ.createNewBounty(JSON.stringify(bounty)).subscribe()
     this.hcomp.newbounty = false;
 
 

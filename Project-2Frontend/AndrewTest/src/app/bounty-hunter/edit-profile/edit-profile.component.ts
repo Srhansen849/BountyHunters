@@ -26,11 +26,7 @@ export class EditProfileComponent implements OnInit {
 
   constructor(private uServ: UserService, private router: Router, private actRoute: ActivatedRoute, public bhcomp: BountyHunterComponent) { }
 
-<<<<<<< HEAD
-  editProfile() {
-=======
   public cancelProfile() {
->>>>>>> 1d7d07c1d4e55666cdbc7fc9ff17b00db8d3692d
     this.bhcomp.bhprofile = false;
     this.bhcomp.actbountlist = true;
   }
@@ -50,10 +46,6 @@ export class EditProfileComponent implements OnInit {
     this.isTitle = !this.isTitle;
   }
 
-<<<<<<< HEAD
-  submitProfile(proform: FormGroup) {
-    let user = JSON.parse(localStorage.getItem("loggedUser") || '{}');
-=======
   public submitProfile(proform: FormGroup) {
 
     let user = JSON.parse(localStorage.getItem("loggedUser") || '{}')
@@ -61,7 +53,6 @@ export class EditProfileComponent implements OnInit {
     // let bhunter = new User(stringprof);
     // bhunter.uusername = user.uusername;
 
->>>>>>> 1d7d07c1d4e55666cdbc7fc9ff17b00db8d3692d
     let puser = new User();
     puser.huntername = proform.get("huntername")?.value;
     puser.uemail = proform.get("uemail")?.value;

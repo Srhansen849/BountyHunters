@@ -118,7 +118,7 @@ public class BountyService {
 		return bDao.getBountyByUserfk(userfk);
 	}
 	
-	public List<Bounty> getBountyByHostfk(Host hostfk){
+	public Bounty getBountyByHostfk(Host hostfk){
 		return bDao.getBountyByHostfk(hostfk);
 	}
 	

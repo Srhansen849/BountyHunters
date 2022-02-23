@@ -21,10 +21,10 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
 @Table(name="user_table")
-@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "huntername")
+@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "userid")
 public class User {
 
-
+	
 	@Id
 	@Column(name="user_id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -48,22 +48,10 @@ public class User {
 	@JsonBackReference(value = "ac")
 	private Account uaccount;
 	
-	@OneToMany(mappedBy="userfk", fetch=FetchType.EAGER)
-	private List<Bounty> ubountylist;
+
 	
 	public User() {
 		// TODO Auto-generated constructor stub
-	}
-
-	public User(String huntername, String uusername, String upassword, String uemail, Account uaccount,
-			List<Bounty> ubountylist) {
-		super();
-		this.huntername = huntername;
-		this.uusername = uusername;
-		this.upassword = upassword;
-		this.uemail = uemail;
-		this.uaccount = uaccount;
-		this.ubountylist = ubountylist;
 	}
 
 	public User(String huntername, String uusername, String upassword, String uemail, Account uaccount) {
@@ -74,6 +62,8 @@ public class User {
 		this.uemail = uemail;
 		this.uaccount = uaccount;
 	}
+
+
 
 	public String getHuntername() {
 		return huntername;
@@ -107,24 +97,20 @@ public class User {
 		this.uemail = uemail;
 	}
 
-	public List<Bounty> getUbountylist() {
-		return ubountylist;
-	}
-
-	public void setUbounty_list(List<Bounty> ubountylist) {
-		this.ubountylist = ubountylist;
-	}
-
 
 	public Account getUaccount() {
 		return uaccount;
+	}
+
+	public int getUserid() {
+		return userid;
 	}
 
 	@Override
 	public String toString() {
 		return "User [huntername=" + huntername + ", uusername=" + uusername + ", upassword="
 				+ upassword + ", uemail=" + uemail + ", uaccount=" + uaccount + ", ubountylist="
-				+ ubountylist + "]";
+				+ "]";
 	}
 
 	

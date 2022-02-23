@@ -5,5 +5,5 @@ export class Host{
                 public hostname?:string,                
                 public husername?:string, public hpassword?:string, 
                 public hemail?:string,  
-                public representative?:string, public hassociation?:string, public hbountylist?:Bounty[]){}
+                public representative?:string, public hassociation?:string){}
 }

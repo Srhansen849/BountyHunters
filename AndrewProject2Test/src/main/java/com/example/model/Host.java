@@ -19,7 +19,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
 @Table(name="host")
-@JsonIdentityInfo(generator =ObjectIdGenerators.IntSequenceGenerator.class, property = "hostname")
+@JsonIdentityInfo(generator =ObjectIdGenerators.IntSequenceGenerator.class, property = "hostid")
 public class Host {
 	
 	@Id
@@ -45,23 +45,10 @@ public class Host {
 	@Column(name="representative")
 	private String representative;
 	
-	@OneToMany(mappedBy="hostfk", fetch=FetchType.EAGER)
-	private List<Bounty> hbountylist;
+
 
 	public Host() {
 		// TODO Auto-generated constructor stub
-	}
-
-	public Host(String hostname, String husername, String hpassword, String hemail, String hassociation,
-			String representative, List<Bounty> hbountylist) {
-		super();
-		this.hostname = hostname;
-		this.husername = husername;
-		this.hpassword = hpassword;
-		this.hemail = hemail;
-		this.hassociation = hassociation;
-		this.representative = representative;
-		this.hbountylist = hbountylist;
 	}
 
 	public Host(String hostname, String husername, String hpassword, String hemail, String hassociation,
@@ -73,7 +60,10 @@ public class Host {
 		this.hemail = hemail;
 		this.hassociation = hassociation;
 		this.representative = representative;
+
 	}
+
+
 
 	public String getHostname() {
 		return hostname;
@@ -123,20 +113,18 @@ public class Host {
 		this.representative = representative;
 	}
 
-	public List<Bounty> getHbountylist() {
-		return hbountylist;
-	}
 
-	public void setHbounty_list(List<Bounty> hbountylist) {
-		this.hbountylist = hbountylist;
-	}
 
+
+	public int getHostid() {
+		return hostid;
+	}
 
 	@Override
 	public String toString() {
 		return "Host [hostname=" + hostname + ", husername=" + husername + ", hpassword="
 				+ hpassword + ", hemail=" + hemail + ", hassociation=" + hassociation + ", representative="
-				+ representative + ", hbountylist=" + hbountylist + "]";
+				+ representative + "]";
 	}
 
 
