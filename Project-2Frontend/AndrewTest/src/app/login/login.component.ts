@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 
 @Component({
@@ -9,6 +10,10 @@ import { Component, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit {
 
   wronglogin = false;
+
+  fmpForm = new FormGroup({
+    uemail: new FormControl('')
+  })
 
   isHunter = false;
   isHost = false;

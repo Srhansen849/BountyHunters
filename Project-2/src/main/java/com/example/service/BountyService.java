@@ -160,6 +160,18 @@ public class BountyService {
 		}
 		return actList;
 	}
+	
+	public List<Bounty> getAllCaughtBounty() {
+		List<Bounty> bList = bDao.findAll();
+		List<Bounty> actList = new ArrayList<Bounty>();
+		for (Bounty temp : bList) {
+			String activity = temp.getActiveid();
+			if (activity.equals("Caught")) {
+				actList.add(temp);
+			}
+		}
+		return actList;
+	}
 
 	public List<Bounty> getAllPrivateBounty() {
 		List<Bounty> bList = bDao.findAll();

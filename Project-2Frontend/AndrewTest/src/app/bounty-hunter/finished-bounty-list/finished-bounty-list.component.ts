@@ -14,6 +14,13 @@ import { BountyHunterComponent } from '../bounty-hunter.component';
 export class FinishedBountyListComponent implements OnInit {
 
   bountyList: Bounty[] = [];
+
+  isVisable = true;
+
+  toggleTable() {
+    console.log("button click");
+    this.isVisable = !this.isVisable;
+  }
   
   constructor(private bServ: BountyService, private uServ: UserService, private actroute: ActivatedRoute, private route: Router, private bhcomp: BountyHunterComponent) { }
 

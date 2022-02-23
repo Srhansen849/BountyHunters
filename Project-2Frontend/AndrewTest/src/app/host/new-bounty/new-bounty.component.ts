@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormGroupDirective } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Bounty } from 'src/app/objects/bounty-object';
 import { Criminal } from 'src/app/objects/criminal-object';
+import { Host } from 'src/app/objects/host-object';
 import { BountyService } from 'src/app/services/bounty.service';
+import { HostComponent } from '../host.component';
 
 @Component({
   selector: 'app-new-bounty',
@@ -16,61 +19,43 @@ export class NewBountyComponent implements OnInit {
     amount: new FormControl(''),
     currency: new FormControl(''),
     time: new FormControl(''),
-    preferid: new FormControl('')
-  });
+    preferid: new FormControl(''),
 
-  criminalForm = new FormGroup({
-    crimname: new FormControl(''),
-    species: new FormControl(''),
-    height: new FormControl(''),
-    weight: new FormControl('')
-  });
+    criminalfk: new FormGroup({
+      crimname: new FormControl(''),
+      species: new FormControl(''),
+      height: new FormControl(''),
+      weight: new FormControl('')
+    })
+  })
+
+  constructor(private bServ: BountyService, private router: Router, private actRoute: ActivatedRoute, private hcomp: HostComponent) { }
+
+  submitBounty(fbounty: FormGroup) {
+    let bounty = new Bounty(fbounty.value)
+    let loggedHost = new Host(JSON.parse(localStorage.getItem("loggedUser")||'{}'))
+    bounty.hostfk = loggedHost;
+    let criminal = new Criminal();
+    criminal.crimname = this.bountyForm.get("criminalfk")?.get("crimname")?.value
+    criminal.height = this.bountyForm.get("criminalfk")?.get("height")?.value
+    criminal.weight = this.bountyForm.get("criminalfk")?.get("weight")?.value
+    criminal.species = this.bountyForm.get("criminalfk")?.get("species")?.value
+    bounty.activeid = "Active"
+
+    console.log(bounty);
+    this.bServ.createNewBounty(JSON.stringify(bounty), JSON.stringify(criminal));
 
 
-  // generateCriminal(criminal: FormGroup){
-  // newcriminal = new Criminal(criminal.get("crimname"), criminal.get("species"), criminal.get("height"), criminal.get("weight"))
-
-  // }
-
-  // generateBounty(bounty:FormGroup, newcriminal){
-
-
-  // }
-
-  constructor(private bServ:BountyService, private router: Router, private actRoute:ActivatedRoute) { }
-
-
-  submitBounty(bounty: FormGroup, criminal: FormGroup){
-    let stringbounty = JSON.stringify(bounty.value);
-    let stringcriminal = JSON.stringify(criminal.value)
-    // criminal = new Criminal();
-    // bounty = new Bounty();
-
-    console.log(bounty.value);
-    this.bServ.createNewBounty(stringbounty, stringcriminal);
-    
   }
 
-  // public submitFood(food: FormGroup){
-  //   let stringFood = JSON.stringify(food.value);
-  //   this.foodServ.insertFood(stringFood).subscribe(
-  //     response => {
-  //       this.foodExists=false;
-  //       console.log(response);
-  //       this.foodList.push(response);
-  //     },
-  //     error => {
-  //       console.warn("that food already exists");
-  //       this.foodExists=true;
-  //     }
-  //   );
-  // }
 
-  
-
+  cancelBounty(){
+    this.hcomp.newbounty = false;
+  }
 
 
   ngOnInit(): void {
   }
 
 }
+

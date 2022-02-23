@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HostService } from 'src/app/services/host.service';
+import { HostComponent } from '../host.component';
 
 @Component({
   selector: 'app-edit-host-profile',
@@ -21,7 +22,7 @@ export class EditHostProfileComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  constructor(private router:Router, private hServ: HostService, private actRoute: ActivatedRoute) { }
+  constructor(private router:Router, private hServ: HostService, private actRoute: ActivatedRoute, private hcomp: HostComponent) { }
 
   public updateHost(uphost: FormGroup) {
     let hostlog = JSON.parse(localStorage.getItem("loggedHost")||'{}')
@@ -35,5 +36,10 @@ export class EditHostProfileComponent implements OnInit {
       }
     )
 
+  }
+
+  cancelProfile(){
+    this.hcomp.hostprofedit = false;
+    // this.hcomp.actbountlist = true;
   }
 }

@@ -13,42 +13,40 @@ export class BountyHunterComponent implements OnInit {
 
   public bhprofile = false;
 
-  public bountyturnin = false;
-
   public actbountlist = true;
 
-  public turnin = false;
+  public submit = false;
+
   public finbountlist = false;
-
-  public editBHProfile() {
-
-    // this.eBHProfile.bhprofile = true;
-  }
   
   public profile(){
     this.bhprofile = true;
     this.actbountlist = false;
-    this.turnin = false;
+    this.submit = false;
   }
 
   public submitBounty(){
+    this.submit = true;
     this.bhprofile = false;
     this.actbountlist = false;
-    this.turnin = true;
   }
 
   public home(){
     this.bhprofile = false;
     this.actbountlist = true;
-    this.turnin = false;
+    this.submit = false;
   }
+
+  user = new User();
+
   constructor(private router: Router, private uServ: UserService) { }
   // public eBHProfile: EditProfileComponent
 
 
   ngOnInit(): void {
-    let userlog = JSON.parse(localStorage.getItem("loggedUser") || '{}')
-    localStorage.setItem("loggedUser", JSON.stringify(this.getUser(userlog)));
+    let userlog = JSON.parse(localStorage.getItem("loggedUser") || '{}');
+    this.user = userlog;
+    // localStorage.setItem("loggedUser", JSON.stringify(this.getUser(userlog)));
     if (!userlog) {
       this.router.navigate(["/login"]);
     }

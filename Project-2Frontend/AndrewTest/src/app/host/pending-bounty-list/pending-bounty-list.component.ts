@@ -11,24 +11,31 @@ import { BountyService } from 'src/app/services/bounty.service';
 export class PendingBountyListComponent implements OnInit {
 
   bountyList: Bounty[] = [];
-  
+
+  isVisable = true;
+
+  toggleTable() {
+    console.log("button click");
+    this.isVisable = !this.isVisable;
+  }
+
   constructor(private bServ: BountyService, private actroute: ActivatedRoute, private route: Router) { }
 
   ngOnInit(): void {
-  let hostlog = JSON.parse(localStorage.getItem("loggedHost")||'{}')
+    let hostlog = JSON.parse(localStorage.getItem("loggedHost") || '{}')
     this.bServ.getAllActiveBounty().subscribe(
       response => {
         console.log(response);
         this.bountyList = response;
-           let tempHostList = this.bountyList.filter(
-        (bounty: Bounty) => {
-          return bounty.hostfk == hostlog.hostname;
-        }
-      );
-      tempHostList = response;
-    }
+        let tempHostList = this.bountyList.filter(
+          (bounty: Bounty) => {
+            return bounty.hostfk == hostlog.hostname;
+          }
+        );
+        tempHostList = response;
+      }
     );
   }
 
-  
+
 }

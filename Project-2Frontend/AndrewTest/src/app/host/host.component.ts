@@ -16,17 +16,16 @@ export class HostComponent implements OnInit {
 
   public finishbounty = false;
 
-  public hostblist = false;
 
-  public pendblist = false;
-
+  host = new Host();
 
   constructor(private router: Router, private hServ: HostService, private actRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     let hostlog = JSON.parse(localStorage.getItem("loggedHost") || '{}')
     console.log(hostlog);
-    localStorage.setItem("loggedHost", JSON.stringify(this.getHost(hostlog)));
+    this.host = hostlog;
+    // localStorage.setItem("loggedHost", JSON.stringify(this.getHost(hostlog)));
     if (!hostlog) {
       this.router.navigate(["/login"]);
     }
@@ -39,14 +38,20 @@ export class HostComponent implements OnInit {
 
   editProfile(){
     this.hostprofedit = true;
+    this.finishbounty = false;
+    this.newbounty = false;
   }
 
-  PastBounties(){
-    this.hostblist = true;
-  }
-
-  FinishBounty(){
+  finishBounty(){
+    this.hostprofedit = false;
     this.finishbounty = true;
+    this.newbounty = false;
+  }
+
+  newBounty(){
+    this.hostprofedit = false;
+    this.finishbounty = false;
+    this.newbounty = true;
   }
 
   logout(){

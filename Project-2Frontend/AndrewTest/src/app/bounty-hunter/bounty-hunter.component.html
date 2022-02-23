@@ -1,22 +1,37 @@
-<button class="btn btn-primary" id="edit_profile" (click)="profile()">Profile</button> <br>
+<br>
+<br>
+<br>
 
-<button class="btn btn-primary" id="submit_bounty" (click)="submitBounty()">Submit Bounty</button> <br>
+<div class="center">
+    <button class="btn btn-dark" style="margin-right: 100px;" id="edit_profile" (click)="profile()">Profile</button>
 
-<button class="btn btn-primary" id="home" (click)="home()">Home</button> <br>
+    <button class="btn btn-dark" style="margin-right: 100px;" id="submit_bounty" (click)="submitBounty()">Submit
+        Bounty</button>
 
-<button class="btn btn-primary" id="home" (click)="logout()">Logout</button>
+    <button class="btn btn-dark" style="margin-left: 100px;" id="home" (click)="home()">Home</button>
 
-    <h5 *ngIf = "actbountlist">Welcome </h5>
+    <button class="btn btn-dark" style="margin-left: 100px;" id="logout" (click)="logout()">Logout</button>
+</div>
 
 <br>
-<app-edit-profile *ngIf = "bhprofile"></app-edit-profile>
+<br>
+<br>
 
-<app-active-bounty-list *ngIf = "actbountlist"></app-active-bounty-list>
+<h1>Welcome: {{user.huntername}}</h1>
 
-<app-top-bh-list *ngIf = "actbountlist"></app-top-bh-list>
+<br>
 
-<app-turnin-bounty *ngIf = "turnin"></app-turnin-bounty>
+<div class="center">
+    <div class="column">
+        <app-active-bounty-list></app-active-bounty-list>
+    </div>
+    <br>
+    <div class="column">
+        <app-top-bh-list></app-top-bh-list>
+    </div>
+</div>
+<br><br>
 
+<app-turnin-bounty *ngIf="submit"></app-turnin-bounty>
 
-
-
+<app-edit-profile *ngIf="bhprofile"></app-edit-profile>
