@@ -24,15 +24,20 @@ export class ComfirmBountyComponent implements OnInit {
     lastname: new FormControl(''),
     amount: new FormControl('')
     })
+  router: any;
 
 
-  constructor(private bServ:BountyService, private router:Router, private actRoute:ActivatedRoute) { }
 
 
   confirmBounty(confirm: FormGroup){
 
   }
   ngOnInit(): void {
+    let user = JSON.parse(localStorage.getItem("loggedUser"));
+    console.log(user);
+    if(!user){
+      this.router.navigate(["/login"]);
+    }
   }
 
 }

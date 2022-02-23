@@ -1,3 +1,5 @@
+import { UserLoginComponent } from './user-login/user-login.component';
+import { HttpClient, HttpEventType } from '@angular/common/http';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +9,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Project2Frontend';
+
+  constructor(private http: HttpClient) {
+
+  }
+
+  ngOnInit() {
+
+  }
+
 }

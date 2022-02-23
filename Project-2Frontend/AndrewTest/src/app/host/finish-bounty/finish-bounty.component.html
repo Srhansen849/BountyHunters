@@ -1,60 +1,84 @@
 <!--Criminal Data -->
-<div class="column">
-    <h5 class="center">Criminal Data</h5>
-    <br>
-
-    <br>
-
-    <div class="row gx-3 mb-3">
-        <div class="status_of_bounty">
-            <label>Preferred Status:</label>
-            <div class="row">
-                <label></label><br>
+<div class="center">
+    <div class="column">
+        <form>
+            <label class="center">Criminal Data</label>
+            <div class="row gx-3 mb-3">
+                <div class="col-md-6">
+                    <label>Criminal Name:</label>
+                    <label>{{criminaldata.crimname}}</label>
+                </div>
             </div>
-        </div>
-        <br>
-    </div>
-    <div class="row gx-3 mb-3">
-        <div class="status_of_bounty">
-            <p>Status of Bounty:</p>
-            <div class="row">
-                <label></label><br>
+            <div class="row gx-3 mb-3">
+                <div class="col-md-6">
+                    <label>Criminal Height:</label>
+                    <label>{{criminaldata.height}}</label>
+                </div>
             </div>
-        </div>
-        <br>
+            <div class="row gx-3 mb-3">
+                <div class="col-md-6">
+                    <label>Criminal Weight:</label>
+                    <label>{{criminaldata.weight}}</label>
+                </div>
+            </div>
+            <div class="row gx-3 mb-3">
+                <div class="col-md-6">
+                    <label>Criminal Species:</label>
+                    <label>{{criminaldata.species}}</label>
+                </div>
+            </div>
+        </form>
     </div>
+    <div class="column">
+        <form>
+            <label class="center">Bounty Data</label>
+            <div class="row gx-3 mb-3">
+                <div class="col-md-6">
+                    <label>Preferred Status:</label>
+                    <label>{{bountydata.preferid}}</label>
+                </div>
+                <br>
+            </div>
+            <div class="row gx-3 mb-3">
+                <div class="col-md-6">
+                    <label>Status of Bounty:</label>
+                    <label>{{bountydata.turninid}}</label>
+                </div>
+                <br>
+            </div>
 
-    <div class="row gx-3 mb-3">
-        <label class="bounty">Amount for Bounty:</label>
-        <div class="col-md-6">
-            <label></label><br>
-        </div>
+            <div class="row gx-3 mb-3">
+                <div class="col-md-6">
+                    <label class="bounty">Amount for Bounty:</label>
+                    <label>{{bountydata.currency}}: {{bountydata.amount}}</label>
+                </div>
+            </div>
+        </form>
     </div>
     <br>
 
 
-
-    <!--Post Bounty Hunter-->
-
-    <h5 class="center" style="padding-right: 180px;">Bounty Hunter Details</h5>
-    <br>
-
-
-    <div class="row gx-3 mb-3">
-        <label class="first_name" for="inputFirstName">Hunter Name:</label>
-        <div class="col-md-6 column">
-            <label></label><br>
-        </div>
+    <div class="column">
+        <form>
+            <label class="center">Bounty Hunter Details</label>
+            <br>
+            <div class="row gx-3 mb-3">
+                <div class="col-md-6 ">
+                    <label>Hunter Name:</label>
+                    <label>{{hunterdata.huntername}}</label><br>
+                </div>
+            </div>
+            <div class="row gx-3 mb-3">
+                <div class="col-md-6 ">
+                    <label>Hunter Email:</label>
+                    <label>{{hunterdata.uemail}}</label><br>
+                </div>
+            </div>
+        </form>
     </div>
     <br>
-
     <div class="row gx-3 mb-3">
         <form style="padding: 20px" [formGroup]="bountyForm">
-            <div class="col-md-6" formGroupName="criminalfk">
-                <label class="amount_for_bounty" for="inputbounty">Criminal</label>
-                <input class="form-control" id="inputbounty" type="text" placeholder="Enter Bounty Criminal"
-                    formControlName="crimname">
-            </div>
             <div class="col-md-6">
                 <label class="amount_for_bounty" for="inputbounty">Amount for Bounty:</label>
                 <input class="form-control" id="inputbounty" type="number" placeholder="Enter Altered Bounty Amount"
@@ -62,8 +86,8 @@
             </div>
             <br>
             <div>
-                <button class="btn btn-primary" id="submit_amount" (click)="confirmBounty(bountyForm)">Submit</button>
-                <button class="btn btn-primary" id="submit_amount" (click)="CancelConfirm()">Cancel</button>
+                <button class="btn btn-dark" id="submit_amount" (click)="confirmBounty(bountyForm)">Submit</button>
+                <button class="btn btn-dark" id="submit_amount" (click)="CancelConfirm()">Cancel</button>
             </div>
             <br>
         </form>

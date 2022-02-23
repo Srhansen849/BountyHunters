@@ -22,6 +22,7 @@ bountyForm = new FormGroup({
       crimname: new FormControl('', Validators.required)
     })
 })
+
 ngOnInit(): void {
 
   }
@@ -48,4 +49,10 @@ ngOnInit(): void {
     this.bhcomp.bhprofile = false;
   }
 
+  // cancelTurnin(){
+  //   this.bhcomp.bhprofile = false;
+  // }
+
 }
+
+

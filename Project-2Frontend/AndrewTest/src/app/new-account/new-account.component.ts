@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-new-account',
@@ -23,7 +25,7 @@ export class NewAccountComponent implements OnInit {
     console.log("Host Button");
   }
 
-  constructor() { }
+  constructor(private actRoute:ActivatedRoute, private router:Router, private uServ: UserService) { }
 
   ngOnInit(): void {
   }

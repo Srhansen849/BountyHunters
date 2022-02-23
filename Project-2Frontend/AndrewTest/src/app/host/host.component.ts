@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Host } from '../objects/host-object';
 import { HostService } from '../services/host.service';
 
@@ -10,45 +10,48 @@ import { HostService } from '../services/host.service';
 })
 export class HostComponent implements OnInit {
 
-
-
   public newbounty = false;
 
   public hostprofedit = false;
 
   public finishbounty = false;
 
-  public hostblist = false;
 
-  public pendblist = false;
+  host = new Host();
 
-
-
-
-  constructor(private router: Router, private hServ: HostService) { }
+  constructor(private router: Router, private hServ: HostService, private actRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    let hostlog = new Host(JSON.parse(localStorage.getItem("loggedHost") || '{}'))
+    let hostlog = JSON.parse(localStorage.getItem("loggedHost") || '{}')
+    console.log(hostlog);
+    this.host = hostlog;
+    // localStorage.setItem("loggedHost", JSON.stringify(this.getHost(hostlog)));
     if (!hostlog) {
       this.router.navigate(["/login"]);
     }
   }
 
-
-  newBounty(){
-    this.newbounty = true;
+  public getHost(hostlog: Host) {
+    let stringhost = JSON.stringify(hostlog)
+    this.hServ.getProfileInfo(stringhost);
   }
 
   editProfile(){
     this.hostprofedit = true;
+    this.finishbounty = false;
+    this.newbounty = false;
   }
 
-  PastBounties(){
-    this.hostblist = true;
-  }
-
-  FinishBounty(){
+  finishBounty(){
+    this.hostprofedit = false;
     this.finishbounty = true;
+    this.newbounty = false;
+  }
+
+  newBounty(){
+    this.hostprofedit = false;
+    this.finishbounty = false;
+    this.newbounty = true;
   }
 
   logout(){

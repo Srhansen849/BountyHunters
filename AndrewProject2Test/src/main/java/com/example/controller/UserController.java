@@ -121,6 +121,7 @@ public class UserController {
 		 */
 		
 		//This is creating the accounts to hold the assets
+
 		Account account1 = new Account();
 		Account account2 = new Account();
 		Account account3 = new Account();
@@ -167,6 +168,7 @@ public class UserController {
 //				"FennShan1@StarHunter.com", "Overwatch", 2, account4);
 //		
 //		//These are storing the data onto the database
+
 		uServ.insertUser(user1, account1, assest1);
 //		uServ.insertUser(user2, account2, assest2);
 //		uServ.insertUser(user3, account3, assest3);

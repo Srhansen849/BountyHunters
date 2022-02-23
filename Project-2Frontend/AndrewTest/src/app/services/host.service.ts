@@ -1,7 +1,8 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { Host } from "../objects/host-object";
+import { Host } from 'src/app/objects/host-object';
+
 
 
 
@@ -11,7 +12,7 @@ import { Host } from "../objects/host-object";
 
 export class HostService{
 
-    private urlBase = "http://localhost:9015/host"
+    private urlBase = "http://localhost:9065/host"
     httpHead = {
         headers: new HttpHeaders({
             'Content-Type':'application/json',

@@ -6,6 +6,38 @@
                 background-size: cover;
             } */
 
+            body{
+    background-image: url('https://wallpaperaccess.com/full/257381.jpg');
+    font-family: Arial, Helvetica, sans-serif;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode:darken;
+}
+
+h1 h2 h3 h4 h5 h6 {
+    text-decoration: solid;
+    color: bisque;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.row {
+    margin-left: -5px;
+    margin-right: -5px;
+}
+
+.column {
+    float: left;
+    width: 33%;
+    padding: 5px;
+}
+
+
+label {
+    color: bisque;    
+}
 .center {
     display: flex;
     justify-content: center;
@@ -52,4 +84,35 @@ th,
 td {
     text-align: left;
     padding: 16px;
+}
+
+   .regi_forms {
+        border-radius: 5px;
+        padding: 20px;
+        box-shadow: 1px 1px 20px cyan;
+        background-color: rgba(235, 120, 13, 0.7);
+    }
+  h1 h2 h3 h4 h5 h6 {
+        color: bisque;
+    }
+
+    .fi
+            {
+                border: 1px solid cyan;
+                border-radius: 100px;
+                background-color: transparent;
+                width: 100%;
+                /* margin-right: 100px; */
+                margin-bottom: 15px;
+                display: flex;
+            }
+
+    .row_table {
+        color: rgb(201, 235, 8);
+    }
+
+
+#username, #password {
+                text-decoration: none;
+                color: rgb(91, 216, 216);
 }

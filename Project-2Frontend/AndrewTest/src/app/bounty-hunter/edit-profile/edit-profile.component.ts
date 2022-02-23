@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Bounty } from 'src/app/objects/bounty-object';
 import { User } from 'src/app/objects/user-object';
 import { UserService } from 'src/app/services/user.service';
 import { BountyHunterComponent } from '../bounty-hunter.component';
@@ -25,15 +26,21 @@ export class EditProfileComponent implements OnInit {
 
   constructor(private uServ: UserService, private router: Router, private actRoute: ActivatedRoute, public bhcomp: BountyHunterComponent) { }
 
+<<<<<<< HEAD
   editProfile() {
+=======
+  public cancelProfile() {
+>>>>>>> 1d7d07c1d4e55666cdbc7fc9ff17b00db8d3692d
     this.bhcomp.bhprofile = false;
+    this.bhcomp.actbountlist = true;
   }
 
 
-
-
   ngOnInit(): void {
-    this.profuser = JSON.parse(localStorage.getItem("loggedUser") || '{}')
+
+    let user = JSON.parse(localStorage.getItem("loggedUser") || '{}')
+    this.profuser = user;
+    // this.uServ.getProfileInfo(this.profuser)
   }
 
 
@@ -43,22 +50,33 @@ export class EditProfileComponent implements OnInit {
     this.isTitle = !this.isTitle;
   }
 
+<<<<<<< HEAD
   submitProfile(proform: FormGroup) {
     let user = JSON.parse(localStorage.getItem("loggedUser") || '{}');
+=======
+  public submitProfile(proform: FormGroup) {
+
+    let user = JSON.parse(localStorage.getItem("loggedUser") || '{}')
+    let stringprof = JSON.stringify(proform.value)
+    // let bhunter = new User(stringprof);
+    // bhunter.uusername = user.uusername;
+
+>>>>>>> 1d7d07c1d4e55666cdbc7fc9ff17b00db8d3692d
     let puser = new User();
     puser.huntername = proform.get("huntername")?.value;
     puser.uemail = proform.get("uemail")?.value;
     puser.upassword = proform.get("upassword")?.value;
     puser.uusername = user.uusername;
 
-
-
-
-
     this.uServ.updateProfile(JSON.stringify(puser)).subscribe(
       response =>
         console.log(response)
     )
+
+    // this.uServ.updateProfile(bhunter).subscribe(
+    //     response =>
+    //     console.log(response)
+    // )
 
     this.bhcomp.bhprofile = false;
 

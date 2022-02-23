@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Host } from 'src/app/objects/host-object';
 import { HostService } from 'src/app/services/host.service';
 
@@ -23,7 +23,7 @@ export class NewHostComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  constructor(private router:Router, private hServ: HostService) { }
+  constructor(private router:Router, private hServ: HostService, private actRoute:ActivatedRoute) { }
 
   public newHost(newhost: FormGroup) {
     let host = new Host();

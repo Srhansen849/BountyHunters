@@ -47,7 +47,7 @@ export class NewBountyComponent implements OnInit {
 
 
     console.log(bounty);
-    this.bServ.createNewBounty(JSON.stringify(bounty)).subscribe();
+    // this.bServ.createNewBounty(JSON.stringify(bounty)).subscribe();
 
     this.hcomp.newbounty = false;
 
@@ -64,3 +64,4 @@ export class NewBountyComponent implements OnInit {
   }
 
 }
+

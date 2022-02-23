@@ -6,8 +6,6 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import javax.persistence.OneToMany;
@@ -15,206 +13,127 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
 @Table(name="host")
-@JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class, property="hostid")
+@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "hostname")
 public class Host {
 	
 	@Id
-	@Column(name="host_id")
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int hostid;
-	
-
-	@Column(name="first_name", nullable=false)
-	private String firstname;
-	
-	@Column(name="last_name", nullable=false)
-
-	private String lastname;
+	@Column(name="host_name", unique=true, nullable=false)
+	private String hostname;
 	
 	@Column(name="username", unique=true, nullable=false)
-	private String username;
+	private String husername;
 	
 	@Column(name="password")
-	private String password;
+	private String hpassword;
 	
 	@Column(name="email", unique=true, nullable=false)
-	private String email;
+	private String hemail;
 	
 	@Column(name="association")
-	private String association;
+	private String hassociation;
 	
 	@Column(name="representative")
 	private String representative;
 	
-	@Column(name="code_name", unique=true, nullable=false)
-	private String codename;
-	
-	@OneToMany(mappedBy="hostHolder", fetch=FetchType.EAGER)
-	@JsonBackReference(value="hh")
-	private List<Bounty> bounty_list;
+	@OneToMany(mappedBy="hostfk", fetch=FetchType.EAGER)
+	private List<Bounty> hbountylist;
 
 	
 	public Host() {
 		// TODO Auto-generated constructor stub
 	}
 
-
-	public Host(int hostid, String firstname, String lastname, String username, String password, String email,
-			String association, String representative, String codename, List<Bounty> bounty_list) {
+	public Host(String hostname, String husername, String hpassword, String hemail, String hassociation,
+			String representative, List<Bounty> hbountylist) {
 		super();
-		this.hostid = hostid;
-		this.firstname = firstname;
-		this.lastname = lastname;
-		this.username = username;
-		this.password = password;
-		this.email = email;
-		this.association = association;
+		this.hostname = hostname;
+		this.husername = husername;
+		this.hpassword = hpassword;
+		this.hemail = hemail;
+		this.hassociation = hassociation;
 		this.representative = representative;
-		this.codename = codename;
-		this.bounty_list = bounty_list;
+		this.hbountylist = hbountylist;
 	}
 
-
-	public Host(String firstname, String lastname, String username, String password, String email, String association,
-			String representative, String codename, List<Bounty> bounty_list) {
+	public Host(String hostname, String husername, String hpassword, String hemail, String hassociation,
+			String representative) {
 		super();
-		this.firstname = firstname;
-		this.lastname = lastname;
-		this.username = username;
-		this.password = password;
-		this.email = email;
-		this.association = association;
+		this.hostname = hostname;
+		this.husername = husername;
+		this.hpassword = hpassword;
+		this.hemail = hemail;
+		this.hassociation = hassociation;
 		this.representative = representative;
-		this.codename = codename;
-		this.bounty_list = bounty_list;
-	}
-	
-	public Host(String firstname, String lastname, String username, String password, String email, String association,
-			String representative, String codename) {
-		super();
-		this.firstname = firstname;
-		this.lastname = lastname;
-		this.username = username;
-		this.password = password;
-		this.email = email;
-		this.association = association;
-		this.representative = representative;
-		this.codename = codename;
 	}
 
-
-	public String getFirstname() {
-		return firstname;
+	public String getHostname() {
+		return hostname;
 	}
 
-
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
+	public void setHostname(String hostname) {
+		this.hostname = hostname;
 	}
 
-
-	public String getLastname() {
-		return lastname;
+	public String getHusername() {
+		return husername;
 	}
 
-
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
+	public void setHusername(String husername) {
+		this.husername = husername;
 	}
 
-
-	public String getUsername() {
-		return username;
+	public String getHpassword() {
+		return hpassword;
 	}
 
-
-	public void setUsername(String username) {
-		this.username = username;
+	public void setHpassword(String hpassword) {
+		this.hpassword = hpassword;
 	}
 
-
-	public String getPassword() {
-		return password;
+	public String getHemail() {
+		return hemail;
 	}
 
-
-	public void setPassword(String password) {
-		this.password = password;
+	public void setHemail(String hemail) {
+		this.hemail = hemail;
 	}
 
-
-	public String getEmail() {
-		return email;
+	public String getHassociation() {
+		return hassociation;
 	}
 
-
-	public void setEmail(String email) {
-		this.email = email;
+	public void setHassociation(String hassociation) {
+		this.hassociation = hassociation;
 	}
-
-
-	public String getAssociation() {
-		return association;
-	}
-
-
-	public void setAssociation(String association) {
-		this.association = association;
-	}
-
 
 	public String getRepresentative() {
 		return representative;
 	}
 
-
 	public void setRepresentative(String representative) {
 		this.representative = representative;
 	}
 
-
-	public String getCodename() {
-		return codename;
+	public List<Bounty> getHbountylist() {
+		return hbountylist;
 	}
 
-
-	public void setCodename(String codename) {
-		this.codename = codename;
-	}
-
-
-	public List<Bounty> getBounty_list() {
-		return bounty_list;
-	}
-
-
-	public void setBounty_list(List<Bounty> bounty_list) {
-		this.bounty_list = bounty_list;
-	}
-
-
-	public int getHostid() {
-		return hostid;
+	public void setHbounty_list(List<Bounty> hbountylist) {
+		this.hbountylist = hbountylist;
 	}
 
 
 	@Override
 	public String toString() {
-		return "Host [hostid=" + hostid + ", firstname=" + firstname + ", lastname=" + lastname + ", username="
-				+ username + ", password=" + password + ", email=" + email + ", association=" + association
-				+ ", representative=" + representative + ", codename=" + codename + ", bounty_list=" + bounty_list
-				+ "]";
+		return "Host [hostname=" + hostname + ", husername=" + husername + ", hpassword="
+				+ hpassword + ", hemail=" + hemail + ", hassociation=" + hassociation + ", representative="
+				+ representative + ", hbountylist=" + hbountylist + "]";
 	}
 
-
-	
-
-	
-	
-	
-
 }
+

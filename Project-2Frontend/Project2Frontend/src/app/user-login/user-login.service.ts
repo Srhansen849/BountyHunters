@@ -1,6 +1,7 @@
 import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
-import { Host, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Host } from '../bounty/objects/host-object';
 import { User } from "../bounty/objects/user-object";
 
 @Injectable({
@@ -21,7 +22,7 @@ export class UserLoginService {
     return this.http.post<User>("http://localhost:9015/bhunter/login", user, this.httpHead);
   }
 
-  public HostLogin(host: Host): Observable<Host> {
+  public bOwnerLogin(host: Host): Observable<Host> {
     return this.http.post<Host>("http://localhost:9015/host/login", host, this.httpHead);
   }
 

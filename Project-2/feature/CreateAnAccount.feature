@@ -38,4 +38,5 @@ Feature: Create a New User
     Then a user will be created on the database
     And a user is redirected to the Business Owner Home page
 
+
   

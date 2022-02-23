@@ -12,6 +12,13 @@ export class TopBHListComponent implements OnInit {
 
   bhunterList: User[] = []
 
+  isVisable = true;
+
+  toggleTable() {
+    console.log("button click");
+    this.isVisable = !this.isVisable;
+  }
+
   constructor(private uServ: UserService, private router: Router) { }
 
   ngOnInit(): void {

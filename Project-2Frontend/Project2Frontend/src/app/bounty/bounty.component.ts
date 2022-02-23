@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Bounty } from './objects/bounty-object';
 import { BountyService } from './bounty.service';
+import { NgStyle } from '@angular/common';
+
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-bounty',
@@ -10,7 +13,7 @@ import { BountyService } from './bounty.service';
 })
 export class BountyComponent implements OnInit {
 
-  bounty:Bounty;
+  bounty: Bounty;
 
   
 

@@ -15,13 +15,18 @@ public interface HostDAO extends JpaRepository<Host, Integer>{
 
 
 	public Host getHostByRepresentative(String representative);
-	public Host getHostByCodename(String code_name);
-
-	public Host getHostByUsername(String username);
-	public Host getHostByEmail(String email);
-	public Host getHostByFirstname(String firstname);
-	public Host getHostByLastname(String lastname);
+//	public Host getHostByCodename(String code_name);
+//
+//	public Host getHostByUsername(String username);
+//	public Host getHostByEmail(String email);
+//	public Host getHostByFirstname(String firstname);
+//	public Host getHostByLastname(String lastname);
+	public Host getHostByHusername(String husername);
+	public Host getHostByHemail(String hemail);
+	public Host getHostByHostname(String hostname);
 
 
 }
+
+
 

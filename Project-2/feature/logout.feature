@@ -1,4 +1,3 @@
-
 Feature: A Bounty Hunter logs out of the Star Hunters website
   As a Bounty Hunter, I wish to log out of the Star Hunters website
 

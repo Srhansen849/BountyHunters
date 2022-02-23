@@ -1,5 +1,5 @@
 server:
-  port: 9015
+  port: 9065
   
 spring:
   datasource:
@@ -11,8 +11,5 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     show-sql: true
     hibernate:
-
-
       ddl-auto: update
-
 

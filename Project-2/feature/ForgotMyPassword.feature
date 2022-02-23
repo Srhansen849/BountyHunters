@@ -1,4 +1,3 @@
-
 Feature: Forgot My Password
   As a user, I wish to reset my password
 
@@ -10,4 +9,3 @@ Feature: Forgot My Password
     And a user submits the information
     Then a email will be sent to the user
     And a user will be redirected to the login page
-

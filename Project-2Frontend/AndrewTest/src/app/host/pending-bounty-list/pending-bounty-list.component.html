@@ -1,8 +1,10 @@
-<div>
-    <form>
-        <label style="margin-left:50px">Active Bounties</label>
-        <button (click)="hideTable()">Hide Table</button>
-        <table style="margin-left:50px" class="table table-striped table-white" id="bounties">
+<div >
+    <form class="center">
+        <div class="center">
+            <label>Active Bounties</label> <br>
+            <button class="btn btn-dark" (click)="toggleTable()">{{isVisable ? 'Hide Table' : 'Show Table'}}</button>
+        </div>
+        <table *ngIf="isVisable" style="margin-left:50px" class="table table-striped table-white" id="bounties">
             <thead>
                 <tr>
                     <th scope="col">Currency</th>
@@ -21,12 +23,4 @@
             </tbody>
         </table>
     </form>
-    <br><br><br><br>
-    <br><br><br><br>
-    <br><br><br><br>
-    <br><br><br><br>
-    <br><br><br><br>
-    <br><br><br><br>
-    <br><br><br><br>
-    <br><br><br><br>
 </div>

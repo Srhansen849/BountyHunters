@@ -1,38 +1,29 @@
 <br>
-    <br>
+<br>
 
+<div class="center">
+    <a type="button" style="margin-right:350px;" href="http://localhost:4200/" class="btn btn-dark">Home</a>
+
+    <a type="button" style="margin-right:150px" href="http://localhost:4200/newacc" class="btn btn-dark">New Account</a>
+</div>
+
+<br>
+<br>
+
+<div class="choose_account">
     <div class="center">
-        <a type="button" style="margin-right:350px;" href="http://localhost:4200/"
-            class="btn btn-primary btn-lg">Home</a>
-
-        <a type="button" style="margin-right:150px" href="http://localhost:4200/newacc"
-            class="btn btn-primary btn-lg">New Account</a>
+        <form>
+            <input type="radio" id="user_login" name="login" value="user_login" (click)="hunterButton()">
+            <label for="bhunter_login" style="padding-bottom: 20px; margin-right: 40px;">Bounty Hunter Login</label>
+            <input type="radio" id="host_login" name="login" value="host_login" (click)="hostButton()">
+            <label for="bhost_login" style="padding-bottom: 20px;">Business Host Login</label>
+        </form>
     </div>
+</div>
 
-    <br>
-    <br>
-
-    <div class="choose_account">
-        <div class="center">
-            <form>
-                <input type="radio" id="user_login" name="login" value="user_login" (click)="hunterButton()">
-                <label for="bhunter_login" style="padding-bottom: 20px; margin-right: 40px;">Bounty Hunter Login</label>
-                <input type="radio" id="host_login" name="login" value="host_login" (click)="hostButton()">
-                <label for="bhost_login" style="padding-bottom: 20px;">Business Host Login</label>
-
-                <!-- <label for="form-label" style="padding-bottom: 20px; margin-right: 40px; ">Bounty Hunter
-                    Login</label>
-                <input type="radio" id="bhunter_login" name="login" value="bhunter_login">
-
-                <label for="form-label" style="padding-bottom: 20px;">Business Host Login</label>
-                <input type="radio" id="bhost_login" name="login" value="bhost_login"> -->
-            </form>
-        </div>
-    </div>
-
-    <div class=" center">
-        <h1>Login</h1>
-    </div>
+<div class=" center">
+    <h1>Login</h1>
+</div>
 
 
 
@@ -41,14 +32,42 @@
 
 
 <br>
-
 <div class="center">
+    <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        Forgot your password?
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Forgot your password</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form [formGroup]="fmpForm">
+                        <div>
+                            <div class="mb-3">
+                                <label class="form-label">Email:</label>
+                                <input type="text" id="email" class="form-control" formControlName="uemail">
+                            </div>
+                        </div>
+                        <div class="center">
+                            <br>
+                            <button class="btn btn-dark" id="forgotButton">Submit</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <div class="center">
     <br>
     <a href="http://localhost:4200/forgotpassword" class="link-danger">Forgot your password?</a>
-</div>
-<br><br><br><br>
-<br><br><br><br>
-<br><br><br><br>
-<br><br><br><br>
-<br><br><br><br>
-<br><br><br>
+</div> -->

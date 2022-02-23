@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Bounty } from 'src/app/objects/bounty-object';
 import { Criminal } from 'src/app/objects/criminal-object';
+import { User } from 'src/app/objects/user-object';
 import { BountyService } from 'src/app/services/bounty.service';
 import { HostComponent } from '../host.component';
 
@@ -14,27 +15,31 @@ import { HostComponent } from '../host.component';
 export class FinishBountyComponent implements OnInit {
 
   bountyForm = new FormGroup({
-      amount: new FormControl('', Validators.required),
-    criminalfk: new FormGroup({
-      crimname: new FormControl('', Validators.required)
-    })
+      amount: new FormControl('', Validators.required)
   });
+
+  criminaldata = new Criminal();
+  bountydata = new Bounty();
+  hunterdata = new User();
+
 
   constructor(private bServ: BountyService, private router: Router, private actRoute: ActivatedRoute, private hcomp: HostComponent) { }
 
   ngOnInit(): void {
   }
 
-  public confirmBounty(bounty: FormGroup){
-    let bount = new Bounty()
-    let criminal = new Criminal();
-    criminal.crimname = bounty.get("criminalfk")?.get("crimname")?.value
-    bount.criminalfk = criminal;
-    bount.activeid = "Completed"
-    bount.amount = bounty.get("amount")?.value
-    this.bServ.FinishBounty(JSON.stringify(bount)).subscribe();
+  public confirmBounty(fbounty: FormGroup){
+    let bounty = new Bounty(fbounty.value);
+    bounty.activeid = "Completed";
+    this.bServ.FinishBounty(JSON.stringify(bounty), fbounty.get("amount")?.value).subscribe(
+      response =>{
+        
+      }
+    )
     this.hcomp.finishbounty = false;
   }
+
+  
 
 
   CancelConfirm(){

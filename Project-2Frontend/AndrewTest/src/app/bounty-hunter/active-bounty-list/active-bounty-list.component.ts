@@ -13,6 +13,14 @@ import { BountyHunterComponent } from '../bounty-hunter.component';
 export class ActiveBountyListComponent implements OnInit {
 
   bountyList: Bounty[] = [];
+
+  isVisable = true;
+
+  toggleTable() {
+    console.log("button click");
+    this.isVisable = !this.isVisable;
+  }
+
   
   constructor(private bServ: BountyService, private actroute: ActivatedRoute, private route: Router, private bhcomp: BountyHunterComponent) { }
 
@@ -25,7 +33,7 @@ export class ActiveBountyListComponent implements OnInit {
     );
   }
 
-  hideTable() {
-    this.bhcomp.actbountlist = false;
-  }
+  // hideTable() {
+  //   this.bhcomp.actbountlist = false;
+  // }
 }

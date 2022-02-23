@@ -1,22 +1,37 @@
-
-<button class="btn btn-primary" id="cancel_profile" (click)="editBHProfile()">Profile</button> <br>
-
-<button class="btn btn-primary" id="cancel_profile" (click)="turnin()">Turnin Bounty</button> <br>
-
-<button class="btn btn-primary" id="cancel_profile" (click)="editBHProfile()">Past Completed Bounties</button> <br>
-
-<button class="btn btn-primary" id="cancel_profile" (click)="logout()">Logout</button> <br>
-
-
-
-<app-edit-profile *ngIf = "bhprofile"></app-edit-profile>
 <br>
-<app-active-bounty-list *ngIf = "actbountlist"></app-active-bounty-list>
 <br>
-<app-turnin-bounty *ngIf = "bountyturnin"></app-turnin-bounty>
 <br>
-<app-finished-bounty-list *ngIf = "finbountlist"></app-finished-bounty-list>
-<br>
-<app-top-bh-list *ngIf = "tophunters"></app-top-bh-list>
 
+<div class="center">
+    <button class="btn btn-dark" style="margin-right: 100px;" id="edit_profile" (click)="profile()">Profile</button>
 
+    <button class="btn btn-dark" style="margin-right: 100px;" id="submit_bounty" (click)="submitBounty()">Submit
+        Bounty</button>
+
+    <button class="btn btn-dark" style="margin-left: 100px;" id="home" (click)="home()">Home</button>
+
+    <button class="btn btn-dark" style="margin-left: 100px;" id="logout" (click)="logout()">Logout</button>
+</div>
+
+<br>
+<br>
+<br>
+
+<h1>Welcome: {{user.huntername}}</h1>
+
+<br>
+
+<div class="center">
+    <div class="column">
+        <app-active-bounty-list></app-active-bounty-list>
+    </div>
+    <br>
+    <div class="column">
+        <app-top-bh-list></app-top-bh-list>
+    </div>
+</div>
+<br><br>
+
+<app-turnin-bounty *ngIf="submit"></app-turnin-bounty>
+
+<app-edit-profile *ngIf="bhprofile"></app-edit-profile>

@@ -15,6 +15,13 @@ export class HostBountyListComponent implements OnInit {
 
   bountyList: Bounty[] = [];
   
+  isVisable = true;
+
+  toggleTable() {
+    console.log("button click");
+    this.isVisable = !this.isVisable;
+  }
+  
   constructor(private bServ: BountyService, private actroute: ActivatedRoute, private route: Router, private hcomp: HostComponent) { }
 
   ngOnInit(): void {
@@ -46,7 +53,7 @@ export class HostBountyListComponent implements OnInit {
   //   }
   // );
 
-  hideTable() {
-    this.hcomp.pendblist = false;
-  }
+  // hideTable() {
+  //   this.hcomp.pendblist = false;
+  // }
 }

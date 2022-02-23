@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { User } from "../bounty/objects/user-object";
 import { Host } from "../bounty/objects/host-object";
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserLoginService } from './user-login.service';
 
 
@@ -41,7 +41,7 @@ export class UserLoginComponent implements OnInit {
     console.log("Host Button");
   }
 
-  constructor(public router: Router, public uServ: UserLoginService) { }
+  constructor(public router: Router, public uServ: UserLoginService, private actRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     localStorage.removeItem("loggedUser");
@@ -52,43 +52,38 @@ export class UserLoginComponent implements OnInit {
     let user = new User(userForm.get("username").value, userForm.get("password").value);
     localStorage.setItem("loggedUser", JSON.stringify(user));
     console.log(user);
-    
+
 
     this.uServ.bHunterLogin(user).subscribe(
       response => {
         console.log(response);
-        this.wronglogin=false;
+        this.wronglogin = false;
         this.router.navigate(['./homepage-user']);
 
       },
       error => {
-        console.warn("Bad Login");
-        this.wronglogin=true;
+        console.warn("the wrong credentials");
+        this.wronglogin = true;
       }
     )
-
   }
 
   public hostlogin(hostForm: FormGroup) {
     let host = new Host(hostForm.get("username").value, hostForm.get("password").value);
     localStorage.setItem("loggedUser", JSON.stringify(host));
     console.log(host);
-    this.router.navigate(['./homepage-host']);
-  
 
-
-  this.uServ.HostLogin(host).subscribe(
-    response => {
-      console.log(response);
-      this.wronglogin=false;
-      this.router.navigate(['./homepage-host']);
-
-    },
-    error => {
-      console.warn("Bad Login");
-      this.wronglogin=true;
-    }
-  )
+    this.uServ.bOwnerLogin(host).subscribe(
+      response => {
+        console.log(response);
+        this.router.navigate(['./homepage-host']);
+        this.wronglogin = false;
+      },
+      error => {
+        console.warn("the wrong credentials");
+        this.wronglogin = true;
+      }
+    )
   }
 }
 

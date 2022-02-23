@@ -11,7 +11,7 @@ import { User } from "../objects/user-object";
 
 export class UserService{
 
-    private urlBase = "http://localhost:9015/hunter"
+    private urlBase = "http://localhost:9065/hunter"
     httpHead = {
         headers: new HttpHeaders({
             'Content-Type':'application/json',

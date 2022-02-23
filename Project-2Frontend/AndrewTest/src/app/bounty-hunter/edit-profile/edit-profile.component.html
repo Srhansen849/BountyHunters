@@ -1,63 +1,55 @@
-
 <div class="center">
     <h1>{{profuser.huntername}}</h1>
 </div>
-
 <br>
 
 <div class="center">
-
-</div>
-<br>
-<br>
-
-<div class="center">
- <div class="column">
-    <form [formGroup]="profileForm">
+    <form [formGroup]="profileForm" class="center">
         <div class="row gx-3 mb-3">
             <div class="col-md-6">
                 <label class="first_name" for="inputFirstName">Name:</label>
-                <label *ngIf="isTitle"></label>
-                <input *ngIf="isEditable" class="form-control" id="inputFirstName" type="text" [placeholder]="profuser.huntername" formControlName = "huntername" >
+                <label *ngIf="isTitle">{{profuser.huntername}}</label>
+                <input *ngIf="isEditable" class="form-control" id="inputFirstName" type="text"
+                    [placeholder]="profuser.huntername" formControlName="huntername" [value]="profuser.huntername">
             </div>
         </div>
 
         <div class="row gx-3 mb-3">
             <div class="col-md-6">
                 <label class="email_address" for="inputemailaddress">Email Address:</label>
+                <label *ngIf="isTitle">{{profuser.uemail}}</label>
                 <input *ngIf="isEditable" class="form-control" id="inputemailaddress" type="text"
-                    [placeholder]="profuser.uemail" formControlName = "uemail" >
+                    [placeholder]="profuser.uemail" formControlName="uemail" [value]="profuser.uemail">
             </div>
         </div>
 
         <div *ngIf="isEditable" class="row gx-3 mb-3">
-
             <div class="col-md-6">
                 <label class="password" for="inputPassword">Password:</label>
-                <input class="form-control" id="inputPassword" type="text" placeholder="Enter Your New Password" formControlName = "upassword">
+                <input class="form-control" id="inputPassword" type="text" placeholder="Enter Your New Password"
+                    formControlName="upassword" [value]="profuser.upassword">
             </div>
         </div>
 
         <!-- <div class="row gx-3 mb-3">
             <select name="type" class="asset" *ngFor="">
-                <option>none</option>
-                <option value="currency"></option>
+                <option *ngFor="let asset of assetList" [value]="currency">{{asset.currency}}</option>
             </select> 
-           <label aria-placeholder="balance">balance</label>
+           <label>{{asset.balance}}</label>
         </div> -->
-
-
 
         <!-- <div class="row gx-3 mb-3">
             <label for="avatar">Upload an Image</label>
             <input type="file" id="img" name="img" accept="image/png, image/jpeg">
         </div>  -->
-
-        <div class="center">
-            <button class="btn btn-primary" id="submit_profile" (click)="submitProfile(profileForm)">Submit</button> <br>
-            <button class="btn btn-primary" id="cancel_profile" (click)="editProfile()">Cancel</button> <br>
+        <div>
+            <button class="btn btn-dark" id="edit_profile" (click)="toggleEdit()">{{isTitle ? 'Edit Profile' : 'Cancel Edit'}}</button>
+            <br>
+            <button class="btn btn-dark" id="cancel_profile" (click)="cancelProfile()">Close</button> <br>
         </div>
-
+        <div *ngIf="isEditable">
+            <button class="btn btn-dark" id="submit_profile" (click)="submitProfile(profileForm)">Submit</button>
+        </div>
     </form>
 </div>
-
+<app-finished-bounty-list></app-finished-bounty-list>

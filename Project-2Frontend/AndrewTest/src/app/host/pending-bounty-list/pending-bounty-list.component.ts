@@ -14,15 +14,22 @@ export class PendingBountyListComponent implements OnInit {
 
   bountyList: Bounty[] = [];
 
+  isVisable = true;
+
+  toggleTable() {
+    console.log("button click");
+    this.isVisable = !this.isVisable;
+  }
+
   constructor(private bServ: BountyService, private actroute: ActivatedRoute, private route: Router, private hcomp: HostComponent) { }
   
-  hideTable() {
-    this.hcomp.pendblist = false;
-  }
+  // hideTable() {
+  //   this.hcomp.pendblist = false;
+  // }
   
   ngOnInit(): void {
-    let hostlog = new Host(JSON.parse(localStorage.getItem("loggedHost") || '{}'))
-    this.bServ.getAllCaughtBounty().subscribe(
+    let hostlog = JSON.parse(localStorage.getItem("loggedHost") || '{}')
+    this.bServ.getAllActiveBounty().subscribe(
       response => {
         console.log(response);
         this.bountyList = response;
@@ -35,9 +42,6 @@ export class PendingBountyListComponent implements OnInit {
       }
     );
   }
-
-
-
 
 
 }

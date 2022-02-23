@@ -149,8 +149,9 @@ public class BountyController {
 	@GetMapping(value = "/init")
 	public ResponseEntity<String> insertInitalValues() {
 
-		Criminal criminal1 = new Criminal("Amarant Procjnow",
-				  241, 222, "Bith");
+
+		Criminal criminal1 = new Criminal("Amarant Procjnow", 241, 222, "Bith");
+
 //		Criminal criminal2 = new Criminal("Alexandre", "Omega", "DM-923",
 //				"Sidious darth hutt r2-d2 mon yoda qui-gon padmé.", "Dagobah", 160, 292, "Balosar", "Chewbacca");
 //		Criminal criminal3 = new Criminal("Aesho", "Yavoog", "SXP-905", "Tusken raider organa jar jawa", "Maul", 171,
@@ -177,7 +178,13 @@ public class BountyController {
 //		Host host2 = new Host("Anakin", "Skywalker", "DarthVader1", "P4dm343v3r", "DarthVader@StarHunter.com",
 //				"Imperial High Command", "Emperor Palpatine", "DarthVader");
 //
-		hServ.insertHost(host1);
+		
+//		hServ.insertHost(host2);
+//		
+//		
+//		
+//
+
 //		hServ.insertHost(host2);
 //		
 //		
@@ -204,8 +211,9 @@ public class BountyController {
 //				"Dead Or Alive", "67 BBY", "Active");
 //		Bounty bounty10 = new Bounty(300, "Druggats", host2, criminal10,
 //				"Dead", "89 ABY", "Active");
-
+//
 		bServ.insertBounty(bounty1, criminal1);
+		hServ.insertHost(host1);
 //		bServ.insertBounty(bounty2, criminal2);
 //		bServ.insertBounty(bounty3, criminal3);
 //		bServ.insertBounty(bounty4, criminal4);
