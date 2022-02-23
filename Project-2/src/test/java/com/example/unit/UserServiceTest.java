@@ -79,7 +79,8 @@ public class UserServiceTest {
 	
 	@Test
 	public void testverifyPassword() {
-		
+		when(this.service.verifyPassword("AlphaFett1", "M4nd410ri4n")).thenReturn(user);
+		assertEquals(user, service.verifyPassword(user.getUusername(), user.getUpassword()));
 	}
 
 	@Test

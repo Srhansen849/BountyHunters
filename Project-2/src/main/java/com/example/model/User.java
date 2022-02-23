@@ -36,9 +36,6 @@ public class User {
 	@Column(name="email", unique=true, nullable=false)
 	private String uemail;
 	
-
-	
-
 	@OneToMany(mappedBy="bhHolder", fetch=FetchType.EAGER)
 //	@JoinColumn(name="bounty_fk")
 	@JoinColumn(name="account_id")

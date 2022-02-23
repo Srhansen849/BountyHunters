@@ -42,25 +42,25 @@ public class BountyControllerTest {
 	}
 
 	@Test
-	public void insertInitalValues() throws Exception {
+	public void testinsertInitalValues() throws Exception {
 		
 	}
 		
 	@Test
-	public void HostLogin() throws Exception {
+	public void testHostLogin() throws Exception {
 		
 	}
 	
 	@Test
-	public void updateProfile() throws Exception {
+	public void testupdateProfile() throws Exception {
 		
 	}
 	@Test
-	public void getProfileInfo() throws Exception {
+	public void testgetProfileInfo() throws Exception {
 		
 	}
 	@Test
-	public void createNewHost() throws Exception {
+	public void testcreateNewHost() throws Exception {
 		
 	}
 

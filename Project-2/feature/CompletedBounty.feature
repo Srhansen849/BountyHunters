@@ -15,10 +15,11 @@ Feature: A Bounty Hunter can upload a bounty
 	Scenario: Completed a bounty
 		When the Bounty Hunter clicks the Upload a Bounty link
 		And the Bounty Hunter can see a list Active Bounties
-		And the Bounty Hunter inputs "firstname" into the first name input field
-		And the Bounty Hunter inputs "lastname" into the last name input field 
-		And the Bounty Hunter inputs "codenme" into the code name input field 
+		And the Bounty Hunter inputs "huntername" into the hunter name input field
+#		And the Bounty Hunter inputs "firstname" into the first name input field
+#		And the Bounty Hunter inputs "lastname" into the last name input field 
+#		And the Bounty Hunter inputs "codename" into the code name input field 
 #		And the Bounty Hunter inputs "image" into the image input field
-		And the Bounty Hunter inputs "decription_of_capture" into the decription of capture input field
+#		And the Bounty Hunter inputs "decription_of_capture" into the decription of capture input field
 		And the Bounty Hunter clicks submits
 		Then the bounty will be registered as complete 

@@ -6,9 +6,10 @@ Feature: Create a New User
   Scenario: Bounty Hunter Creates a new account
     Given the user in on the create a new account page
     When a user selects the Bounty Hunter Account
-    And a user inputs "firstname" into the first name input field
-    And a user inputs "lastname" into the last name input field
-    And a user inputs "codename" into the codename input field
+    And a user inputs "huntername" into the hunter name input field
+#   And a user inputs "firstname" into the first name input field
+#   And a user inputs "lastname" into the last name input field
+#    And a user inputs "codename" into the codename input field
     And a user inputs "currency" into the currency input field
     And a user inputs "username" into the user name input field
     And a user inputs "password" into the password input field
@@ -23,8 +24,8 @@ Feature: Create a New User
   Scenario: Business Owner Creates a new account
     Given the user in on the create a new account page
     When a user selects the Business Owner Account
-    And a user inputs "firstname" into the first name input field
-    And a user inputs "lastname" into the last name input field
+#   And a user inputs "firstname" into the first name input field
+#   And a user inputs "lastname" into the last name input field
     And a user inputs "codename" into the codename input field
     And a user inputs "currency" into the currency input field
     And a user inputs "username" into the user name input field

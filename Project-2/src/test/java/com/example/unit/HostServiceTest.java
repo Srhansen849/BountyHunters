@@ -65,7 +65,8 @@ public class HostServiceTest {
 	
 	@Test
 	public void testverifyPassword() {
-		
+		when(this.service.verifyPassword("TheHutt1", "D3si1ijic")).thenReturn(host);
+		assertEquals(host, service.verifyPassword(host.getHusername(), host.getHpassword()));
 	}
 		
 }
