@@ -36,8 +36,7 @@ export class FinishedBountyListComponent implements OnInit {
       }
     );
   }
-  hide = true;
-  hideTable(){
-    this.hide = false;
+  hideTable() {
+    this.bhcomp.finbountlist = false;
   }
 }

@@ -46,8 +46,7 @@ export class HostBountyListComponent implements OnInit {
   //   }
   // );
 
-  hide = true;
-  hideTable(){
-    this.hide = false;
+  hideTable() {
+    this.hcomp.pendblist = false;
   }
 }

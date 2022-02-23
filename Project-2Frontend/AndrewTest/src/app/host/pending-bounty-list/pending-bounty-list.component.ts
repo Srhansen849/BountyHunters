@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Bounty } from 'src/app/objects/bounty-object';
 import { Host } from 'src/app/objects/host-object';
 import { BountyService } from 'src/app/services/bounty.service';
+import { HostComponent } from '../host.component';
 
 @Component({
   selector: 'app-pending-bounty-list',
@@ -12,29 +13,31 @@ import { BountyService } from 'src/app/services/bounty.service';
 export class PendingBountyListComponent implements OnInit {
 
   bountyList: Bounty[] = [];
-  
-  constructor(private bServ: BountyService, private actroute: ActivatedRoute, private route: Router) { }
 
+  constructor(private bServ: BountyService, private actroute: ActivatedRoute, private route: Router, private hcomp: HostComponent) { }
+  
+  hideTable() {
+    this.hcomp.pendblist = false;
+  }
+  
   ngOnInit(): void {
-  let hostlog = new Host(JSON.parse(localStorage.getItem("loggedHost")||'{}'))
+    let hostlog = new Host(JSON.parse(localStorage.getItem("loggedHost") || '{}'))
     this.bServ.getAllCaughtBounty().subscribe(
       response => {
         console.log(response);
         this.bountyList = response;
-           let tempHostList = this.bountyList.filter(
-        (bounty: Bounty) => {
-          return bounty.hostfk?.hostname == hostlog.hostname;
-        }
-      );
-      tempHostList = response;
-    }
+        let tempHostList = this.bountyList.filter(
+          (bounty: Bounty) => {
+            return bounty.hostfk?.hostname == hostlog.hostname;
+          }
+        );
+        tempHostList = response;
+      }
     );
   }
 
-  hide = true;
-  hideTable(){
-    this.hide = false;
-  }
+
+
 
 
 }
