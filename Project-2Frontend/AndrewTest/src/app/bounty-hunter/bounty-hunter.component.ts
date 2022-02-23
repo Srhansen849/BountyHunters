@@ -17,7 +17,10 @@ export class BountyHunterComponent implements OnInit {
 
   public actbountlist = true;
 
-  public finbountlist = false;
+  public finbountlist = true;
+
+  public tophunters = true;
+
 
   public editBHProfile() {
 
@@ -30,6 +33,7 @@ export class BountyHunterComponent implements OnInit {
   public turnin() {
     this.bountyturnin = true;
   }
+
 
   constructor(private router: Router, private uServ: UserService) { }
   // public eBHProfile: EditProfileComponent

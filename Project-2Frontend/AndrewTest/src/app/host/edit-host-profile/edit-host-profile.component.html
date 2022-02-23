@@ -1,29 +1,28 @@
 <div class="center">
     <form [formGroup]="hostForm">
-        <label for="uname">Username:</label>
+        <label for="uname">Edit Username:</label>
         <input type="text" id="uname" name="uname" [placeholder]="loggedhost.husername" formControlName="husername"
             [value]="loggedhost.husername">
-        <label style="margin-left:105px" for="email">Email:</label>
-        <input type="text" id="email" name="email" [placeholder]="loggedhost.hemail" formControlName="hemail"
-            [value]="loggedhost.hemail">
+        <label style="margin-left:105px" for="email">Edit Email:</label>
+        <input type="text" id="email" name="email" [placeholder]="loggedhost.hemail" formControlName="hemail">
         <br><br>
-        <label style="margin-left:5px" for="password">Password:</label>
+        <label style="margin-left:5px" for="password">Edit Password:</label>
         <input type="text" id="password" name="password" placeholder="Enter Your New Password"
-            formControlName="hpassword" [value]="loggedhost.hpassword">
+            formControlName="hpassword">
 
 
         <br><br>
 
         <div class="row gx-3 mb-3">
             <div class="col-md-6">
-                <label class="organization" for="inputorganization">Organization:</label>
-                <input class="form-control" id="inputAssociates" type="text" [placeholder]="loggedhost.association"
-                    formControlName="organization" [value]="loggedhost.association">
+                <label class="organization" for="inputorganization">Edit Organization:</label>
+                <input class="form-control" id="inputAssociates" type="text" [placeholder]="loggedhost.hassociation"
+                    formControlName="hassociation">
             </div>
             <div class="col-md-6">
-                <label class="representative" for="inputRepresentative">Representative:</label>
+                <label class="representative" for="inputRepresentative">Edit Representative:</label>
                 <input class="form-control" id="inputRepresentative" type="text" formControlName="representative"
-                    [placeholder]="loggedhost.representative" [value]="loggedhost.representative">
+                    [placeholder]="loggedhost.representative">
             </div>
         </div>
         <!--  <div class="center">
@@ -37,8 +36,8 @@
 
         <div class="center">
             <br>
-            <button class="btn btn-danger" id="loginButton" (click)="updateHost(hostForm)">Submit</button>
-            <button class="btn btn-danger" id="loginButton" (click)="cancelProfile()">Submit</button>
+            <button class="btn btn-dark" id="loginButton" (click)="updateHost(hostForm)">Submit</button>
+            <button class="btn btn-danger" id="loginButton" (click)="cancelProfile()">Cancel</button>
         </div>
 
     </form>

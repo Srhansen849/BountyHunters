@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Bounty } from 'src/app/objects/bounty-object';
 import { Criminal } from 'src/app/objects/criminal-object';
@@ -17,9 +17,9 @@ export class TurninBountyComponent implements OnInit {
 
 
 bountyForm = new FormGroup({
-    turninid: new FormControl(''),
+    turninid: new FormControl('', Validators.required),
     criminalfk: new FormGroup({
-      crimname: new FormControl('')
+      crimname: new FormControl('', Validators.required)
     })
 })
 ngOnInit(): void {

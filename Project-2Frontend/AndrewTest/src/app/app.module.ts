@@ -55,7 +55,6 @@ import { NewBountyComponent } from './host/new-bounty/new-bounty.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule
-
   ],
   providers: [],
   bootstrap: [AppComponent]

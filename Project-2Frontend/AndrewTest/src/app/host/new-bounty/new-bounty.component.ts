@@ -15,7 +15,6 @@ import { HostComponent } from '../host.component';
 export class NewBountyComponent implements OnInit {
 
   bountyForm = new FormGroup({
-    statusid: new FormControl(''),
     amount: new FormControl(''),
     currency: new FormControl(''),
     time: new FormControl(''),
@@ -32,18 +31,25 @@ export class NewBountyComponent implements OnInit {
   constructor(private bServ: BountyService, private router: Router, private actRoute: ActivatedRoute, private hcomp: HostComponent) { }
 
   submitBounty(fbounty: FormGroup) {
-    let bounty = new Bounty(fbounty.value)
-    let loggedHost = new Host(JSON.parse("loggedHost"))
-    bounty.hostfk = loggedHost;
+    let bounty = new Bounty()
+    bounty.hostfk = JSON.parse(localStorage.getItem("loggedHost") || '{}');
     let criminal = new Criminal();
-    criminal.crimname = this.bountyForm.get("criminalfk")?.get("crimname")?.value
-    criminal.height = this.bountyForm.get("criminalfk")?.get("height")?.value
-    criminal.weight = this.bountyForm.get("criminalfk")?.get("weight")?.value
-    criminal.species = this.bountyForm.get("criminalfk")?.get("species")?.value
+    criminal.crimname = fbounty.get("criminalfk")?.get("crimname")?.value
+    criminal.height = fbounty.get("criminalfk")?.get("height")?.value
+    criminal.weight = fbounty.get("criminalfk")?.get("weight")?.value
+    criminal.species = fbounty.get("criminalfk")?.get("species")?.value
+    bounty.criminalfk = criminal
     bounty.activeid = "Active"
+    bounty.time = fbounty.get("time")?.value
+    bounty.amount = fbounty.get("amount")?.value
+    bounty.preferid = fbounty.get("preferid")?.value
+
+
 
     console.log(bounty);
-    this.bServ.createNewBounty(JSON.stringify(bounty));
+    this.bServ.createNewBounty(JSON.stringify(bounty)).subscribe();
+
+    this.hcomp.newbounty = false;
 
 
   }

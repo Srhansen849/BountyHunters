@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.model.Account;
 import com.example.model.Asset;
+import com.example.model.Host;
 import com.example.model.User;
 import com.example.service.AssetService;
 import com.example.service.UserService;
@@ -73,15 +75,16 @@ public class UserController {
 		if(email.isPresent() | email.isEmpty()) {
 			return ResponseEntity.badRequest().build();
 		}
-		User upuser = uServ.getUserByUsername(user.getUusername());
+		User upuser = uServ.getUserByHuntername(user.getHuntername());
 		uServ.insertUser(upuser);
 		return ResponseEntity.status(201).body(upuser);
 	}
 	
 	//This will get the current data on the users profile
-	@GetMapping("/profileinfo")
-	public ResponseEntity<User> getProfileInfo(User user){
-		return ResponseEntity.status(201).body(uServ.getUserByHuntername(user.getHuntername()));
+	@GetMapping("/profileinfo{profuser}")
+	public ResponseEntity<User> getProfileInfo(@PathVariable("profuser") User user) {
+		User profuser = uServ.getUserByUsername(user.getUusername());
+		return ResponseEntity.status(201).body(profuser);
 	}
 	
 	//This is for creating a new user 
@@ -144,14 +147,15 @@ public class UserController {
 		asList4.add(assest4);
 		
 //		//This is storing the assets into their accounts
-//		account1.setAsset(asList1);
+		account1.setAssetlist(asList1);
 //		account2.setAsset(asList2);
 //		account3.setAsset(asList3);
 //		account4.setAsset(asList4);
 //		
 //		//This is creating the 4 users
-//		User user1 = new User("Boba", "Fett", "AlphaFett1", "M4nd410ri4n",
-//				"BobaFett1@StarHunter.com", "Alpha", 1, account1);
+//		public User(String huntername, String uusername, String upassword, String uemail) {
+		User user1 = new User("Boba Fett", "AlphaFett1", "M4nd410ri4n",
+				"BobaFett1@StarHunter.com", account1);
 //		
 //		User user2 = new User("Cad", "Bane", "DuroBane1", "T4t00in3",
 //				"CadBane1@StarHunter.com", "Duro", 3, account2);
@@ -163,7 +167,7 @@ public class UserController {
 //				"FennShan1@StarHunter.com", "Overwatch", 2, account4);
 //		
 //		//These are storing the data onto the database
-//		uServ.insertUser(user1, account1, assest1);
+		uServ.insertUser(user1, account1, assest1);
 //		uServ.insertUser(user2, account2, assest2);
 //		uServ.insertUser(user3, account3, assest3);
 //		uServ.insertUser(user4, account4, assest4);

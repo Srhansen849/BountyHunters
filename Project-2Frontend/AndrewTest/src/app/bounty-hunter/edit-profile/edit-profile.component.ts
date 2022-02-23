@@ -42,8 +42,7 @@ toggleEdit() {
 }
 
   public submitProfile() {
-    let user = new User();
-    user = JSON.parse(localStorage.getItem("loggedUser")||'{}')
+    let user = new User(JSON.parse(localStorage.getItem("loggedUser")||'{}'));
     let puser = new User();
     puser.huntername = this.profileForm.get("huntername")?.value;
     puser.uemail = this.profileForm.get("uemail")?.value;

@@ -29,11 +29,12 @@ export class UserLoginComponent implements OnInit {
 
 
 
-  public userlogin(userForm: FormGroup) {
+  public userlogin(userf: FormGroup) {
 
+    let user = new User(userf.get("uusername")?.value, userf.get("upassword")?.value);
+    
 
-
-    this.uServ.bountyHunterLogin(JSON.stringify(userForm.value)).subscribe(
+    this.uServ.bountyHunterLogin(JSON.stringify(user)).subscribe(
       response => {
         localStorage.setItem("loggedUser", JSON.stringify(response))
         this.wronglogin = false;
@@ -45,7 +46,6 @@ export class UserLoginComponent implements OnInit {
         this.wronglogin = true;
       }
     )
-
 
   }
 

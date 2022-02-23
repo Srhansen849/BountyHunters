@@ -13,7 +13,7 @@
                 <tr *ngFor="let bounty of bountyList">
                     <td>{{bounty.currency}}</td>
                     <td>{{bounty.amount}}</td>
-                    <td>{{bounty.criminalfk}}</td>
+                    <td>{{bounty.criminalfk?.crimname}}</td>
                 </tr>
                
             </tbody>

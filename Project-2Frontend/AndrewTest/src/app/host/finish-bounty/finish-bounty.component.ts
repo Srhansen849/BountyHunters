@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Bounty } from 'src/app/objects/bounty-object';
 import { Criminal } from 'src/app/objects/criminal-object';
 import { BountyService } from 'src/app/services/bounty.service';
+import { HostComponent } from '../host.component';
 
 @Component({
   selector: 'app-finish-bounty',
@@ -19,7 +20,7 @@ export class FinishBountyComponent implements OnInit {
     })
   });
 
-  constructor(private bServ: BountyService, private router: Router, private actRoute: ActivatedRoute) { }
+  constructor(private bServ: BountyService, private router: Router, private actRoute: ActivatedRoute, private hcomp: HostComponent) { }
 
   ngOnInit(): void {
   }
@@ -33,7 +34,14 @@ export class FinishBountyComponent implements OnInit {
     bount.criminalfk = criminal;
     bount.activeid = "Completed"
     this.bServ.FinishBounty(JSON.stringify(bount)).subscribe();
+    this.hcomp.finishbounty = false;
   }
+
+
+  CancelConfirm(){
+    this.hcomp.finishbounty = false;
+  }
+
 
 }
 

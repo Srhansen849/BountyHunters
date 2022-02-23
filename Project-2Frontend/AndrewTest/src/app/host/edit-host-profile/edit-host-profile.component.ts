@@ -12,37 +12,38 @@ import { HostComponent } from '../host.component';
 })
 export class EditHostProfileComponent implements OnInit {
 
-  hostForm = new FormGroup({
-    husername: new FormControl(''),
-    hpassword: new FormControl(''),
-    hemail: new FormControl(''),
-    representative: new FormControl(''),
-    association: new FormControl('')
-  });
+
 
   loggedhost = new Host()
   ngOnInit(): void {
-    this.loggedhost = JSON.parse(localStorage.getItem("loggedHost")||'{}')
+    this.loggedhost = JSON.parse(localStorage.getItem("loggedHost") || '{}')
   }
-
-  constructor(private router:Router, private hServ: HostService, private hcomp: HostComponent) { }
+  hostForm = new FormGroup({
+    husername: new FormControl(this.loggedhost.husername),
+    hpassword: new FormControl(this.loggedhost.hpassword),
+    hemail: new FormControl(this.loggedhost.hemail),
+    representative: new FormControl(this.loggedhost.representative),
+    hassociation: new FormControl(this.loggedhost.hassociation)
+  });
+  constructor(private router: Router, private hServ: HostService, private hcomp: HostComponent) { }
 
   public updateHost(uphost: FormGroup) {
-    let hostlog = new Host(JSON.parse(localStorage.getItem("loggedHost")||'{}'))
+    let hostlog = JSON.parse(localStorage.getItem("loggedHost") || '{}')
     let host = new Host(uphost.value)
-    host.husername = hostlog.husername;
+    host.hostname = hostlog.hostname;
 
     console.log(host);
-    
+
     this.hServ.updateProfile(JSON.stringify(host)).subscribe(
-       error => {
+      error => {
         console.warn("wrong credentials");
       }
     )
+    this.hcomp.hostprofedit = false;
 
   }
 
-  cancelProfile(){
+  cancelProfile() {
     this.hcomp.hostprofedit = false;
   }
 }

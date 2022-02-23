@@ -7,6 +7,8 @@
 
 <button class="btn btn-primary" id="cancel_profile" (click)="logout()">Logout</button> <br>
 
+
+
 <app-edit-profile *ngIf = "bhprofile"></app-edit-profile>
 <br>
 <app-active-bounty-list *ngIf = "actbountlist"></app-active-bounty-list>
@@ -14,5 +16,7 @@
 <app-turnin-bounty *ngIf = "bountyturnin"></app-turnin-bounty>
 <br>
 <app-finished-bounty-list *ngIf = "finbountlist"></app-finished-bounty-list>
+<br>
+<app-top-bh-list *ngIf = "tophunters"></app-top-bh-list>
 
 

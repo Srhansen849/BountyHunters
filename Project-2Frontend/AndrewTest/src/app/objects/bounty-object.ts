@@ -10,4 +10,5 @@ export class Bounty{
                 public hostfk?:Host, 
                 public preferid?:string, public turninid?:string, 
                 public bountyid?:number){}
+
 }

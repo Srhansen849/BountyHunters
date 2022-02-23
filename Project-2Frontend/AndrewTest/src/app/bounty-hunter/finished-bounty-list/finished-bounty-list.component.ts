@@ -15,9 +15,9 @@ export class FinishedBountyListComponent implements OnInit {
 
   bountyList: Bounty[] = [];
   
-  constructor(private bServ: BountyService, private uServ: UserService, private actroute: ActivatedRoute, private route: Router, private bhcomp: BountyHunterComponent) { }
+  constructor(private bServ: BountyService, private actroute: ActivatedRoute, private route: Router, private bhcomp: BountyHunterComponent) { }
 
-  ngOnInit(): void {//NEEDS TESTING 
+  ngOnInit(): void {
     
     let userlog = new User(JSON.parse(localStorage.getItem("loggedUser")||'{}'))
     this.bServ.getAllCompleteBounty().subscribe(
@@ -27,7 +27,7 @@ export class FinishedBountyListComponent implements OnInit {
         this.bountyList = response;
         let tempList = this.bountyList.filter(
           (bounty:Bounty) =>{
-            return bounty.userfk == userlog.huntername;
+            return bounty.userfk?.huntername == userlog.huntername;
           }
         )
         tempList = response;

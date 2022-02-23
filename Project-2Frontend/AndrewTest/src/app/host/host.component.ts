@@ -23,6 +23,8 @@ export class HostComponent implements OnInit {
   public pendblist = false;
 
 
+
+
   constructor(private router: Router, private hServ: HostService) { }
 
   ngOnInit(): void {
@@ -33,6 +35,9 @@ export class HostComponent implements OnInit {
   }
 
 
+  newBounty(){
+    this.newbounty = true;
+  }
 
   editProfile(){
     this.hostprofedit = true;

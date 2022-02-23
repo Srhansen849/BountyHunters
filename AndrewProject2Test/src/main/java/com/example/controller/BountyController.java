@@ -69,8 +69,8 @@ public class BountyController {
 	}
 	
 	//Hunter Submits Bounty
-	@PostMapping(value="/update")
-	public ResponseEntity<Bounty> UpdateBounty(@RequestBody Bounty bounty){
+	@PostMapping(value="/submit")
+	public ResponseEntity<Bounty> SubmitBounty(@RequestBody Bounty bounty){
 		
 		Criminal criminal = bounty.getCriminalfk();
 		Optional<Criminal> crimname = Optional.ofNullable(bServ.getCriminalByCrimname(criminal.getCrimname()));
@@ -110,10 +110,26 @@ public class BountyController {
 		return ResponseEntity.status(201).body(finbounty);
 	}
 	
+	@GetMapping("/all")
+	public ResponseEntity<List<Bounty>> findAllBounty(){
+		return ResponseEntity.status(200).body(this.bServ.listAllBounty());
+	}
+	
 	@GetMapping("/active")
 	public ResponseEntity<List<Bounty>> findAllActiveBounty(){
 		return ResponseEntity.status(200).body(this.bServ.getAllActiveBounty());
 	}
+	
+	@GetMapping("/complete")
+	public ResponseEntity<List<Bounty>> findAllCompleteBounty(){
+		return ResponseEntity.status(200).body(this.bServ.getAllCompleteBounty());
+	}
+	
+	@GetMapping("/caught")
+	public ResponseEntity<List<Bounty>> findAllCaughtBounty(){
+		return ResponseEntity.status(200).body(this.bServ.getAllCaughtBounty());
+	}
+	
 	
 	@GetMapping("/hostbounties")
 	public ResponseEntity<List<Bounty>> getAllHostBounties(Host host){
@@ -133,8 +149,8 @@ public class BountyController {
 	@GetMapping(value = "/init")
 	public ResponseEntity<String> insertInitalValues() {
 
-//		Criminal criminal1 = new Criminal("Amarant", "Procjnow", "K-656",
-//				"han sidious bespin dantooine mon c-3po yoda luke", "Tusken", 241, 222, "Bith", "Antilles");
+		Criminal criminal1 = new Criminal("Amarant Procjnow",
+				  241, 222, "Bith");
 //		Criminal criminal2 = new Criminal("Alexandre", "Omega", "DM-923",
 //				"Sidious darth hutt r2-d2 mon yoda qui-gon padmé.", "Dagobah", 160, 292, "Balosar", "Chewbacca");
 //		Criminal criminal3 = new Criminal("Aesho", "Yavoog", "SXP-905", "Tusken raider organa jar jawa", "Maul", 171,
@@ -156,19 +172,20 @@ public class BountyController {
 //
 //
 //
-//		Host host1 = new Host("Jabba", "Tiure", "TheHutt1", "D3si1ijic", "JabbTheHutt@StarHunter.com",
-//				"Grand Hutt Council", "Eminence of Tatooine", "JabbaTheHutt");
+		Host host1 = new Host("Jabba The Hutt", "TheHutt1", "D3si1ijic", "JabbTheHutt@StarHunter.com",
+				"Grand Hutt Council", "Eminence of Tatooine");
 //		Host host2 = new Host("Anakin", "Skywalker", "DarthVader1", "P4dm343v3r", "DarthVader@StarHunter.com",
 //				"Imperial High Command", "Emperor Palpatine", "DarthVader");
 //
-//		hServ.insertHost(host1);
+		hServ.insertHost(host1);
 //		hServ.insertHost(host2);
 //		
 //		
-//		
+//		public Bounty(double amount, String currency, String time, Host hostfk, Criminal criminalfk, String preferid,
+//		String activeid) {
 //
-//		Bounty bounty1 = new Bounty(1000, "Republic credit", host1, criminal1, "Alive",
-//				"34 ABY", "Active");
+		Bounty bounty1 = new Bounty(1000, "Republic credit", "34 ABY", host1, criminal1, "Alive",
+				 "Active");
 //		Bounty bounty2 = new Bounty(100000, "Republic credit", host1, criminal2, "Alive",
 //				"64 BBY", "Active");
 //		Bounty bounty3 = new Bounty(500, "Republic credit", host1, criminal3,
@@ -188,7 +205,7 @@ public class BountyController {
 //		Bounty bounty10 = new Bounty(300, "Druggats", host2, criminal10,
 //				"Dead", "89 ABY", "Active");
 
-//		bServ.insertBounty(bounty1, criminal1);
+		bServ.insertBounty(bounty1, criminal1);
 //		bServ.insertBounty(bounty2, criminal2);
 //		bServ.insertBounty(bounty3, criminal3);
 //		bServ.insertBounty(bounty4, criminal4);

@@ -9,13 +9,13 @@
     <form style="padding: 20px" [formGroup]="bountyForm">
         <h5 class="center">Criminal Data</h5>
         <br>
-
+        <div formGroupName="criminalfk">
         <div class="row gx-3 mb-3">
             <!-- Criminal Name-->
             <div class="col-md-6">
                 <label class="form-label" for="inputFirstName">Criminal Name:</label>
                 <input class="form-control" id="inputFirstName" type="text" placeholder="Enter criminal name"
-                    formControlName="crimname">
+                    formControlName="crimname" name="crimname">
             </div>
 
         </div>
@@ -26,13 +26,13 @@
             <div class="col-md-6">
                 <label class="form-label" for="inputHeight">Height:</label>
                 <input class="form-control" id="inputHeight" type="number" placeholder="Enter criminal height"
-                    formControlName="height">
+                    formControlName="height" name="height">
             </div>
             <!-- Weight -->
             <div class="col-md-6">
                 <label class="form-label" for="inputWeight">Weight:</label>
                 <input class="form-control" id="inputWeight" type="number" placeholder="Enter criminal weight"
-                    formControlName="weight">
+                    formControlName="weight" name="weight">
             </div>
 
         </div>
@@ -42,73 +42,74 @@
             <div class="col-md-6">
                 <label class="form-label" for="inputSpecies">Species:</label>
                 <input class="form-control" id="inputSpecies" type="text" placeholder="Enter criminal species"
-                    formControlName="species">
+                    formControlName="species" name="species">
             </div>
+        </div>
+    </div>
 
-
-            <!--  Upload an image -->
-            <!-- <div class="row gx-3 mb-3">
+        <!--  Upload an image -->
+        <!-- <div class="row gx-3 mb-3">
                 <label for="avatar">Upload an Image</label>
                 <input type="file" id="img" name="img" accept="image/png, image/jpeg">
             </div> -->
 
-            <!-- <div class="center">
+        <!-- <div class="center">
                 <button class="btn btn-primary" id="submit_profile">Submit</button> <br>
             </div> -->
 
 
 
 
-            <!--Post Bounty-->
+        <!--Post Bounty-->
 
-            <!--Bounty Prefered Status-->
-            <div class="col-md-6">
-                <p>Preferred Status:</p>
-                <div class="row">
-                    <div class="column">
-                        <input type="radio" id="alive" name="preferred_status" value="Alive" formControlName="preferid">
-                        <label for="alive"> Alive</label><br>
-                    </div>
-                    <div class="column">
-                        <input type="radio" id="dora" name="preferred_status" value="Dead Or Alive"
-                            formControlName="preferid">
-                        <label for="dora"> Dead or Alive</label><br>
-                    </div>
-                    <div class="column">
-                        <input type="radio" id="dead" name="preferred_status" value="Dead" formControlName="preferid">
-                        <label for="dead"> Dead</label>
-                    </div>
+        <!--Bounty Prefered Status-->
+        <div class="col-md-6">
+            <p>Preferred Status:</p>
+            <div class="row">
+                <div class="column">
+                    <input type="radio" id="alive" value="Alive" formControlName="preferid" name="preferid">
+                    <label for="alive"> Alive</label><br>
+                </div>
+                <div class="column">
+                    <input type="radio" id="dora" value="Dead or Alive"
+                        formControlName="preferid" name="preferid">
+                    <label for="dora"> Dead or Alive</label><br>
+                </div>
+                <div class="column">
+                    <input type="radio" id="dead" value="Dead" formControlName="preferid" name="preferid">
+                    <label for="dead"> Dead</label>
                 </div>
             </div>
-            <!--Bounty Time Limit-->
-            <br>
-            <div class="col-md-6">
-                <label class="form-label" for="inputtimelimit">Time Limit:</label>
-                <input class="form-control" id="inputtimelimit" type="text"
-                    placeholder="Enter your time limit or leave blank for Open" formControlName="time" value="Open">
-            </div>
-            <br>
+        </div>
+        <!--Bounty Time Limit-->
+        <br>
+        <div class="col-md-6">
+            <label class="form-label" for="inputtimelimit">Time Limit:</label>
+            <input class="form-control" id="inputtimelimit" type="text"
+                placeholder="Enter your time limit or leave blank for Open" formControlName="time" value="Open">
+        </div>
+        <br>
 
-            <br>
-            <div class="col-md-6">
-                <label class="form-label" for="inputcurrency">Currency:</label>
-                <input class="form-control" id="inputcurrency" type="text"
-                    placeholder="Enter currency or leave blank for Republic Credits" formControlName="currency"
-                    value="Republic Credits">
-            </div>
-            <br>
+        <br>
+        <div class="col-md-6">
+            <label class="form-label" for="inputcurrency">Currency:</label>
+            <input class="form-control" id="inputcurrency" type="text"
+                placeholder="Enter currency or leave blank for Republic Credits" formControlName="currency"
+                value="Republic Credits">
+        </div>
+        <br>
 
-            <!--Bounty Amount-->
-            <div class="col-md-6">
-                <label class="amount_for_bounty" for="inputbounty">Amount for Bounty:</label>
-                <input class="form-control" id="inputbounty" type="number"
-                    placeholder="Enter amount for bounty or leave blank for 1000" formControlName="amount" value="1000">
-            </div>
+        <!--Bounty Amount-->
+        <div class="col-md-6">
+            <label class="amount_for_bounty" for="inputbounty">Amount for Bounty:</label>
+            <input class="form-control" id="inputbounty" type="number"
+                placeholder="Enter amount for bounty or leave blank for 1000" formControlName="amount" value="1000">
+        </div>
 
-            <div class="center">
-                <button class="btn btn-primary" id="submit_bounty" (click)="submitBounty(bountyForm)">Submit</button>
-                <button class="btn btn-primary" id="submit_bounty" (click)="cancelBounty()">Cancel</button>
-            </div>
+        <div class="center">
+            <button class="btn btn-primary" id="submit_bounty" (click)="submitBounty(bountyForm)">Submit</button>
+            <button class="btn btn-primary" id="submit_bounty" (click)="cancelBounty()">Cancel</button>
+        </div>
 
-
+    </form>
 </div>

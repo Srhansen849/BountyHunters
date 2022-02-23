@@ -9,65 +9,47 @@ import { User } from "../objects/user-object";
 
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
 
-export class BountyService{
+export class BountyService {
 
-    private urlBase = "http://localhost:9015/bounty"
-    httpHead = {
-        headers: new HttpHeaders({
-            'Content-Type':'application/json',
-            'Access-Control-Allow-Origin':'*'
-        })
-    };
+  private urlBase = "http://localhost:9015/bounty"
+  httpHead = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*'
+    })
+  };
 
-    constructor(private http: HttpClient){}
+  constructor(private http: HttpClient) { }
 
-    public RegisterBounty(bounty:string): Observable<Bounty>{
-        return this.http.post<Bounty>(this.urlBase+"/register", bounty, this.httpHead)
-    }
-
-    public SubmitBounty(bounty:string): Observable<Bounty>{
-        return this.http.post<Bounty>(this.urlBase+"/submitbounty", bounty, this.httpHead)
-    }
-
-    public createNewBounty(bounty:string): Observable<Bounty>{
-        return this.http.post<Bounty>(this.urlBase+"/new", bounty, this.httpHead)
-    }
-
-    public FinishBounty(bounty:string): Observable<Bounty>{
-        return this.http.post<Bounty>(this.urlBase+"/finishbounty", bounty, this.httpHead)
-    }
-
-    public getAllBountyHunters(): Observable<Bounty> {
-      return this.http.get<Bounty>(this.urlBase + "/bounty/submit", this.httpHead);
+  //user turns in a bounty
+  public SubmitBounty(bounty: string): Observable<Bounty> {
+    return this.http.post<Bounty>(this.urlBase + "/submit", bounty, this.httpHead)
+  }
+  //host creates a new bounty
+  public createNewBounty(bounty: string): Observable<Bounty> {
+    return this.http.post<Bounty>(this.urlBase + "/new", bounty, this.httpHead)
+  }
+  //host finishes a bounty
+  public FinishBounty(bounty: string): Observable<Bounty> {
+    return this.http.post<Bounty>(this.urlBase + "/finish", bounty, this.httpHead)
   }
 
   // get the complete bounty
   public getAllCompleteBounty(): Observable<Bounty[]> {
-      return this.http.get<Bounty[]>(this.urlBase + "/bounty/finish", this.httpHead);
+    return this.http.get<Bounty[]>(this.urlBase + "/complete", this.httpHead);
+  }
+
+  // get the caught bounty
+  public getAllCaughtBounty(): Observable<Bounty[]> {
+    return this.http.get<Bounty[]>(this.urlBase + "/caught", this.httpHead);
   }
 
   // get all the active bounty
   public getAllActiveBounty(): Observable<Bounty[]> {
-      return this.http.get<Bounty[]>(this.urlBase + "/bounty/register", this.httpHead);
-  }
-  // completed bounties by logged in Hunter
-  public getAllPastBounty(): Observable<Bounty[]>{
-    return this.http.get<Bounty[]>(this.urlBase + "bounty/complete", this.httpHead);
-  }
-
-  public getAllPrivateBounty(): Observable<Bounty[]>{
-    return this.http.get<Bounty[]>(this.urlBase + "bounty/private", this.httpHead);
-  }
-
-  public getAllBounty(): Observable<Bounty[]> {
-    return this.http.get<Bounty[]>(this.urlBase + "bounty/all", this.httpHead);
-  }
-
-  public getAllRankedBH(): Observable<User[]> {
-    return this.http.get<User[]>("http://localhost:9015/bhunter/rank", this.httpHead);
+    return this.http.get<Bounty[]>(this.urlBase + "/active", this.httpHead);
   }
 
   public getAllCriminal(): Observable<Criminal[]> {

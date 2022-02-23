@@ -50,20 +50,20 @@
 
     <div class="row gx-3 mb-3">
         <form style="padding: 20px" [formGroup]="bountyForm">
-            <div class="col-md-6">
+            <div class="col-md-6" formGroupName="criminalfk">
                 <label class="amount_for_bounty" for="inputbounty">Criminal</label>
                 <input class="form-control" id="inputbounty" type="text" placeholder="Enter Bounty Criminal"
                     formControlName="crimname">
             </div>
             <div class="col-md-6">
                 <label class="amount_for_bounty" for="inputbounty">Amount for Bounty:</label>
-                <input class="form-control" id="inputbounty" type="number" placeholder="Enter your amount"
+                <input class="form-control" id="inputbounty" type="number" placeholder="Enter Altered Bounty Amount"
                     formControlName="amount">
             </div>
             <br>
             <div>
-                <button class="btn btn-primary" id="submit_amount"
-                    (click)="confirmBounty(bountyForm)">Submit</button>
+                <button class="btn btn-primary" id="submit_amount" (click)="confirmBounty(bountyForm)">Submit</button>
+                <button class="btn btn-primary" id="submit_amount" (click)="CancelConfirm()">Cancel</button>
             </div>
             <br>
         </form>

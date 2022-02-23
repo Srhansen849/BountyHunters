@@ -30,7 +30,7 @@ export class HostService{
     }
 
     public getProfileInfo(host:string): Observable<Host>{
-        return this.http.get<Host>(this.urlBase+"/profileinfo", this.httpHead)
+        return this.http.get<Host>(this.urlBase+"/profileinfo"+host, this.httpHead)
     }
 
     public createNewHost(host:string): Observable<Host>{

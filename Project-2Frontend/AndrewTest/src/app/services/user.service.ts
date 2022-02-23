@@ -38,7 +38,7 @@ export class UserService{
     }
 
     public getProfileInfo(user:string): Observable<User>{
-        return this.http.get<User>(this.urlBase+"/profileinfo", this.httpHead)
+        return this.http.get<User>(this.urlBase+"/profileinfo"+user, this.httpHead)
     }
 
     public createNewUser(user:string): Observable<User>{

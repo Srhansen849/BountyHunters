@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -48,7 +49,7 @@ public class HostController {
 		return ResponseEntity.status(201).body(host);
 	}
 
-	// This is used for updating the current users profile
+	// This is used for updating the current host profile
 	@PostMapping("/profile")
 	public ResponseEntity<Host> updateProfile(@RequestBody Host host) {
 		Optional<Host> email = Optional.ofNullable(hServ.getHostByHemail(host.getHemail()));
@@ -61,9 +62,10 @@ public class HostController {
 	}
 
 	// This will get the current data on the users profile
-	@GetMapping("/profileinfo")
-	public ResponseEntity<Host> getProfileInfo(Host host) {
-		return ResponseEntity.status(201).body(host);
+	@GetMapping("/profileinfo{profhost}")
+	public ResponseEntity<Host> getProfileInfo(@PathVariable("profhost") Host host) {
+		Host profhost = hServ.getHostByHusername(host.getHusername());
+		return ResponseEntity.status(201).body(profhost);
 	}
 
 	// This is for creating a new user

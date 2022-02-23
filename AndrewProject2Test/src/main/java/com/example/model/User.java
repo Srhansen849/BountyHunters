@@ -17,13 +17,20 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
 @Table(name="user_table")
+@JsonIdentityInfo(generator =ObjectIdGenerators.IntSequenceGenerator.class, property = "huntername")
 public class User {
 
 
 	@Id
+	@Column(name="user_id")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int userid;
+	
 	@Column(name="hunter_name", unique=true, nullable=false)
 	private String huntername;
 	
@@ -39,12 +46,10 @@ public class User {
 
 	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	@JoinColumn(name="account_id")
-	@JsonBackReference
+	@JsonBackReference(value = "ac")
 	private Account uaccount;
 	
 	@OneToMany(mappedBy="userfk", fetch=FetchType.EAGER)
-	//@JoinColumn(name="bounty_fk")
-	@JsonBackReference
 	private List<Bounty> ubountylist;
 	
 	public User() {
@@ -62,12 +67,13 @@ public class User {
 		this.ubountylist = ubountylist;
 	}
 
-	public User(String huntername, String uusername, String upassword, String uemail) {
+	public User(String huntername, String uusername, String upassword, String uemail, Account uaccount) {
 		super();
 		this.huntername = huntername;
 		this.uusername = uusername;
 		this.upassword = upassword;
 		this.uemail = uemail;
+		this.uaccount = uaccount;
 	}
 
 	public String getHuntername() {
