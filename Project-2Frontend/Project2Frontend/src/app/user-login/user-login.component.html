@@ -23,135 +23,76 @@
     </div>
 </div>
 
-<<<<<<< HEAD
 <div *ngIf="isHunter" class="center">
     <div class="column">
         <div class="row">
-            <form [formGroup]="userForm" class="regi_forms">
-                <h1 style="color: bisque;" class="center"><b>Login</b></h1>
+            <form [formGroup]="userForm">
                 <label *ngIf="wronglogin" id="wronglogin" style="color: crimson" class="form-label">Bad Login</label>
-                <div class="center">
-=======
-    <div *ngIf="isHunter" class="center">
-        <div class="column">
-            <div class="row">
-                <form [formGroup]="userForm">
-                    <label *ngIf="wronglogin" id="wronglogin" style="color: crimson" class="form-label">Bad Login</label>
->>>>>>> stuff
-                    <div class="mb-3">
-                        <label class="form-label">Username:</label> <br>
-                        <input type="text" id="username" class="form-control fi" formControlName="username"
-                            placeholder="Enter username" value="">
-                    </div>
+                <div class="mb-3">
+                    <label class="form-label">Username:</label> <br>
+                    <input type="text" id="username" class="form-control fi" formControlName="username"
+                        placeholder="Enter username" value="">
                 </div>
-                <div class="center">
-                    <div class="mb-3">
-                        <label class="form-label">Password:</label> <br>
-                        <input type="password" id="password" class="form-control fi" formControlName="password"
-                            placeholder="Enter password" value="">
-                    </div>
-<<<<<<< HEAD
-                </div>
-                <div class="center">
-                    <br>
-                    <!-- onclick="window.open('https://www.angularjswiki.com') -->
-                    <button class="btn btn-primary" id="loginButton" (click)="userlogin(userForm)">Login</button>
-                </div>
-                <br>
-
-                <!-- <div class="center">
-                    <span class="login-form-copy">Don't have an account? <br />
-                        <a href="http://localhost:4200/newaccount" class="login-form_sign-up center">Sign up</a>
-                    </span>
-                </div> -->
-
-                <div class="center">
-                    <br>
-                    <a href="http://localhost:4200/forgotpassword" class="link-danger">Forgot your password?</a>
-                </div>
-
-                <br>
-                <br>
             </form>
-=======
-                    <div class="center">
-                        <br>
-                        <!-- onclick="window.open('https://www.angularjswiki.com') -->
-                        <button class="btn btn-danger" id="loginButton" (click)="userlogin(userForm)">Login</button>
-                    </div>
-                </form>
+        </div>
+        <div class="center">
+            <div class="mb-3">
+                <label class="form-label">Password:</label> <br>
+                <input type="password" id="password" class="form-control fi" formControlName="password"
+                    placeholder="Enter password" value="">
             </div>
->>>>>>> stuff
+            <div class="center">
+                <br>
+                <!-- onclick="window.open('https://www.angularjswiki.com') -->
+                <button class="btn btn-danger" id="loginButton" (click)="userlogin(userForm)">Login</button>
+            </div>
         </div>
     </div>
 </div>
 
-<<<<<<< HEAD
 <div *ngIf="isHost" class="center">
     <div class="column">
         <div class="row">
-            <form [formGroup]="userForm" class="regi_forms">
-                <h1 style="color: bisque;" class="center"><b>Login</b></h1>
-                <label *ngIf="wronglogin" id="wronglogin" style="color: crimson" class="form-label">Bad Login</label>
-                <div class="center">
-=======
-    <div *ngIf="isHost" class="center">
-        <div class="column">
-            <div class="row">
-                <form>
->>>>>>> stuff
-                    <div class="mb-3">
-                        <label class="form-label">Username:</label> <br>
-                        <input type="text" id="username" class="form-control fi" formControlName="username"
-                            placeholder="Enter username" value="">
-                    </div>
+            <form>
+                <div class="mb-3">
+                    <label class="form-label">Username:</label> <br>
+                    <input type="text" id="username" class="form-control fi" formControlName="username"
+                        placeholder="Enter username" value="">
                 </div>
-                <div class="center">
-                    <div class="mb-3">
-                        <label class="form-label">Password:</label> <br>
-                        <input type="password" id="password" class="form-control fi" formControlName="password"
-                            placeholder="Enter password" value="">
-                    </div>
-<<<<<<< HEAD
-                </div>
-                <div class="center">
-                    <br>
-                    <!-- onclick="window.open('https://www.angularjswiki.com') -->
-                    <button class="btn btn-primary" id="loginButton" (click)="hostlogin(hostForm)">Login</button>
-                </div>
+            </form>
+        </div>
+
+        <div class="center">
+            <div class="mb-3">
+                <label class="form-label">Password:</label> <br>
+                <input type="password" id="password" class="form-control fi" formControlName="password"
+                    placeholder="Enter password" value="">
+            </div>
+            <div class="center">
                 <br>
-=======
-                    <div class="center">
-                        <br>
-                         <!-- onclick="window.open('https://www.angularjswiki.com')  -->
-                        <button class="btn btn-primary" id="loginButton" (click)="hostlogin(hostForm)">Login</button>
-                    </div>
-                </form>
+                <!-- onclick="window.open('https://www.angularjswiki.com')  -->
+                <button class="btn btn-primary" id="loginButton" (click)="hostlogin(hostForm)">Login</button>
             </div>
         </div>
     </div>
->>>>>>> stuff
-
-                <div class="center">
-                    <span class="login-form-copy">Don't have an account? <br />
-                        <a href="http://localhost:4200/newaccount" class="login-form_sign-up center">Sign up</a>
-                    </span>
-                </div>
-
-                <br>
-
-                <div class="center">
-                    <br>
-                    <a href="http://localhost:4200/forgotpassword" class="link-danger">Forgot your password?</a>
-                </div>
-
-                <br>
-                <br>
-            </form>
-
-        </div>
-    </div>
 </div>
+
+<div class="center">
+    <span class="login-form-copy">Don't have an account? <br />
+        <a href="http://localhost:4200/newaccount" class="login-form_sign-up center">Sign up</a>
+    </span>
+</div>
+
+<br>
+
+<div class="center">
+    <br>
+    <a href="http://localhost:4200/forgotpassword" class="link-danger">Forgot your password?</a>
+</div>
+
+<br>
+<br>
+
 
 <br>
 
