@@ -25,7 +25,7 @@ export class EditProfileComponent implements OnInit {
 
   constructor(private uServ: UserService, private router: Router, private actRoute: ActivatedRoute, public bhcomp: BountyHunterComponent) { }
 
-  public editProfile() {
+  editProfile() {
     this.bhcomp.bhprofile = false;
   }
 
@@ -43,7 +43,7 @@ export class EditProfileComponent implements OnInit {
     this.isTitle = !this.isTitle;
   }
 
-  public submitProfile(proform: FormGroup) {
+  submitProfile(proform: FormGroup) {
     let user = JSON.parse(localStorage.getItem("loggedUser") || '{}');
     let puser = new User();
     puser.huntername = proform.get("huntername")?.value;
