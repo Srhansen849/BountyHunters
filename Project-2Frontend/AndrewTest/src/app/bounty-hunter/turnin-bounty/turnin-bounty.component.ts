@@ -29,12 +29,12 @@ ngOnInit(): void {
   constructor(private router: Router, private bServ: BountyService, private bhcomp: BountyHunterComponent) { }
 
 
-  public turninBounty(){
+  public turninBounty(bform: FormGroup){
     let bount = new Bounty();
     let crim = new Criminal();
-    crim.crimname = this.bountyForm.get("criminalfk")?.get("crimname")?.value
+    crim.crimname = bform.get("criminalfk")?.get("crimname")?.value
     bount.criminalfk = crim;
-    bount.turninid = this.bountyForm.get("turninid")?.value
+    bount.turninid = bform.get("turninid")?.value
     bount.userfk = JSON.parse(localStorage.getItem("loggedUser")||'{}')
     bount.activeid = "Caught"
     this.bServ.SubmitBounty(JSON.stringify(bount)).subscribe(

@@ -15,52 +15,54 @@ export class EditProfileComponent implements OnInit {
   isTitle = true;
   isEditable = false;
 
+  profuser = new User();
+
   profileForm = new FormGroup({
-    huntername: new FormControl(''),
-    uemail: new FormControl(''),
-    upassword: new FormControl('')
+    huntername: new FormControl(this.profuser.huntername),
+    uemail: new FormControl(this.profuser.uemail),
+    upassword: new FormControl(this.profuser.upassword)
   })
 
   constructor(private uServ: UserService, private router: Router, private actRoute: ActivatedRoute, public bhcomp: BountyHunterComponent) { }
 
-  public editProfile(){
+  public editProfile() {
     this.bhcomp.bhprofile = false;
-}
-
-profuser = new User();
+  }
 
 
-ngOnInit(): void {
-  this.profuser = JSON.parse(localStorage.getItem("loggedUser")||'{}')
-}
 
 
-toggleEdit() {
-  console.log("button click");
-  this.isEditable = !this.isEditable;
-  this.isTitle = !this.isTitle;
-}
+  ngOnInit(): void {
+    this.profuser = JSON.parse(localStorage.getItem("loggedUser") || '{}')
+  }
 
-  public submitProfile() {
-    let user = new User(JSON.parse(localStorage.getItem("loggedUser")||'{}'));
+
+  toggleEdit() {
+    console.log("button click");
+    this.isEditable = !this.isEditable;
+    this.isTitle = !this.isTitle;
+  }
+
+  public submitProfile(proform: FormGroup) {
+    let user = JSON.parse(localStorage.getItem("loggedUser") || '{}');
     let puser = new User();
-    puser.huntername = this.profileForm.get("huntername")?.value;
-    puser.uemail = this.profileForm.get("uemail")?.value;
-    puser.upassword = this.profileForm.get("upassword")?.value;
+    puser.huntername = proform.get("huntername")?.value;
+    puser.uemail = proform.get("uemail")?.value;
+    puser.upassword = proform.get("upassword")?.value;
     puser.uusername = user.uusername;
 
 
 
 
 
-  this.uServ.updateProfile(JSON.stringify(puser)).subscribe(
+    this.uServ.updateProfile(JSON.stringify(puser)).subscribe(
       response =>
-      console.log(response)
-  )
+        console.log(response)
+    )
 
-  this.bhcomp.bhprofile = false;
+    this.bhcomp.bhprofile = false;
 
-}
+  }
 
 }
 

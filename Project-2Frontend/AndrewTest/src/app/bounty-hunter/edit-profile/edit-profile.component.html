@@ -18,7 +18,7 @@
             <div class="col-md-6">
                 <label class="first_name" for="inputFirstName">Name:</label>
                 <label *ngIf="isTitle"></label>
-                <input *ngIf="isEditable" class="form-control" id="inputFirstName" type="text" [placeholder]="profuser.huntername" formControlName = "huntername" [value] = "profuser.huntername">
+                <input *ngIf="isEditable" class="form-control" id="inputFirstName" type="text" [placeholder]="profuser.huntername" formControlName = "huntername" >
             </div>
         </div>
 
@@ -26,7 +26,7 @@
             <div class="col-md-6">
                 <label class="email_address" for="inputemailaddress">Email Address:</label>
                 <input *ngIf="isEditable" class="form-control" id="inputemailaddress" type="text"
-                    [placeholder]="profuser.uemail" formControlName = "uemail" [value] = "profuser.uemail">
+                    [placeholder]="profuser.uemail" formControlName = "uemail" >
             </div>
         </div>
 
@@ -34,7 +34,7 @@
 
             <div class="col-md-6">
                 <label class="password" for="inputPassword">Password:</label>
-                <input class="form-control" id="inputPassword" type="text" placeholder="Enter Your New Password" formControlName = "upassword" [value] = "profuser.upassword">
+                <input class="form-control" id="inputPassword" type="text" placeholder="Enter Your New Password" formControlName = "upassword">
             </div>
         </div>
 
@@ -54,7 +54,7 @@
         </div>  -->
 
         <div class="center">
-            <button class="btn btn-primary" id="submit_profile" (click)="submitProfile()">Submit</button> <br>
+            <button class="btn btn-primary" id="submit_profile" (click)="submitProfile(profileForm)">Submit</button> <br>
             <button class="btn btn-primary" id="cancel_profile" (click)="editProfile()">Cancel</button> <br>
         </div>
 

@@ -31,8 +31,9 @@ export class UserLoginComponent implements OnInit {
 
   public userlogin(userf: FormGroup) {
 
-    let user = new User(userf.get("uusername")?.value, userf.get("upassword")?.value);
-    
+    let user = new User();
+    user.uusername = userf.get("uusername")?.value
+    user.upassword = userf.get("upassword")?.value
 
     this.uServ.bountyHunterLogin(JSON.stringify(user)).subscribe(
       response => {

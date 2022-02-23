@@ -29,8 +29,14 @@ export class EditHostProfileComponent implements OnInit {
 
   public updateHost(uphost: FormGroup) {
     let hostlog = JSON.parse(localStorage.getItem("loggedHost") || '{}')
-    let host = new Host(uphost.value)
+    let host = new Host()
     host.hostname = hostlog.hostname;
+    host.husername = uphost.get("husername")?.value
+    host.hpassword = uphost.get("hpassword")?.value
+    host.hemail = uphost.get("hemail")?.value
+    host.representative = uphost.get("representative")?.value
+    host.hassociation = uphost.get("hassociation")?.value
+
 
     console.log(host);
 

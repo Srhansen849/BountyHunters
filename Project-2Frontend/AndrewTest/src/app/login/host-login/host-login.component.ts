@@ -33,7 +33,9 @@ export class HostLoginComponent implements OnInit {
   public hostlogin(hostf: FormGroup) {
 
 
-    let host = new Host(hostf.get("husername")?.value, hostf.get("hpassword")?.value);
+    let host = new Host()
+    host.husername = hostf.get("husername")?.value
+    host.hpassword = hostf.get("hpassword")?.value
 
     this.hServ.HostLogin(JSON.stringify(host)).subscribe(
       response => {
