@@ -43,13 +43,7 @@ public class Host {
 	@OneToMany(mappedBy="hostfk", fetch=FetchType.EAGER)
 	private List<Bounty> hbountylist;
 
-	@Column(name="code_name", unique=true, nullable=false)
-	private String codename;
 	
-	@OneToMany(mappedBy="hostHolder", fetch=FetchType.EAGER)
-	@JsonBackReference(value="hh")
-	private List<Bounty> bounty_list;
-
 	public Host() {
 		// TODO Auto-generated constructor stub
 	}

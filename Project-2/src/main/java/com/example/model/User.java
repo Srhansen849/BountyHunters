@@ -36,17 +36,10 @@ public class User {
 	@Column(name="email", unique=true, nullable=false)
 	private String uemail;
 	
-
-	
-
-	@OneToMany(mappedBy="bhHolder", fetch=FetchType.EAGER)
-//	@JoinColumn(name="bounty_fk")
+	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	@JoinColumn(name="account_id")
-	@JsonBackReference
-	private Account uaccount;
-	
 	@JsonBackReference(value="ac")
-	private Account account;
+	private Account uaccount;
 	
 	@OneToMany(mappedBy="userfk", fetch=FetchType.EAGER)
 	//@JoinColumn(name="bounty_fk")

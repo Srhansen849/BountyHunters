@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { User } from 'src/app/objects/user-object';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -11,10 +12,10 @@ import { UserService } from 'src/app/services/user.service';
 export class NewBountyHunterComponent implements OnInit {
 
   userForm = new FormGroup({
-    uusername: new FormControl(''),
-    password: new FormControl(''),
-    huntername: new FormControl(''),
-    uemail: new FormControl('')
+    uusername: new FormControl('', Validators.required),
+    upassword: new FormControl('', Validators.required),
+    huntername: new FormControl('', Validators.required),
+    uemail: new FormControl('', Validators.required)
   });
 
   ngOnInit(): void {
@@ -23,10 +24,19 @@ export class NewBountyHunterComponent implements OnInit {
   constructor(private router:Router, private uServ: UserService) { }
 
   public newUser(newuser: FormGroup) {
-    let user = JSON.stringify(newuser);
+
+
+    let user = new User();
+    user.uusername = newuser.get("uusername")?.value;
+    user.upassword = newuser.get("upassword")?.value;
+    user.huntername = newuser.get("huntername")?.value;
+    user.uemail = newuser.get("uemail")?.value;
+    
+
+    
     console.log(user);
     
-    this.uServ.createNewUser(user).subscribe(
+    this.uServ.createNewUser(JSON.stringify(user)).subscribe(
       response => {
         console.log(response);
         this.router.navigate(['./login']);

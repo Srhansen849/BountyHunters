@@ -16,10 +16,12 @@ export class EditProfileComponent implements OnInit {
   isTitle = true;
   isEditable = false;
 
+  profuser = new User();
+
   profileForm = new FormGroup({
-    huntername: new FormControl(''),
-    uemail: new FormControl(''),
-    password: new FormControl('')
+    huntername: new FormControl(this.profuser.huntername),
+    uemail: new FormControl(this.profuser.uemail),
+    upassword: new FormControl(this.profuser.upassword)
   })
 
   constructor(private uServ: UserService, private router: Router, private actRoute: ActivatedRoute, public bhcomp: BountyHunterComponent) { }
@@ -29,12 +31,12 @@ export class EditProfileComponent implements OnInit {
     this.bhcomp.actbountlist = true;
   }
 
+
   ngOnInit(): void {
-    // let user = JSON.parse(localStorage.getItem("loggedUser")||'{}')
-    // console.log(user);
-    // if (!user) {
-    //   this.router.navigate(["/login"]);
-    // }
+
+    let user = JSON.parse(localStorage.getItem("loggedUser") || '{}')
+    this.profuser = user;
+    // this.uServ.getProfileInfo(this.profuser)
   }
 
 
@@ -44,31 +46,32 @@ export class EditProfileComponent implements OnInit {
     this.isTitle = !this.isTitle;
   }
 
-  public submitProfile(profile: FormGroup) {
-    let user = JSON.parse(localStorage.getItem("loggedUser")||'{}')
-    let stringprofile = JSON.stringify(profile.value);
-    console.log(profile.value);
-    let bhunter = new User(stringprofile);
-    this.uServ.updateProfile(stringprofile).subscribe(
+  public submitProfile(proform: FormGroup) {
 
+    let user = JSON.parse(localStorage.getItem("loggedUser") || '{}')
+    let stringprof = JSON.stringify(proform.value)
+    // let bhunter = new User(stringprof);
+    // bhunter.uusername = user.uusername;
+
+    let puser = new User();
+    puser.huntername = proform.get("huntername")?.value;
+    puser.uemail = proform.get("uemail")?.value;
+    puser.upassword = proform.get("upassword")?.value;
+    puser.uusername = user.uusername;
+
+    this.uServ.updateProfile(JSON.stringify(puser)).subscribe(
+      response =>
+        console.log(response)
     )
+
+    // this.uServ.updateProfile(bhunter).subscribe(
+    //     response =>
+    //     console.log(response)
+    // )
+
+    this.bhcomp.bhprofile = false;
+
   }
-
-  // public submitFood(food: FormGroup){
-  //   let stringFood = JSON.stringify(food.value);
-  //   this.foodServ.insertFood(stringFood).subscribe(
-  //     response => {
-  //       this.foodExists=false;
-  //       console.log(response);
-  //       this.foodList.push(response);
-  //     },
-  //     error => {
-  //       console.warn("that food already exists");
-  //       this.foodExists=true;
-  //     }
-  //   );
-  // }
-
 
 }
 

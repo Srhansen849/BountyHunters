@@ -130,7 +130,7 @@ public class BountyController {
 		return ResponseEntity.status(201).body("Successfully Inserted Bounties");
 	}
 
-	@PostMapping("/new")
+	@PostMapping("/register")
 	public ResponseEntity<Bounty> createNewBounty(@RequestBody Bounty bounty) {
 		Criminal criminal = bounty.getCriminalfk();
 		Optional<Criminal> crimname = Optional.ofNullable(bServ.getCriminalByCrimname(criminal.getCrimname()));
@@ -146,15 +146,15 @@ public class BountyController {
 	}
 
 	// Host Finishes Bounty
-	@PostMapping(value = "/finish")
-	public ResponseEntity<Bounty> FinishBounty(@RequestBody Bounty bounty) {
+	@PostMapping(value = "/finish/{amount}")
+	public ResponseEntity<Bounty> FinishBounty(@RequestBody Bounty bounty, @PathVariable("amount") double amount) {
 
 		Criminal criminal = bounty.getCriminalfk();
 		Bounty finbounty = bServ.getBountyByCriminalfk(criminal);
 		User user = uServ.getUserByHuntername(finbounty.getUserfk().getHuntername());
 
 		Account account = user.getUaccount();
-		asServ.updateAsset(account, finbounty.getAmount(), finbounty.getCurrency());
+		asServ.updateAsset(account, amount, finbounty.getCurrency());
 
 //			Asset asset = asServ.getAssetUsingCurrency(aslist, currency);
 //			asServ.updateAsset(asset, finbounty.getAmount());
@@ -167,6 +167,11 @@ public class BountyController {
 	@GetMapping("/complete")
 	public ResponseEntity<List<Bounty>> findAllCompletedBounty() {
 		return ResponseEntity.status(200).body(this.bServ.getAllCompletedBounty());
+	}
+	
+	@GetMapping("/caught")
+	public ResponseEntity<List<Bounty>> findAllCaughtBounty() {
+		return ResponseEntity.status(200).body(this.bServ.getAllCaughtBounty());
 	}
 
 	@GetMapping("/private")

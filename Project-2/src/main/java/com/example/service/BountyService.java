@@ -114,15 +114,15 @@ public class BountyService {
 //		return cDao.findAll();
 //	}
 
-	public void insertBounty(Bounty bounty, Criminal criminal, String status) {
-		bDao.save(bounty);
-		cDao.save(criminal);
-	}
-
 	public void insertBounty(Bounty bounty, Criminal criminal) {
 		bDao.save(bounty);
 		cDao.save(criminal);
 	}
+
+//	public void insertBounty(Bounty bounty, Criminal criminal) {
+//		bDao.save(bounty);
+//		cDao.save(criminal);
+//	}
 
 	public void editBounty(Bounty bounty) {
 
@@ -155,6 +155,18 @@ public class BountyService {
 		for (Bounty temp : bList) {
 			String activity = temp.getActiveid();
 			if (activity.equals("Completed")) {
+				actList.add(temp);
+			}
+		}
+		return actList;
+	}
+	
+	public List<Bounty> getAllCaughtBounty() {
+		List<Bounty> bList = bDao.findAll();
+		List<Bounty> actList = new ArrayList<Bounty>();
+		for (Bounty temp : bList) {
+			String activity = temp.getActiveid();
+			if (activity.equals("Caught")) {
 				actList.add(temp);
 			}
 		}

@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { HostService } from 'src/app/services/host.service';
+import { HostLoginComponent } from 'src/app/login/host-login/host-login.component';
+import { Bounty } from 'src/app/objects/bounty-object';
+import { Host } from 'src/app/objects/host-object';
+import { BountyService } from 'src/app/services/bounty.service';
+import { HostComponent } from '../host.component';
 
 @Component({
   selector: 'app-host-bounty-list',
@@ -9,9 +13,47 @@ import { HostService } from 'src/app/services/host.service';
 })
 export class HostBountyListComponent implements OnInit {
 
-  constructor(private hServ: HostService, private router: Router, private actRoute: ActivatedRoute) { }
+  bountyList: Bounty[] = [];
+  
+  isVisable = true;
+
+  toggleTable() {
+    console.log("button click");
+    this.isVisable = !this.isVisable;
+  }
+  
+  constructor(private bServ: BountyService, private actroute: ActivatedRoute, private route: Router, private hcomp: HostComponent) { }
 
   ngOnInit(): void {
+    let hostlog = new Host(JSON.parse(localStorage.getItem("loggedHost")||'{}'))
+    this.bServ.getAllCompleteBounty().subscribe(
+      response => {
+        console.log(response);
+        this.bountyList = response;
+           let tempHostList = this.bountyList.filter(
+        (bounty: Bounty) => {
+          return bounty.hostfk == hostlog.hostname;
+        }
+      );
+      tempHostList = response;
+    }
+      
+      
+    );
   }
+  // this.pServ.getAllPastBounty().subscribe(
+  //   response => {
+  //     console.log(response);
+  //     let tempHostList = this.bountyList.filter(
+  //       (bounty: Bounty) => {
+  //         return bounty.uusername == userlog.uusername;
+  //       }
+  //     );
+  //     tempHostList = response;
+  //   }
+  // );
 
+  // hideTable() {
+  //   this.hcomp.pendblist = false;
+  // }
 }

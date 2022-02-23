@@ -1,7 +1,44 @@
-<p>host works!</p>
+<br>
+<br>
+<br>
 
-<app-new-bounty></app-new-bounty>
-<app-edit-host-profile></app-edit-host-profile>
-<app-finish-bounty></app-finish-bounty>
-<app-host-bounty-list></app-host-bounty-list>
-<app-pending-bounty-list></app-pending-bounty-list>
+<div class="center">
+    <button class="btn btn-dark" style="margin-right: 100px;" id="edit_profile" (click)="editProfile()">Profile</button>
+
+    <button class="btn btn-dark" style="margin-right: 100px;" id="new_bounty" (click)="newBounty()">New Bounty</button>
+
+    <button class="btn btn-dark" style="margin-left: 100px;" id="finish_bounty" (click)="finishBounty()">Finish
+        Bounty</button>
+
+    <button class="btn btn-dark" style="margin-left: 100px;" id="cancel_profile" (click)="logout()">Logout</button>
+
+</div>
+
+<br>
+<br>
+<br>
+
+<h1>Welcome : {{host.hostname}}</h1>
+
+<br>
+<div class="center">
+    <div class="column">
+        <app-host-bounty-list></app-host-bounty-list>
+    </div>
+
+    <div class="column">
+        <app-pending-bounty-list></app-pending-bounty-list>
+    </div>
+
+    <div class="column">
+        <app-top-bh-list></app-top-bh-list>
+    </div>
+</div>
+
+<br>
+
+<app-edit-host-profile *ngIf="hostprofedit"></app-edit-host-profile>
+
+<app-finish-bounty *ngIf="finishbounty"></app-finish-bounty>
+
+<app-new-bounty *ngIf="newbounty"></app-new-bounty>

@@ -18,37 +18,49 @@ export class HostLoginComponent implements OnInit {
     hpassword: new FormControl('')
   });
 
-  
 
-  constructor(public router: Router, public hServ: HostService, private actRoute:ActivatedRoute) { }
+
+  constructor(public router: Router, public hServ: HostService, private actRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    // localStorage.removeItem("loggedHost");
+    localStorage.removeItem("loggedHost");
+    localStorage.removeItem("loggedUser");
   }
 
+  public hostlogin(hostF: FormGroup) {
+    let host = new Host(hostF.get("husername")?.value, hostF.get("hpassword")?.value);
+    this.hServ.HostLogin(JSON.stringify(host)).subscribe(
+      response => {
+        console.log("response: ")
+        console.log(response);
+        this.wronglogin = false;
+        localStorage.setItem("loggedHost", JSON.stringify(response));
+        this.router.navigate(['./host']);
+      },
+      error => {
+        console.warn("wrong credentials");
+        this.wronglogin = true;
+      }
+    );
 
+  }
 
-
-  // public hostlogin(hostForm: FormGroup) {
-  //   let host = new Host(hostForm.get("husername").value, hostForm.get("hpassword").value);
-  //   localStorage.setItem("loggedHost", JSON.stringify(host));
-  //   console.log(host);
-
-  //   this.hServ.HostLogin(host).subscribe(
+  // public userlogin(userf: FormGroup) {
+  //   //let userstring = JSON.stringify(userForm.value);
+  //   let user = new User(userf.get("uusername")?.value, userf.get("upassword")?.value);
+  //   this.uServ.bountyHunterLogin(JSON.stringify(user)).subscribe(
   //     response => {
+  //       console.log("response: ")
   //       console.log(response);
   //       this.wronglogin = false;
-  //       this.router.navigate(['./host']);
-
+  //       localStorage.setItem("loggedUser", JSON.stringify(response));
+  //       this.router.navigate(['./bountyhunter']);
   //     },
   //     error => {
   //       console.warn("wrong credentials");
   //       this.wronglogin = true;
   //     }
   //   )
-
-
   // }
 
-  
 }

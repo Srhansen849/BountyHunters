@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Bounty } from 'src/app/objects/bounty-object';
 import { BountyService } from 'src/app/services/bounty.service';
+import { BountyHunterComponent } from '../bounty-hunter.component';
 
 
 @Component({
@@ -12,8 +13,16 @@ import { BountyService } from 'src/app/services/bounty.service';
 export class ActiveBountyListComponent implements OnInit {
 
   bountyList: Bounty[] = [];
+
+  isVisable = true;
+
+  toggleTable() {
+    console.log("button click");
+    this.isVisable = !this.isVisable;
+  }
+
   
-  constructor(private bServ: BountyService, private actroute: ActivatedRoute, private route: Router) { }
+  constructor(private bServ: BountyService, private actroute: ActivatedRoute, private route: Router, private bhcomp: BountyHunterComponent) { }
 
   ngOnInit(): void {
     this.bServ.getAllActiveBounty().subscribe(
@@ -24,11 +33,7 @@ export class ActiveBountyListComponent implements OnInit {
     );
   }
 
-
-
-
-
-
-
-
+  // hideTable() {
+  //   this.bhcomp.actbountlist = false;
+  // }
 }

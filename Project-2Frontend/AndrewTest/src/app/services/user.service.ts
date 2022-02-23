@@ -11,7 +11,7 @@ import { User } from "../objects/user-object";
 
 export class UserService{
 
-    private urlBase = "http://localhost:9015/bhunter"
+    private urlBase = "http://localhost:9065/hunter"
     httpHead = {
         headers: new HttpHeaders({
             'Content-Type':'application/json',
@@ -29,7 +29,7 @@ export class UserService{
         return this.http.get<User[]>(this.urlBase+"/rank",this.httpHead)
     }
 
-    public bountyHunterLogin(user: User): Observable<User>{
+    public bountyHunterLogin(user:string): Observable<User>{
         return this.http.post<User>(this.urlBase+"/login", user, this.httpHead)
     }
 
@@ -37,8 +37,8 @@ export class UserService{
         return this.http.post<User>(this.urlBase+"/profile", user, this.httpHead)
     }
 
-    public getProfileInfo(user:User): Observable<User>{
-        return this.http.get<User>(this.urlBase+"/profileinfo", this.httpHead)
+    public getProfileInfo(user:string): Observable<User>{
+        return this.http.get<User>(this.urlBase+"/profileinfo"+user, this.httpHead)
     }
 
     public createNewUser(user:string): Observable<User>{

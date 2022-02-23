@@ -7,6 +7,8 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
@@ -24,6 +26,10 @@ public class User {
 
 
 	@Id
+	@Column(name="user_id")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int userid;
+	
 	@Column(name="hunter_name", unique=true, nullable=false)
 	private String huntername;
 	
@@ -39,12 +45,10 @@ public class User {
 
 	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	@JoinColumn(name="account_id")
-	@JsonBackReference
+	@JsonBackReference(value = "ac")
 	private Account uaccount;
 	
 	@OneToMany(mappedBy="userfk", fetch=FetchType.EAGER)
-	//@JoinColumn(name="bounty_fk")
-	@JsonBackReference
 	private List<Bounty> ubountylist;
 	
 	public User() {
@@ -62,12 +66,13 @@ public class User {
 		this.ubountylist = ubountylist;
 	}
 
-	public User(String huntername, String uusername, String upassword, String uemail) {
+	public User(String huntername, String uusername, String upassword, String uemail, Account uaccount) {
 		super();
 		this.huntername = huntername;
 		this.uusername = uusername;
 		this.upassword = upassword;
 		this.uemail = uemail;
+		this.uaccount = uaccount;
 	}
 
 	public String getHuntername() {

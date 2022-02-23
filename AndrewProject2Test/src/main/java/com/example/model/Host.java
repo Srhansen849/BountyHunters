@@ -14,13 +14,19 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
 @Table(name="host")
-
+@JsonIdentityInfo(generator =ObjectIdGenerators.IntSequenceGenerator.class, property = "hostname")
 public class Host {
 	
 	@Id
+	@Column(name="host_id")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int hostid;
+	
 	@Column(name="host_name", unique=true, nullable=false)
 	private String hostname;
 	
@@ -40,7 +46,6 @@ public class Host {
 	private String representative;
 	
 	@OneToMany(mappedBy="hostfk", fetch=FetchType.EAGER)
-	@JsonBackReference
 	private List<Bounty> hbountylist;
 
 	public Host() {

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
+import { Host } from 'src/app/objects/host-object';
 import { HostService } from 'src/app/services/host.service';
+import { HostComponent } from '../host.component';
 
 @Component({
   selector: 'app-edit-host-profile',
@@ -10,33 +12,44 @@ import { HostService } from 'src/app/services/host.service';
 })
 export class EditHostProfileComponent implements OnInit {
 
-  hostForm = new FormGroup({
-    husername: new FormControl(''),
-    hpassword: new FormControl(''),
-    hemail: new FormControl(''),
-    representative: new FormControl(''),
-    association: new FormControl('')
-  });
 
+
+  loggedhost = new Host()
   ngOnInit(): void {
+    this.loggedhost = JSON.parse(localStorage.getItem("loggedHost") || '{}')
   }
-
-  constructor(private router:Router, private hServ: HostService, private actRoute: ActivatedRoute) { }
+  hostForm = new FormGroup({
+    husername: new FormControl(this.loggedhost.husername),
+    hpassword: new FormControl(this.loggedhost.hpassword),
+    hemail: new FormControl(this.loggedhost.hemail),
+    representative: new FormControl(this.loggedhost.representative),
+    hassociation: new FormControl(this.loggedhost.hassociation)
+  });
+  constructor(private router: Router, private hServ: HostService, private hcomp: HostComponent) { }
 
   public updateHost(uphost: FormGroup) {
-    let host = JSON.stringify(uphost);
-    console.log(host);
-    
-    this.hServ.updateProfile(host).subscribe(
-      response => {
-        console.log(response);
-        
+    let hostlog = JSON.parse(localStorage.getItem("loggedHost") || '{}')
+    let host = new Host()
+    host.hostname = hostlog.hostname;
+    host.husername = uphost.get("husername")?.value
+    host.hpassword = uphost.get("hpassword")?.value
+    host.hemail = uphost.get("hemail")?.value
+    host.representative = uphost.get("representative")?.value
+    host.hassociation = uphost.get("hassociation")?.value
 
-      },
+
+    console.log(host);
+
+    this.hServ.updateProfile(JSON.stringify(host)).subscribe(
       error => {
         console.warn("wrong credentials");
       }
     )
+    this.hcomp.hostprofedit = false;
 
+  }
+
+  cancelProfile() {
+    this.hcomp.hostprofedit = false;
   }
 }

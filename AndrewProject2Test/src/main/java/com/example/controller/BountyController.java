@@ -69,8 +69,8 @@ public class BountyController {
 	}
 	
 	//Hunter Submits Bounty
-	@PostMapping(value="/update")
-	public ResponseEntity<Bounty> UpdateBounty(@RequestBody Bounty bounty){
+	@PostMapping(value="/submit")
+	public ResponseEntity<Bounty> SubmitBounty(@RequestBody Bounty bounty){
 		
 		Criminal criminal = bounty.getCriminalfk();
 		Optional<Criminal> crimname = Optional.ofNullable(bServ.getCriminalByCrimname(criminal.getCrimname()));
@@ -110,10 +110,26 @@ public class BountyController {
 		return ResponseEntity.status(201).body(finbounty);
 	}
 	
+	@GetMapping("/all")
+	public ResponseEntity<List<Bounty>> findAllBounty(){
+		return ResponseEntity.status(200).body(this.bServ.listAllBounty());
+	}
+	
 	@GetMapping("/active")
 	public ResponseEntity<List<Bounty>> findAllActiveBounty(){
 		return ResponseEntity.status(200).body(this.bServ.getAllActiveBounty());
 	}
+	
+	@GetMapping("/complete")
+	public ResponseEntity<List<Bounty>> findAllCompleteBounty(){
+		return ResponseEntity.status(200).body(this.bServ.getAllCompleteBounty());
+	}
+	
+	@GetMapping("/caught")
+	public ResponseEntity<List<Bounty>> findAllCaughtBounty(){
+		return ResponseEntity.status(200).body(this.bServ.getAllCaughtBounty());
+	}
+	
 	
 	@GetMapping("/hostbounties")
 	public ResponseEntity<List<Bounty>> getAllHostBounties(Host host){
@@ -133,7 +149,9 @@ public class BountyController {
 	@GetMapping(value = "/init")
 	public ResponseEntity<String> insertInitalValues() {
 
+
 		Criminal criminal1 = new Criminal("Amarant Procjnow", 241, 222, "Bith");
+
 //		Criminal criminal2 = new Criminal("Alexandre", "Omega", "DM-923",
 //				"Sidious darth hutt r2-d2 mon yoda qui-gon padmé.", "Dagobah", 160, 292, "Balosar", "Chewbacca");
 //		Criminal criminal3 = new Criminal("Aesho", "Yavoog", "SXP-905", "Tusken raider organa jar jawa", "Maul", 171,
@@ -166,7 +184,15 @@ public class BountyController {
 //		
 //		
 //
-		Bounty bounty1 = new Bounty(1000, "Credits", "34 ABY", host1, criminal1, "Alive", "Active");
+
+//		hServ.insertHost(host2);
+//		
+//		
+//		public Bounty(double amount, String currency, String time, Host hostfk, Criminal criminalfk, String preferid,
+//		String activeid) {
+//
+		Bounty bounty1 = new Bounty(1000, "Republic credit", "34 ABY", host1, criminal1, "Alive",
+				 "Active");
 //		Bounty bounty2 = new Bounty(100000, "Republic credit", host1, criminal2, "Alive",
 //				"64 BBY", "Active");
 //		Bounty bounty3 = new Bounty(500, "Republic credit", host1, criminal3,
