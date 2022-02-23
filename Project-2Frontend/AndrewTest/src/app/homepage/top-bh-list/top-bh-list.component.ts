@@ -26,4 +26,9 @@ export class TopBHListComponent implements OnInit {
 
   }
 
+  hide = true;
+  hideTable(){
+    this.hide = false;
+  }
+
 }

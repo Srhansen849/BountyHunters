@@ -23,4 +23,9 @@ export class ActiveBountyListComponent implements OnInit {
       }
     );
   }
+
+  hide = true;
+  hideTable(){
+    this.hide = false;
+  }
 }

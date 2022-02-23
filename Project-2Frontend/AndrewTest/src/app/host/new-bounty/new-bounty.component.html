@@ -86,16 +86,18 @@
         <div class="col-md-6">
             <label class="form-label" for="inputtimelimit">Time Limit:</label>
             <input class="form-control" id="inputtimelimit" type="text"
-                placeholder="Enter your time limit or leave blank for Open" formControlName="time" value="Open">
+                placeholder="Enter bounty time limit or leave blank for Open" formControlName="time" value="Open">
         </div>
         <br>
 
         <br>
         <div class="col-md-6">
             <label class="form-label" for="inputcurrency">Currency:</label>
-            <input class="form-control" id="inputcurrency" type="text"
-                placeholder="Enter currency or leave blank for Republic Credits" formControlName="currency"
-                value="Republic Credits">
+            <select class="form-select" aria-label="Default select example" name="currency" formControlName="currency">
+                <option value="Republic Credits">Republic Credits</option>
+                <option value="Imperical Credits">Imperial Credits</option>
+                <option value="Druggats">Druggats</option>
+              </select>
         </div>
         <br>
 

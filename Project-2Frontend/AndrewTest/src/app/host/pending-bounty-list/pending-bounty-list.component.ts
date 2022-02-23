@@ -31,5 +31,10 @@ export class PendingBountyListComponent implements OnInit {
     );
   }
 
+  hide = true;
+  hideTable(){
+    this.hide = false;
+  }
+
 
 }

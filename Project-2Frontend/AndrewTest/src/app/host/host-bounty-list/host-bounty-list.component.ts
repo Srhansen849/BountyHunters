@@ -45,4 +45,9 @@ export class HostBountyListComponent implements OnInit {
   //     tempHostList = response;
   //   }
   // );
+
+  hide = true;
+  hideTable(){
+    this.hide = false;
+  }
 }

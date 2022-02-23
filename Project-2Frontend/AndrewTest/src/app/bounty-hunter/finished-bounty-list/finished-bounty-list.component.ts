@@ -14,6 +14,8 @@ import { BountyHunterComponent } from '../bounty-hunter.component';
 export class FinishedBountyListComponent implements OnInit {
 
   bountyList: Bounty[] = [];
+
+  
   
   constructor(private bServ: BountyService, private actroute: ActivatedRoute, private route: Router, private bhcomp: BountyHunterComponent) { }
 
@@ -33,5 +35,9 @@ export class FinishedBountyListComponent implements OnInit {
         tempList = response;
       }
     );
+  }
+  hide = true;
+  hideTable(){
+    this.hide = false;
   }
 }

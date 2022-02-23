@@ -1,6 +1,7 @@
 <div>
     <form>
         <label style="margin-left:50px">Active Bounties</label>
+        <button *ngIf="hide" (click)="hideTable()">Hide Table</button>
         <table style="margin-left:50px" class="table table-striped table-white" id="bounties">
             <thead>
                 <tr>
