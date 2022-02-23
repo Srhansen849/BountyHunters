@@ -1,7 +1,9 @@
 import { Bounty } from "./bounty-object";
 
 export class Host{
-    constructor(public husername?:string, public hpassword?:string, 
-                public hostname?:string, public hemail?:string,  
-                public representative?:string, public association?:string, public hbountylist?:Bounty[]){}
+    constructor(public hostid?:number,
+                public hostname?:string,                
+                public husername?:string, public hpassword?:string, 
+                public hemail?:string,  
+                public representative?:string, public hassociation?:string, public hbountylist?:Bounty[]){}
 }

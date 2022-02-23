@@ -12,7 +12,7 @@ import { Host } from 'src/app/objects/host-object';
 
 export class HostService{
 
-    private urlBase = "http://localhost:9015/host"
+    private urlBase = "http://localhost:9065/host"
     httpHead = {
         headers: new HttpHeaders({
             'Content-Type':'application/json',
@@ -31,7 +31,7 @@ export class HostService{
     }
 
     public getProfileInfo(host:string): Observable<Host>{
-        return this.http.get<Host>(this.urlBase+"/profileinfo", this.httpHead)
+        return this.http.get<Host>(this.urlBase+"/profileinfo"+host, this.httpHead)
     }
 
     public createNewHost(host:string): Observable<Host>{

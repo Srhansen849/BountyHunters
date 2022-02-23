@@ -16,10 +16,12 @@ export class EditProfileComponent implements OnInit {
   isTitle = true;
   isEditable = false;
 
+  profuser = new User();
+
   profileForm = new FormGroup({
-    huntername: new FormControl(''),
-    uemail: new FormControl(''),
-    upassword: new FormControl('')
+    huntername: new FormControl(this.profuser.huntername),
+    uemail: new FormControl(this.profuser.uemail),
+    upassword: new FormControl(this.profuser.upassword)
   })
 
   constructor(private uServ: UserService, private router: Router, private actRoute: ActivatedRoute, public bhcomp: BountyHunterComponent) { }
@@ -29,15 +31,13 @@ export class EditProfileComponent implements OnInit {
     this.bhcomp.actbountlist = true;
   }
 
-profuser = new User();
 
+  ngOnInit(): void {
 
-ngOnInit(): void {
-  
-  let user = JSON.parse(localStorage.getItem("loggedUser")||'{}')
-  this.profuser = user;
-  // this.uServ.getProfileInfo(this.profuser)
-}
+    let user = JSON.parse(localStorage.getItem("loggedUser") || '{}')
+    this.profuser = user;
+    // this.uServ.getProfileInfo(this.profuser)
+  }
 
 
   toggleEdit() {
@@ -46,23 +46,32 @@ ngOnInit(): void {
     this.isTitle = !this.isTitle;
   }
 
-  public submitProfile(profile: FormGroup) {
+  public submitProfile(proform: FormGroup) {
 
-    let user = JSON.parse(localStorage.getItem("loggedUser")||'{}')
-    let stringprof = JSON.stringify(profile.value)
-    let bhunter = new User(stringprof);
-    bhunter.uusername = user.uusername;
+    let user = JSON.parse(localStorage.getItem("loggedUser") || '{}')
+    let stringprof = JSON.stringify(proform.value)
+    // let bhunter = new User(stringprof);
+    // bhunter.uusername = user.uusername;
 
+    let puser = new User();
+    puser.huntername = proform.get("huntername")?.value;
+    puser.uemail = proform.get("uemail")?.value;
+    puser.upassword = proform.get("upassword")?.value;
+    puser.uusername = user.uusername;
 
+    this.uServ.updateProfile(JSON.stringify(puser)).subscribe(
+      response =>
+        console.log(response)
+    )
 
-  // this.uServ.updateProfile(bhunter).subscribe(
-  //     response =>
-  //     console.log(response)
-  // )
+    // this.uServ.updateProfile(bhunter).subscribe(
+    //     response =>
+    //     console.log(response)
+    // )
 
-  this.bhcomp.bhprofile = false;
+    this.bhcomp.bhprofile = false;
 
-}
+  }
 
 }
 

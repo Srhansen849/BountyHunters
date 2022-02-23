@@ -20,6 +20,10 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 public class Criminal {
 	
 	@Id
+	@Column(name="criminal_id")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int criminalid;
+	
 	@Column(name="crim_name", unique=true, nullable=false)
 	private String crimname;
 	

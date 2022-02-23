@@ -122,6 +122,33 @@ public class BountyService {
 		return bDao.getBountyByHostfk(hostfk);
 	}
 	
+	
+	public List<Bounty> getAllCaughtBounty(){
+		List <Bounty> bList = bDao.findAll();
+		List <Bounty> actList = new ArrayList<Bounty>();
+		for(Bounty temp: bList) {
+			String activity = temp.getActiveid();
+			if(activity.equals("Caught")) {
+				actList.add(temp);
+			}
+		}
+		return actList;
+	}
+	
+	public List<Bounty> getAllCompleteBounty(){
+		List <Bounty> bList = bDao.findAll();
+		List <Bounty> actList = new ArrayList<Bounty>();
+		for(Bounty temp: bList) {
+			String activity = temp.getActiveid();
+			if(activity.equals("Complete")) {
+				actList.add(temp);
+			}
+		}
+		return actList;
+	}
+	
+
+	
 //	public List<Bounty> orderBountyByAmount(){
 //		List <Bounty> bList = bDao.findAll();
 //		Collections.sort(bList, new Comparator<Bounty>() {

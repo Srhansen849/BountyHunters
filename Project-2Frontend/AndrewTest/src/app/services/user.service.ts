@@ -11,7 +11,7 @@ import { User } from "../objects/user-object";
 
 export class UserService{
 
-    private urlBase = "http://localhost:9015/hunter"
+    private urlBase = "http://localhost:9065/hunter"
     httpHead = {
         headers: new HttpHeaders({
             'Content-Type':'application/json',
@@ -38,7 +38,7 @@ export class UserService{
     }
 
     public getProfileInfo(user:string): Observable<User>{
-        return this.http.get<User>(this.urlBase+"/profileinfo", this.httpHead)
+        return this.http.get<User>(this.urlBase+"/profileinfo"+user, this.httpHead)
     }
 
     public createNewUser(user:string): Observable<User>{

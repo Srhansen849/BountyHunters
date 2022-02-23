@@ -81,12 +81,13 @@
         <form style="padding: 20px" [formGroup]="bountyForm">
             <div class="col-md-6">
                 <label class="amount_for_bounty" for="inputbounty">Amount for Bounty:</label>
-                <input class="form-control" id="inputbounty" type="number" placeholder="Enter your amount"
+                <input class="form-control" id="inputbounty" type="number" placeholder="Enter Altered Bounty Amount"
                     formControlName="amount">
             </div>
             <br>
             <div>
-                <button class="btn btn-primary" id="submit_amount" (click)="confirmBounty(bountyForm)">Submit</button>
+                <button class="btn btn-dark" id="submit_amount" (click)="confirmBounty(bountyForm)">Submit</button>
+                <button class="btn btn-dark" id="submit_amount" (click)="CancelConfirm()">Cancel</button>
             </div>
             <br>
         </form>

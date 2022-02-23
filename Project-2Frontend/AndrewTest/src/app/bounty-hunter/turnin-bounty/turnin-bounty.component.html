@@ -2,6 +2,19 @@
 <div class="center">
     <h1>Submit a Bounty</h1>
 </div>
+<div class="column">
+    <h5 class="center">Criminal Data</h5>
+    <br>
+    <form style="padding: 20px" [formGroup]="bountyForm">
+        <div class="row gx-3 mb-3">
+            <div class="col-md-6" formGroupName="criminalfk">
+                <label class="first_name" for="inputFirstName">Name:</label>
+                <input class="form-control" id="inputFirstName" type="text" placeholder="Enter Bounty Name"
+                    formControlName="crimname">
+            </div>
+        </div>
+    </form>
+</div>
 <br>
 <div class="center">
     <h5>Bounty Status</h5>
@@ -33,7 +46,8 @@
         <br>
         <div class="row gx-3 mb-3" style="padding-right: 100px;">
             <button class="btn btn-dark" id="submit_turnin">Submit</button> <br>
-            <!-- <button class="btn btn-primary" id="cancel_profile" (click)="cancelSubmit()">Cancel</button> <br> -->
+            <button class="btn btn-primary" id="submit_turnin" (click)="cancelTurnin()">Submit</button>
+
         </div>
         <br>
     </form>

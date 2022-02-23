@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Bounty } from 'src/app/objects/bounty-object';
 import { Criminal } from 'src/app/objects/criminal-object';
@@ -17,9 +17,9 @@ export class TurninBountyComponent implements OnInit {
 
 
 bountyForm = new FormGroup({
-    turninid: new FormControl(''),
+    turninid: new FormControl('', Validators.required),
     criminalfk: new FormGroup({
-      crimname: new FormControl('')
+      crimname: new FormControl('', Validators.required)
     })
 })
 
@@ -30,23 +30,23 @@ ngOnInit(): void {
   constructor(private router: Router, private bServ: BountyService, private bhcomp: BountyHunterComponent) { }
 
 
-  public turninBounty(){
+  public turninBounty(bform: FormGroup){
     let bount = new Bounty();
     let crim = new Criminal();
-    crim.crimname = this.bountyForm.get("criminalfk")?.get("crimname")?.value
+    crim.crimname = bform.get("criminalfk")?.get("crimname")?.value
     bount.criminalfk = crim;
-    bount.turninid = this.bountyForm.get("turninid")?.value
+    bount.turninid = bform.get("turninid")?.value
     bount.userfk = JSON.parse(localStorage.getItem("loggedUser")||'{}')
+    bount.activeid = "Caught"
     this.bServ.SubmitBounty(JSON.stringify(bount)).subscribe(
-      response =>{
-        let user = JSON.parse(localStorage.getItem("loggedUser")||'{}')
-        user.ubountylist.push(response);
-      },
       error => {
         console.warn("bad turnin")
       }
     )
+  }
 
+  cancelTurnin(){
+    this.bhcomp.bhprofile = false;
   }
 
   // cancelTurnin(){

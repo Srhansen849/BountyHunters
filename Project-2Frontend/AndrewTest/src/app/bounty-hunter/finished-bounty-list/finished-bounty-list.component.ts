@@ -3,7 +3,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Bounty } from 'src/app/objects/bounty-object';
 import { User } from 'src/app/objects/user-object';
 import { BountyService } from 'src/app/services/bounty.service';
-import { UserService } from 'src/app/services/user.service';
 import { BountyHunterComponent } from '../bounty-hunter.component';
 
 @Component({
@@ -22,11 +21,11 @@ export class FinishedBountyListComponent implements OnInit {
     this.isVisable = !this.isVisable;
   }
   
-  constructor(private bServ: BountyService, private uServ: UserService, private actroute: ActivatedRoute, private route: Router, private bhcomp: BountyHunterComponent) { }
+  constructor(private bServ: BountyService, private actroute: ActivatedRoute, private route: Router, private bhcomp: BountyHunterComponent) { }
 
-  ngOnInit(): void {//NEEDS TESTING 
+  ngOnInit(): void {
     
-    let userlog = JSON.parse(localStorage.getItem("loggedUser")||'{}')
+    let userlog = new User(JSON.parse(localStorage.getItem("loggedUser")||'{}'))
     this.bServ.getAllCompleteBounty().subscribe(
       response => {
         console.log(response);
@@ -34,11 +33,14 @@ export class FinishedBountyListComponent implements OnInit {
         this.bountyList = response;
         let tempList = this.bountyList.filter(
           (bounty:Bounty) =>{
-            return bounty.userfk == userlog.huntername;
+            return bounty.userfk?.huntername == userlog.huntername;
           }
         )
         tempList = response;
       }
     );
+  }
+  hideTable() {
+    this.bhcomp.finbountlist = false;
   }
 }

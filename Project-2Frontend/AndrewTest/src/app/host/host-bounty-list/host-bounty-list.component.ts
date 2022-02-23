@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HostLoginComponent } from 'src/app/login/host-login/host-login.component';
 import { Bounty } from 'src/app/objects/bounty-object';
+import { Host } from 'src/app/objects/host-object';
 import { BountyService } from 'src/app/services/bounty.service';
 import { HostComponent } from '../host.component';
 
@@ -24,7 +25,7 @@ export class HostBountyListComponent implements OnInit {
   constructor(private bServ: BountyService, private actroute: ActivatedRoute, private route: Router, private hcomp: HostComponent) { }
 
   ngOnInit(): void {
-    let hostlog = JSON.parse(localStorage.getItem("loggedHost")||'{}')
+    let hostlog = new Host(JSON.parse(localStorage.getItem("loggedHost")||'{}'))
     this.bServ.getAllCompleteBounty().subscribe(
       response => {
         console.log(response);
@@ -51,4 +52,8 @@ export class HostBountyListComponent implements OnInit {
   //     tempHostList = response;
   //   }
   // );
+
+  // hideTable() {
+  //   this.hcomp.pendblist = false;
+  // }
 }
