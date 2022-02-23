@@ -27,17 +27,13 @@ export class HostLoginComponent implements OnInit {
     localStorage.removeItem("loggedUser");
   }
 
-  public hostlogin(hostForm: FormGroup) {
-
-    let hoststring = JSON.stringify(hostForm.value);
-    // let user = new User(userstring);
-    // console.log(user);
-    this.hServ.HostLogin(hoststring).subscribe(
+  public hostlogin(hostF: FormGroup) {
+    // let host = new Host(hostF.get("husername")?.value, hostF.get("hpassword")?.value);
+    this.hServ.HostLogin(JSON.stringify(hostF.value)).subscribe(
       response => {
-        console.log(response);
         this.wronglogin = false;
-        localStorage.setItem("loggedUser", JSON.stringify(response));
-        this.router.navigate(['./bounty-hunter']);
+        localStorage.setItem("loggedHost", JSON.stringify(response));
+        this.router.navigate(['./host']);
 
       },
       error => {

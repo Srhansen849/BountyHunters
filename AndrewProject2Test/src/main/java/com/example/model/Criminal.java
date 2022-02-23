@@ -117,6 +117,14 @@ public class Criminal {
 
 
 
+	public int getCriminalid() {
+		return criminalid;
+	}
+
+
+
+
+
 	@Override
 	public String toString() {
 		return "Criminal [" + "crimname=" + crimname + ", height=" + height + ", weight="

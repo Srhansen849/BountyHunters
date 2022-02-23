@@ -2,10 +2,6 @@
 <div class="center">
     <h3>Submit a Bounty</h3>
 </div>
-<div class="column">
-    <h5 class="center">Criminal Data</h5>
-    <br>
-</div>
 <br>
 <div class="center">
     <h5>Bounty Status</h5>
@@ -14,9 +10,10 @@
 <div class="center">
     <form style="padding: 20px" [formGroup]="bountyForm">
         <br>
+ 
         <div class="center">
-            <div class="row">
-                <label class="first_name" for="inputFirstName">Name:</label>
+            <div class="row" formGroupName="criminalfk">
+                <label class="first_name" for="inputFirstName">Criminal Name:</label>
                 <input class="form-control" id="inputFirstName" type="text" placeholder="Enter Bounty name"
                     formControlName="crimname">
             </div>
@@ -24,21 +21,21 @@
                 <label class="first_name" for="inputFirstName">Status of Criminal:</label>
                 <div class="row gx-3 mb-3">
                     <div class="col-md-6">
-                        <input type="radio" id="alive" name="turnin_status" value="Alive" formControlName="turninid">
-                        <label for="alive">Alive</label><br>
+                        <input type="radio" id="alive" name="turninid" value="Alive" formControlName="turninid">
+                        <label for="alive">Alive</label>
                     </div>
                     <div class="col-md-6">
-                        <input type="radio" id="dead" name="turnin_status" value="Dead" formControlName="turninid">
+                        <input type="radio" id="dead" name="turninid" value="Dead" formControlName="turninid">
                         <label for="dead">Dead</label>
                     </div>
                 </div>
             </div>
         </div>
         <br>
-        <div class="row gx-3 mb-3" style="padding-right: 100px;">
-            <button class="btn btn-dark" id="submit_turnin">Submit</button> <br>
+
+            <button class="btn btn-dark" id="submit_turnin" (click)="turninBounty(bountyForm)">Submit</button> <br>
             <button class="btn btn-danger" id="submit_turnin" (click)="cancelTurnin()">Cancel</button>
-        </div>
+
         <br>
     </form>
 </div>

@@ -24,16 +24,14 @@ export class UserLoginComponent implements OnInit {
     localStorage.removeItem("loggedUser");
   }
 
-  public userlogin(userForm: FormGroup) {
-    let userstring = JSON.stringify(userForm.value);
-    // let user = new User(userstring);
-    // console.log(user);
-    this.uServ.bountyHunterLogin(userstring).subscribe(
+  public userlogin(userf: FormGroup) {
+    //let userstring = JSON.stringify(userForm.value);
+    // let user = new User(userf.get("uusername")?.value, userf.get("upassword")?.value);
+    this.uServ.bountyHunterLogin(JSON.stringify(userf.value)).subscribe(
       response => {
-        console.log(response);
         this.wronglogin = false;
         localStorage.setItem("loggedUser", JSON.stringify(response));
-        this.router.navigate(['./bounty-hunter']);
+        this.router.navigate(['./bountyhunter']);
       },
       error => {
         console.warn("wrong credentials");

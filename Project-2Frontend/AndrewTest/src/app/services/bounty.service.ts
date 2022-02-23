@@ -34,8 +34,8 @@ export class BountyService{
   }
 
   //host creates a new bounty
-  public createNewBounty(bounty: string, criminal: string): Observable<Bounty> {
-    return this.http.post<Bounty>(this.urlBase + "/register", bounty, this.httpHead);
+  public createNewBounty(bounty: string): Observable<Bounty> {
+    return this.http.post<Bounty>(this.urlBase + "/new", bounty, this.httpHead);
   }
 
   //host finishes a bounty
