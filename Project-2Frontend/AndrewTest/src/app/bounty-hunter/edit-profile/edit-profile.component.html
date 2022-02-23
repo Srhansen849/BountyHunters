@@ -1,8 +1,10 @@
+
 <div class="center">
     <h1>{{profuser.huntername}}</h1>
 </div>
 <br>
-
+<br>
+<br>
 <div class="center">
     <form [formGroup]="profileForm" class="center">
         <div class="row gx-3 mb-3">
@@ -45,11 +47,11 @@
         <div>
             <button class="btn btn-dark" id="edit_profile" (click)="toggleEdit()">{{isTitle ? 'Edit Profile' : 'Cancel Edit'}}</button>
             <br>
-            <button class="btn btn-dark" id="cancel_profile" (click)="cancelProfile()">Close</button> <br>
+            <button class="btn btn-danger" id="cancel_profile" (click)="cancelProfile()">Close</button> <br>
         </div>
         <div *ngIf="isEditable">
             <button class="btn btn-dark" id="submit_profile" (click)="submitProfile(profileForm)">Submit</button>
         </div>
     </form>
 </div>
-<app-finished-bounty-list></app-finished-bounty-list>
+

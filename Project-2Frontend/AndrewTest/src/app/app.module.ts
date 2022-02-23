@@ -21,7 +21,7 @@ import { HostBountyListComponent } from './host/host-bounty-list/host-bounty-lis
 import { EditHostProfileComponent } from './host/edit-host-profile/edit-host-profile.component';
 import { UserLoginComponent } from './login/user-login/user-login.component';
 import { HostLoginComponent } from './login/host-login/host-login.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NewBountyComponent } from './host/new-bounty/new-bounty.component';
 

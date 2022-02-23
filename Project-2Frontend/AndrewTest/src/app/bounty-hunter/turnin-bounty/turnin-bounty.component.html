@@ -1,19 +1,10 @@
 <br>
 <div class="center">
-    <h1>Submit a Bounty</h1>
+    <h3>Submit a Bounty</h3>
 </div>
 <div class="column">
     <h5 class="center">Criminal Data</h5>
     <br>
-    <form style="padding: 20px" [formGroup]="bountyForm">
-        <div class="row gx-3 mb-3">
-            <div class="col-md-6" formGroupName="criminalfk">
-                <label class="first_name" for="inputFirstName">Name:</label>
-                <input class="form-control" id="inputFirstName" type="text" placeholder="Enter Bounty Name"
-                    formControlName="crimname">
-            </div>
-        </div>
-    </form>
 </div>
 <br>
 <div class="center">
@@ -21,7 +12,7 @@
     <br>
 </div>
 <div class="center">
-    <form style="padding: 20px" class="center">
+    <form style="padding: 20px" [formGroup]="bountyForm">
         <br>
         <div class="center">
             <div class="row">
@@ -36,7 +27,7 @@
                         <input type="radio" id="alive" name="turnin_status" value="Alive" formControlName="turninid">
                         <label for="alive">Alive</label><br>
                     </div>
-                    <div class="row gx-3 mb-3">
+                    <div class="col-md-6">
                         <input type="radio" id="dead" name="turnin_status" value="Dead" formControlName="turninid">
                         <label for="dead">Dead</label>
                     </div>
@@ -46,8 +37,7 @@
         <br>
         <div class="row gx-3 mb-3" style="padding-right: 100px;">
             <button class="btn btn-dark" id="submit_turnin">Submit</button> <br>
-            <button class="btn btn-primary" id="submit_turnin" (click)="cancelTurnin()">Submit</button>
-
+            <button class="btn btn-danger" id="submit_turnin" (click)="cancelTurnin()">Cancel</button>
         </div>
         <br>
     </form>

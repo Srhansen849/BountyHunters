@@ -1,11 +1,11 @@
 <div class="center">
-    <h1>Register a New Bounty</h1>
+    <h3>Register a New Bounty</h3>
 </div>
 
 <br>
 <br>
 <!--Criminal Data -->
-<div class="column">
+<div class="center">
     <form style="padding: 20px" [formGroup]="bountyForm">
         <h5 class="center">Criminal Data</h5>
         <br>
@@ -109,8 +109,8 @@
         </div>
 
         <div class="center">
-            <button class="btn btn-primary" id="submit_bounty" (click)="submitBounty(bountyForm)">Submit</button>
-            <button class="btn btn-primary" id="submit_bounty" (click)="cancelBounty()">Cancel</button>
+            <button class="btn btn-dark" id="submit_bounty" (click)="submitBounty(bountyForm)">Submit</button>
+            <button class="btn btn-danger" id="submit_bounty" (click)="cancelBounty()">Cancel</button>
         </div>
 
     </form>

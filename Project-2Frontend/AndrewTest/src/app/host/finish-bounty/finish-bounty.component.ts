@@ -15,7 +15,7 @@ import { HostComponent } from '../host.component';
 export class FinishBountyComponent implements OnInit {
 
   bountyForm = new FormGroup({
-      amount: new FormControl('', Validators.required)
+    amount: new FormControl('', Validators.required)
   });
 
   criminaldata = new Criminal();
@@ -28,24 +28,32 @@ export class FinishBountyComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public confirmBounty(fbounty: FormGroup){
+  public confirmBounty(fbounty: FormGroup) {
     let bounty = new Bounty(fbounty.value);
     bounty.activeid = "Completed";
     this.bServ.FinishBounty(JSON.stringify(bounty), fbounty.get("amount")?.value).subscribe(
-      response =>{
-        
+      response => {
+
       }
     )
     this.hcomp.finishbounty = false;
   }
 
-  
+
+  // bounty.setValue({criminalfk: criminal.crimname})
+  // let stringbounty = JSON.stringify(bounty);
+  // let conbounty = new Bounty(stringbounty);
+  // this.bServ.FinishBounty(conbounty).subscribe();
 
 
   CancelConfirm(){
     this.hcomp.finishbounty = false;
   }
 
-
 }
+
+
+
+
+
 

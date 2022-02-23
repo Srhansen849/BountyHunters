@@ -49,10 +49,4 @@ ngOnInit(): void {
     this.bhcomp.bhprofile = false;
   }
 
-  // cancelTurnin(){
-  //   this.bhcomp.bhprofile = false;
-  // }
-
 }
-
-
