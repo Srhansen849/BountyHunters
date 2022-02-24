@@ -62,70 +62,71 @@ public class ApproveAndDenyFinishedBountyTest {
 	private String crime;
 	
 
-@Given("the Business Owner is on the login page")
-public void the_business_owner_is_on_the_login_page() {
-	this.lp = new LoginPage(BountiesUtilityDriver.driver);
-    assertEquals("http://localhost:4200/login", BountiesUtilityDriver.driver.getCurrentUrl());
-}
-
-@When("the Business Owner selects the Business Owner Login")
-public void the_business_owner_selects_the_business_owner_login() {
-	WebDriver driver = new ChromeDriver();
-	WebElement radio = driver.findElement(By.xpath("//input[@id='host_login']"));
-	radio.click();
-	this.hph = new LoginHostPage(BountiesUtilityDriver.driver);
-    assertEquals("http://localhost:4200/login", BountiesUtilityDriver.driver.getCurrentUrl());
-}
-
-@When("the Business Owner inputs {string} into the username field")
-public void the_business_owner_inputs_into_the_username_field(String string) {
-	this.username = string;
-}
-
-@When("the Business Owner inputs {string} into the password field")
-public void the_business_owner_inputs_into_the_password_field(String string) {
-	this.password = string;
-}
-
-@When("the Business Owner clicks login")
-public void the_business_owner_clicks_login() {
-	WebDriver driver = new ChromeDriver();
-	WebElement login = driver.findElement(By.xpath("//input[@id='loginButton']"));
-	login.click();
-}
-
-@Then("the Business Owner is directed to the home page")
-public void the_business_owner_is_directed_to_the_home_page() {
-	this.hph = new LoginHostPage(BountiesUtilityDriver.driver);
-	assertEquals("http://localhost:4200/homepage-host", BountiesUtilityDriver.driver.getCurrentUrl());
-}
-
-@When("the Business Owner clicks the Confirm a Bounty link")
-public void the_business_owner_clicks_the_confirm_a_bounty_link() {
-    
-}
-
-@When("the Business Owner selects a completed bounty")
-public void the_business_owner_selects_a_completed_bounty() {
-    
-}
-
-@When("the Business Owner add an {string}")
-public void the_business_owner_add_an(String string) {
-    
-}
-
-@When("the Business Owner submits the information")
-public void the_business_owner_submits_the_information() {
-    
-}
-
-@Then("the bounty will be registered as complete")
-public void the_bounty_will_be_registered_as_complete() {
-    
-}
-
 
 
 
 }
+
+
+//@Given("the Business Owner is on the login page")
+//public void the_business_owner_is_on_the_login_page() {
+//	this.lp = new LoginPage(BountiesUtilityDriver.driver);
+//  assertEquals("http://localhost:4200/login", BountiesUtilityDriver.driver.getCurrentUrl());
+//}
+//
+//@When("the Business Owner selects the Business Owner Login")
+//public void the_business_owner_selects_the_business_owner_login() {
+//	WebDriver driver = new ChromeDriver();
+//	WebElement radio = driver.findElement(By.xpath("//input[@id='host_login']"));
+//	radio.click();
+//	this.hph = new LoginHostPage(BountiesUtilityDriver.driver);
+//  assertEquals("http://localhost:4200/login", BountiesUtilityDriver.driver.getCurrentUrl());
+//}
+//
+//@When("the Business Owner inputs {string} into the username field")
+//public void the_business_owner_inputs_into_the_username_field(String string) {
+//	this.username = string;
+//}
+//
+//@When("the Business Owner inputs {string} into the password field")
+//public void the_business_owner_inputs_into_the_password_field(String string) {
+//	this.password = string;
+//}
+//
+//@When("the Business Owner clicks login")
+//public void the_business_owner_clicks_login() {
+//	WebDriver driver = new ChromeDriver();
+//	WebElement login = driver.findElement(By.xpath("//input[@id='loginButton']"));
+//	login.click();
+//}
+//
+//@Then("the Business Owner is directed to the home page")
+//public void the_business_owner_is_directed_to_the_home_page() {
+//	this.hph = new LoginHostPage(BountiesUtilityDriver.driver);
+//	assertEquals("http://localhost:4200/homepage-host", BountiesUtilityDriver.driver.getCurrentUrl());
+//}
+//
+//@When("the Business Owner clicks the Confirm a Bounty link")
+//public void the_business_owner_clicks_the_confirm_a_bounty_link() {
+//  
+//}
+//
+//@When("the Business Owner selects a completed bounty")
+//public void the_business_owner_selects_a_completed_bounty() {
+//  
+//}
+//
+//@When("the Business Owner add an {string}")
+//public void the_business_owner_add_an(String string) {
+//  
+//}
+//
+//@When("the Business Owner submits the information")
+//public void the_business_owner_submits_the_information() {
+//  
+//}
+//
+//@Then("the bounty will be registered as complete")
+//public void the_bounty_will_be_registered_as_complete() {
+//  
+//}

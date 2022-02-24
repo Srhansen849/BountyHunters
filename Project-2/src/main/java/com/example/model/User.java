@@ -1,14 +1,16 @@
 package com.example.model;
 
+
 import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -24,6 +26,10 @@ public class User {
 
 
 	@Id
+	@Column(name="user_id")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int userid;
+	
 	@Column(name="hunter_name", unique=true, nullable=false)
 	private String huntername;
 	
@@ -36,13 +42,13 @@ public class User {
 	@Column(name="email", unique=true, nullable=false)
 	private String uemail;
 	
+
 	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	@JoinColumn(name="account_id")
-	@JsonBackReference(value="ac")
+	@JsonBackReference(value = "ac")
 	private Account uaccount;
 	
 	@OneToMany(mappedBy="userfk", fetch=FetchType.EAGER)
-	//@JoinColumn(name="bounty_fk")
 	private List<Bounty> ubountylist;
 	
 	public User() {
@@ -121,4 +127,13 @@ public class User {
 				+ ubountylist + "]";
 	}
 
+	
+
+	
+
+	
+
+		
+
 }
+

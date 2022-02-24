@@ -10,6 +10,7 @@ import io.cucumber.junit.CucumberOptions;
 		features = {"feature"},
 		glue = {"com.example.gluecode"}
 		)
+
 public class BountiesTestRunner {
 
 }

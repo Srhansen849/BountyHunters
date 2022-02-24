@@ -1,86 +1,11 @@
 <br>
 <br>
 
-<<<<<<< HEAD
-<style>
-    .center {
-        display: flex;
-        justify-content: center;
-    }
-
-    h1 h2 h3 h4 h5 h6 {
-        color: bisque;
-    }
-
-    .title {
-        color: bisque;
-    }
-
-    .list {
-        color: bisque;
-    }
-
-    * {
-        box-sizing: border-box;
-    }
-
-    .row {
-        margin-left: -5px;
-        margin-right: -5px;
-    }
-
-    /* .column {
-        float: left;
-        width: 33%;
-        padding: 5px;
-    } */
-
-    .regi_forms {
-        border-radius: 5px;
-        box-shadow: 1px 1px 20px cyan;
-        background-color: rgba(235, 120, 13, 0.7);
-    }
-
-    .fi {
-        border: 2px solid cyan;
-        background-color: transparent;
-        width: 100%;
-        display: flex;
-        text-decoration: none;
-        color: rgb(16, 233, 233);
-    }
-
-    .row_table {
-        color: rgb(201, 235, 8);
-    }
-
-    .fi {
-        border: 2px solid cyan;
-        background-color: transparent;
-        width: 100%;
-        display: flex;
-        text-decoration: none;
-        color: rgb(16, 233, 233);
-    }
-
-    .row_table {
-        color: rgb(201, 235, 8);
-    }
-</style>
-
-
-
-=======
->>>>>>> stuff
 <div class="center">
     <a type="button" style="margin-right:150px;" href="http://localhost:4200/homepage-host"
         class="btn btn-primary btn-lg">Home</a>
 
-<<<<<<< HEAD
-    <a type="button" style="margin-left:50px" href="http://localhost:4200//registerbounty"
-=======
     <a type="button" style="margin-left:150px" href="http://localhost:4200//registerbounty"
->>>>>>> stuff
         class="btn btn-primary btn-lg">Register New Bounty</a>
 
     <a type="button" style="margin-left:150px" href="http://localhost:4200/profile-host"
@@ -94,11 +19,7 @@
 <br>
 
 <div class="center">
-<<<<<<< HEAD
-    <h1 style="color: bisque;"><b>Confirmed Bounties</b></h1>
-=======
     <h1>Confirmed Bounties</h1>
->>>>>>> stuff
 </div>
 
 <br>
@@ -106,22 +27,6 @@
 
 <!--Check Current Personal Active Bounties-->
 <div class="row">
-<<<<<<< HEAD
-    <div class="column" style="width: 40%">
-        <form class="regi_forms">
-            <label class="center">
-                <h5>List of Completed Bounties</h5>
-            </label>
-            <table class="table table-striped table-white" id="#">
-                <thead>
-                    <tr>
-                        <th scope="col" class="row_table">Currency</th>
-                        <th scope="col" class="row_table">Amount</th>
-                        <th scope="col" class="row_table">Due Date</th>
-                        <th scope="col" class="row_table">First Name</th>
-                        <th scope="col" class="row_table">Last Name</th>
-                        <th scope="col" class="row_table">Codename</th>
-=======
     <div class="column">
         <form>
             <label>List of Completed Bounties</label>
@@ -134,7 +39,6 @@
                         <th scope="col">First Name</th>
                         <th scope="col">Last Name</th>
                         <th scope="col">Codename</th>
->>>>>>> stuff
                     </tr>
                 </thead>
                 <tbody>
@@ -153,29 +57,18 @@
     </div>
 
     <!--Criminal Data -->
-<<<<<<< HEAD
-    <div class="column" style="width: 30%">
-        <form style="padding: 20px" class="regi_forms">
-            <h5 class="center" style="color: bisque">Criminal Data</h5>
-=======
     <div class="column">
         <h5 class="center">Criminal Data</h5>
         <br>
         <form style="padding: 20px">
             <br>
->>>>>>> stuff
             <div class="row gx-3 mb-3">
                 <!-- Description of Capture -->
                 <div class="status_of_bounty">
                     <label class="description">Description of Capture</label> <br>
                     <div>
-<<<<<<< HEAD
-                        <textarea name="description_of_capture" id="description_of_capture" class="control-form fi"
-                            rows="4" cols="40" formControlName="capture"></textarea>
-=======
                         <textarea name="description_of_capture" id="description_of_capture" class="control-form"
                             rows="4" cols="40"></textarea>
->>>>>>> stuff
                     </div>
                 </div>
             </div>
@@ -209,20 +102,12 @@
                     <p>Status of Bounty:</p>
                     <div class="row">
                         <div class="column">
-<<<<<<< HEAD
-                            <input type="radio" id="alive" name="preferred_status2" value="alive"
-=======
                             <input type="radio" id="alive" name="preferred_status" value="alive"
->>>>>>> stuff
                                 formControlName="turninid">
                             <label for="alive">Alive</label><br>
                         </div>
                         <div class="column">
-<<<<<<< HEAD
-                            <input type="radio" id="dead" name="preferred_status2" value="alive"
-=======
                             <input type="radio" id="dead" name="preferred_status" value="alive"
->>>>>>> stuff
                                 formControlName="turninid">
                             <label for="dead">Dead </label><br>
                         </div>
@@ -234,10 +119,6 @@
             <div class="row gx-3 mb-3">
                 <div class="col-md-6">
                     <label class="amount_for_bounty" for="inputbounty">Amount for Bounty:</label>
-<<<<<<< HEAD
-                    <input class="form-control fi" id="inputamont1" type="text" placeholder="Amount"
-                        formControlName="amount">
-=======
                     <input class="form-control" id="inputbounty" type="text" placeholder="Enter amount for bounty"
                         formControlName="amount">
                 </div>
@@ -264,80 +145,31 @@
                     <label class="last_name" for="inputLastName">CodeName:</label>
                     <input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name"
                         formControlName="codename">
->>>>>>> stuff
                 </div>
             </div>
         </form>
     </div>
 
-<<<<<<< HEAD
-    <div class="column" style="width: 30%">
-        <div class="row" style="padding-right: 20px">
-            <form class="regi_forms">
-                <h5 class="center" style="color: bisque;">Bounty Hunter Details</h5>
-                <label class="first_name" for="inputFirstName">First name:</label>
-                <input class="form-control fi" id="inputFirstName" type="text" placeholder="First Name"
-                    formControlName="firstname"> <br>
-                <label class="last_name" for="inputLastName">Last name:</label>
-                <input class="form-control fi" id="inputLastName" type="text" placeholder="Last Name"
-                    formControlName="lastname"> <br>
-
-                <p>Or</p>
-
-                <label class="codename" for="inputCodename">CodeName:</label>
-                <input class="form-control fi" id="inputCodeName" type="text" placeholder="CodeName"
-                    formControlName="codename">
-            </form>
-        </div>
-        <br>
-
-        <div class="row" style="padding-right: 170px">
-            <form class="regi_forms">
-                <div class="col-md-6">
-                    <label class="amount_for_bounty" for="inputbounty">Amount for Bounty:</label>
-                    <input class="form-control fi" id="inputamont2" type="number" placeholder="Amount"
-                        formControlName="amount">
-=======
-                <!-- Last Name-->
-                <div class="col-md-6 column">
-                    <label class="last_name" for="inputLastName">Last name:</label>
-                    <input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name"
-                        formControlName="lastname">
->>>>>>> stuff
-                </div>
-            </div>
-
-
-<<<<<<< HEAD
-                <div>
-                    <button class="btn btn-primary" id="submit_amount"
-                        (click)="confirmBounty(confirmBountyForm)">Submit</button>
-                </div>
-                <br>
-            </form>
-
-        </div>
+    <!-- Last Name-->
+    <div class="col-md-6 column">
+        <label class="last_name" for="inputLastName">Last name:</label>
+        <input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name"
+            formControlName="lastname">
     </div>
-=======
-        </form>
-        <br>
-        <form action="" style="width: 70%; padding: 20px">
-            <div class="col-md-6">
-                <label class="amount_for_bounty" for="inputbounty">Amount for Bounty:</label>
-                <input class="form-control" id="inputbounty" type="number" placeholder="Enter your amount"
-                    formControlName="amount">
-            </div>
-
-            <br>
-
-            <div>
-                <button class="btn btn-primary" id="submit_amount"
-                    (click)="confirmBounty(confirmBountyForm)">Submit</button>
-            </div>
-            <br>
-        </form>
-    </div>
-
->>>>>>> stuff
 </div>
+<br>
+<form action="" style="width: 70%; padding: 20px">
+    <div class="col-md-6">
+        <label class="amount_for_bounty" for="inputbounty">Amount for Bounty:</label>
+        <input class="form-control" id="inputbounty" type="number" placeholder="Enter your amount"
+            formControlName="amount">
+    </div>
+
+    <br>
+
+    <div>
+        <button class="btn btn-primary" id="submit_amount" (click)="confirmBounty(confirmBountyForm)">Submit</button>
+    </div>
+    <br>
+</form>
 <br><br><br><br>
