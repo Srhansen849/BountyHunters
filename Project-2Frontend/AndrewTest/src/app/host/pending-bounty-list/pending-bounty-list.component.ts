@@ -28,7 +28,7 @@ export class PendingBountyListComponent implements OnInit {
   // }
   
   ngOnInit(): void {
-    let hostlog = JSON.parse(localStorage.getItem("loggedHost") || '{}')
+  let hostlog = JSON.parse(localStorage.getItem("loggedHost")||'{}')
     this.bServ.getAllActiveBounty().subscribe(
       response => {
         console.log(response);
@@ -43,5 +43,5 @@ export class PendingBountyListComponent implements OnInit {
     );
   }
 
-
+  
 }

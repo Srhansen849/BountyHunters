@@ -65,8 +65,8 @@ public class BountyService {
 	
 
 	public void insertBounty(Bounty bounty, Criminal criminal) {
+//		cDao.save(criminal);
 		bDao.save(bounty);
-		cDao.save(criminal);
 	}
 	
 	
@@ -118,7 +118,7 @@ public class BountyService {
 		return bDao.getBountyByUserfk(userfk);
 	}
 	
-	public List<Bounty> getBountyByHostfk(Host hostfk){
+	public Bounty getBountyByHostfk(Host hostfk){
 		return bDao.getBountyByHostfk(hostfk);
 	}
 	

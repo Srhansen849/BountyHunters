@@ -89,12 +89,12 @@ public class HostController {
 
 		Host host1 = new Host("Jabba The Hutt", "TheHutt1", "D3si1ijic", "JabbTheHutt@StarHunter.com",
 				"Grand Hutt Council", "Eminence of Tatooine");
-//		Host host2 = new Host("Anakin", "Skywalker", "DarthVader1", "P4dm343v3r", "DarthVader@StarHunter.com",
-//				"Imperial High Command", "Emperor Palpatine", "DarthVader");
+		Host host2 = new Host("Anakin Skywalker", "DarthVader1", "P4dm343v3r", "DarthVader@StarHunter.com",
+				"Imperial High Command", "Emperor Palpatine");
 //
 		hServ.insertHost(host1);
 
-//		hServ.insertHost(host2);
+		hServ.insertHost(host2);
 
 		return ResponseEntity.status(201).body("Successfully Inserted");
 	}

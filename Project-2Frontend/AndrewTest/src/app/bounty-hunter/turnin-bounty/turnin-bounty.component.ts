@@ -46,13 +46,7 @@ ngOnInit(): void {
   }
 
   cancelTurnin(){
-    this.bhcomp.bhprofile = false;
+    this.bhcomp.submit = false;
   }
 
-  // cancelTurnin(){
-  //   this.bhcomp.bhprofile = false;
-  // }
-
 }
-
-

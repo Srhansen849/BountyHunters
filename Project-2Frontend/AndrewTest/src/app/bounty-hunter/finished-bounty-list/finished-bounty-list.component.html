@@ -1,8 +1,9 @@
 <div>
+    <label class="star-wars-mini">Finished Bounties</label> <br>
+    <button class="btn btn-dark" (click)="toggleTable()">{{isVisable ? 'Hide Table' : 'Show Table'}}</button>
     <form class="center">
         <div class="center">
-            <label style="margin-left:50px">Finished Bounties</label> <br>
-            <button class="btn btn-dark" (click)="toggleTable()">{{isVisable ? 'Hide Table' : 'Show Table'}}</button>
+              
         </div>
         <table *ngIf="isVisable" style="margin-left:50px" class="table table-striped table-white" id="finbounties">
             <thead>

@@ -1,5 +1,5 @@
-Feature: A Bounty Hunter can upload a bounty
-	As a Bounty Hunter, I wish to register a bounty as complete
+Feature: A Bounty Hunter can edit profile
+	As a Bounty Hunter, I wish to edit my profile
 
   Background: A Bounty Hunter is logged in on the Star Hunter Page
 		Given the Bounty Hunter is on the login page

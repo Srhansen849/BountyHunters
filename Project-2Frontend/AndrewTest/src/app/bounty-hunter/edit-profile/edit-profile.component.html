@@ -1,14 +1,16 @@
+
 <div class="center">
-    <h1>{{profuser.huntername}}</h1>
+    <h3 class="star-wars-mini">{{profuser.huntername}}</h3>
 </div>
 <br>
-
+<br>
+<br>
 <div class="center">
     <form [formGroup]="profileForm" class="center">
         <div class="row gx-3 mb-3">
             <div class="col-md-6">
-                <label class="first_name" for="inputFirstName">Name:</label>
-                <label *ngIf="isTitle">{{profuser.huntername}}</label>
+                <label class="white" for="inputFirstName">Name:</label>
+                <label class="white" *ngIf="isTitle">{{profuser.huntername}}</label>
                 <input *ngIf="isEditable" class="form-control" id="inputFirstName" type="text"
                     [placeholder]="profuser.huntername" formControlName="huntername" [value]="profuser.huntername">
             </div>
@@ -16,8 +18,8 @@
 
         <div class="row gx-3 mb-3">
             <div class="col-md-6">
-                <label class="email_address" for="inputemailaddress">Email Address:</label>
-                <label *ngIf="isTitle">{{profuser.uemail}}</label>
+                <label class="white" for="inputemailaddress">Email Address:</label>
+                <label class="white" *ngIf="isTitle">{{profuser.uemail}}</label>
                 <input *ngIf="isEditable" class="form-control" id="inputemailaddress" type="text"
                     [placeholder]="profuser.uemail" formControlName="uemail" [value]="profuser.uemail">
             </div>
@@ -25,8 +27,8 @@
 
         <div *ngIf="isEditable" class="row gx-3 mb-3">
             <div class="col-md-6">
-                <label class="password" for="inputPassword">Password:</label>
-                <input class="form-control" id="inputPassword" type="text" placeholder="Enter Your New Password"
+                <label class="white" for="inputPassword">Password:</label>
+                <input class="form-control" id="inputPassword" type="password" placeholder="Enter Your New Password"
                     formControlName="upassword" [value]="profuser.upassword">
             </div>
         </div>
@@ -45,11 +47,11 @@
         <div>
             <button class="btn btn-dark" id="edit_profile" (click)="toggleEdit()">{{isTitle ? 'Edit Profile' : 'Cancel Edit'}}</button>
             <br>
-            <button class="btn btn-dark" id="cancel_profile" (click)="cancelProfile()">Close</button> <br>
+            <button class="btn btn-danger" id="cancel_profile" (click)="cancelProfile()">Close</button> <br>
         </div>
         <div *ngIf="isEditable">
             <button class="btn btn-dark" id="submit_profile" (click)="submitProfile(profileForm)">Submit</button>
         </div>
     </form>
 </div>
-<app-finished-bounty-list></app-finished-bounty-list>
+

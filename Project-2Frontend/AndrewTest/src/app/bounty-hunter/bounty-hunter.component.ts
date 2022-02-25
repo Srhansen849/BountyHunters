@@ -62,8 +62,5 @@ export class BountyHunterComponent implements OnInit {
     this.router.navigate(['./login'])
   }
 
-  
-
-
 
 }

@@ -148,31 +148,57 @@ public class UserController {
 		asList4.add(assest4);
 		
 //		//This is storing the assets into their accounts
-		account1.setAssetlist(asList1);
-//		account2.setAsset(asList2);
-//		account3.setAsset(asList3);
-//		account4.setAsset(asList4);
+//		account1.setAssetlist(asList1);
+		account2.setAssetlist(asList2);
+		account3.setAssetlist(asList3);
+		account4.setAssetlist(asList4);
 //		
 //		//This is creating the 4 users
 //		public User(String huntername, String uusername, String upassword, String uemail) {
 		User user1 = new User("Boba Fett", "AlphaFett1", "M4nd410ri4n",
-				"BobaFett1@StarHunter.com", account1);
+				"BobaFett1@StarHunter.com", account1, 1);
 //		
-//		User user2 = new User("Cad", "Bane", "DuroBane1", "T4t00in3",
-//				"CadBane1@StarHunter.com", "Duro", 3, account2);
+		User user2 = new User("Cad Bane", "DuroBane1", "T4t00in3",
+				"CadBane1@StarHunter.com", account2, 2);
+		
+		User user3 = new User("Jango Fett", "Mandalorians1", "D4wnM4nd4l",
+				"JangFett2@StarHunter.com", account3, 3);
+		
+		User user4 = new User("Fennec Shand", "Boba1Fan", "F3ttg0tr4",
+				"FennShan1@StarHunter.com", account4, 4);
+		
+		User user5 = new User("Din Djarin", "DinDjarin1", "M4nd410ri4n",
+				"DinDjarin1@StarHunter.com", account1, 5);
 //		
-//		User user3 = new User("Jango", "Fett", "Mandalorians1", "D4wnM4nd4l",
-//				"JangFett2@StarHunter.com", "A0050", 4, account3);
+		User user6 = new User("Embo", "Embo1", "T4t00in3",
+				"Embo1@StarHunter.com", account2, 6);
+		
+		User user7 = new User("Asajj Ventress", "AsajjVentress1", "D4wnM4nd4l",
+				"AsajjVentress2@StarHunter.com", account3, 7);
+		
+		User user8 = new User("Bossk", "Bossk1", "F3ttg0tr4",
+				"Bossk1@StarHunter.com", account4, 8);
+		
+		User user9 = new User("IG-11", "IG-11", "M4nd410ri4n",
+				"IG-11@StarHunter.com", account1, 9);
 //		
-//		User user4 = new User("Fennec", "Shand", "Boba1Fan", "F3ttg0tr4",
-//				"FennShan1@StarHunter.com", "Overwatch", 2, account4);
+		User user10 = new User("Aurra Sing", "AurraSing1", "T4t00in3",
+				"AurraSing1@StarHunter.com", account2, 10);
+		
 //		
 //		//These are storing the data onto the database
 
 		uServ.insertUser(user1, account1, assest1);
-//		uServ.insertUser(user2, account2, assest2);
-//		uServ.insertUser(user3, account3, assest3);
-//		uServ.insertUser(user4, account4, assest4);
+		uServ.insertUser(user2, account2, assest2);
+		uServ.insertUser(user3, account3, assest3);
+		uServ.insertUser(user4, account4, assest4);
+		uServ.insertUser(user5, account1, assest1);
+		uServ.insertUser(user6, account2, assest2);
+		uServ.insertUser(user7, account3, assest3);
+		uServ.insertUser(user8, account4, assest4);
+		uServ.insertUser(user9, account1, assest1);
+		uServ.insertUser(user10, account2, assest2);
+
 		
 		return ResponseEntity.status(201).body("Successfully Inserted");
 	}

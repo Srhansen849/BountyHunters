@@ -2,9 +2,9 @@
 <br>
 
 <div class="center">
-    <a type="button" style="margin-right:350px;" href="http://localhost:4200/" class="btn btn-dark">Home</a>
+    <a type="button" style="margin-right:150px;" href="http://localhost:4200/" class="btn btn-dark">Home</a>
 
-    <a type="button" style="margin-right:150px" href="http://localhost:4200/newacc" class="btn btn-dark">New Account</a>
+    <a type="button" style="margin-left:150px" href="http://localhost:4200/newacc" class="btn btn-dark">New Account</a>
 </div>
 
 <br>
@@ -12,17 +12,15 @@
 
 <div class="choose_account">
     <div class="center">
-        <form>
-            <input type="radio" id="user_login" name="login" value="user_login" (click)="hunterButton()">
-            <label for="bhunter_login" style="padding-bottom: 20px; margin-right: 40px;">Bounty Hunter Login</label>
-            <input type="radio" id="host_login" name="login" value="host_login" (click)="hostButton()">
-            <label for="bhost_login" style="padding-bottom: 20px;">Business Host Login</label>
-        </form>
+        <input type="radio" id="user_login" name="login" value="user_login" (click)="hunterButton()">
+        <label for="bhunter_login" style="padding-bottom: 20px; margin-right: 40px;">Bounty Hunter Login</label>
+        <input type="radio" id="host_login" name="login" value="host_login" (click)="hostButton()">
+        <label for="bhost_login" style="padding-bottom: 20px;">Business Host Login</label>
     </div>
 </div>
 
 <div class=" center">
-    <h1>Login</h1>
+    <h1 class="star-wars">Login</h1>
 </div>
 
 
@@ -37,7 +35,6 @@
         Forgot your password?
     </button>
 
-    <!-- Modal -->
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">

@@ -28,39 +28,20 @@ export class HostLoginComponent implements OnInit {
   }
 
   public hostlogin(hostF: FormGroup) {
-    let host = new Host(hostF.get("husername")?.value, hostF.get("hpassword")?.value);
-    this.hServ.HostLogin(JSON.stringify(host)).subscribe(
+    // let host = new Host(hostF.get("husername")?.value, hostF.get("hpassword")?.value);
+    this.hServ.HostLogin(JSON.stringify(hostF.value)).subscribe(
       response => {
-        console.log("response: ")
-        console.log(response);
         this.wronglogin = false;
         localStorage.setItem("loggedHost", JSON.stringify(response));
         this.router.navigate(['./host']);
+
       },
       error => {
         console.warn("wrong credentials");
         this.wronglogin = true;
       }
-    );
+    )
 
   }
-
-  // public userlogin(userf: FormGroup) {
-  //   //let userstring = JSON.stringify(userForm.value);
-  //   let user = new User(userf.get("uusername")?.value, userf.get("upassword")?.value);
-  //   this.uServ.bountyHunterLogin(JSON.stringify(user)).subscribe(
-  //     response => {
-  //       console.log("response: ")
-  //       console.log(response);
-  //       this.wronglogin = false;
-  //       localStorage.setItem("loggedUser", JSON.stringify(response));
-  //       this.router.navigate(['./bountyhunter']);
-  //     },
-  //     error => {
-  //       console.warn("wrong credentials");
-  //       this.wronglogin = true;
-  //     }
-  //   )
-  // }
 
 }

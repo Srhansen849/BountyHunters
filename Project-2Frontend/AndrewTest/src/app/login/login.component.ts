@@ -11,10 +11,6 @@ export class LoginComponent implements OnInit {
 
   wronglogin = false;
 
-  fmpForm = new FormGroup({
-    uemail: new FormControl('')
-  })
-
   isHunter = false;
   isHost = false;
 
@@ -27,6 +23,10 @@ export class LoginComponent implements OnInit {
     this.isHost = true;
     this.isHunter = false;
   }
+
+  fmpForm = new FormGroup({
+    uemail: new FormControl('')
+  })
 
   constructor() { }
 

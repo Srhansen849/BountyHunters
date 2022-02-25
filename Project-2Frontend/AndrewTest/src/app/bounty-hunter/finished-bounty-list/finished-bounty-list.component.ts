@@ -13,14 +13,14 @@ import { BountyHunterComponent } from '../bounty-hunter.component';
 export class FinishedBountyListComponent implements OnInit {
 
   bountyList: Bounty[] = [];
-
+  
   isVisable = true;
 
   toggleTable() {
     console.log("button click");
     this.isVisable = !this.isVisable;
   }
-  
+
   constructor(private bServ: BountyService, private actroute: ActivatedRoute, private route: Router, private bhcomp: BountyHunterComponent) { }
 
   ngOnInit(): void {
@@ -40,7 +40,7 @@ export class FinishedBountyListComponent implements OnInit {
       }
     );
   }
-  hideTable() {
-    this.bhcomp.finbountlist = false;
-  }
+  // hideTable() {
+  //   this.bhcomp.finbountlist = false;
+  // }
 }

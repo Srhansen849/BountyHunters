@@ -22,16 +22,13 @@ export class UserLoginComponent implements OnInit {
 
   ngOnInit(): void {
     localStorage.removeItem("loggedUser");
-    localStorage.removeItem("loggedHost");
   }
 
   public userlogin(userf: FormGroup) {
     //let userstring = JSON.stringify(userForm.value);
-    let user = new User(userf.get("uusername")?.value, userf.get("upassword")?.value);
-    this.uServ.bountyHunterLogin(JSON.stringify(user)).subscribe(
+    // let user = new User(userf.get("uusername")?.value, userf.get("upassword")?.value);
+    this.uServ.bountyHunterLogin(JSON.stringify(userf.value)).subscribe(
       response => {
-        console.log("response: ")
-        console.log(response);
         this.wronglogin = false;
         localStorage.setItem("loggedUser", JSON.stringify(response));
         this.router.navigate(['./bountyhunter']);

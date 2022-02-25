@@ -14,7 +14,7 @@ import { User } from "../objects/user-object";
 
 export class BountyService {
 
-  private urlBase = "http://localhost:9065/bounty"
+  private urlBase = "http://localhost:9015/bounty"
   httpHead = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
@@ -30,12 +30,12 @@ export class BountyService {
 
   //user turns in a bounty
   public SubmitBounty(bounty: string): Observable<Bounty> {
-    return this.http.post<Bounty>(this.urlBase + "/update", bounty, this.httpHead);
+    return this.http.post<Bounty>(this.urlBase + "/submit", bounty, this.httpHead);
   }
 
   //host creates a new bounty
-  public createNewBounty(bounty: string, criminal: string): Observable<Bounty> {
-    return this.http.post<Bounty>(this.urlBase + "/register", bounty, this.httpHead);
+  public createNewBounty(bounty: string): Observable<Bounty> {
+    return this.http.post<Bounty>(this.urlBase + "/new", bounty, this.httpHead);
   }
 
   //host finishes a bounty
