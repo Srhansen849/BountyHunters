@@ -24,7 +24,7 @@ public class Host {
 	
 	@Id
 	@Column(name="host_id")
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int hostid;
 	
 	@Column(name="host_name", unique=true, nullable=false)
@@ -51,6 +51,20 @@ public class Host {
 		// TODO Auto-generated constructor stub
 	}
 
+	
+	public Host(int hostid, String hostname, String husername, String hpassword, String hemail, String hassociation,
+			String representative) {
+		super();
+		this.hostid = hostid;
+		this.hostname = hostname;
+		this.husername = husername;
+		this.hpassword = hpassword;
+		this.hemail = hemail;
+		this.hassociation = hassociation;
+		this.representative = representative;
+	}
+
+
 	public Host(String hostname, String husername, String hpassword, String hemail, String hassociation,
 			String representative) {
 		super();
@@ -62,7 +76,6 @@ public class Host {
 		this.representative = representative;
 
 	}
-
 
 
 	public String getHostname() {

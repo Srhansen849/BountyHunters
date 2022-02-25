@@ -65,8 +65,8 @@ public class BountyService {
 	
 
 	public void insertBounty(Bounty bounty, Criminal criminal) {
+//		cDao.save(criminal);
 		bDao.save(bounty);
-		cDao.save(criminal);
 	}
 	
 	

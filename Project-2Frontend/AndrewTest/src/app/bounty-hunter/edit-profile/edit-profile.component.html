@@ -1,6 +1,6 @@
 
 <div class="center">
-    <h3>{{profuser.huntername}}</h3>
+    <h3 class="star-wars-mini">{{profuser.huntername}}</h3>
 </div>
 <br>
 <br>
@@ -9,8 +9,8 @@
     <form [formGroup]="profileForm" class="center">
         <div class="row gx-3 mb-3">
             <div class="col-md-6">
-                <label class="first_name" for="inputFirstName">Name:</label>
-                <label *ngIf="isTitle">{{profuser.huntername}}</label>
+                <label class="white" for="inputFirstName">Name:</label>
+                <label class="white" *ngIf="isTitle">{{profuser.huntername}}</label>
                 <input *ngIf="isEditable" class="form-control" id="inputFirstName" type="text"
                     [placeholder]="profuser.huntername" formControlName="huntername" [value]="profuser.huntername">
             </div>
@@ -18,8 +18,8 @@
 
         <div class="row gx-3 mb-3">
             <div class="col-md-6">
-                <label class="email_address" for="inputemailaddress">Email Address:</label>
-                <label *ngIf="isTitle">{{profuser.uemail}}</label>
+                <label class="white" for="inputemailaddress">Email Address:</label>
+                <label class="white" *ngIf="isTitle">{{profuser.uemail}}</label>
                 <input *ngIf="isEditable" class="form-control" id="inputemailaddress" type="text"
                     [placeholder]="profuser.uemail" formControlName="uemail" [value]="profuser.uemail">
             </div>
@@ -27,8 +27,8 @@
 
         <div *ngIf="isEditable" class="row gx-3 mb-3">
             <div class="col-md-6">
-                <label class="password" for="inputPassword">Password:</label>
-                <input class="form-control" id="inputPassword" type="text" placeholder="Enter Your New Password"
+                <label class="white" for="inputPassword">Password:</label>
+                <input class="form-control" id="inputPassword" type="password" placeholder="Enter Your New Password"
                     formControlName="upassword" [value]="profuser.upassword">
             </div>
         </div>

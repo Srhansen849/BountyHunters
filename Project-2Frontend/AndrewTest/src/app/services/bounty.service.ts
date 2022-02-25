@@ -9,10 +9,10 @@ import { User } from "../objects/user-object";
 
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
 
-export class BountyService{
+export class BountyService {
 
   private urlBase = "http://localhost:9015/bounty"
   httpHead = {
@@ -22,7 +22,7 @@ export class BountyService{
     })
   };
 
-    constructor(private http: HttpClient){}
+  constructor(private http: HttpClient) { }
 
   public bountyProfile(bounty: number): Observable<Bounty> {
     return this.http.get<Bounty>(this.urlBase + "/profileinfo/" + bounty, this.httpHead);
@@ -30,7 +30,7 @@ export class BountyService{
 
   //user turns in a bounty
   public SubmitBounty(bounty: string): Observable<Bounty> {
-    return this.http.post<Bounty>(this.urlBase + "/update", bounty, this.httpHead);
+    return this.http.post<Bounty>(this.urlBase + "/submit", bounty, this.httpHead);
   }
 
   //host creates a new bounty
@@ -55,26 +55,19 @@ export class BountyService{
 
   // get all the active bounty
   public getAllActiveBounty(): Observable<Bounty[]> {
-      return this.http.get<Bounty[]>(this.urlBase + "/bounty/register", this.httpHead);
+    return this.http.get<Bounty[]>(this.urlBase + "/active", this.httpHead);
   }
 
   // completed bounties by logged in Hunter
-  public getAllPastBounty(): Observable<Bounty[]>{
-    return this.http.get<Bounty[]>(this.urlBase + "bounty/complete", this.httpHead);
-  }
-
-  public getAllPrivateBounty(): Observable<Bounty[]>{
-    return this.http.get<Bounty[]>(this.urlBase + "bounty/private", this.httpHead);
+  public getAllPastBounty(): Observable<Bounty[]> {
+    return this.http.get<Bounty[]>(this.urlBase + "/complete", this.httpHead);
   }
 
   public getAllBounty(): Observable<Bounty[]> {
-    return this.http.get<Bounty[]>(this.urlBase + "bounty/all", this.httpHead);
+    return this.http.get<Bounty[]>(this.urlBase + "/all", this.httpHead);
   }
 
 
-  public getAllCriminal(): Observable<Criminal[]> {
-    return this.http.get<Criminal[]>(this.urlBase + "/criminal", this.httpHead);
-  }
 
 
 }

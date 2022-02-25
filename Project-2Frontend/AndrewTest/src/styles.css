@@ -5,8 +5,8 @@
         background-image: url('https://cdn.wallpapersafari.com/97/54/3YOpz5.jpg');
         font-family: Arial, Helvetica, sans-serif;
         background-size: cover;
-        background-position: center;
-        background-blend-mode:darken;
+        /* background-position: center;
+        background-blend-mode:darken; */
     }
 
     div {
@@ -15,9 +15,14 @@
 
     form {
         text-align: center;
-        background-color: coral;
+        background-color: rgba(8, 3, 70, 0.616);
         padding: 20px;
+        border: 5px solid rgb(0, 0, 0);
     }
+
+    /* .white{
+        color:#ddd;
+    } */
 
     h1, h2, h3, h4, h5, h6 {
         text-align: center;
@@ -43,10 +48,11 @@
     .center {
         display: flex;
         justify-content: center;
+        color: #ddd;
     }
 
     label {
-        color: bisque;    
+        color: rgb(250, 250, 250);    
     }
 
     .flat {
@@ -58,13 +64,14 @@
         border-collapse: collapse;
         border-spacing: 0;
         width: 100%;
-        border: 1px solid #ddd;
+        border: 5px solid rgba(221, 221, 221, 0.555);
     }
 
     th,
     td {
         text-align: left;
         padding: 16px;
+        color:#ddd;
     }
 
     .row::after {
@@ -73,6 +80,41 @@
         display: table;
     }
 
+    .star-wars {
+        /* Flexbox to center the entire element on the screen */
+        display: flex;
+        justify-content: center;
+        /* This is a magic number based on the context in which this snippet is used and effects the perspective */
+        height: 100px;
+        /* This sets allows us to transform the text on a 3D plane, and is somewhat a magic number */
+        perspective: 400px;
+        /* The rest is totally up to personal styling preferences */
+        color: #feda4a;
+        font-family: 'Pathway Gothic One', sans-serif;
+        font-size: 500%;
+        font-weight: 600;
+        letter-spacing: 6px;
+        line-height: 150%;
+        text-align: justify;
+      }
+
+      .star-wars-mini {
+        /* Flexbox to center the entire element on the screen */
+        display: flex;
+        justify-content: center;
+        /* This is a magic number based on the context in which this snippet is used and effects the perspective */
+        height: 25px;
+        /* This sets allows us to transform the text on a 3D plane, and is somewhat a magic number */
+        perspective: 400px;
+        /* The rest is totally up to personal styling preferences */
+        color: #feda4a;
+        font-family: 'Pathway Gothic One', sans-serif;
+        font-size: 150%;
+        font-weight: 600;
+        letter-spacing: 6px;
+        line-height: 150%;
+        text-align: justify;
+      }
 
 
 

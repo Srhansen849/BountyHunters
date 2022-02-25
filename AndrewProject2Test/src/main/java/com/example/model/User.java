@@ -42,6 +42,8 @@ public class User {
 	@Column(name="email", unique=true, nullable=false)
 	private String uemail;
 	
+	private int rank;
+	
 
 	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	@JoinColumn(name="account_id")
@@ -54,13 +56,26 @@ public class User {
 		// TODO Auto-generated constructor stub
 	}
 
-	public User(String huntername, String uusername, String upassword, String uemail, Account uaccount) {
+	public User(int userid, String huntername, String uusername, String upassword, String uemail, Account uaccount, int rank) {
+		super();
+		this.userid = userid;
+		this.huntername = huntername;
+		this.uusername = uusername;
+		this.upassword = upassword;
+		this.uemail = uemail;
+		this.uaccount = uaccount;
+		this.rank = rank;
+	}
+
+
+	public User(String huntername, String uusername, String upassword, String uemail, Account uaccount, int rank) {
 		super();
 		this.huntername = huntername;
 		this.uusername = uusername;
 		this.upassword = upassword;
 		this.uemail = uemail;
 		this.uaccount = uaccount;
+		this.rank = rank;
 	}
 
 
@@ -104,6 +119,15 @@ public class User {
 
 	public int getUserid() {
 		return userid;
+	}
+	
+
+	public int getRank() {
+		return rank;
+	}
+
+	public void setRank(int rank) {
+		this.rank = rank;
 	}
 
 	@Override

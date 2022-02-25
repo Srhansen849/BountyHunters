@@ -1,5 +1,5 @@
 <div class="center">
-    <h3>Register a New Bounty</h3>
+    <h3 class="star-wars-mini">Register a New Bounty</h3>
 </div>
 
 <br>
@@ -10,42 +10,42 @@
         <h5 class="center">Criminal Data</h5>
         <br>
         <div formGroupName="criminalfk">
-        <div class="row gx-3 mb-3">
-            <!-- Criminal Name-->
-            <div class="col-md-6">
-                <label class="form-label" for="inputFirstName">Criminal Name:</label>
-                <input class="form-control" id="inputFirstName" type="text" placeholder="Enter criminal name"
-                    formControlName="crimname" name="crimname">
+            <div class="row gx-3 mb-3">
+                <!-- Criminal Name-->
+                <div class="col-md-6">
+                    <label class="form-label" for="inputFirstName">Criminal Name:</label>
+                    <input class="form-control" id="inputFirstName" type="text" placeholder="Enter criminal name"
+                        formControlName="crimname" name="crimname">
+                </div>
+
             </div>
 
+
+            <div class="row gx-3 mb-3">
+                <!-- Height-->
+                <div class="col-md-6">
+                    <label class="form-label" for="inputHeight">Height:</label>
+                    <input class="form-control" id="inputHeight" type="number" placeholder="Enter criminal height"
+                        formControlName="height" name="height">
+                </div>
+                <!-- Weight -->
+                <div class="col-md-6">
+                    <label class="form-label" for="inputWeight">Weight:</label>
+                    <input class="form-control" id="inputWeight" type="number" placeholder="Enter criminal weight"
+                        formControlName="weight" name="weight">
+                </div>
+
+            </div>
+
+            <div class="row gx-3 mb-3">
+                <!-- Species -->
+                <div class="col-md-6">
+                    <label class="form-label" for="inputSpecies">Species:</label>
+                    <input class="form-control" id="inputSpecies" type="text" placeholder="Enter criminal species"
+                        formControlName="species" name="species">
+                </div>
+            </div>
         </div>
-
-
-        <div class="row gx-3 mb-3">
-            <!-- Height-->
-            <div class="col-md-6">
-                <label class="form-label" for="inputHeight">Height:</label>
-                <input class="form-control" id="inputHeight" type="number" placeholder="Enter criminal height"
-                    formControlName="height" name="height">
-            </div>
-            <!-- Weight -->
-            <div class="col-md-6">
-                <label class="form-label" for="inputWeight">Weight:</label>
-                <input class="form-control" id="inputWeight" type="number" placeholder="Enter criminal weight"
-                    formControlName="weight" name="weight">
-            </div>
-
-        </div>
-
-        <div class="row gx-3 mb-3">
-            <!-- Species -->
-            <div class="col-md-6">
-                <label class="form-label" for="inputSpecies">Species:</label>
-                <input class="form-control" id="inputSpecies" type="text" placeholder="Enter criminal species"
-                    formControlName="species" name="species">
-            </div>
-        </div>
-    </div>
 
         <!--  Upload an image -->
         <!-- <div class="row gx-3 mb-3">
@@ -71,8 +71,7 @@
                     <label for="alive"> Alive</label><br>
                 </div>
                 <div class="column">
-                    <input type="radio" id="dora" value="Dead or Alive"
-                        formControlName="preferid" name="preferid">
+                    <input type="radio" id="dora" value="Dead or Alive" formControlName="preferid" name="preferid">
                     <label for="dora"> Dead or Alive</label><br>
                 </div>
                 <div class="column">
@@ -97,7 +96,7 @@
                 <option value="Republic Credits">Republic Credits</option>
                 <option value="Imperical Credits">Imperial Credits</option>
                 <option value="Druggats">Druggats</option>
-              </select>
+            </select>
         </div>
         <br>
 
